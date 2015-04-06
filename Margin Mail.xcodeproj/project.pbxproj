@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */; };
+		7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */; };
+		7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */; };
+		7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B4DB7121AD213BF00AEA6C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B4DB6F91AD213BF00AEA6C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B4DB7001AD213BF00AEA6C8;
+			remoteInfo = "Margin Mail";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B4DB7011AD213BF00AEA6C8 /* Margin Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Margin Mail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B4DB7051AD213BF00AEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7B4DB70B1AD213BF00AEA6C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7B4DB7111AD213BF00AEA6C8 /* Margin MailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Margin MailTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B4DB7161AD213BF00AEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin_MailTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B4DB6FE1AD213BF00AEA6C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B4DB70E1AD213BF00AEA6C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B4DB6F81AD213BF00AEA6C8 = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7031AD213BF00AEA6C8 /* Margin Mail */,
+				7B4DB7141AD213BF00AEA6C8 /* Margin MailTests */,
+				7B4DB7021AD213BF00AEA6C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B4DB7021AD213BF00AEA6C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7011AD213BF00AEA6C8 /* Margin Mail.app */,
+				7B4DB7111AD213BF00AEA6C8 /* Margin MailTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B4DB7031AD213BF00AEA6C8 /* Margin Mail */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
+				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
+				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
+				7B4DB7041AD213BF00AEA6C8 /* Supporting Files */,
+			);
+			path = "Margin Mail";
+			sourceTree = "<group>";
+		};
+		7B4DB7041AD213BF00AEA6C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7051AD213BF00AEA6C8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B4DB7141AD213BF00AEA6C8 /* Margin MailTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */,
+				7B4DB7151AD213BF00AEA6C8 /* Supporting Files */,
+			);
+			path = "Margin MailTests";
+			sourceTree = "<group>";
+		};
+		7B4DB7151AD213BF00AEA6C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DB7161AD213BF00AEA6C8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B4DB7001AD213BF00AEA6C8 /* Margin Mail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B4DB71B1AD213BF00AEA6C8 /* Build configuration list for PBXNativeTarget "Margin Mail" */;
+			buildPhases = (
+				7B4DB6FD1AD213BF00AEA6C8 /* Sources */,
+				7B4DB6FE1AD213BF00AEA6C8 /* Frameworks */,
+				7B4DB6FF1AD213BF00AEA6C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Margin Mail";
+			productName = "Margin Mail";
+			productReference = 7B4DB7011AD213BF00AEA6C8 /* Margin Mail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B4DB7101AD213BF00AEA6C8 /* Margin MailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B4DB71E1AD213BF00AEA6C8 /* Build configuration list for PBXNativeTarget "Margin MailTests" */;
+			buildPhases = (
+				7B4DB70D1AD213BF00AEA6C8 /* Sources */,
+				7B4DB70E1AD213BF00AEA6C8 /* Frameworks */,
+				7B4DB70F1AD213BF00AEA6C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B4DB7131AD213BF00AEA6C8 /* PBXTargetDependency */,
+			);
+			name = "Margin MailTests";
+			productName = "Margin MailTests";
+			productReference = 7B4DB7111AD213BF00AEA6C8 /* Margin MailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B4DB6F91AD213BF00AEA6C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Stefano J. Attardi";
+				TargetAttributes = {
+					7B4DB7001AD213BF00AEA6C8 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					7B4DB7101AD213BF00AEA6C8 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 7B4DB7001AD213BF00AEA6C8;
+					};
+				};
+			};
+			buildConfigurationList = 7B4DB6FC1AD213BF00AEA6C8 /* Build configuration list for PBXProject "Margin Mail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B4DB6F81AD213BF00AEA6C8;
+			productRefGroup = 7B4DB7021AD213BF00AEA6C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B4DB7001AD213BF00AEA6C8 /* Margin Mail */,
+				7B4DB7101AD213BF00AEA6C8 /* Margin MailTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B4DB6FF1AD213BF00AEA6C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */,
+				7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B4DB70F1AD213BF00AEA6C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B4DB6FD1AD213BF00AEA6C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B4DB70D1AD213BF00AEA6C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B4DB7131AD213BF00AEA6C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B4DB7001AD213BF00AEA6C8 /* Margin Mail */;
+			targetProxy = 7B4DB7121AD213BF00AEA6C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B4DB70B1AD213BF00AEA6C8 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B4DB7191AD213BF00AEA6C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B4DB71A1AD213BF00AEA6C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7B4DB71C1AD213BF00AEA6C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Margin Mail/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B4DB71D1AD213BF00AEA6C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Margin Mail/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B4DB71F1AD213BF00AEA6C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Margin MailTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Margin Mail.app/Contents/MacOS/Margin Mail";
+			};
+			name = Debug;
+		};
+		7B4DB7201AD213BF00AEA6C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Margin MailTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Margin Mail.app/Contents/MacOS/Margin Mail";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B4DB6FC1AD213BF00AEA6C8 /* Build configuration list for PBXProject "Margin Mail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B4DB7191AD213BF00AEA6C8 /* Debug */,
+				7B4DB71A1AD213BF00AEA6C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B4DB71B1AD213BF00AEA6C8 /* Build configuration list for PBXNativeTarget "Margin Mail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B4DB71C1AD213BF00AEA6C8 /* Debug */,
+				7B4DB71D1AD213BF00AEA6C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B4DB71E1AD213BF00AEA6C8 /* Build configuration list for PBXNativeTarget "Margin MailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B4DB71F1AD213BF00AEA6C8 /* Debug */,
+				7B4DB7201AD213BF00AEA6C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B4DB6F91AD213BF00AEA6C8 /* Project object */;
+}
