@@ -11,6 +11,12 @@
 		7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */; };
 		7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */; };
 		7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */; };
+		7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */; };
+		7B4DB72C1AD3525900AEA6C8 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB72B1AD3525900AEA6C8 /* Component.swift */; };
+		7B4DB72E1AD3526A00AEA6C8 /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB72D1AD3526A00AEA6C8 /* RootComponent.swift */; };
+		7B4DB7301AD35CEA00AEA6C8 /* SidebarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB72F1AD35CEA00AEA6C8 /* SidebarComponent.swift */; };
+		7B4DB7321AD35D5200AEA6C8 /* MessageListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7311AD35D5200AEA6C8 /* MessageListComponent.swift */; };
+		7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +38,12 @@
 		7B4DB7111AD213BF00AEA6C8 /* Margin MailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Margin MailTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DB7161AD213BF00AEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin_MailTests.swift; sourceTree = "<group>"; };
+		7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		7B4DB72B1AD3525900AEA6C8 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		7B4DB72D1AD3526A00AEA6C8 /* RootComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
+		7B4DB72F1AD35CEA00AEA6C8 /* SidebarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarComponent.swift; sourceTree = "<group>"; };
+		7B4DB7311AD35D5200AEA6C8 /* MessageListComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListComponent.swift; sourceTree = "<group>"; };
+		7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +85,13 @@
 		7B4DB7031AD213BF00AEA6C8 /* Margin Mail */ = {
 			isa = PBXGroup;
 			children = (
+				7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */,
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
+				7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */,
+				7B4DB72B1AD3525900AEA6C8 /* Component.swift */,
+				7B4DB72D1AD3526A00AEA6C8 /* RootComponent.swift */,
+				7B4DB72F1AD35CEA00AEA6C8 /* SidebarComponent.swift */,
+				7B4DB7311AD35D5200AEA6C8 /* MessageListComponent.swift */,
 				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
 				7B4DB7041AD213BF00AEA6C8 /* Supporting Files */,
@@ -205,7 +223,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B4DB7321AD35D5200AEA6C8 /* MessageListComponent.swift in Sources */,
+				7B4DB72E1AD3526A00AEA6C8 /* RootComponent.swift in Sources */,
+				7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */,
 				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,
+				7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */,
+				7B4DB7301AD35CEA00AEA6C8 /* SidebarComponent.swift in Sources */,
+				7B4DB72C1AD3525900AEA6C8 /* Component.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +420,7 @@
 				7B4DB71D1AD213BF00AEA6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B4DB71E1AD213BF00AEA6C8 /* Build configuration list for PBXNativeTarget "Margin MailTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +429,7 @@
 				7B4DB7201AD213BF00AEA6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
