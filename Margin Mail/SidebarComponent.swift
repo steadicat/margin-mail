@@ -10,16 +10,11 @@ import Cocoa
 
 class SidebarComponent: Component {
 
-    override func render() -> NSView {
-        var frame = self.props["frame"]!.rectValue
-        
-        var view = NSView(frame: frame)
-        
-        view.layer = CALayer()
-        view.wantsLayer = true
-        view.layer!.backgroundColor = (self.props["color"]!.nonretainedObjectValue as! NSColor).CGColor
-        
-        return view
+    override func render() -> Component {
+        return View(props: [
+            "frame": self.props["frame"]!,
+            "backgroundColor": self.props["color"]!,
+        ])
     }
     
 }

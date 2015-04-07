@@ -10,15 +10,11 @@ import Cocoa
 
 class MessageListComponent: Component {
     
-    override func render() -> NSView {
-        var frame = self.props["frame"]!.rectValue
-        
-        var view = NSView(frame: frame)
-        
-        view.layer = CALayer()
-        view.wantsLayer = true
-        view.layer!.backgroundColor = NSColor.orangeColor().CGColor
-        
-        return view
+    override func render() -> Component {
+        return View(props: [
+            "frame": self.props["frame"]!,
+            "backgroundColor": NSValue(nonretainedObject: NSColor.orangeColor()),
+        ])
     }
+    
 }

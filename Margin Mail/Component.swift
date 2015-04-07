@@ -26,19 +26,30 @@ class Component: NSObject {
             self.needsRender()
         }
     }
+    
+    var children: [Component]
 
-    init(props: [String: NSValue]) {
+    convenience init(props: [String: NSValue]) {
+        self.init(props: props, children: [])
+    }
+    
+    init(props: [String: NSValue], children: [Component]) {
         self._props = props
+        self.children = children
         super.init()
     }
     
     func needsRender() {
-        var view = self.render()
+        var view = self.renderToView()
         self.delegate?.componentRendered(view)
     }
     
-    func render() -> NSView {
+    func render() -> Component {
         assert(false, "Components must implement render()")
+    }
+    
+    func renderToView() -> NSView {
+        return self.render().renderToView()
     }
     
 }

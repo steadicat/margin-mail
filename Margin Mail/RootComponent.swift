@@ -10,23 +10,21 @@ import Cocoa
 
 class RootComponent: Component {
 
-    override func render() -> NSView {
+    override func render() -> Component {
         var frame = self.props["frame"]!.rectValue
         
-        var view = NSView(frame: frame)
-        
-        var leftView = SidebarComponent(props: [
-            "frame": NSValue(rect: CGRectMake(0, 0, 216, frame.height)),
-            "color": self.props["sidebarColor"]!,
-        ])
-        view.addSubview(leftView.render())
-        
-        var rightView = MessageListComponent(props: [
-            "frame": NSValue(rect: CGRectMake(216, 0, frame.width - 216, frame.height))
-        ])
-        view.addSubview(rightView.render())
-        
-        return view
+        return View(
+            props: ["frame": self.props["frame"]!],
+            children: [
+                SidebarComponent(props: [
+                    "frame": NSValue(rect: CGRectMake(0, 0, 216, frame.height)),
+                    "color": self.props["sidebarColor"]!,
+                ]),
+                MessageListComponent(props: [
+                    "frame": NSValue(rect: CGRectMake(216, 0, frame.width - 216, frame.height))
+                ]),
+            ]
+        )
     }
     
 }
