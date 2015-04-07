@@ -13,7 +13,7 @@ class RootComponent: Component {
     override func render() -> Component {
         var frame = self.props["frame"]!.rectValue
         
-        return View(
+        return SplitView(
             props: ["frame": self.props["frame"]!],
             children: [
                 SidebarComponent(props: [
