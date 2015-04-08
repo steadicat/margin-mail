@@ -10,35 +10,38 @@ import Cocoa
 
 class MainWindowController: NSWindowController, ComponentDelegate {
 
-    var rootComponent: RootComponent?
+    let styleMask = NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
+
+    let rootComponent: RootComponent
     
     override init(window: NSWindow?) {
         var size = NSMakeRect(0, 0, 700, 700)
-        var windowStyleMask = NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
 
-        var w = KeyWindow(contentRect: size, styleMask: windowStyleMask, backing: .Buffered, defer: true)
+        var w = KeyWindow(contentRect: size, styleMask: styleMask, backing: .Buffered, defer: true)
         w.backgroundColor = NSColor.whiteColor()
-        
-        super.init(window: w)
-        
-        self.rootComponent = RootComponent(props: [
+
+        rootComponent = RootComponent(props: [
             "frame": NSValue(rect: size),
             "sidebarColor": NSValue(nonretainedObject: NSColor.blueColor()),
         ])
-        self.rootComponent!.delegate = self
-        self.rootComponent!.needsRender()
+
+        super.init(window: w)
+
+        rootComponent.delegate = self
+        rootComponent.needsRender()
         
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            self.rootComponent?.props = [
+            self.rootComponent.props = [
                 "frame": NSValue(rect: size),
                 "sidebarColor": NSValue(nonretainedObject: NSColor.purpleColor()),
             ]
         }
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required convenience init?(coder: NSCoder) {
+        // XXX: Add support for archiving?
+        self.init()
     }
     
     override func windowDidLoad() {
