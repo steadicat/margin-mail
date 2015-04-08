@@ -8,13 +8,25 @@
 
 import Cocoa
 
+struct SidebarProps {
+    var frame: NSRect
+    var color: NSColor
+}
+
 class SidebarComponent: Component {
 
+    var props: SidebarProps
+
+    init(props: SidebarProps) {
+        self.props = props
+        super.init(children: [])
+    }
+
     override func render() -> Component {
-        return View(props: [
-            "frame": self.props["frame"]!,
-            "backgroundColor": self.props["color"]!,
-        ])
+        return View(props: ViewProps(
+            frame: self.props.frame,
+            backgroundColor: self.props.color
+        ))
     }
     
 }

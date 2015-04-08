@@ -8,21 +8,34 @@
 
 import Cocoa
 
+struct RootProps {
+    var frame: NSRect
+    var sidebarColor: NSColor
+}
+
 class RootComponent: Component {
 
+    var props: RootProps
+
+    init(props: RootProps) {
+        self.props = props
+        super.init(children: [])
+    }
+
     override func render() -> Component {
-        var frame = self.props["frame"]!.rectValue
+        var frame = self.props.frame
         
         return SplitView(
-            props: ["frame": self.props["frame"]!],
+            props: SplitViewProps(frame: self.props.frame),
             children: [
-                SidebarComponent(props: [
-                    "frame": NSValue(rect: CGRectMake(0, 0, 216, frame.height)),
-                    "color": self.props["sidebarColor"]!,
-                ]),
-                MessageListComponent(props: [
-                    "frame": NSValue(rect: CGRectMake(216, 0, frame.width - 216, frame.height))
-                ]),
+                SidebarComponent(props: SidebarProps(
+                    frame: CGRectMake(0, 0, 216, frame.height),
+                    color: self.props.sidebarColor
+                )),
+                MessageListComponent(props: MessageListProps(
+                    frame: CGRectMake(216, 0, frame.width - 216, frame.height),
+                    backgroundColor: nil
+                )),
             ]
         )
     }

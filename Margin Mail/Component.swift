@@ -15,7 +15,8 @@ protocol ComponentDelegate {
 class Component: NSObject {
 
     var delegate: ComponentDelegate?
-    
+
+    /*
     var _props: [String: NSValue]
     var props: [String: NSValue] {
         get {
@@ -26,17 +27,16 @@ class Component: NSObject {
             self.needsRender()
         }
     }
+    */
     
     var children: [Component]
 
-    convenience init(props: [String: NSValue]) {
-        self.init(props: props, children: [])
-    }
-    
-    init(props: [String: NSValue], children: [Component]) {
-        self._props = props
+    init(children: [Component]) {
         self.children = children
-        super.init()
+    }
+
+    override convenience init() {
+        self.init(children: [])
     }
     
     func needsRender() {
