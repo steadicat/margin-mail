@@ -10,22 +10,26 @@ import Cocoa
 
 class MainWindowController: NSWindowController, ComponentDelegate {
 
-    let styleMask = NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask
-
     let rootComponent: RootComponent
+
+    convenience init() {
+        let window = KeyWindow(
+            contentRect: NSMakeRect(0, 0, 700, 700),
+            styleMask: NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask,
+            backing: .Buffered,
+            defer: true
+        )
+        window.backgroundColor = NSColor.whiteColor()
+        self.init(window: window)
+    }
     
     override init(window: NSWindow?) {
-        var size = NSMakeRect(0, 0, 700, 700)
-
-        var w = KeyWindow(contentRect: size, styleMask: styleMask, backing: .Buffered, defer: true)
-        w.backgroundColor = NSColor.whiteColor()
-
         rootComponent = RootComponent(props: [
-            "frame": NSValue(rect: size),
+            "frame": NSValue(rect: window!.frame),
             "sidebarColor": NSValue(nonretainedObject: NSColor.blueColor()),
         ])
 
-        super.init(window: w)
+        super.init(window: window)
 
         rootComponent.delegate = self
         rootComponent.needsRender()
@@ -33,7 +37,7 @@ class MainWindowController: NSWindowController, ComponentDelegate {
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
             self.rootComponent.props = [
-                "frame": NSValue(rect: size),
+                "frame": NSValue(rect: window!.frame),
                 "sidebarColor": NSValue(nonretainedObject: NSColor.purpleColor()),
             ]
         }
