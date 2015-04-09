@@ -10,34 +10,28 @@ import Cocoa
 
 class RootComponent: Component {
 
-    var frame: CGRect
-
-    var _sidebarColor: NSColor
-    var sidebarColor: NSColor {
-        get {
-            return self._sidebarColor
+    var frame: CGRect {
+        didSet {
+            self.needsRender()
         }
-        set(color) {
-            self._sidebarColor = color
+    }
+
+    var sidebarColor: NSColor {
+        didSet {
             self.needsRender()
         }
     }
     
-    var _isLoading: Bool
     var isLoading: Bool {
-        get {
-            return self._isLoading
-        }
-        set(isLoading) {
-            self._isLoading = isLoading
+        didSet {
             self.needsRender()
         }
     }
     
     init(frame: CGRect, sidebarColor: NSColor, isLoading: Bool, children: [Component] = []) {
         self.frame = frame
-        self._sidebarColor = sidebarColor
-        self._isLoading = isLoading
+        self.sidebarColor = sidebarColor
+        self.isLoading = isLoading
         super.init(children: children)
     }
     
