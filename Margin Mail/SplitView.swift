@@ -10,15 +10,8 @@ import Cocoa
 
 class SplitView: Component {
     
-    var frame: CGRect
-    
-    init(frame: CGRect, children: [Component]) {
-        self.frame = frame
-        super.init(children: children)
-    }
-    
     override func renderToView() -> NSView {
-        var view = NSSplitView(frame: self.frame)
+        var view = NSSplitView(frame: self.props["frame"]!.rectValue)
         
         view.vertical = true
         
@@ -27,7 +20,7 @@ class SplitView: Component {
             view.addSubview(renderedView)
         }
         
-        return view
+        return view;
     }
     
 }

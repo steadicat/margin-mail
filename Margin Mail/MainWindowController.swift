@@ -24,11 +24,10 @@ class MainWindowController: NSWindowController, ComponentDelegate {
     }
     
     override init(window: NSWindow?) {
-        rootComponent = RootComponent(
-            frame: window!.frame,
-            sidebarColor: NSColor.blueColor(),
-            children: []
-        )
+        rootComponent = RootComponent(props: [
+            "frame": NSValue(rect: window!.frame),
+            "sidebarColor": NSValue(nonretainedObject: NSColor.blueColor()),
+        ])
 
         super.init(window: window)
 
@@ -37,7 +36,10 @@ class MainWindowController: NSWindowController, ComponentDelegate {
         
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            self.rootComponent.sidebarColor = NSColor.purpleColor()
+            self.rootComponent.props = [
+                "frame": NSValue(rect: window!.frame),
+                "sidebarColor": NSValue(nonretainedObject: NSColor.purpleColor()),
+            ]
         }
     }
     
