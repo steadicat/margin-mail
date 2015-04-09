@@ -27,6 +27,7 @@ class MainWindowController: NSWindowController, ComponentDelegate {
         rootComponent = RootComponent(
             frame: window!.frame,
             sidebarColor: NSColor.blueColor(),
+            isLoading: true,
             children: []
         )
 
@@ -38,6 +39,7 @@ class MainWindowController: NSWindowController, ComponentDelegate {
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
             self.rootComponent.sidebarColor = NSColor.purpleColor()
+            self.rootComponent.isLoading = false
         }
     }
     

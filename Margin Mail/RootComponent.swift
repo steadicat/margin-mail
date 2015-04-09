@@ -23,9 +23,21 @@ class RootComponent: Component {
         }
     }
     
-    init(frame: CGRect, sidebarColor: NSColor, children: [Component]) {
+    var _isLoading: Bool
+    var isLoading: Bool {
+        get {
+            return self._isLoading
+        }
+        set(isLoading) {
+            self._isLoading = isLoading
+            self.needsRender()
+        }
+    }
+    
+    init(frame: CGRect, sidebarColor: NSColor, isLoading: Bool, children: [Component]) {
         self.frame = frame
         self._sidebarColor = sidebarColor
+        self._isLoading = isLoading
         super.init(children: children)
     }
     
@@ -41,6 +53,7 @@ class RootComponent: Component {
                 MessageListComponent(
                     frame: CGRectMake(216, 0, frame.width - 216, frame.height),
                     color: NSColor.orangeColor(),
+                    showLoading: self.isLoading,
                     children: []
                 ),
             ]

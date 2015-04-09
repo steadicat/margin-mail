@@ -11,9 +11,11 @@ import Cocoa
 class TextField: Component {
     
     var frame: CGRect
+    var text: String
     
-    init(frame: CGRect, children: [Component]) {
+    init(frame: CGRect, text: String, children: [Component]) {
         self.frame = frame
+        self.text = text
         super.init(children: children)
     }
     
@@ -24,6 +26,10 @@ class TextField: Component {
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSTextField : NSTextField(frame: self.frame)
         view.frame = self.frame
+        
+        if lastRender == nil || (lastRender as! TextField).text != self.text {
+            view.stringValue = self.text
+        }
         
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
         

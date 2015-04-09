@@ -25,20 +25,29 @@ class Component: NSObject {
     var lastRender: Component?
     var lastView: NSView?
     
+    var dirty = false
+    
     func needsRender() {
-        var newRender = self.render()
-        var newView: NSView?
-        if self.lastRender != nil && newRender.className == self.lastRender!.className {
-            newView = newRender.renderToView(self.lastView, lastRender: self.lastRender)
-        } else {
-            newView = newRender.renderToView(nil, lastRender: nil)
+        if self.dirty {
+            return
         }
-        self.lastRender = newRender
-        newRender.lastView = newView
-        if (newView != self.lastView) {
-            self.lastView = newView
-            self.delegate?.componentRendered(newView!)
-        }
+        self.dirty = true
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.dirty = false
+            var newRender = self.render()
+            var newView: NSView?
+            if self.lastRender != nil && newRender.className == self.lastRender!.className {
+                newView = newRender.renderToView(self.lastView, lastRender: self.lastRender)
+            } else {
+                newView = newRender.renderToView(nil, lastRender: nil)
+            }
+            self.lastRender = newRender
+            newRender.lastView = newView
+            if (newView != self.lastView) {
+                self.lastView = newView
+                self.delegate?.componentRendered(newView!)
+            }
+        })
     }
     
     func render() -> Component {

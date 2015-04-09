@@ -24,7 +24,7 @@ class SidebarComponent: Component {
             frame: self.frame,
             backgroundColor: self.color,
             children: [
-                TextField(frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20), children: [])
+                TextField(frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20), text: "", children: [])
             ]
         )
     }
