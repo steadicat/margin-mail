@@ -10,19 +10,39 @@ import Cocoa
 
 class RootComponent: Component {
 
+    var frame: CGRect
+
+    var _sidebarColor: NSColor
+    var sidebarColor: NSColor {
+        get {
+            return self._sidebarColor
+        }
+        set(color) {
+            self._sidebarColor = color
+            self.needsRender()
+        }
+    }
+    
+    init(frame: CGRect, sidebarColor: NSColor, children: [Component]) {
+        self.frame = frame
+        self._sidebarColor = sidebarColor
+        super.init(children: children)
+    }
+    
     override func render() -> Component {
-        var frame = self.props["frame"]!.rectValue
-        
         return SplitView(
-            props: ["frame": self.props["frame"]!],
+            frame: self.frame,
             children: [
-                SidebarComponent(props: [
-                    "frame": NSValue(rect: CGRectMake(0, 0, 216, frame.height)),
-                    "color": self.props["sidebarColor"]!,
-                ]),
-                MessageListComponent(props: [
-                    "frame": NSValue(rect: CGRectMake(216, 0, frame.width - 216, frame.height))
-                ]),
+                SidebarComponent(
+                    frame: CGRectMake(0, 0, 216, frame.height),
+                    color: self.sidebarColor,
+                    children: []
+                ),
+                MessageListComponent(
+                    frame: CGRectMake(216, 0, frame.width - 216, frame.height),
+                    color: NSColor.orangeColor(),
+                    children: []
+                ),
             ]
         )
     }

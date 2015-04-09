@@ -10,12 +10,21 @@ import Cocoa
 
 class View: Component {
 
+    var frame: CGRect
+    var backgroundColor: NSColor?
+    
+    init(frame: CGRect, backgroundColor: NSColor?, children: [Component]) {
+        self.frame = frame
+        self.backgroundColor = backgroundColor
+        super.init(children: children)
+    }
+    
     override func renderToView() -> NSView {
-        var view = NSView(frame: self.props["frame"]!.rectValue)
-        if let backgroundColor = self.props["backgroundColor"] {
+        var view = NSView(frame: self.frame)
+        if let backgroundColor = self.backgroundColor {
             view.wantsLayer = true;
             view.layer = CALayer()
-            view.layer!.backgroundColor = (backgroundColor.nonretainedObjectValue as! NSColor).CGColor;
+            view.layer!.backgroundColor = backgroundColor.CGColor;
         }
         for child in self.children {
             var renderedView = child.renderToView()
