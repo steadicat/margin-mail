@@ -10,11 +10,21 @@ import Cocoa
 
 class MessageListComponent: Component {
     
+    var frame: CGRect
+    var color: NSColor
+    
+    init(frame: CGRect, color: NSColor, children: [Component]) {
+        self.frame = frame
+        self.color = color
+        super.init(children: children)
+    }
+    
     override func render() -> Component {
-        return View(props: [
-            "frame": self.props["frame"]!,
-            "backgroundColor": NSValue(nonretainedObject: NSColor.orangeColor()),
-        ])
+        return View(
+            frame: self.frame,
+            backgroundColor: self.color,
+            children: []
+        )
     }
     
 }

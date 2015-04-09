@@ -15,28 +15,16 @@ protocol ComponentDelegate {
 class Component: NSObject {
 
     var delegate: ComponentDelegate?
-    
-    var _props: [String: NSValue]
-    var props: [String: NSValue] {
-        get {
-            return self._props
-        }
-        set(newProps) {
-            self._props = newProps
-            self.needsRender()
-        }
-    }
-    
     var children: [Component]
 
-    convenience init(props: [String: NSValue]) {
-        self.init(props: props, children: [])
-    }
-    
-    init(props: [String: NSValue], children: [Component]) {
-        self._props = props
+    init(children: [Component]) {
         self.children = children
         super.init()
+    }
+    
+    func update(children: [Component]) {
+        self.children = children
+        self.needsRender()
     }
     
     func needsRender() {
