@@ -17,13 +17,17 @@ class SplitView: Component {
         super.init(children: children)
     }
     
-    override func renderToView(lastView: NSView?) -> NSView {
+    override func render() -> Component {
+        return self
+    }
+    
+    override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSSplitView : NSSplitView(frame: self.frame)
         view.frame = self.frame
         
         view.vertical = true
         
-        self.renderChildren(self.children, view: view)
+        self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
         
         return view
     }

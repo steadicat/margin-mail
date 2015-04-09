@@ -29,36 +29,47 @@ class Component: NSObject {
         var newRender = self.render()
         var newView: NSView?
         if self.lastRender != nil && newRender.className == self.lastRender!.className {
-            newView = newRender.renderToView(self.lastView)
+            newView = newRender.renderToView(self.lastView, lastRender: self.lastRender)
         } else {
-            newView = newRender.renderToView(nil)
+            newView = newRender.renderToView(nil, lastRender: nil)
         }
         self.lastRender = newRender
-        self.lastView = newView
-        self.delegate?.componentRendered(newView!)
+        newRender.lastView = newView
+        if (newView != self.lastView) {
+            self.lastView = newView
+            self.delegate?.componentRendered(newView!)
+        }
     }
     
     func render() -> Component {
         assert(false, "Components must implement render()")
     }
     
-    func renderToView(lastView: NSView?) -> NSView {
-        return self.render().renderToView(lastView)
+    func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
+        assert(false, "Only view components can render to view")
+        var view = self.render().renderToView(lastView, lastRender: lastRender);
+        self.lastView = view
+        return view
     }
     
-    func renderChildren(children: [Component], view: NSView) {
-        if children.count + view.subviews.count == 0 {
+    func renderChildren(view: NSView, children: [Component], lastChildren: [Component]) {
+        if children.count + lastChildren.count == 0 {
             return
         }
         
         var viewsToRemove: [NSView] = []
-        for i in 0...max(children.count - 1, view.subviews.count - 1) {
-            if i >= children.count {
-                viewsToRemove.append(view.subviews[i] as! NSView)
-            } else if i >= view.subviews.count {
-                view.addSubview(children[i].renderToView(nil))
+        for i in 0...max(children.count - 1, lastChildren.count - 1) {
+            if i >= children.count && lastChildren[i].lastView != nil {
+                viewsToRemove.append(lastChildren[i].lastView!)
+            } else if i >= lastChildren.count {
+                var render = children[i].render()
+                children[i].lastRender = render;
+                render.lastView = render.renderToView(nil, lastRender: nil)
+                view.addSubview(render.lastView!)
             } else {
-                children[i].renderToView(view.subviews[i] as! NSView)
+                var render = children[i].render()
+                children[i].lastRender = render
+                render.lastView = render.renderToView(lastChildren[i].lastRender!.lastView, lastRender: lastChildren[i].lastRender)
             }
         }
         for view in viewsToRemove {

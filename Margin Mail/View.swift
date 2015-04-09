@@ -19,7 +19,11 @@ class View: Component {
         super.init(children: children)
     }
     
-    override func renderToView(lastView: NSView?) -> NSView {
+    override func render() -> Component {
+        return self
+    }
+    
+    override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView! : NSView(frame: self.frame)
         view.frame = self.frame
         
@@ -29,7 +33,7 @@ class View: Component {
             view.layer!.backgroundColor = backgroundColor.CGColor;
         }
 
-        self.renderChildren(self.children, view: view)
+        self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
 
         return view;
     }
