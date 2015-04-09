@@ -14,7 +14,7 @@ class MessageListComponent: Component {
     var color: NSColor
     var showLoading: Bool
     
-    init(frame: CGRect, color: NSColor, showLoading: Bool, children: [Component]) {
+    init(frame: CGRect, color: NSColor, showLoading: Bool, children: [Component] = []) {
         self.frame = frame
         self.color = color
         self.showLoading = showLoading
@@ -26,7 +26,7 @@ class MessageListComponent: Component {
             frame: self.frame,
             backgroundColor: self.color,
             children: self.showLoading ? [
-                TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 10, 80, 20), text: "Loading...", children: [])
+                TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 10, 80, 20), text: "Loading...")
             ] : []
         )
     }

@@ -13,7 +13,7 @@ class SidebarComponent: Component {
     var frame: CGRect
     var color: NSColor
     
-    init(frame: CGRect, color: NSColor, children: [Component]) {
+    init(frame: CGRect, color: NSColor, children: [Component] = []) {
         self.frame = frame
         self.color = color
         super.init(children: children)
@@ -24,7 +24,7 @@ class SidebarComponent: Component {
             frame: self.frame,
             backgroundColor: self.color,
             children: [
-                TextField(frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20), text: "", children: [])
+                TextField(frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20))
             ]
         )
     }

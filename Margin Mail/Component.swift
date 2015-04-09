@@ -17,7 +17,7 @@ class Component: NSObject {
     var delegate: ComponentDelegate?
     var children: [Component]
 
-    init(children: [Component]) {
+    init(children: [Component] = []) {
         self.children = children
         super.init()
     }
@@ -56,9 +56,6 @@ class Component: NSObject {
     
     func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         assert(false, "Only view components can render to view")
-        var view = self.render().renderToView(lastView, lastRender: lastRender);
-        self.lastView = view
-        return view
     }
     
     func renderChildren(view: NSView, children: [Component], lastChildren: [Component]) {

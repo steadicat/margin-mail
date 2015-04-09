@@ -27,8 +27,7 @@ class MainWindowController: NSWindowController, ComponentDelegate {
         rootComponent = RootComponent(
             frame: window!.frame,
             sidebarColor: NSColor.blueColor(),
-            isLoading: true,
-            children: []
+            isLoading: true
         )
 
         super.init(window: window)
