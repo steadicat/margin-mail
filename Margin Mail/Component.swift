@@ -22,22 +22,48 @@ class Component: NSObject {
         super.init()
     }
     
-    func update(children: [Component]) {
-        self.children = children
-        self.needsRender()
-    }
+    var lastRender: Component?
+    var lastView: NSView?
     
     func needsRender() {
-        var view = self.renderToView()
-        self.delegate?.componentRendered(view)
+        var newRender = self.render()
+        var newView: NSView?
+        if self.lastRender != nil && newRender.className == self.lastRender!.className {
+            newView = newRender.renderToView(self.lastView)
+        } else {
+            newView = newRender.renderToView(nil)
+        }
+        self.lastRender = newRender
+        self.lastView = newView
+        self.delegate?.componentRendered(newView!)
     }
     
     func render() -> Component {
         assert(false, "Components must implement render()")
     }
     
-    func renderToView() -> NSView {
-        return self.render().renderToView()
+    func renderToView(lastView: NSView?) -> NSView {
+        return self.render().renderToView(lastView)
+    }
+    
+    func renderChildren(children: [Component], view: NSView) {
+        if children.count + view.subviews.count == 0 {
+            return
+        }
+        
+        var viewsToRemove: [NSView] = []
+        for i in 0...max(children.count - 1, view.subviews.count - 1) {
+            if i >= children.count {
+                viewsToRemove.append(view.subviews[i] as! NSView)
+            } else if i >= view.subviews.count {
+                view.addSubview(children[i].renderToView(nil))
+            } else {
+                children[i].renderToView(view.subviews[i] as! NSView)
+            }
+        }
+        for view in viewsToRemove {
+            view.removeFromSuperview()
+        }
     }
     
 }

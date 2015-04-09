@@ -19,6 +19,7 @@
 		7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */; };
 		7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */; };
 		7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FB81AD38BFB00C4701C /* SplitView.swift */; };
+		7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FBC1AD62AF800C4701C /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWindow.swift; sourceTree = "<group>"; };
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
+		7BB06FBC1AD62AF800C4701C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				7B19756E1AD385E7002BB7A4 /* View.swift */,
+				7BB06FBC1AD62AF800C4701C /* TextField.swift */,
 				7BB06FB81AD38BFB00C4701C /* SplitView.swift */,
 			);
 			name = Views;
@@ -248,6 +251,7 @@
 				7B1975731AD385E7002BB7A4 /* View.swift in Sources */,
 				7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */,
 				7B1975711AD385E7002BB7A4 /* RootComponent.swift in Sources */,
+				7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */,
 				7B19756F1AD385E7002BB7A4 /* Component.swift in Sources */,
 				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,
 				7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */,
