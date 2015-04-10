@@ -10,8 +10,10 @@ import Cocoa
 
 class SidebarComponent: Component {
 
-    var frame: CGRect
-    var color: NSColor
+    let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
+    
+    let frame: CGRect
+    let color: NSColor
     
     init(frame: CGRect, color: NSColor, children: [Component?] = []) {
         self.frame = frame
@@ -20,28 +22,21 @@ class SidebarComponent: Component {
     }
     
     override func render() -> Component {
-        let bold = NSFontManager.sharedFontManager().convertFont(NSFont.systemFontOfSize(NSFont.systemFontSize()), toHaveTrait: .BoldFontMask)
+        let rowHeight = 32 as CGFloat
+        let sideMargin = 32 as CGFloat
+        let topMargin = 32 as CGFloat
+        
         return View(
             frame: self.frame,
             backgroundColor: self.color,
-            children: [
+            children: self.labels.map { (index, text) in
                 LabelComponent(
-                    frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20),
-                    text: "Inbox",
-                    textColor: NSColor(hue: 0.6, saturation: 0.8, brightness: 1, alpha: 1),
-                    font: bold
-                ),
-                LabelComponent(
-                    frame: CGRectMake(20, self.frame.height - 72, self.frame.width - 40, 20),
-                    text: "Archive",
-                    textColor: NSColor(white: 0.3, alpha: 1)
-                ),
-                LabelComponent(
-                    frame: CGRectMake(20, self.frame.height - 104, self.frame.width - 40, 20),
-                    text: "Drafts",
-                    textColor: NSColor(white: 0.3, alpha: 1)
+                    frame: CGRectMake(sideMargin, self.frame.height - topMargin - rowHeight * CGFloat(index + 1), self.frame.width - sideMargin, rowHeight),
+                    text: text,
+                    textColor: index == 0 ? NSColor(hue: 0.58, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1),
+                    font: NSFont(name: (index == 0 ? "OpenSans-Semibold" : "OpenSans"), size: 14)
                 )
-            ]
+            }
         )
     }
     

@@ -19,6 +19,8 @@
 		7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */; };
 		7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */; };
 		7B951C771AD87B1400464CA2 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B951C761AD87B1400464CA2 /* LabelComponent.swift */; };
+		7B951C7A1AD883DD00464CA2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */; };
+		7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */; };
 		7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FB81AD38BFB00C4701C /* SplitView.swift */; };
 		7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FBC1AD62AF800C4701C /* TextField.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,8 @@
 		7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWindow.swift; sourceTree = "<group>"; };
 		7B951C761AD87B1400464CA2 /* LabelComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
+		7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		7BB06FBC1AD62AF800C4701C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,8 +124,9 @@
 				7B1975741AD385F2002BB7A4 /* Components */,
 				7B1975751AD385F8002BB7A4 /* Views */,
 				7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */,
-				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
+				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
+				7B951C7C1AD883E900464CA2 /* Fonts */,
 				7B4DB7041AD213BF00AEA6C8 /* Supporting Files */,
 			);
 			path = "Margin Mail";
@@ -150,6 +155,15 @@
 				7B4DB7161AD213BF00AEA6C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B951C7C1AD883E900464CA2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */,
+				7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B951C7A1AD883DD00464CA2 /* OpenSans-Regular.ttf in Resources */,
+				7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */,
 				7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */,
 				7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */,
 			);
