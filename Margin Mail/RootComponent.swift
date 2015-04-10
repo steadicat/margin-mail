@@ -37,9 +37,11 @@ class RootComponent: Component {
                     color: self.sidebarColor
                 ),
                 MessageListComponent(
-                    frame: CGRectMake(216, 0, frame.width - 216, frame.height),
-                    color: NSColor.orangeColor()
+                    frame: CGRectMake(0, 0, (frame.width - 216) / 2, frame.height)
                 ),
+                View(
+                    frame: CGRectMake(0, 0, (frame.width - 216) / 2, frame.height)
+                )
             ]
         )
     }

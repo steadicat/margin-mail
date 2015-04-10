@@ -11,7 +11,7 @@ import Cocoa
 class MessageListComponent: Component {
     
     var frame: CGRect
-    var color: NSColor
+    var color: NSColor?
     
     private var isLoading: Bool = true {
         didSet {
@@ -19,7 +19,7 @@ class MessageListComponent: Component {
         }
     }
     
-    init(frame: CGRect, color: NSColor, children: [Component?] = []) {
+    init(frame: CGRect, color: NSColor? = nil, children: [Component?] = []) {
         self.frame = frame
         self.color = color
         super.init(children: children)

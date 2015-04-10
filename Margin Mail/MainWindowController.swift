@@ -14,7 +14,7 @@ class MainWindowController: NSWindowController {
 
     convenience init() {
         let window = KeyWindow(
-            contentRect: NSMakeRect(0, 0, 700, 700),
+            contentRect: NSMakeRect(0, 0, 1200, 800),
             styleMask: NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask,
             backing: .Buffered,
             defer: true

@@ -28,6 +28,7 @@ class SplitView: Component {
         }
         
         view.vertical = true
+        view.dividerStyle = .Thin
         
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
         
