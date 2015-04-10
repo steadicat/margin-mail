@@ -25,9 +25,11 @@ class TextField: Component {
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSTextField : NSTextField(frame: self.frame)
-        view.frame = self.frame
+        if self.frame != (self.lastRender as? TextField)?.frame {
+            view.frame = self.frame
+        }
         
-        if lastRender == nil || (lastRender as! TextField).text != self.text {
+        if self.text != (lastRender as? TextField)?.text {
             view.stringValue = self.text
         }
         

@@ -25,7 +25,9 @@ class View: Component {
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView! : NSView(frame: self.frame)
-        view.frame = self.frame
+        if self.frame != (self.lastRender as? View)?.frame {
+            view.frame = self.frame
+        }
         
         if let backgroundColor = self.backgroundColor {
             view.wantsLayer = true;

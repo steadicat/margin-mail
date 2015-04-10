@@ -23,7 +23,9 @@ class SplitView: Component {
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSSplitView : NSSplitView(frame: self.frame)
-        view.frame = self.frame
+        if self.frame != (self.lastRender as? SplitView)?.frame {
+            view.frame = self.frame
+        }
         
         view.vertical = true
         
