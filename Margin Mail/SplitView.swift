@@ -12,7 +12,7 @@ class SplitView: Component {
     
     var frame: CGRect
     
-    init(frame: CGRect, children: [Component] = []) {
+    init(frame: CGRect, children: [Component?] = []) {
         self.frame = frame
         super.init(children: children)
     }

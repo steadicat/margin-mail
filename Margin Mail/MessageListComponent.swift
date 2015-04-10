@@ -19,7 +19,7 @@ class MessageListComponent: Component {
         }
     }
     
-    init(frame: CGRect, color: NSColor, children: [Component] = []) {
+    init(frame: CGRect, color: NSColor, children: [Component?] = []) {
         self.frame = frame
         self.color = color
         super.init(children: children)
@@ -31,14 +31,13 @@ class MessageListComponent: Component {
     }
     
     override func render() -> Component {
+        var loading: Component? = self.isLoading ? TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 10, 80, 20), text: "Loading...") : nil
         return View(
             frame: self.frame,
             backgroundColor: self.color,
-            children: self.isLoading ? [
+            children: [
                 TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 60, 80, 20)),
-                TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 10, 80, 20), text: "Loading...")
-            ] : [
-                TextField(frame: CGRectMake(self.frame.width / 2 - 40, self.frame.height / 2 - 60, 80, 20)),
+                loading
             ]
         )
     }

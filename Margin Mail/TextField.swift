@@ -13,7 +13,7 @@ class TextField: Component {
     var frame: CGRect
     var text: String
     
-    init(frame: CGRect, text: String = "", children: [Component] = []) {
+    init(frame: CGRect, text: String = "", children: [Component?] = []) {
         self.frame = frame
         self.text = text
         super.init(children: children)

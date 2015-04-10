@@ -13,7 +13,7 @@ class SidebarComponent: Component {
     var frame: CGRect
     var color: NSColor
     
-    init(frame: CGRect, color: NSColor, children: [Component] = []) {
+    init(frame: CGRect, color: NSColor, children: [Component?] = []) {
         self.frame = frame
         self.color = color
         super.init(children: children)

@@ -22,7 +22,7 @@ class RootComponent: Component {
         }
     }
 
-    init(frame: CGRect, sidebarColor: NSColor, children: [Component] = []) {
+    init(frame: CGRect, sidebarColor: NSColor, children: [Component?] = []) {
         self.frame = frame
         self.sidebarColor = sidebarColor
         super.init(children: children)

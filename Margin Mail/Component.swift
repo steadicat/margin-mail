@@ -12,8 +12,8 @@ class Component: NSObject {
 
     var children: [Component]
 
-    init(children: [Component] = []) {
-        self.children = children
+    init(children: [Component?] = []) {
+        self.children = children.filter({$0 != nil}).map({ $0! })
         super.init()
     }
 

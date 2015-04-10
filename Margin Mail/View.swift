@@ -13,7 +13,7 @@ class View: Component {
     var frame: CGRect
     var backgroundColor: NSColor?
     
-    init(frame: CGRect, backgroundColor: NSColor?, children: [Component] = []) {
+    init(frame: CGRect, backgroundColor: NSColor? = nil, children: [Component?] = []) {
         self.frame = frame
         self.backgroundColor = backgroundColor
         super.init(children: children)
