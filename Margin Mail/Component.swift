@@ -8,13 +8,8 @@
 
 import Cocoa
 
-protocol ComponentDelegate {
-    func componentRendered(view: NSView)
-}
-
 class Component: NSObject {
 
-    var delegate: ComponentDelegate?
     var children: [Component]
 
     init(children: [Component] = []) {
@@ -31,7 +26,7 @@ class Component: NSObject {
         self.dirty = true
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.dirty = false
-            self.renderSelf(nil)
+            self.renderSelf()
         })
     }
     
@@ -47,7 +42,7 @@ class Component: NSObject {
     var lastRender: Component?
     var lastView: NSView?
     
-    func renderSelf(var lastRender: Component?) -> NSView {
+    func renderSelf(var lastRender: Component? = nil) -> NSView {
         if self.lastRender != nil {
             lastRender = self.lastRender
         }
@@ -62,10 +57,6 @@ class Component: NSObject {
         }
         self.lastRender = newRender
         newRender.lastView = newView
-        if (newView != lastView) {
-            self.lastView = newView
-            self.delegate?.componentRendered(newView!)
-        }
         return newView!
     }
     
@@ -80,9 +71,9 @@ class Component: NSObject {
             if i >= children.count && lastChildren[i].lastView != nil {
                 viewsToRemove.append(lastChildren[i].lastView!)
             } else if i >= lastChildren.count {
-                view.addSubview(children[i].renderSelf(nil))
+                view.addSubview(children[i].renderSelf())
             } else {
-                children[i].renderSelf(lastChildren[i].lastRender)
+                children[i].renderSelf(lastRender: lastChildren[i].lastRender)
             }
         }
         
