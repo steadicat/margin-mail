@@ -46,14 +46,4 @@ class MainWindowController: NSWindowController {
         self.init()
     }
     
-    override func windowDidLoad() {
-        super.windowDidLoad()
-    }
-    
-    func componentRendered(view: NSView) {
-        self.window!.contentView = view
-        self.showWindow(self)
-        self.window!.center()
-    }
-
 }
