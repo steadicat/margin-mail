@@ -29,10 +29,17 @@ class View: Component {
             view.frame = self.frame
         }
         
-        if let backgroundColor = self.backgroundColor {
-            view.wantsLayer = true;
-            view.layer = CALayer()
-            view.layer!.backgroundColor = backgroundColor.CGColor;
+        if self.backgroundColor != (self.lastRender as? View)?.backgroundColor {
+            if let backgroundColor = self.backgroundColor {
+                if !view.wantsLayer {
+                    view.wantsLayer = true;
+                    view.layer = CALayer()
+                }
+                view.layer!.backgroundColor = backgroundColor.CGColor;
+            } else {
+                view.wantsLayer = false
+                view.layer = nil
+            }
         }
 
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
