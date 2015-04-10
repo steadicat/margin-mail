@@ -20,11 +20,27 @@ class SidebarComponent: Component {
     }
     
     override func render() -> Component {
+        let bold = NSFontManager.sharedFontManager().convertFont(NSFont.systemFontOfSize(NSFont.systemFontSize()), toHaveTrait: .BoldFontMask)
         return View(
             frame: self.frame,
             backgroundColor: self.color,
             children: [
-                TextField(frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20))
+                LabelComponent(
+                    frame: CGRectMake(20, self.frame.height - 40, self.frame.width - 40, 20),
+                    text: "Inbox",
+                    textColor: NSColor(hue: 0.6, saturation: 0.8, brightness: 1, alpha: 1),
+                    font: bold
+                ),
+                LabelComponent(
+                    frame: CGRectMake(20, self.frame.height - 72, self.frame.width - 40, 20),
+                    text: "Archive",
+                    textColor: NSColor(white: 0.3, alpha: 1)
+                ),
+                LabelComponent(
+                    frame: CGRectMake(20, self.frame.height - 104, self.frame.width - 40, 20),
+                    text: "Drafts",
+                    textColor: NSColor(white: 0.3, alpha: 1)
+                )
             ]
         )
     }

@@ -55,6 +55,8 @@ class Component: NSObject {
         } else {
             newView = newRender.renderToView(nil, lastRender: nil)
         }
+        self.lastRender?.lastRender = nil
+        self.lastRender?.lastView = nil
         self.lastRender = newRender
         newRender.lastView = newView
         return newView!

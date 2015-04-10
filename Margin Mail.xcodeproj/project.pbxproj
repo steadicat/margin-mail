@@ -18,6 +18,7 @@
 		7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */; };
 		7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */; };
 		7B4DB7341AD364D200AEA6C8 /* KeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */; };
+		7B951C771AD87B1400464CA2 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B951C761AD87B1400464CA2 /* LabelComponent.swift */; };
 		7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FB81AD38BFB00C4701C /* SplitView.swift */; };
 		7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FBC1AD62AF800C4701C /* TextField.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin_MailTests.swift; sourceTree = "<group>"; };
 		7B4DB7231AD2151500AEA6C8 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyWindow.swift; sourceTree = "<group>"; };
+		7B951C761AD87B1400464CA2 /* LabelComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		7BB06FBC1AD62AF800C4701C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				7B19756C1AD385E7002BB7A4 /* RootComponent.swift */,
 				7B19756B1AD385E7002BB7A4 /* MessageListComponent.swift */,
 				7B19756D1AD385E7002BB7A4 /* SidebarComponent.swift */,
+				7B951C761AD87B1400464CA2 /* LabelComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				7B1975701AD385E7002BB7A4 /* MessageListComponent.swift in Sources */,
 				7B1975721AD385E7002BB7A4 /* SidebarComponent.swift in Sources */,
 				7B4DB7241AD2151500AEA6C8 /* MainWindowController.swift in Sources */,
+				7B951C771AD87B1400464CA2 /* LabelComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
