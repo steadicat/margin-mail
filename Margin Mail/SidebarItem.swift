@@ -10,7 +10,9 @@ import Cocoa
 
 class SidebarItemView: Button {
 
+    var sideMargin: CGFloat = 0
     var isSelected: Bool = false
+    
     private var isHovered: Bool = false {
         didSet {
             self.needsDisplay = true
@@ -18,7 +20,7 @@ class SidebarItemView: Button {
     }
     
     override func viewWillDraw() {
-        let sideMargin = 36 as CGFloat
+        let sideMargin = self.sideMargin + 36
 
         textColor = isSelected ? Color.accent() : Color.mediumGray()
         backgroundColor = isHovered ? Color.accent(0.95) : nil

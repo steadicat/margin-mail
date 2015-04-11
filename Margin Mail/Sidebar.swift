@@ -53,6 +53,7 @@ class Sidebar: View {
             item.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
             item.isSelected = index == selectedLabel
             item.image = index == 0 ? inboxIcon : nil
+            item.sideMargin = (item.image == nil ? 32 : 0)
         }
         
         super.viewWillDraw()
