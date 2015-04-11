@@ -31,6 +31,9 @@ class SidebarComponent: Component {
         let sideMargin = 32 as CGFloat
         let topMargin = 32 as CGFloat
         
+        let inboxColor = self.selectedLabel == 0 ? NSColor(hue: 0.56, saturation: 1, brightness: 1, alpha: 1) : NSColor(white: 0.3, alpha: 1)
+        let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
+        
         return View(
             frame: self.frame,
             backgroundColor: self.color,
@@ -41,6 +44,7 @@ class SidebarComponent: Component {
                     textColor: index == self.selectedLabel ? NSColor(hue: 0.56, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1),
                     bordered: false,
                     font: NSFont(name: (index == self.selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14),
+                    image: index == 0 ? inboxIcon : nil,
                     onClick: { self.selectedLabel = index }
                 )
             }

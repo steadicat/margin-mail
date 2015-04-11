@@ -10,12 +10,13 @@ import Cocoa
 
 class Button: Component {
     
-    var frame: CGRect
-    var text: String
-    var textColor: NSColor?
-    var backgroundColor: NSColor?
-    var bordered: Bool
-    var font: NSFont?
+    private let frame: CGRect
+    private let text: String
+    private let textColor: NSColor?
+    private let backgroundColor: NSColor?
+    private let bordered: Bool
+    private let font: NSFont?
+    private let image: NSImage?
     
     let onClick: (() -> ())?
     
@@ -26,6 +27,7 @@ class Button: Component {
         backgroundColor: NSColor? = NSColor.whiteColor(),
         bordered: Bool? = nil,
         font: NSFont? = nil,
+        image: NSImage? = nil,
         onClick: (() -> ())? = nil,
         children: [Component?] = []
         ) {
@@ -35,6 +37,7 @@ class Button: Component {
             self.backgroundColor = backgroundColor
             self.bordered = bordered ?? true
             self.font = font
+            self.image = image
             self.onClick = onClick
             super.init(children: children)
     }
@@ -62,7 +65,12 @@ class Button: Component {
         view.attributedTitle = title
 
         view.bordered = self.bordered
+        
+        // Remove the highlight on click
         (view.cell() as! NSButtonCell).highlightsBy = NSCellStyleMask.NoCellMask
+        
+        view.image = self.image
+        view.imagePosition = .ImageLeft
         
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
         
