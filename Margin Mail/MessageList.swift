@@ -44,8 +44,8 @@ class MessageList: View {
     
     override func viewWillDraw() {
         backgroundColor = self.color
-        text.frame = self.frame.rectByCenter(Size(80, 20), offset: Point(0, -20))
-        loadingText.frame = self.frame.rectByCenter(Size(80, 20), offset: Point(0, 20))
+        text.frame = self.frame.rectByCentering(Size(80, 20), offset: Point(0, -20))
+        loadingText.frame = self.frame.rectByCentering(Size(80, 20), offset: Point(0, 20))
         loadingText.alphaValue = self.isLoading ? 1 : 0
         
         super.viewWillDraw()

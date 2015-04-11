@@ -10,7 +10,7 @@ import Cocoa
 
 extension CGRect {
 
-    func rectByCenter(size: CGSize, offset: CGPoint = CGPointZero) -> CGRect {
+    func rectByCentering(size: CGSize, offset: CGPoint = CGPointZero) -> CGRect {
         return CGRectMake(
             (self.width/2 - size.width/2) + offset.x,
             (self.height/2 - size.height/2) + offset.y,
