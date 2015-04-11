@@ -91,7 +91,6 @@
 				7B19756B1AD385E7002BB7A4 /* MessageList.swift */,
 				7B19756D1AD385E7002BB7A4 /* Sidebar.swift */,
 				7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */,
-				7B951C761AD87B1400464CA2 /* Label.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -133,6 +132,7 @@
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
 				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
 				7B1975741AD385F2002BB7A4 /* Components */,
+				7B858BE11AD9A9CE00FCFF56 /* UI */,
 				7B1975751AD385F8002BB7A4 /* Views */,
 				7BDA780A1AD8D0250080C0AA /* Extensions */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
@@ -167,6 +167,14 @@
 				7B4DB7161AD213BF00AEA6C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7B858BE11AD9A9CE00FCFF56 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7B951C761AD87B1400464CA2 /* Label.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		7B951C7C1AD883E900464CA2 /* Fonts */ = {
