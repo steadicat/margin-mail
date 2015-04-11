@@ -1,5 +1,5 @@
 //
-//  MainWindow.swift
+//  Window.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/5/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class KeyWindow: NSWindow {
+class Window: NSWindow {
     
     override var canBecomeKeyWindow:Bool {
         get {

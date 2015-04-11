@@ -35,9 +35,7 @@ class MessageListView: View {
         weak var weakSelf = self
         
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(8 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            weakSelf?.isLoading = false
-        }
+        dispatch_after(time, dispatch_get_main_queue(), { weakSelf?.isLoading = false })
     }
 
     required init?(coder: NSCoder) {

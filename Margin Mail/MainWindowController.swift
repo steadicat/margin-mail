@@ -10,11 +10,11 @@ import Cocoa
 
 class MainWindowController: NSObject, NSWindowDelegate {
 
-    let window: NSWindow
+    let window: Window
     let rootView: RootView
 
     override init() {
-        window = KeyWindow(
+        window = Window(
             contentRect: NSMakeRect(0, 0, 1200, 800),
             styleMask: NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask,
             backing: .Buffered,

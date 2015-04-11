@@ -32,7 +32,7 @@ class Button: NSButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setCell(PaddedButtonCell())
+        self.setCell(ButtonCell())
         self.createTrackingArea()
     }
 
@@ -53,7 +53,7 @@ class Button: NSButton {
         self.attributedTitle = title
         
         // Remove the highlight on click
-        var cell = self.cell() as! PaddedButtonCell
+        var cell = self.cell() as! ButtonCell
         cell.highlightsBy = NSCellStyleMask.NoCellMask
         
         cell.backgroundColor = self.backgroundColor

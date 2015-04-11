@@ -1,5 +1,5 @@
 //
-//  PaddedButtonCell.swift
+//  ButtonCell.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/10/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PaddedButtonCell: NSButtonCell {
+class ButtonCell: NSButtonCell {
 
     var leftMargin: CGFloat = 0
     var gap: CGFloat = 0
