@@ -20,9 +20,13 @@ class SidebarItemView: Button {
     }
     
     override func viewWillDraw() {
-        let sideMargin = self.sideMargin + 36
+        let collapsingRatio = self.bounds.width / 216
+        
+        let sideMargin = self.sideMargin + (36 * collapsingRatio)
 
         textColor = isSelected ? Color.accent() : Color.mediumGray()
+        textColor = textColor?.colorWithAlphaComponent(collapsingRatio)
+        
         backgroundColor = isHovered ? Color.accent(0.95) : nil
         bordered = false
         font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
