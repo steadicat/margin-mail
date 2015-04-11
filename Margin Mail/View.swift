@@ -8,43 +8,29 @@
 
 import Cocoa
 
-class View: Component {
+class View: NSView {
 
-    var frame: CGRect
-    var backgroundColor: NSColor?
-    
-    init(frame: CGRect, backgroundColor: NSColor? = nil, children: [Component?] = []) {
-        self.frame = frame
-        self.backgroundColor = backgroundColor
-        super.init(children: children)
+    var backgroundColor: NSColor? {
+        didSet {
+            self.needsDisplay = true
+        }
     }
     
-    override func render() -> Component {
-        return self
-    }
+    override func viewWillDraw() {
     
-    override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
-        var view = lastView != nil ? lastView! : NSView(frame: self.frame)
-        if self.frame != (self.lastRender as? View)?.frame {
-            view.frame = self.frame
+        if let backgroundColor = self.backgroundColor {
+            if !self.wantsLayer {
+                self.wantsLayer = true;
+                self.layer = CALayer()
+            }
+            self.layer!.backgroundColor = backgroundColor.CGColor;
+        } else {
+            self.wantsLayer = false
+            self.layer = nil
         }
         
-        if self.backgroundColor != (self.lastRender as? View)?.backgroundColor {
-            if let backgroundColor = self.backgroundColor {
-                if !view.wantsLayer {
-                    view.wantsLayer = true;
-                    view.layer = CALayer()
-                }
-                view.layer!.backgroundColor = backgroundColor.CGColor;
-            } else {
-                view.wantsLayer = false
-                view.layer = nil
-            }
-        }
+        super.viewWillDraw()
 
-        self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
-
-        return view;
     }
     
 }

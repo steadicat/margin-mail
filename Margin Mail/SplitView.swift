@@ -8,35 +8,26 @@
 
 import Cocoa
 
-class SplitView: Component, NSSplitViewDelegate {
+class SplitView: NSSplitView, NSSplitViewDelegate {
     
-    var frame: CGRect
     var maximumSizes: [Int: CGFloat]
     
-    init(frame: CGRect, maximumSizes: [Int: CGFloat] = [:], children: [Component?] = []) {
-        self.frame = frame
+    init(frame: CGRect, maximumSizes: [Int: CGFloat] = [:]) {
         self.maximumSizes = maximumSizes
-        super.init(children: children)
+        super.init(frame: frame)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    override func render() -> Component {
-        return self
-    }
-    
-    override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
-        var view = lastView != nil ? lastView as! NSSplitView : NSSplitView(frame: self.frame)
-        view.delegate = self
+    override func viewWillDraw() {
+        self.delegate = self
         
-        if self.frame != (self.lastRender as? SplitView)?.frame {
-            view.frame = self.frame
-        }
+        self.vertical = true
+        self.dividerStyle = .Thin
         
-        view.vertical = true
-        view.dividerStyle = .Thin
-        
-        self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
-        
-        return view
+        super.viewWillDraw()
     }
     
     func splitView(splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
