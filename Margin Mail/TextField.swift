@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class TextField: Component {
+class TextField: Component, NSTextFieldDelegate {
     
     var frame: CGRect
     var text: String
@@ -30,17 +30,18 @@ class TextField: Component {
         editable: Bool? = nil,
         selectable: Bool? = nil,
         font: NSFont? = nil,
-        children: [Component?] = []) {
-            self.frame = frame
-            self.text = text
-            self.textColor = textColor ?? NSColor.blackColor()
-            self.backgroundColor = backgroundColor
-            self.bordered = bordered ?? true
-            self.bezeled = bezeled ?? true
-            self.editable = editable ?? true
-            self.selectable = selectable ?? true
-            self.font = font ?? NSFont.systemFontOfSize(NSFont.systemFontSize())
-            super.init(children: children)
+        children: [Component?] = []
+    ) {
+        self.frame = frame
+        self.text = text
+        self.textColor = textColor ?? NSColor.blackColor()
+        self.backgroundColor = backgroundColor
+        self.bordered = bordered ?? true
+        self.bezeled = bezeled ?? true
+        self.editable = editable ?? true
+        self.selectable = selectable ?? true
+        self.font = font ?? NSFont.systemFontOfSize(NSFont.systemFontSize())
+        super.init(children: children)
     }
     
     override func render() -> Component {
@@ -49,6 +50,7 @@ class TextField: Component {
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSTextField : NSTextField(frame: self.frame)
+        
         if self.frame != (self.lastRender as? TextField)?.frame {
             view.frame = self.frame
         }
