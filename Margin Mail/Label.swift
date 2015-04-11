@@ -1,5 +1,5 @@
 //
-//  LabelView.swift
+//  Label.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/10/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class LabelView: TextField {
+class Label: TextField {
 
     override func viewWillDraw() {
         bordered = false

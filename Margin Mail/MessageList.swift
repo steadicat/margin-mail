@@ -1,5 +1,5 @@
 //
-//  MessageListView.swift
+//  MessageList.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/6/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MessageListView: View {
+class MessageList: View {
     
     var color: NSColor?
     

@@ -1,5 +1,5 @@
 //
-//  SidebarItemView.swift
+//  SidebarItem.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/11/15.

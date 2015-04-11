@@ -1,5 +1,5 @@
 //
-//  SidebarView.swift
+//  Sidebar.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/6/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SidebarView: View {
+class Sidebar: View {
 
     let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
     

@@ -1,5 +1,5 @@
 //
-//  RootView.swift
+//  Main.swift
 //  Margin Mail
 //
 //  Created by Stefano J. Attardi on 4/6/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class RootView: View {
+class Main: View {
 
     var sidebarColor: NSColor? {
         didSet {
@@ -17,15 +17,15 @@ class RootView: View {
     }
     
     private var split: SplitView
-    private var sidebar: SidebarView
-    private var messageList: MessageListView
+    private var sidebar: Sidebar
+    private var messageList: MessageList
     private var messagePane: View
 
     override init(frame: CGRect) {
         split = SplitView(frame: frame, maximumSizes: [0: 216])
-        sidebar = SidebarView(frame: CGRectZero)
+        sidebar = Sidebar(frame: CGRectZero)
         sidebar.color = self.sidebarColor
-        messageList = MessageListView(frame: CGRectZero)
+        messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
         
         super.init(frame: frame)

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B1975701AD385E7002BB7A4 /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756B1AD385E7002BB7A4 /* MessageListView.swift */; };
-		7B1975711AD385E7002BB7A4 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756C1AD385E7002BB7A4 /* RootView.swift */; };
-		7B1975721AD385E7002BB7A4 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756D1AD385E7002BB7A4 /* SidebarView.swift */; };
+		7B1975701AD385E7002BB7A4 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756B1AD385E7002BB7A4 /* MessageList.swift */; };
+		7B1975711AD385E7002BB7A4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756C1AD385E7002BB7A4 /* Main.swift */; };
+		7B1975721AD385E7002BB7A4 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756D1AD385E7002BB7A4 /* Sidebar.swift */; };
 		7B1975731AD385E7002BB7A4 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B19756E1AD385E7002BB7A4 /* View.swift */; };
 		7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */; };
 		7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */; };
@@ -17,7 +17,7 @@
 		7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */; };
 		7B4DB7241AD2151500AEA6C8 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */; };
 		7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* Window.swift */; };
-		7B951C771AD87B1400464CA2 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B951C761AD87B1400464CA2 /* LabelView.swift */; };
+		7B951C771AD87B1400464CA2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B951C761AD87B1400464CA2 /* Label.swift */; };
 		7B951C7A1AD883DD00464CA2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */; };
 		7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */; };
 		7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FB81AD38BFB00C4701C /* SplitView.swift */; };
@@ -26,7 +26,7 @@
 		7BDA78071AD8C0450080C0AA /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA78061AD8C0450080C0AA /* MailIcon.icns */; };
 		7BDA78091AD8C4890080C0AA /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA78081AD8C4890080C0AA /* NSImage.swift */; };
 		7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */; };
-		7BDA78101AD990EF0080C0AA /* SidebarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780F1AD990EF0080C0AA /* SidebarItemView.swift */; };
+		7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B19756B1AD385E7002BB7A4 /* MessageListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
-		7B19756C1AD385E7002BB7A4 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		7B19756D1AD385E7002BB7A4 /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		7B19756B1AD385E7002BB7A4 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
+		7B19756C1AD385E7002BB7A4 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		7B19756D1AD385E7002BB7A4 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		7B19756E1AD385E7002BB7A4 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		7B4DB7011AD213BF00AEA6C8 /* Margin Mail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Margin Mail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DB7051AD213BF00AEA6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin_MailTests.swift; sourceTree = "<group>"; };
 		7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		7B4DB7331AD364D200AEA6C8 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		7B951C761AD87B1400464CA2 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		7B951C761AD87B1400464CA2 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		7BDA78061AD8C0450080C0AA /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		7BDA78081AD8C4890080C0AA /* NSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
-		7BDA780F1AD990EF0080C0AA /* SidebarItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarItemView.swift; sourceTree = "<group>"; };
+		7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,11 +87,11 @@
 		7B1975741AD385F2002BB7A4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7B19756C1AD385E7002BB7A4 /* RootView.swift */,
-				7B19756B1AD385E7002BB7A4 /* MessageListView.swift */,
-				7B19756D1AD385E7002BB7A4 /* SidebarView.swift */,
-				7BDA780F1AD990EF0080C0AA /* SidebarItemView.swift */,
-				7B951C761AD87B1400464CA2 /* LabelView.swift */,
+				7B19756C1AD385E7002BB7A4 /* Main.swift */,
+				7B19756B1AD385E7002BB7A4 /* MessageList.swift */,
+				7B19756D1AD385E7002BB7A4 /* Sidebar.swift */,
+				7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */,
+				7B951C761AD87B1400464CA2 /* Label.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -290,18 +290,18 @@
 			files = (
 				7B1975731AD385E7002BB7A4 /* View.swift in Sources */,
 				7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */,
-				7BDA78101AD990EF0080C0AA /* SidebarItemView.swift in Sources */,
+				7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */,
 				7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */,
-				7B1975711AD385E7002BB7A4 /* RootView.swift in Sources */,
+				7B1975711AD385E7002BB7A4 /* Main.swift in Sources */,
 				7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */,
 				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,
 				7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */,
 				7BDA78011AD89A9C0080C0AA /* Button.swift in Sources */,
 				7BDA78091AD8C4890080C0AA /* NSImage.swift in Sources */,
-				7B1975701AD385E7002BB7A4 /* MessageListView.swift in Sources */,
-				7B1975721AD385E7002BB7A4 /* SidebarView.swift in Sources */,
+				7B1975701AD385E7002BB7A4 /* MessageList.swift in Sources */,
+				7B1975721AD385E7002BB7A4 /* Sidebar.swift in Sources */,
 				7B4DB7241AD2151500AEA6C8 /* MainWindow.swift in Sources */,
-				7B951C771AD87B1400464CA2 /* LabelView.swift in Sources */,
+				7B951C771AD87B1400464CA2 /* Label.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

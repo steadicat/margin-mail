@@ -10,12 +10,12 @@ import Cocoa
 
 class MainWindow: Window {
 
-    var rootView: RootView
+    var main: Main
 
     init() {
         let frame = NSMakeRect(0, 0, 1200, 800)
-        rootView = RootView(frame: frame)
-        rootView.sidebarColor = NSColor(white: 0.9, alpha: 1)
+        main = Main(frame: frame)
+        main.sidebarColor = NSColor(white: 0.9, alpha: 1)
         
         super.init(
             contentRect: frame,
@@ -24,7 +24,7 @@ class MainWindow: Window {
             defer: true
         )
         
-        contentView = rootView
+        contentView = main
         backgroundColor = NSColor.whiteColor()
     }
     
@@ -38,7 +38,7 @@ class MainWindow: Window {
         
         weak var weakSelf = self
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue()) { weakSelf?.rootView.sidebarColor = NSColor.whiteColor() }
+        dispatch_after(time, dispatch_get_main_queue()) { weakSelf?.main.sidebarColor = NSColor.whiteColor() }
     }
     
 }
