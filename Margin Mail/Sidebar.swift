@@ -50,7 +50,7 @@ class Sidebar: View {
         backgroundColor = self.color
 
         for (index, item) in enumerate(self.items) {
-            item.frame = frame.rectByRow(Size(0, 36), index: index, offset: Point(0, 36))
+            item.frame = frame.rectByRow(Size(0, 36), index: index).offset(0, 36)
             item.isSelected = index == selectedLabel
             item.image = index == 0 ? inboxIcon : nil
             item.sideMargin = (item.image == nil ? 32 : 0)

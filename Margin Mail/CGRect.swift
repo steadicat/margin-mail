@@ -24,10 +24,10 @@ extension CGRect {
         return self.rectByOffsetting(dx: dx, dy: dy)
     }
 
-    func rectByRow(size: CGSize, index: Int, offset: CGPoint = CGPointZero) -> CGRect {
+    func rectByRow(size: CGSize, index: Int) -> CGRect {
         return CGRectMake(
             0,
-            offset.y + (size.height * CGFloat(index)),
+            size.height * CGFloat(index),
             size.width == 0 ? self.width : size.width,
             size.height == 0 ? self.height : size.height
         )
