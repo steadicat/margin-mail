@@ -13,7 +13,7 @@ class SidebarView: View {
     let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
     
     var color: NSColor?
-    var buttons: [Button]
+    var items: [SidebarItemView]
 
     private var selectedLabel = 0 {
         didSet {
@@ -27,8 +27,8 @@ class SidebarView: View {
     }
     
     override init(frame frameRect: NSRect) {
-        self.buttons = labels.map { (index, text) in
-            var button = Button(frame: CGRectZero)
+        self.items = labels.map { (index, text) in
+            var button = SidebarItemView(frame: CGRectZero)
             button.text = text
             return button
         }
@@ -37,11 +37,11 @@ class SidebarView: View {
         
         weak var weakSelf = self
     
-        for (index, button) in enumerate(self.buttons) {
-            button.onMouseDown = { weakSelf?.selectedLabel = index }
-            button.onMouseEnter = { weakSelf?.highlightedLabel = index }
-            button.onMouseExit = { weakSelf?.highlightedLabel = -1 }
-            weakSelf?.addSubview(button)
+        for (index, item) in enumerate(self.items) {
+            item.onMouseDown = { weakSelf?.selectedLabel = index }
+            item.onMouseEnter = { weakSelf?.highlightedLabel = index }
+            item.onMouseExit = { weakSelf?.highlightedLabel = -1 }
+            weakSelf?.addSubview(item)
         }
     }
 
@@ -51,7 +51,6 @@ class SidebarView: View {
     
     override func viewWillDraw() {
         let rowHeight = 36 as CGFloat
-        let sideMargin = 36 as CGFloat
         let topMargin = 36 as CGFloat
         
         let inboxColor = self.selectedLabel == 0 ? NSColor(hue: 0.56, saturation: 1, brightness: 1, alpha: 1) : NSColor(white: 0.3, alpha: 1)
@@ -59,14 +58,11 @@ class SidebarView: View {
         
         backgroundColor = self.color
 
-        for (index, button) in enumerate(self.buttons) {
-            button.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
-            button.textColor = index == selectedLabel ? NSColor(hue: 0.56, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1)
-            button.backgroundColor = index == highlightedLabel ? NSColor(hue: 0.56, saturation: 0.05, brightness: 1.0, alpha: 1.0) : nil
-            button.bordered = false
-            button.font = NSFont(name: (index == selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14)
-            button.image = index == 0 ? inboxIcon : nil
-            button.leftMargin = sideMargin
+        for (index, item) in enumerate(self.items) {
+            item.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
+            item.isSelected = index == selectedLabel
+            item.isHovered = index == highlightedLabel
+            item.image = index == 0 ? inboxIcon : nil
         }
         
         super.viewWillDraw()
