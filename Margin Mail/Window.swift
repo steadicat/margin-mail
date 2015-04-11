@@ -10,9 +10,9 @@ import Cocoa
 
 class Window: NSWindow {
     
-    override var canBecomeKeyWindow:Bool {
+    override var canBecomeKeyWindow: Bool {
         get {
-            return true;
+            return true
         }
     }
 

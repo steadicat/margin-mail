@@ -11,10 +11,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var windowController: MainWindowController?
+    var mainWindow: MainWindow?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        self.windowController = MainWindowController()
+        mainWindow = MainWindow()
+        mainWindow!.show(self)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {

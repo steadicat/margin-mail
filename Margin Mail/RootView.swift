@@ -43,11 +43,13 @@ class RootView: View {
     override func viewWillDraw() {
         self.split.frame = self.frame
         
-        self.sidebar.frame = CGRectMake(0, 0, 216, self.frame.height)
+        let sidebarSize: CGFloat = 216
+        
+        self.sidebar.frame = CGRectMake(0, 0, sidebarSize, self.frame.height)
         self.sidebar.color = self.sidebarColor
         
-        self.messageList.frame = CGRectMake(0, 0, (self.frame.width - 216) / 2, self.frame.height)
-        self.messagePane.frame = CGRectMake(0, 0, (self.frame.width - 216) / 2, self.frame.height)
+        self.messageList.frame = CGRectMake(0, 0, (self.frame.width - sidebarSize) / 2, self.frame.height)
+        self.messagePane.frame = CGRectMake(0, 0, (self.frame.width - sidebarSize) / 2, self.frame.height)
         
         super.viewWillDraw()
     }
