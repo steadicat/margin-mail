@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Button: Component {
+class Button: Component, DelegatingButtonDelegate {
     
     private let frame: CGRect
     private let text: String
@@ -17,8 +17,13 @@ class Button: Component {
     private let bordered: Bool
     private let font: NSFont?
     private let image: NSImage?
+    private let gap: CGFloat
+    private let leftMargin: CGFloat
     
-    let onClick: (() -> ())?
+    let onMouseDown: (() -> ())?
+    let onMouseUp: (() -> ())?
+    let onMouseEnter: (() -> ())?
+    let onMouseExit: (() -> ())?
     
     init(
         frame: CGRect,
@@ -28,7 +33,12 @@ class Button: Component {
         bordered: Bool? = nil,
         font: NSFont? = nil,
         image: NSImage? = nil,
-        onClick: (() -> ())? = nil,
+        gap: CGFloat? = nil,
+        leftMargin: CGFloat? = nil,
+        onMouseDown: (() -> ())? = nil,
+        onMouseUp: (() -> ())? = nil,
+        onMouseEnter: (() -> ())? = nil,
+        onMouseExit: (() -> ())? = nil,
         children: [Component?] = []
         ) {
             self.frame = frame
@@ -38,7 +48,12 @@ class Button: Component {
             self.bordered = bordered ?? true
             self.font = font
             self.image = image
-            self.onClick = onClick
+            self.gap = gap ?? 12
+            self.leftMargin = leftMargin ?? 0
+            self.onMouseDown = onMouseDown
+            self.onMouseUp = onMouseUp
+            self.onMouseEnter = onMouseEnter
+            self.onMouseExit = onMouseExit
             super.init(children: children)
     }
     
@@ -47,7 +62,8 @@ class Button: Component {
     }
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
-        var view = lastView != nil ? lastView as! NSButton : NSButton(frame: self.frame)
+        var view = lastView != nil ? lastView as! DelegatingButton : DelegatingButton(frame: self.frame)
+        view.delegate = self
         
         if lastView == nil {
             view.setCell(PaddedButtonCell())
@@ -73,25 +89,35 @@ class Button: Component {
         // Remove the highlight on click
         var cell = view.cell() as! PaddedButtonCell
         cell.highlightsBy = NSCellStyleMask.NoCellMask
+        
+        cell.backgroundColor = self.backgroundColor
+        cell.leftMargin = self.leftMargin
 
         view.image = self.image
+        view.imagePosition = .ImageLeft
         if self.image != nil {
-            cell.gap = 12
+            cell.gap = self.gap
         }
         
-        view.imagePosition = .ImageLeft
-        
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
-        
-        view.target = self
-        view.action = Selector("onMouseDown")
-        view.sendActionOn(Int(NSEventMask.LeftMouseDownMask.rawValue))
         
         return view
     }
     
-    func onMouseDown() {
-        onClick?()
+    func mouseEntered(theEvent: NSEvent) {
+        self.onMouseEnter?()
+    }
+    
+    func mouseExited(theEvent: NSEvent) {
+        self.onMouseExit?()
+    }
+    
+    func mouseDown(theEvent: NSEvent) {
+        self.onMouseDown?()
+    }
+    
+    func mouseUp(theEvent: NSEvent) {
+        self.onMouseUp?()
     }
     
 }
