@@ -34,10 +34,6 @@ class MainWindow: Window {
     func show(sender: AnyObject?) {
         self.makeKeyAndOrderFront(sender)
         self.center()
-        
-        weak var weakSelf = self
-        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-        dispatch_after(time, dispatch_get_main_queue()) { weakSelf?.main.sidebarColor = NSColor.whiteColor() }
     }
     
 }

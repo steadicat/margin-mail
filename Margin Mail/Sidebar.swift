@@ -8,11 +8,10 @@
 
 import Cocoa
 
+let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
+
 class Sidebar: View {
 
-    let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
-    
-    var color: NSColor?
     var items: [SidebarItemView]
 
     private var selectedLabel = 0 {
@@ -47,8 +46,6 @@ class Sidebar: View {
         let inboxColor = self.selectedLabel == 0 ? Color.accent() : Color.mediumGray()
         let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         
-        backgroundColor = self.color
-
         var column = bounds.rectByInsetting(dx: 0, dy: 36)
         var rows = column.rows()
         

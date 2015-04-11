@@ -9,12 +9,6 @@
 import Cocoa
 
 class Main: View {
-
-    var sidebarColor: NSColor? {
-        didSet {
-            self.needsDisplay = true
-        }
-    }
     
     private var split: SplitView
     private var sidebar: Sidebar
@@ -24,7 +18,6 @@ class Main: View {
     override init(frame: CGRect) {
         split = SplitView(frame: frame, maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
-        sidebar.color = self.sidebarColor
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
         
@@ -48,7 +41,6 @@ class Main: View {
     
     override func viewWillDraw() {
         self.split.frame = self.frame
-        self.sidebar.color = self.sidebarColor
         super.viewWillDraw()
     }
     
