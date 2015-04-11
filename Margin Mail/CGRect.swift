@@ -19,6 +19,10 @@ extension CGRect {
     init(center: CGPoint, size: CGSize) {
         self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
     }
+    
+    func offset(dx: CGFloat, _ dy: CGFloat) -> CGRect {
+        return self.rectByOffsetting(dx: dx, dy: dy)
+    }
 
     func rectByRow(size: CGSize, index: Int, offset: CGPoint = CGPointZero) -> CGRect {
         return CGRectMake(
