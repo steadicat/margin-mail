@@ -24,6 +24,7 @@
 		7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FB81AD38BFB00C4701C /* SplitView.swift */; };
 		7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB06FBC1AD62AF800C4701C /* TextField.swift */; };
 		7BDA78011AD89A9C0080C0AA /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA78001AD89A9C0080C0AA /* Button.swift */; };
+		7BDA78071AD8C0450080C0AA /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA78061AD8C0450080C0AA /* MailIcon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		7BB06FBC1AD62AF800C4701C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		7BDA78001AD89A9C0080C0AA /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		7BDA78061AD8C0450080C0AA /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				7B4DB7331AD364D200AEA6C8 /* KeyWindow.swift */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
 				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
+				7BDA78061AD8C0450080C0AA /* MailIcon.icns */,
 				7B951C7C1AD883E900464CA2 /* Fonts */,
 				7B4DB7041AD213BF00AEA6C8 /* Supporting Files */,
 			);
@@ -251,6 +254,7 @@
 			files = (
 				7B951C7A1AD883DD00464CA2 /* OpenSans-Regular.ttf in Resources */,
 				7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */,
+				7BDA78071AD8C0450080C0AA /* MailIcon.icns in Resources */,
 				7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */,
 				7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */,
 			);
