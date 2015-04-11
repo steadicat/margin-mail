@@ -49,6 +49,10 @@ class Button: Component {
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSButton : NSButton(frame: self.frame)
         
+        if lastView == nil {
+            view.setCell(PaddedButtonCell())
+        }
+        
         if self.frame != (self.lastRender as? Button)?.frame {
             view.frame = self.frame
         }
@@ -67,9 +71,14 @@ class Button: Component {
         view.bordered = self.bordered
         
         // Remove the highlight on click
-        (view.cell() as! NSButtonCell).highlightsBy = NSCellStyleMask.NoCellMask
-        
+        var cell = view.cell() as! PaddedButtonCell
+        cell.highlightsBy = NSCellStyleMask.NoCellMask
+
         view.image = self.image
+        if self.image != nil {
+            cell.gap = 12
+        }
+        
         view.imagePosition = .ImageLeft
         
         self.renderChildren(view, children: self.children, lastChildren: lastRender != nil ? lastRender!.children : [])
