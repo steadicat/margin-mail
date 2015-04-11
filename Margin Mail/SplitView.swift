@@ -8,12 +8,14 @@
 
 import Cocoa
 
-class SplitView: Component {
+class SplitView: Component, NSSplitViewDelegate {
     
     var frame: CGRect
+    var maximumSizes: [Int: CGFloat]
     
-    init(frame: CGRect, children: [Component?] = []) {
+    init(frame: CGRect, maximumSizes: [Int: CGFloat] = [:], children: [Component?] = []) {
         self.frame = frame
+        self.maximumSizes = maximumSizes
         super.init(children: children)
     }
     
@@ -23,6 +25,8 @@ class SplitView: Component {
     
     override func renderToView(lastView: NSView?, lastRender: Component?) -> NSView {
         var view = lastView != nil ? lastView as! NSSplitView : NSSplitView(frame: self.frame)
+        view.delegate = self
+        
         if self.frame != (self.lastRender as? SplitView)?.frame {
             view.frame = self.frame
         }
@@ -35,4 +39,7 @@ class SplitView: Component {
         return view
     }
     
+    func splitView(splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        return self.maximumSizes[dividerIndex] ?? proposedMaximumPosition
+    }
 }

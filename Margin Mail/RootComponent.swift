@@ -31,6 +31,7 @@ class RootComponent: Component {
     override func render() -> Component {
         return SplitView(
             frame: self.frame,
+            maximumSizes: [0: 216],
             children: [
                 SidebarComponent(
                     frame: CGRectMake(0, 0, 216, frame.height),
