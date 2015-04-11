@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController {
+class MainWindowController: NSWindowController, NSWindowDelegate {
 
     let rootComponent: RootComponent
 
@@ -21,17 +21,18 @@ class MainWindowController: NSWindowController {
         )
         window.backgroundColor = NSColor.whiteColor()
         self.init(window: window)
+        self.window!.delegate = self
     }
     
     override init(window: NSWindow?) {
-        rootComponent = RootComponent(
+        self.rootComponent = RootComponent(
             frame: window!.frame,
             sidebarColor: NSColor(white: 0.9, alpha: 1)
         )
 
         super.init(window: window)
 
-        self.window!.contentView = rootComponent.renderSelf()
+        self.window!.contentView = self.rootComponent.renderSelf()
         self.showWindow(self)
         self.window!.center()
         
@@ -44,6 +45,11 @@ class MainWindowController: NSWindowController {
     required convenience init?(coder: NSCoder) {
         // XXX: Add support for archiving?
         self.init()
+    }
+    
+    func windowDidResize(notification: NSNotification) {
+        let size = self.window!.frame.size
+        self.rootComponent.frame = CGRectMake(0, 0, size.width, size.height)
     }
     
 }
