@@ -8,7 +8,7 @@
 
 import Cocoa
 
-protocol DelegatingButtonDelegate {
+protocol DelegatingButtonDelegate: class {
     func mouseEntered(theEvent: NSEvent)
     func mouseExited(theEvent: NSEvent)
     func mouseDown(theEvent: NSEvent)
@@ -17,7 +17,7 @@ protocol DelegatingButtonDelegate {
 
 class DelegatingButton: NSButton {
 
-    var delegate: DelegatingButtonDelegate?
+    weak var delegate: DelegatingButtonDelegate?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

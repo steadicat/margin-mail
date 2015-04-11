@@ -39,6 +39,8 @@ class SidebarComponent: Component {
         let inboxColor = self.selectedLabel == 0 ? NSColor(hue: 0.56, saturation: 1, brightness: 1, alpha: 1) : NSColor(white: 0.3, alpha: 1)
         let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         
+        weak var weakSelf = self
+        
         return View(
             frame: self.frame,
             backgroundColor: self.color,
@@ -52,9 +54,9 @@ class SidebarComponent: Component {
                     font: NSFont(name: (index == self.selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14),
                     image: index == 0 ? inboxIcon : nil,
                     leftMargin: sideMargin,
-                    onMouseDown: { self.selectedLabel = index },
-                    onMouseEnter: { self.highlightedLabel = index },
-                    onMouseExit: { self.highlightedLabel = -1 }
+                    onMouseDown: { weakSelf?.selectedLabel = index },
+                    onMouseEnter: { weakSelf?.highlightedLabel = index },
+                    onMouseExit: { weakSelf?.highlightedLabel = -1 }
                 )
             }
         )

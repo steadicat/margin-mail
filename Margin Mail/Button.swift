@@ -20,10 +20,10 @@ class Button: Component, DelegatingButtonDelegate {
     private let gap: CGFloat
     private let leftMargin: CGFloat
     
-    let onMouseDown: (() -> ())?
-    let onMouseUp: (() -> ())?
-    let onMouseEnter: (() -> ())?
-    let onMouseExit: (() -> ())?
+    private var onMouseDown: (() -> ())?
+    private var onMouseUp: (() -> ())?
+    private var onMouseEnter: (() -> ())?
+    private var onMouseExit: (() -> ())?
     
     init(
         frame: CGRect,
