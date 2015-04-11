@@ -44,10 +44,10 @@ class Main: View {
         self.split.frame = self.frame
         self.sidebar.color = self.sidebarColor
 
-        let columns = self.frame.rectsByCols([216, 0.5, 0.5])
-        self.sidebar.frame = columns[0]
-        self.messageList.frame = columns[1]
-        self.messagePane.frame = columns[2]
+        let columns = self.bounds.columns()
+        self.sidebar.frame = columns.next(216)
+        self.messageList.frame = columns.next(0.5)
+        self.messagePane.frame = columns.next(1)
         
         super.viewWillDraw()
     }

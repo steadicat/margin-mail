@@ -23,24 +23,51 @@ extension CGRect {
     func offset(dx: CGFloat, _ dy: CGFloat) -> CGRect {
         return self.rectByOffsetting(dx: dx, dy: dy)
     }
-
-    func rectByRow(size: CGSize, index: Int) -> CGRect {
-        return CGRectMake(
-            0,
-            size.height * CGFloat(index),
-            size.width == 0 ? self.width : size.width,
-            size.height == 0 ? self.height : size.height
-        )
+    
+    func rows() -> RowGenerator {
+        return RowGenerator(frame: self)
     }
+    
+    func columns() -> ColumnGenerator {
+        return ColumnGenerator(frame: self)
+    }
+}
 
-    func rectsByCols(cols: [CGFloat]) -> [CGRect] {
-        var whole = self.width - cols.filter({ $0 >= 1 }).reduce(0, combine: +)
-        var rects: [CGRect] = cols.map() {
-            var width = $0 < 1 ? whole * $0 : $0
-            return CGRectMake(0, 0, width, self.height)
+
+class RowGenerator {
+    let frame: CGRect
+    var y: CGFloat
+    
+    init(frame: CGRect) {
+        self.frame = frame
+        self.y = frame.origin.y
+    }
+    
+    func next(var height: CGFloat) -> CGRect {
+        if height <= 1 {
+            height = (frame.height - y) * height
         }
-        assert(rects.count == cols.count, "CGRect count matches column count")
-        return rects
+        var rect = CGRect(x: frame.origin.x, y: y, width: frame.width, height: height)
+        y += height
+        return rect
     }
+}
 
+class ColumnGenerator {
+    let frame: CGRect
+    var x: CGFloat
+    
+    init(frame: CGRect) {
+        self.frame = frame
+        self.x = frame.origin.x
+    }
+    
+    func next(var width: CGFloat) -> CGRect {
+        if width <= 1 {
+            width = (frame.width - x) * width
+        }
+        var rect = CGRect(x: x, y: frame.origin.y, width: width, height: frame.height)
+        x += width
+        return rect
+    }
 }
