@@ -16,12 +16,14 @@ class View: NSView {
         }
     }
     
+    lazy private var caLayer = CALayer()
+    
     override func viewWillDraw() {
     
         if let backgroundColor = self.backgroundColor {
             if !self.wantsLayer {
                 self.wantsLayer = true;
-                self.layer = CALayer()
+                self.layer = self.caLayer
             }
             self.layer!.backgroundColor = backgroundColor.CGColor;
         } else {
