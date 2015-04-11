@@ -10,8 +10,12 @@ import Cocoa
 
 class SidebarItemView: Button {
 
-    var isHovered: Bool = false
     var isSelected: Bool = false
+    private var isHovered: Bool = false {
+        didSet {
+            self.needsDisplay = true
+        }
+    }
     
     override func viewWillDraw() {
         let sideMargin = 36 as CGFloat
@@ -23,6 +27,16 @@ class SidebarItemView: Button {
         leftMargin = sideMargin
         
         super.viewWillDraw()
+    }
+    
+    override func mouseEntered(theEvent: NSEvent) {
+        self.isHovered = true
+        super.mouseEntered(theEvent)
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        self.isHovered = false
+        super.mouseExited(theEvent)
     }
     
 }

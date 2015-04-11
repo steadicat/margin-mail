@@ -20,11 +20,6 @@ class SidebarView: View {
             self.needsDisplay = true
         }
     }
-    private var highlightedLabel = -1 {
-        didSet {
-            self.needsDisplay = true
-        }
-    }
     
     override init(frame frameRect: NSRect) {
         self.items = labels.map { (index, text) in
@@ -34,14 +29,10 @@ class SidebarView: View {
         }
 
         super.init(frame: frameRect)
-        
-        weak var weakSelf = self
     
         for (index, item) in enumerate(self.items) {
-            item.onMouseDown = { weakSelf?.selectedLabel = index }
-            item.onMouseEnter = { weakSelf?.highlightedLabel = index }
-            item.onMouseExit = { weakSelf?.highlightedLabel = -1 }
-            weakSelf?.addSubview(item)
+            item.onMouseDown = { self.selectedLabel = index }
+            self.addSubview(item)
         }
     }
 
@@ -61,7 +52,6 @@ class SidebarView: View {
         for (index, item) in enumerate(self.items) {
             item.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
             item.isSelected = index == selectedLabel
-            item.isHovered = index == highlightedLabel
             item.image = index == 0 ? inboxIcon : nil
         }
         
