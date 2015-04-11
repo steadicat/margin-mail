@@ -136,12 +136,11 @@
 			isa = PBXGroup;
 			children = (
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
-				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
 				7B858BE21AD9AA5C00FCFF56 /* Color.swift */,
+				AC384F8E1AD9B3B600777259 /* Geometry.swift */,
 				7B1975741AD385F2002BB7A4 /* Components */,
 				7BDA780A1AD8D0250080C0AA /* Extensions */,
 				7B951C7C1AD883E900464CA2 /* Fonts */,
-				AC384F901AD9B3D400777259 /* Helpers */,
 				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
 				7BDA78061AD8C0450080C0AA /* MailIcon.icns */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
@@ -202,14 +201,6 @@
 				7BDA78081AD8C4890080C0AA /* NSImage.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		AC384F901AD9B3D400777259 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				AC384F8E1AD9B3B600777259 /* Geometry.swift */,
-			);
-			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
