@@ -8,33 +8,30 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController, NSWindowDelegate {
+class MainWindowController: NSObject, NSWindowDelegate {
 
+    let window: NSWindow
     let rootComponent: RootComponent
 
-    convenience init() {
-        let window = KeyWindow(
+    override init() {
+        self.window = KeyWindow(
             contentRect: NSMakeRect(0, 0, 1200, 800),
             styleMask: NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask,
             backing: .Buffered,
             defer: true
         )
-        window.backgroundColor = NSColor.whiteColor()
-        self.init(window: window)
-        self.window!.delegate = self
-    }
-    
-    override init(window: NSWindow?) {
         self.rootComponent = RootComponent(
-            frame: window!.frame,
+            frame: self.window.frame,
             sidebarColor: NSColor(white: 0.9, alpha: 1)
         )
-
-        super.init(window: window)
-
-        self.window!.contentView = self.rootComponent.renderSelf()
-        self.showWindow(self)
-        self.window!.center()
+        
+        super.init()
+        
+        self.window.backgroundColor = NSColor.whiteColor()
+        self.window.delegate = self
+        self.window.contentView = self.rootComponent.renderSelf()
+        self.window.makeKeyAndOrderFront(self)
+        self.window.center()
         
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
@@ -42,13 +39,8 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
         }
     }
     
-    required convenience init?(coder: NSCoder) {
-        // XXX: Add support for archiving?
-        self.init()
-    }
-    
     func windowDidResize(notification: NSNotification) {
-        let size = self.window!.frame.size
+        let size = self.window.frame.size
         self.rootComponent.frame = CGRectMake(0, 0, size.width, size.height)
     }
     
