@@ -33,6 +33,12 @@ class Main: View {
         split.addSubview(sidebar)
         split.addSubview(messageList)
         split.addSubview(messagePane)
+        
+        let columns = self.bounds.columns()
+        self.sidebar.frame = columns.next(216)
+        self.messageList.frame = columns.next(0.5)
+        self.messagePane.frame = columns.next(1)
+        
         self.addSubview(split)
     }
 
@@ -43,12 +49,6 @@ class Main: View {
     override func viewWillDraw() {
         self.split.frame = self.frame
         self.sidebar.color = self.sidebarColor
-
-        let columns = self.bounds.columns()
-        self.sidebar.frame = columns.next(216)
-        self.messageList.frame = columns.next(0.5)
-        self.messagePane.frame = columns.next(1)
-        
         super.viewWillDraw()
     }
     
