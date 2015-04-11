@@ -27,7 +27,7 @@ class SidebarView: View {
     }
     
     override init(frame frameRect: NSRect) {
-        self.buttons = self.labels.map { (index, text) in
+        self.buttons = labels.map { (index, text) in
             var button = Button(frame: CGRectZero)
             button.text = text
             return button
@@ -41,7 +41,7 @@ class SidebarView: View {
             button.onMouseDown = { weakSelf?.selectedLabel = index }
             button.onMouseEnter = { weakSelf?.highlightedLabel = index }
             button.onMouseExit = { weakSelf?.highlightedLabel = -1 }
-            self.addSubview(button)
+            weakSelf?.addSubview(button)
         }
     }
 
@@ -57,14 +57,14 @@ class SidebarView: View {
         let inboxColor = self.selectedLabel == 0 ? NSColor(hue: 0.56, saturation: 1, brightness: 1, alpha: 1) : NSColor(white: 0.3, alpha: 1)
         let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         
-        self.backgroundColor = self.color
+        backgroundColor = self.color
 
         for (index, button) in enumerate(self.buttons) {
-            button.frame = CGRectMake(0, self.frame.height - topMargin - rowHeight * CGFloat(index + 1), self.frame.width, rowHeight)
-            button.textColor = index == self.selectedLabel ? NSColor(hue: 0.56, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1)
-            button.backgroundColor = index == self.highlightedLabel ? NSColor(hue: 0.56, saturation: 0.05, brightness: 1.0, alpha: 1.0) : nil
+            button.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
+            button.textColor = index == selectedLabel ? NSColor(hue: 0.56, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1)
+            button.backgroundColor = index == highlightedLabel ? NSColor(hue: 0.56, saturation: 0.05, brightness: 1.0, alpha: 1.0) : nil
             button.bordered = false
-            button.font = NSFont(name: (index == self.selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14)
+            button.font = NSFont(name: (index == selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14)
             button.image = index == 0 ? inboxIcon : nil
             button.leftMargin = sideMargin
         }
