@@ -20,15 +20,6 @@ extension CGRect {
         self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
     }
 
-    func rectByCentering(size: CGSize, offset: CGPoint = CGPointZero) -> CGRect {
-        return CGRectMake(
-            (self.width/2 - size.width/2) + offset.x,
-            (self.height/2 - size.height/2) + offset.y,
-            size.width,
-            size.height
-        )
-    }
-
     func rectByRow(size: CGSize, index: Int, offset: CGPoint = CGPointZero) -> CGRect {
         return CGRectMake(
             0,
