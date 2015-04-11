@@ -11,7 +11,7 @@ import Cocoa
 class SidebarComponent: Component {
 
     let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
-    var selectedLabel = 0 {
+    private var selectedLabel = 0 {
         didSet {
             self.needsRender()
         }
@@ -38,7 +38,7 @@ class SidebarComponent: Component {
                 Button(
                     frame: CGRectMake(sideMargin, self.frame.height - topMargin - rowHeight * CGFloat(index + 1), self.frame.width - sideMargin, rowHeight),
                     text: text,
-                    textColor: index == self.selectedLabel ? NSColor(hue: 0.58, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1),
+                    textColor: index == self.selectedLabel ? NSColor(hue: 0.56, saturation: 1.0, brightness: 1.0, alpha: 1.0) : NSColor(white: 0.3, alpha: 1),
                     bordered: false,
                     font: NSFont(name: (index == self.selectedLabel ? "OpenSans-Semibold" : "OpenSans"), size: 14),
                     onClick: { self.selectedLabel = index }
