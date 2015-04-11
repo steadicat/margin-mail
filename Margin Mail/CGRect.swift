@@ -10,6 +10,16 @@ import Cocoa
 
 extension CGRect {
 
+    var center: CGPoint {
+        get {
+            return CGPointMake(CGRectGetMidX(self), CGRectGetMidY(self))
+        }
+    }
+
+    init(center: CGPoint, size: CGSize) {
+        self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
+    }
+
     func rectByCentering(size: CGSize, offset: CGPoint = CGPointZero) -> CGRect {
         return CGRectMake(
             (self.width/2 - size.width/2) + offset.x,
