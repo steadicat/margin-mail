@@ -15,7 +15,6 @@ class MainWindow: Window {
     init() {
         let frame = NSMakeRect(0, 0, 1200, 800)
         main = Main(frame: frame)
-        main.sidebarColor = NSColor(white: 0.9, alpha: 1)
         
         super.init(
             contentRect: frame,
@@ -25,7 +24,7 @@ class MainWindow: Window {
         )
         
         contentView = main
-        backgroundColor = NSColor.whiteColor()
+        backgroundColor = Color.white()
     }
     
     required init?(coder: NSCoder) {

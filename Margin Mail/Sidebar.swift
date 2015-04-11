@@ -44,7 +44,7 @@ class Sidebar: View {
         let rowHeight = 36 as CGFloat
         let topMargin = 36 as CGFloat
         
-        let inboxColor = self.selectedLabel == 0 ? NSColor(hue: 0.56, saturation: 1, brightness: 1, alpha: 1) : NSColor(white: 0.3, alpha: 1)
+        let inboxColor = self.selectedLabel == 0 ? Color.accent() : Color.mediumGray()
         let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         
         backgroundColor = self.color

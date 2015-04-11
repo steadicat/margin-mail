@@ -17,6 +17,7 @@
 		7B4DB7181AD213BF00AEA6C8 /* Margin_MailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */; };
 		7B4DB7241AD2151500AEA6C8 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */; };
 		7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DB7331AD364D200AEA6C8 /* Window.swift */; };
+		7B858BE31AD9AA5C00FCFF56 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B858BE21AD9AA5C00FCFF56 /* Color.swift */; };
 		7B951C771AD87B1400464CA2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B951C761AD87B1400464CA2 /* Label.swift */; };
 		7B951C7A1AD883DD00464CA2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */; };
 		7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */; };
@@ -54,6 +55,7 @@
 		7B4DB7171AD213BF00AEA6C8 /* Margin_MailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Margin_MailTests.swift; sourceTree = "<group>"; };
 		7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		7B4DB7331AD364D200AEA6C8 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		7B858BE21AD9AA5C00FCFF56 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7B951C761AD87B1400464CA2 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7B951C781AD883DD00464CA2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
 				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
+				7B858BE21AD9AA5C00FCFF56 /* Color.swift */,
 				7B1975741AD385F2002BB7A4 /* Components */,
 				7B858BE11AD9A9CE00FCFF56 /* UI */,
 				7B1975751AD385F8002BB7A4 /* Views */,
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B1975731AD385E7002BB7A4 /* View.swift in Sources */,
+				7B858BE31AD9AA5C00FCFF56 /* Color.swift in Sources */,
 				7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */,
 				7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */,
 				7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */,
