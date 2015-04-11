@@ -17,6 +17,12 @@ class View: NSView {
     }
     
     lazy private var caLayer = CALayer()
+
+    override var flipped: Bool {
+        get {
+            return true
+        }
+    }
     
     override func viewWillDraw() {
     

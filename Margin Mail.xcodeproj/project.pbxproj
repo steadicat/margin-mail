@@ -28,6 +28,8 @@
 		7BDA78091AD8C4890080C0AA /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA78081AD8C4890080C0AA /* NSImage.swift */; };
 		7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */; };
 		7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */; };
+		AC384F8B1AD9ACC300777259 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC384F8A1AD9ACC300777259 /* CGRect.swift */; };
+		AC384F8F1AD9B3B600777259 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC384F8E1AD9B3B600777259 /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		7BDA78081AD8C4890080C0AA /* NSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
+		AC384F8A1AD9ACC300777259 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		AC384F8E1AD9B3B600777259 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,14 +139,16 @@
 				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
 				7B858BE21AD9AA5C00FCFF56 /* Color.swift */,
 				7B1975741AD385F2002BB7A4 /* Components */,
-				7B858BE11AD9A9CE00FCFF56 /* UI */,
-				7B1975751AD385F8002BB7A4 /* Views */,
 				7BDA780A1AD8D0250080C0AA /* Extensions */,
-				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
+				7B951C7C1AD883E900464CA2 /* Fonts */,
+				AC384F901AD9B3D400777259 /* Helpers */,
 				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
 				7BDA78061AD8C0450080C0AA /* MailIcon.icns */,
-				7B951C7C1AD883E900464CA2 /* Fonts */,
+				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
+				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
 				7B4DB7041AD213BF00AEA6C8 /* Supporting Files */,
+				7B858BE11AD9A9CE00FCFF56 /* UI */,
+				7B1975751AD385F8002BB7A4 /* Views */,
 			);
 			path = "Margin Mail";
 			sourceTree = "<group>";
@@ -192,9 +198,18 @@
 		7BDA780A1AD8D0250080C0AA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AC384F8A1AD9ACC300777259 /* CGRect.swift */,
 				7BDA78081AD8C4890080C0AA /* NSImage.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AC384F901AD9B3D400777259 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC384F8E1AD9B3B600777259 /* Geometry.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +319,8 @@
 				7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */,
 				7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */,
 				7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */,
+				AC384F8B1AD9ACC300777259 /* CGRect.swift in Sources */,
+				AC384F8F1AD9B3B600777259 /* Geometry.swift in Sources */,
 				7B1975711AD385E7002BB7A4 /* Main.swift in Sources */,
 				7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */,
 				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,

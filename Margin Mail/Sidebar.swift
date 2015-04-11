@@ -21,7 +21,7 @@ class Sidebar: View {
         }
     }
     
-    override init(frame frameRect: NSRect) {
+    override init(frame frameRect: CGRect) {
         self.items = labels.map { (index, text) in
             var button = SidebarItemView(frame: CGRectZero)
             button.text = text
@@ -50,7 +50,7 @@ class Sidebar: View {
         backgroundColor = self.color
 
         for (index, item) in enumerate(self.items) {
-            item.frame = CGRectMake(0, frame.height - topMargin - rowHeight * CGFloat(index + 1), frame.width, rowHeight)
+            item.frame = frame.rectByRow(Size(0, 36), index: index, offset: Point(0, 36))
             item.isSelected = index == selectedLabel
             item.image = index == 0 ? inboxIcon : nil
             item.sideMargin = (item.image == nil ? 32 : 0)

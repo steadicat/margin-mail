@@ -13,12 +13,12 @@ class ButtonCell: NSButtonCell {
     var leftMargin: CGFloat = 0
     var gap: CGFloat = 0
 
-    override func drawImage(image: NSImage, withFrame frame: NSRect, inView controlView: NSView) {
-        return super.drawImage(image, withFrame: NSRect(x: frame.origin.x + self.leftMargin, y: frame.origin.y, width: frame.width, height: frame.height), inView: controlView)
+    override func drawImage(image: NSImage, withFrame frame: CGRect, inView controlView: NSView) {
+        return super.drawImage(image, withFrame: CGRect(x: frame.origin.x + self.leftMargin, y: frame.origin.y, width: frame.width, height: frame.height), inView: controlView)
     }
     
-    override func drawTitle(title: NSAttributedString, withFrame frame: NSRect, inView controlView: NSView) -> NSRect {
-        return super.drawTitle(title, withFrame: NSRect(x: frame.origin.x + self.leftMargin + self.gap, y: frame.origin.y, width: frame.width, height: frame.height), inView: controlView)
+    override func drawTitle(title: NSAttributedString, withFrame frame: CGRect, inView controlView: NSView) -> CGRect {
+        return super.drawTitle(title, withFrame: CGRect(x: frame.origin.x + self.leftMargin + self.gap, y: frame.origin.y, width: frame.width, height: frame.height), inView: controlView)
     }
 
     override var cellSize: NSSize {

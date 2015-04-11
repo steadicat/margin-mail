@@ -42,14 +42,12 @@ class Main: View {
     
     override func viewWillDraw() {
         self.split.frame = self.frame
-        
-        let sidebarSize: CGFloat = 216
-        
-        self.sidebar.frame = CGRectMake(0, 0, sidebarSize, self.frame.height)
         self.sidebar.color = self.sidebarColor
-        
-        self.messageList.frame = CGRectMake(0, 0, (self.frame.width - sidebarSize) / 2, self.frame.height)
-        self.messagePane.frame = CGRectMake(0, 0, (self.frame.width - sidebarSize) / 2, self.frame.height)
+
+        let columns = self.frame.rectsByCols([216, 0.5, 0.5])
+        self.sidebar.frame = columns[0]
+        self.messageList.frame = columns[1]
+        self.messagePane.frame = columns[2]
         
         super.viewWillDraw()
     }
