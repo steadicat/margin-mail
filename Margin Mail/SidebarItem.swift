@@ -18,7 +18,7 @@ class SidebarItemView: View {
     
     var image: NSImage? {
         didSet {
-            self.icon.image = image
+            self.needsDisplay = true
         }
     }
     
@@ -55,24 +55,26 @@ class SidebarItemView: View {
     }
     
     override func viewWillDraw() {
-        let collapsedWidth = 56 as CGFloat
+        let collapsedWidth = 62 as CGFloat
         let maximumWidth = 216 as CGFloat
         let iconGap = 12 as CGFloat
         
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
-        let sideMargin = 16 + cground(20 * collapsingRatio)
+        let sideMargin = 20 + cground(16 * collapsingRatio)
         
+        let textColor = isSelected ? Color.accent() : Color.mediumGray()
+
         let columns = bounds.columns()
         columns.next(sideMargin)
         if image != nil {
             self.icon.frame = columns.next(24)
+            self.icon.image = NSImage(named: "Inbox")?.tintedImageWithColor(textColor)
         } else {
             columns.next(24)
         }
         columns.next(iconGap)
         button.frame = columns.next(1).round()
         
-        var textColor = isSelected ? Color.accent() : Color.mediumGray()
         button.textColor = textColor
         
         backgroundColor = isHovered ? Color.accent(0.95) : NSColor.clearColor()

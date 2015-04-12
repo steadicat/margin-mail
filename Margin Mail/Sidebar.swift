@@ -42,9 +42,6 @@ class Sidebar: View {
     override func viewWillDraw() {
         let rowHeight = 36 as CGFloat
         let topMargin = 36 as CGFloat
-
-        let inboxColor = self.selectedLabel == 0 ? Color.accent() : Color.mediumGray()
-        let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         
         var column = bounds.rectByInsetting(dx: 0, dy: 36)
         var rows = column.rows()
@@ -52,7 +49,7 @@ class Sidebar: View {
         for (index, item) in enumerate(self.items) {
             item.frame = rows.next(36)
             item.isSelected = index == selectedLabel
-            item.image = index == 0 ? inboxIcon : nil
+            item.image = NSImage(named: "Inbox")
         }
         
         super.viewWillDraw()
