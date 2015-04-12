@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Main: View, NSSplitViewDelegate {
+class Main: NSVisualEffectView, NSSplitViewDelegate {
     
     private var split: SplitView
     private var sidebar: Sidebar
@@ -16,12 +16,19 @@ class Main: View, NSSplitViewDelegate {
     private var messagePane: View
 
     override init(frame: CGRect) {
+
         split = SplitView(frame: frame, minimumSizes: [0: 62], maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
         
         super.init(frame: frame)
+        
+        material = NSVisualEffectMaterial.Light
+        blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        state = NSVisualEffectState.Active
+        messageList.backgroundColor = Color.white()
+        messagePane.backgroundColor = Color.white()
         
         split.addSubview(sidebar)
         split.addSubview(messageList)
@@ -34,7 +41,7 @@ class Main: View, NSSplitViewDelegate {
         
         addSubview(split)
         
-        backgroundColor = Color.white()
+        //backgroundColor = Color.white()
         
         weak var weakSelf = self
         split.onResize = { weakSelf?.onSplitResize() }
