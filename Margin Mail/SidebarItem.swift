@@ -71,11 +71,11 @@ class SidebarItemView: View {
             columns.next(24)
         }
         columns.next(iconGap)
-        label.frame = columns.next(1).integerRect.offset(0, 6)
+        label.frame = columns.next(1).integerRect.offset(dy: 5)
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
         
-        backgroundColor = isHovered ? Color.accent(0.95) : NSColor.clearColor()
+        backgroundColor = isHovered ? NSColor(white: 0, alpha: 0.02) : NSColor.clearColor()
 
         var anim = label.pop_animationForKey("alphaValue") as! POPSpringAnimation?
         if anim == nil {

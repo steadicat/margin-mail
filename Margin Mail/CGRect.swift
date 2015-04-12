@@ -20,7 +20,7 @@ extension CGRect {
         self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
     }
     
-    func offset(dx: CGFloat, _ dy: CGFloat) -> CGRect {
+    func offset(dx: CGFloat = 0, dy: CGFloat = 0) -> CGRect {
         return self.rectByOffsetting(dx: dx, dy: dy)
     }
     
