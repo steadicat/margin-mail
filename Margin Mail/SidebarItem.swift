@@ -60,7 +60,7 @@ class SidebarItemView: View {
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
         let sideMargin = 22 + round(14 * collapsingRatio)
         
-        let textColor = isSelected ? Color.accent() : Color.mediumGray()
+        let textColor = isSelected ? Color.accent() : Color.lightGray()
 
         let columns = bounds.columns()
         columns.next(sideMargin)

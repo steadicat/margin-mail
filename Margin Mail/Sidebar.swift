@@ -43,6 +43,8 @@ class Sidebar: View {
         let rowHeight = 36 as CGFloat
         let topMargin = 36 as CGFloat
         
+        backgroundColor = Color.mediumGray()
+        
         var column = bounds.rectByInsetting(dx: 0, dy: 36)
         var rows = column.rows()
         

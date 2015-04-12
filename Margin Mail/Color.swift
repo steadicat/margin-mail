@@ -28,4 +28,7 @@ class Color {
         return NSColor(white: 0.3, alpha: 1)
     }
     
+    static func lightGray() -> NSColor {
+        return NSColor(white: 0.6, alpha: 1)
+    }
 }
