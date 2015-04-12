@@ -29,8 +29,6 @@ class MainWindow: Window {
         appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
         titleVisibility = .Hidden
         titlebarAppearsTransparent = true
-        var titlebarView = self.standardWindowButton(.CloseButton)!.superview!
-        titlebarView.wantsLayer = true
         
         contentView = main
     }

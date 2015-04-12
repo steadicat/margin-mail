@@ -12,7 +12,8 @@ class SidebarItemView: View {
 
     var isSelected: Bool = false {
         didSet {
-            self.needsDisplay = true
+            // TODO: figure out why this one needs to be layout instead of display
+            self.needsLayout = true
         }
     }
     
@@ -24,7 +25,7 @@ class SidebarItemView: View {
     
     var text: String = "" {
         didSet {
-            button.text = text
+            label.text = text
         }
     }
     
@@ -34,20 +35,17 @@ class SidebarItemView: View {
         }
     }
     
-    private var button: Button
+    private var label: Label
     private var icon: ImageView
     
     override init(frame: CGRect) {
-        button = Button(frame: CGRectZero)
+        label = Label(frame: CGRectZero)
         icon = ImageView(frame: CGRectZero)
         
         super.init(frame: frame)
 
-        addSubview(button)
+        addSubview(label)
         addSubview(icon)
-        
-        weak var weakSelf = self
-        button.onMouseDown = { weakSelf?.onMouseDown?() }
     }
 
     required init?(coder: NSCoder) {
@@ -73,19 +71,16 @@ class SidebarItemView: View {
             columns.next(24)
         }
         columns.next(iconGap)
-        button.frame = columns.next(1).integerRect
-        
-        button.textColor = textColor
+        label.frame = columns.next(1).integerRect.offset(0, 6)
+        label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
+        label.textColor = textColor
         
         backgroundColor = isHovered ? Color.accent(0.95) : NSColor.clearColor()
 
-        button.bordered = false
-        button.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
-        
-        var anim = button.pop_animationForKey("alphaValue") as! POPSpringAnimation?
+        var anim = label.pop_animationForKey("alphaValue") as! POPSpringAnimation?
         if anim == nil {
             anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
-            button.pop_addAnimation(anim, forKey: "alphaValue")
+            label.pop_addAnimation(anim, forKey: "alphaValue")
         }
         anim!.toValue = self.bounds.width < 120 ? 0 : 1
         

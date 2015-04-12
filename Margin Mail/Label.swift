@@ -10,13 +10,20 @@ import Cocoa
 
 class Label: TextField {
 
-    override func viewWillDraw() {
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
         bordered = false
         bezeled = false
         editable = false
         selectable = false
         backgroundColor = nil
+    }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillDraw() {
         super.viewWillDraw()
     }
     
