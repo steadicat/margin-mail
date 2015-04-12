@@ -23,8 +23,10 @@ class MainWindow: Window {
             defer: true
         )
         
+        opaque = false
+        backgroundColor = NSColor.clearColor()
+        
         contentView = main
-        backgroundColor = Color.white()
     }
     
     required init?(coder: NSCoder) {

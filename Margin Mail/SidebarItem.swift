@@ -10,7 +10,12 @@ import Cocoa
 
 class SidebarItemView: View {
 
-    var isSelected: Bool = false
+    var isSelected: Bool = false {
+        didSet {
+            self.needsDisplay = true
+            self.layer?.needsDisplay()
+        }
+    }
     
     var image: NSImage? {
         didSet {
@@ -27,6 +32,7 @@ class SidebarItemView: View {
     private var isHovered: Bool = false {
         didSet {
             self.needsDisplay = true
+            self.layer?.needsDisplay()
         }
     }
     
@@ -71,7 +77,7 @@ class SidebarItemView: View {
         var textColor = isSelected ? Color.accent() : Color.mediumGray()
         button.textColor = textColor
         
-        backgroundColor = isHovered ? Color.accent(0.95) : Color.white()
+        backgroundColor = isHovered ? Color.accent(0.95) : NSColor.clearColor()
 
         button.bordered = false
         button.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)

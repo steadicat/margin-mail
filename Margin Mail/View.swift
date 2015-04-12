@@ -13,6 +13,7 @@ class View: NSView {
     var backgroundColor: NSColor? {
         didSet {
             self.needsDisplay = true
+            self.layer?.needsDisplay()
         }
     }
     
@@ -51,11 +52,9 @@ class View: NSView {
             if !self.wantsLayer {
                 self.wantsLayer = true;
                 self.layer = self.caLayer
+                self.layer?.delegate = self
             }
             self.layer!.backgroundColor = backgroundColor.CGColor;
-        } else {
-            self.wantsLayer = false
-            self.layer = nil
         }
         
         super.viewWillDraw()
