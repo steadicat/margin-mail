@@ -14,20 +14,12 @@ class Main: View, NSSplitViewDelegate {
     private var sidebar: Sidebar
     private var messageList: MessageList
     private var messagePane: View
-    
-    private var closeButton: NSButton
-    private var miniaturizeButton: NSButton
-    private var zoomButton: NSButton
 
     override init(frame: CGRect) {
         split = SplitView(frame: frame, minimumSizes: [0: 62], maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
-        
-        closeButton = NSWindow.standardWindowButton(.CloseButton, forStyleMask: NSTitledWindowMask)!
-        miniaturizeButton = NSWindow.standardWindowButton(.MiniaturizeButton, forStyleMask: NSTitledWindowMask)!
-        zoomButton = NSWindow.standardWindowButton(.ZoomButton, forStyleMask: NSTitledWindowMask)!
         
         super.init(frame: frame)
         
@@ -41,13 +33,6 @@ class Main: View, NSSplitViewDelegate {
         self.messagePane.frame = columns.next(1)
         
         addSubview(split)
-        
-        closeButton.frame = CGRect(center: Point(12, 12), size: closeButton.frame.size)
-        miniaturizeButton.frame = CGRect(center: Point(32, 12), size: miniaturizeButton.frame.size)
-        zoomButton.frame = CGRect(center: Point(52, 12), size: zoomButton.frame.size)
-        addSubview(closeButton)
-        addSubview(miniaturizeButton)
-        addSubview(zoomButton)
         
         weak var weakSelf = self
         split.onResize = { weakSelf?.onSplitResize() }
