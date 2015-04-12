@@ -89,18 +89,22 @@ class Button: NSButton {
     
     override func mouseEntered(theEvent: NSEvent) {
         self.onMouseEnter?()
+        super.mouseEntered(theEvent)
     }
     
     override func mouseExited(theEvent: NSEvent) {
         self.onMouseExit?()
+        super.mouseExited(theEvent)
     }
     
     override func mouseDown(theEvent: NSEvent) {
         self.onMouseDown?()
+        super.mouseDown(theEvent)
     }
     
     override func mouseUp(theEvent: NSEvent) {
         self.onMouseUp?()
+        super.mouseUp(theEvent)
     }
     
 }

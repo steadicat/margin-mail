@@ -211,9 +211,9 @@
 				7B19756E1AD385E7002BB7A4 /* View.swift */,
 				7BB06FBC1AD62AF800C4701C /* TextField.swift */,
 				7BDA78001AD89A9C0080C0AA /* Button.swift */,
+				7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */,
 				7B951C761AD87B1400464CA2 /* Label.swift */,
 				7BB06FB81AD38BFB00C4701C /* SplitView.swift */,
-				7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */,
 				7B4DB7331AD364D200AEA6C8 /* Window.swift */,
 			);
 			name = Views;

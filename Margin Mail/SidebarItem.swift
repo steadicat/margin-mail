@@ -38,9 +38,12 @@ class SidebarItemView: View {
         icon = ImageView(frame: CGRectZero)
         
         super.init(frame: frame)
-        
+
         addSubview(button)
         addSubview(icon)
+        
+        weak var weakSelf = self
+        button.onMouseDown = { weakSelf?.onMouseDown?() }
     }
 
     required init?(coder: NSCoder) {
@@ -54,15 +57,6 @@ class SidebarItemView: View {
         
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
         let sideMargin = 16 + cground(20 * collapsingRatio)
-    
-        var anim = button.pop_animationForKey("alphaValue") as! POPSpringAnimation?
-        if anim == nil {
-            anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
-            anim!.springBounciness = 1
-            anim!.springSpeed = 1
-            button.pop_addAnimation(anim, forKey: "alphaValue")
-        }
-        anim!.toValue = self.bounds.width < 120 ? 0 : 1
         
         let columns = bounds.columns()
         columns.next(sideMargin)
@@ -81,6 +75,13 @@ class SidebarItemView: View {
 
         button.bordered = false
         button.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
+        
+        var anim = button.pop_animationForKey("alphaValue") as! POPSpringAnimation?
+        if anim == nil {
+            anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
+            button.pop_addAnimation(anim, forKey: "alphaValue")
+        }
+        anim!.toValue = self.bounds.width < 120 ? 0 : 1
         
         super.viewWillDraw()
     }
