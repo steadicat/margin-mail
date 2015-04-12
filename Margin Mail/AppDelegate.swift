@@ -33,7 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, MailboxMessageDelegate {
     func mailboxMessagesDidArrive(account: MailAccount, messages: [MailMessage]) {
         let resource: String! = NSBundle.mainBundle().pathForResource("new-mail", ofType: "wav")
         let sound: NSSound! = NSSound(contentsOfFile: resource, byReference: true)
-        sound.play()
+        
+        if messages.count > 1000000000 {
+            sound.play()
+        }
 
         println("arrived!")
         println(account)
