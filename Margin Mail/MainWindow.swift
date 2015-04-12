@@ -23,18 +23,12 @@ class MainWindow: Window {
             defer: true
         )
 
-        opaque = false
-        backgroundColor = NSColor.clearColor()
-        acceptsMouseMovedEvents = true
-        movableByWindowBackground = true
         setFrameAutosaveName("main")
         
+        // From: https://github.com/rsms/fb-mac-messenger/blob/master/Messenger/AppDelegate.mm
         appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
         titleVisibility = .Hidden
         titlebarAppearsTransparent = true
-        
-        // Hack to hide "traffic lights" but still allowing window manipulation (which isn't the case if we use proper window flags)
-        // From: https://github.com/rsms/fb-mac-messenger/blob/master/Messenger/AppDelegate.mm
         var titlebarView = self.standardWindowButton(.CloseButton)!.superview!
         titlebarView.wantsLayer = true
         

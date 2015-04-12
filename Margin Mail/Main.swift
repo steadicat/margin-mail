@@ -34,6 +34,8 @@ class Main: View, NSSplitViewDelegate {
         
         addSubview(split)
         
+        backgroundColor = Color.white()
+        
         weak var weakSelf = self
         split.onResize = { weakSelf?.onSplitResize() }
     }
@@ -49,12 +51,5 @@ class Main: View, NSSplitViewDelegate {
     
     func onSplitResize() {
     }
-    
-    override func drawRect(dirtyRect: NSRect) {
-        Color.white().set()
-        NSGraphicsContext.saveGraphicsState()
-        var path = NSBezierPath(roundedRect: self.bounds, xRadius: 8, yRadius: 8)
-        path.fill()
-        NSGraphicsContext.restoreGraphicsState()
-    }
+
 }
