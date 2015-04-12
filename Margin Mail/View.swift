@@ -38,8 +38,6 @@ class View: NSView {
         }
     }
     
-    lazy private var caLayer = CALayer()
-
     override var flipped: Bool {
         get {
             return true
@@ -50,8 +48,7 @@ class View: NSView {
     
         if let backgroundColor = self.backgroundColor {
             if !self.wantsLayer {
-                self.wantsLayer = true;
-                self.layer = self.caLayer
+                self.wantsLayer = true
                 self.layer?.delegate = self
             }
             self.layer!.backgroundColor = backgroundColor.CGColor;

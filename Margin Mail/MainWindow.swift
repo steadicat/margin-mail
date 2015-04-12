@@ -15,7 +15,7 @@ class MainWindow: Window {
     init() {
         let frame = NSMakeRect(0, 0, 1200, 800)
         main = Main(frame: frame)
-        
+
         super.init(
             contentRect: frame,
             styleMask: NSBorderlessWindowMask | NSResizableWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask,
@@ -25,6 +25,8 @@ class MainWindow: Window {
         
         opaque = false
         backgroundColor = NSColor.clearColor()
+        acceptsMouseMovedEvents = true
+        movableByWindowBackground = true
         
         contentView = main
     }
@@ -38,4 +40,9 @@ class MainWindow: Window {
         self.center()
     }
     
+    override func contentRectForFrameRect(frameRect: NSRect) -> NSRect {
+        let draggableAreaHeight = 24 as CGFloat
+        return NSMakeRect(frameRect.origin.x, frameRect.origin.y + draggableAreaHeight, frame.width, frame.height - draggableAreaHeight)
+    }
+
 }

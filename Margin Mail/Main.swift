@@ -50,7 +50,6 @@ class Main: View, NSSplitViewDelegate {
         addSubview(zoomButton)
 
         self.wantsLayer = true
-        self.layer = CALayer()
         self.layer!.delegate = self
         self.layer!.backgroundColor = Color.white().CGColor
         self.layer!.cornerRadius = 8

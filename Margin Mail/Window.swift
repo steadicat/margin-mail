@@ -16,4 +16,10 @@ class Window: NSWindow {
         }
     }
 
+    override var canBecomeMainWindow: Bool {
+        get {
+            return true
+        }
+    }
+    
 }
