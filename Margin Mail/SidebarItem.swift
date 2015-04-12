@@ -64,9 +64,9 @@ class SidebarItemView: View {
 
         let columns = bounds.columns()
         columns.next(sideMargin)
-        if image != nil {
+        if let image = self.image {
             self.icon.frame = columns.next(24)
-            self.icon.image = NSImage(named: "Inbox")?.tintedImageWithColor(textColor)
+            self.icon.image = image.tintedImageWithColor(textColor)
         } else {
             columns.next(24)
         }

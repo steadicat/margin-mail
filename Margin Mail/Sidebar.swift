@@ -49,7 +49,7 @@ class Sidebar: View {
         for (index, item) in enumerate(self.items) {
             item.frame = rows.next(36)
             item.isSelected = index == selectedLabel
-            item.image = NSImage(named: "Inbox")
+            item.image = NSImage(named: item.text)
         }
         
         super.viewWillDraw()
