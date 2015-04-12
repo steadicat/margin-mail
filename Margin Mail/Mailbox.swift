@@ -6,12 +6,29 @@
 //  Copyright (c) 2015 Stefano J. Attardi. All rights reserved.
 //
 
+
+protocol MailboxMessageDelegate {
+    func mailboxMessagesDidArrive(account: MailAccount, messages: [MailMessage])
+}
+
 class Mailbox {
 
-    var accounts: [MailAccount] = []
+    var messageDelegate: MailboxMessageDelegate?
 
-    func addAccount(account: MailAccount) {
-        self.accounts.append(account)
+    private var accounts: [MailAccount] = []
+
+    func addAccounts(accounts: MailAccount...) {
+        self.accounts.extend(accounts)
+    }
+
+    func listenForMessages() {
+        self.accounts.each(self.fetchMessagesForAccount)
+    }
+
+    private func fetchMessagesForAccount(account: MailAccount) {
+        account.fetch() { (messages: [MailMessage]) in
+            self.messageDelegate?.mailboxMessagesDidArrive(account, messages: messages)
+        }
     }
 
 }

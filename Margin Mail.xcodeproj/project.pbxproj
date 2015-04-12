@@ -38,6 +38,9 @@
 		ACDA71F21ADADB7100C4E34E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F11ADADB7100C4E34E /* Account.swift */; };
 		ACDA71F41ADADD5D00C4E34E /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F31ADADD5D00C4E34E /* Reader.swift */; };
 		ACDA71F61ADADD6600C4E34E /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F51ADADD6600C4E34E /* Writer.swift */; };
+		ACDA71FA1ADAE30800C4E34E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F91ADAE30800C4E34E /* Message.swift */; };
+		ACDA72041ADAE9CD00C4E34E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA72031ADAE9CD00C4E34E /* Array.swift */; };
+		ACDA72071ADB013E00C4E34E /* new-mail.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACDA72061ADB013E00C4E34E /* new-mail.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +181,9 @@
 		ACDA71F11ADADB7100C4E34E /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		ACDA71F31ADADD5D00C4E34E /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 		ACDA71F51ADADD6600C4E34E /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
+		ACDA71F91ADAE30800C4E34E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		ACDA72031ADAE9CD00C4E34E /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		ACDA72061ADB013E00C4E34E /* new-mail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "new-mail.wav"; path = "Sounds/new-mail.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +255,7 @@
 		7B4DB7031AD213BF00AEA6C8 /* Margin Mail */ = {
 			isa = PBXGroup;
 			children = (
+				ACDA72051ADB00DD00C4E34E /* Sounds */,
 				ACDA71EE1ADADA7C00C4E34E /* Mailbox */,
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
 				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
@@ -317,6 +324,7 @@
 			children = (
 				AC384F8A1AD9ACC300777259 /* CGRect.swift */,
 				7BDA78081AD8C4890080C0AA /* NSImage.swift */,
+				ACDA72031ADAE9CD00C4E34E /* Array.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -355,8 +363,17 @@
 				ACDA71F11ADADB7100C4E34E /* Account.swift */,
 				ACDA71F31ADADD5D00C4E34E /* Reader.swift */,
 				ACDA71F51ADADD6600C4E34E /* Writer.swift */,
+				ACDA71F91ADAE30800C4E34E /* Message.swift */,
 			);
 			name = Mailbox;
+			sourceTree = "<group>";
+		};
+		ACDA72051ADB00DD00C4E34E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				ACDA72061ADB013E00C4E34E /* new-mail.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +564,7 @@
 				7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */,
 				7BDA78071AD8C0450080C0AA /* MailIcon.icns in Resources */,
 				7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */,
+				ACDA72071ADB013E00C4E34E /* new-mail.wav in Resources */,
 				7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,9 +600,11 @@
 				7B4DB7071AD213BF00AEA6C8 /* AppDelegate.swift in Sources */,
 				7BB06FB91AD38BFB00C4701C /* SplitView.swift in Sources */,
 				7BDA78011AD89A9C0080C0AA /* Button.swift in Sources */,
+				ACDA71FA1ADAE30800C4E34E /* Message.swift in Sources */,
 				7BDA78091AD8C4890080C0AA /* NSImage.swift in Sources */,
 				7B1975701AD385E7002BB7A4 /* MessageList.swift in Sources */,
 				7B1975721AD385E7002BB7A4 /* Sidebar.swift in Sources */,
+				ACDA72041ADAE9CD00C4E34E /* Array.swift in Sources */,
 				7B4DB7241AD2151500AEA6C8 /* MainWindow.swift in Sources */,
 				7B951C771AD87B1400464CA2 /* Label.swift in Sources */,
 			);

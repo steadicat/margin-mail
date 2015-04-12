@@ -14,6 +14,11 @@ class MailAccount {
         self.reader = reader
         self.writer = writer
     }
+
+    func fetch(callback: [MailMessage] -> Void) {
+        self.reader.fetch(callback)
+    }
+
 }
 
 class GmailAccount: MailAccount {
