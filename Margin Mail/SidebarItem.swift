@@ -60,7 +60,7 @@ class SidebarItemView: View {
         let iconGap = 12 as CGFloat
         
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
-        let sideMargin = 20 + cground(16 * collapsingRatio)
+        let sideMargin = 20 + round(16 * collapsingRatio)
         
         let textColor = isSelected ? Color.accent() : Color.mediumGray()
 
@@ -73,7 +73,7 @@ class SidebarItemView: View {
             columns.next(24)
         }
         columns.next(iconGap)
-        button.frame = columns.next(1).round()
+        button.frame = columns.next(1).integerRect
         
         button.textColor = textColor
         

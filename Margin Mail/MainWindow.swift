@@ -41,6 +41,13 @@ class MainWindow: Window {
         self.center()
     }
     
+    override func contentRectForFrameRect(frameRect: CGRect) -> CGRect {
+        return CGRect(origin: CGPointZero, size: frameRect.size).rectByInsetting(dx: 24, dy: 24)
+    }
+
+    override func frameRectForContentRect(contentRect: CGRect) -> CGRect {
+        return contentRect.rectByInsetting(dx: -24, dy: -24)
+    }
 
 
 }
