@@ -44,6 +44,8 @@ class SidebarItemView: View {
         
         super.init(frame: frame)
 
+        label.opaque = true
+        
         addSubview(label)
         addSubview(icon)
     }
@@ -75,8 +77,9 @@ class SidebarItemView: View {
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
         
-        backgroundColor = isHovered ? NSColor(white: 0, alpha: 0.1) : NSColor.clearColor()
-
+        backgroundColor = isHovered ? NSColor(white: 0.23, alpha: 1) : Color.mediumGray()
+        
+        assert(label.opaque, "Label should be opaque for proper text rendering while animating")        
         self.fadeLabel(bounds.width > 120)
         
         super.viewWillDraw()
@@ -103,7 +106,9 @@ class SidebarItemView: View {
             layer!.pop_addAnimation(shift, forKey: "shift")
         }
         anim!.velocity = NSValue(size: CGSizeMake(-1.5, -1.5))
+        anim!.toValue = NSValue(size: CGSizeMake(1, 1))
         shift!.velocity = NSValue(size: CGSizeMake(frame.width / 3, frame.height / 3))
+        shift!.toValue = NSValue(size: CGSizeMake(0, 0))
     }
     
     override func mouseEntered(theEvent: NSEvent) {
