@@ -24,6 +24,10 @@ extension CGRect {
         return self.rectByOffsetting(dx: dx, dy: dy)
     }
     
+    func resize(width: CGFloat? = nil, height: CGFloat? = nil) -> CGRect {
+        return CGRectMake(self.origin.x, self.origin.y, width ?? self.width, height ?? self.height)
+    }
+    
     func rows() -> RowGenerator {
         return RowGenerator(frame: self)
     }

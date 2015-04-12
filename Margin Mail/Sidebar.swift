@@ -42,7 +42,7 @@ class Sidebar: View {
     override func viewWillDraw() {
         let rowHeight = 36 as CGFloat
         let topMargin = 36 as CGFloat
-        
+
         let inboxColor = self.selectedLabel == 0 ? Color.accent() : Color.mediumGray()
         let inboxIcon = NSImage(named: "Inbox")?.tintedImageWithColor(inboxColor)
         

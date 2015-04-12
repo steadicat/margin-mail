@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Main: View {
+class Main: View, NSSplitViewDelegate {
     
     private var split: SplitView
     private var sidebar: Sidebar
@@ -16,7 +16,7 @@ class Main: View {
     private var messagePane: View
 
     override init(frame: CGRect) {
-        split = SplitView(frame: frame, maximumSizes: [0: 216])
+        split = SplitView(frame: frame, minimumSizes: [0: 56], maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
@@ -33,6 +33,9 @@ class Main: View {
         self.messagePane.frame = columns.next(1)
         
         self.addSubview(split)
+        
+        weak var weakSelf = self
+        split.onResize = { weakSelf?.onSplitResize() }
     }
 
     required init?(coder: NSCoder) {
@@ -44,4 +47,6 @@ class Main: View {
         super.viewWillDraw()
     }
     
+    func onSplitResize() {
+    }
 }

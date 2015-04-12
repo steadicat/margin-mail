@@ -20,9 +20,11 @@ class SidebarItemView: Button {
     }
     
     override func viewWillDraw() {
-        let collapsingRatio = self.bounds.width / 216
+        let collapsedWidth: CGFloat = 56
+        let maximumWidth: CGFloat = 216
+        let collapsingRatio = (self.bounds.width - collapsedWidth) / (maximumWidth - collapsedWidth)
         
-        let sideMargin = self.sideMargin + (36 * collapsingRatio)
+        let sideMargin = self.sideMargin + 18 + (18 * collapsingRatio)
 
         textColor = isSelected ? Color.accent() : Color.mediumGray()
         textColor = textColor?.colorWithAlphaComponent(collapsingRatio)

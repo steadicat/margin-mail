@@ -10,9 +10,12 @@ import Cocoa
 
 class SplitView: NSSplitView, NSSplitViewDelegate {
     
+    var minimumSizes: [Int: CGFloat]
     var maximumSizes: [Int: CGFloat]
+    var onResize: (() -> ())?
     
-    init(frame: CGRect, maximumSizes: [Int: CGFloat] = [:]) {
+    init(frame: CGRect, minimumSizes: [Int: CGFloat] = [:], maximumSizes: [Int: CGFloat] = [:]) {
+        self.minimumSizes = minimumSizes
         self.maximumSizes = maximumSizes
         super.init(frame: frame)
     }
@@ -33,4 +36,13 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
     func splitView(splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         return self.maximumSizes[dividerIndex] ?? proposedMaximumPosition
     }
+    
+    func splitView(splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        return self.minimumSizes[dividerIndex] ?? proposedMinimumPosition
+    }
+    
+    func splitViewDidResizeSubviews(notification: NSNotification) {
+        self.onResize?()
+    }
+    
 }
