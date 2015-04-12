@@ -11,4 +11,6 @@
 
 #import <MailCore/MailCore.h>
 
+#import <POP/POP.h>
+
 #endif

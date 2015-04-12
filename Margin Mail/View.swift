@@ -16,6 +16,27 @@ class View: NSView {
         }
     }
     
+    var onMouseDown: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseUp: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseEnter: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseExit: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    
     lazy private var caLayer = CALayer()
 
     override var flipped: Bool {
@@ -40,5 +61,35 @@ class View: NSView {
         super.viewWillDraw()
 
     }
+    
+    private var focusTrackingArea: NSTrackingArea?
+    
+    private func createTrackingArea() {
+        if focusTrackingArea != nil {
+            return
+        }
+        
+        var focusTrackingAreaOptions = NSTrackingAreaOptions.ActiveInActiveApp | NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.AssumeInside | NSTrackingAreaOptions.InVisibleRect;
+        
+        focusTrackingArea = NSTrackingArea(rect: NSZeroRect, options: focusTrackingAreaOptions, owner: self, userInfo: nil)
+        self.addTrackingArea(focusTrackingArea!)
+    }
+    
+    override func mouseEntered(theEvent: NSEvent) {
+        self.onMouseEnter?()
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        self.onMouseExit?()
+    }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        self.onMouseDown?()
+    }
+    
+    override func mouseUp(theEvent: NSEvent) {
+        self.onMouseUp?()
+    }
+    
     
 }

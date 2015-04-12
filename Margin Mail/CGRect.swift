@@ -8,6 +8,10 @@
 
 import Cocoa
 
+func cground(float: CGFloat) -> CGFloat {
+    return CGFloat(Int(float + 0.5))
+}
+
 extension CGRect {
 
     var center: CGPoint {
@@ -28,6 +32,10 @@ extension CGRect {
         return CGRectMake(self.origin.x, self.origin.y, width ?? self.width, height ?? self.height)
     }
     
+    func round() -> CGRect {
+        return CGRectMake(cground(self.origin.x), cground(self.origin.y), cground(self.width), cground(self.height))
+    }
+    
     func rows() -> RowGenerator {
         return RowGenerator(frame: self)
     }
@@ -35,6 +43,7 @@ extension CGRect {
     func columns() -> ColumnGenerator {
         return ColumnGenerator(frame: self)
     }
+    
 }
 
 

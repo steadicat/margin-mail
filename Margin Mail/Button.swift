@@ -8,12 +8,6 @@
 
 import Cocoa
 
-protocol ButtonDelegate: class {
-    func mouseEntered(theEvent: NSEvent)
-    func mouseExited(theEvent: NSEvent)
-    func mouseDown(theEvent: NSEvent)
-    func mouseUp(theEvent: NSEvent)
-}
 
 class Button: NSButton {
     
@@ -22,18 +16,31 @@ class Button: NSButton {
     var backgroundColor: NSColor?
     var gap: CGFloat = 12
     var leftMargin: CGFloat = 0
-    
-    weak var delegate: ButtonDelegate?
-    
-    var onMouseDown: (() -> ())?
-    var onMouseUp: (() -> ())?
-    var onMouseEnter: (() -> ())?
-    var onMouseExit: (() -> ())?
+
+    var onMouseDown: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseUp: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseEnter: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
+    var onMouseExit: (() -> ())? {
+        didSet {
+            self.createTrackingArea()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setCell(ButtonCell())
-        self.createTrackingArea()
     }
 
     required init?(coder: NSCoder) {
@@ -67,30 +74,32 @@ class Button: NSButton {
         super.viewWillDraw()
     }
     
+    private var focusTrackingArea: NSTrackingArea?
+    
     private func createTrackingArea() {
+        if focusTrackingArea != nil {
+            return
+        }
+        
         var focusTrackingAreaOptions = NSTrackingAreaOptions.ActiveInActiveApp | NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.AssumeInside | NSTrackingAreaOptions.InVisibleRect;
         
-        var focusTrackingArea = NSTrackingArea(rect: NSZeroRect, options: focusTrackingAreaOptions, owner: self, userInfo: nil)
-        self.addTrackingArea(focusTrackingArea)
+        focusTrackingArea = NSTrackingArea(rect: NSZeroRect, options: focusTrackingAreaOptions, owner: self, userInfo: nil)
+        self.addTrackingArea(focusTrackingArea!)
     }
     
     override func mouseEntered(theEvent: NSEvent) {
-        self.delegate?.mouseEntered(theEvent)
         self.onMouseEnter?()
     }
     
     override func mouseExited(theEvent: NSEvent) {
-        self.delegate?.mouseExited(theEvent)
         self.onMouseExit?()
     }
     
     override func mouseDown(theEvent: NSEvent) {
-        self.delegate?.mouseDown(theEvent)
         self.onMouseDown?()
     }
     
     override func mouseUp(theEvent: NSEvent) {
-        self.delegate?.mouseUp(theEvent)
         self.onMouseUp?()
     }
     

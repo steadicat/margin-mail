@@ -22,9 +22,9 @@ class Sidebar: View {
     
     override init(frame frameRect: CGRect) {
         self.items = labels.map { (index, text) in
-            var button = SidebarItemView(frame: CGRectZero)
-            button.text = text
-            return button
+            var item = SidebarItemView(frame: CGRectZero)
+            item.text = text
+            return item
         }
 
         super.init(frame: frameRect)
@@ -53,7 +53,6 @@ class Sidebar: View {
             item.frame = rows.next(36)
             item.isSelected = index == selectedLabel
             item.image = index == 0 ? inboxIcon : nil
-            item.sideMargin = (item.image == nil ? 32 : 0)
         }
         
         super.viewWillDraw()
