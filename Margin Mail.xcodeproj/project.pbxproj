@@ -400,7 +400,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = "Stefano J. Attardi";
+				ORGANIZATIONNAME = "Margin Labs";
 				TargetAttributes = {
 					7B4DB7001AD213BF00AEA6C8 = {
 						CreatedOnToolsVersion = 6.3;
