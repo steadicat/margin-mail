@@ -48,11 +48,6 @@ class Main: View, NSSplitViewDelegate {
         addSubview(closeButton)
         addSubview(miniaturizeButton)
         addSubview(zoomButton)
-
-        self.wantsLayer = true
-        self.layer!.delegate = self
-        self.layer!.backgroundColor = Color.white().CGColor
-        self.layer!.cornerRadius = 8
         
         weak var weakSelf = self
         split.onResize = { weakSelf?.onSplitResize() }
@@ -68,5 +63,13 @@ class Main: View, NSSplitViewDelegate {
     }
     
     func onSplitResize() {
+    }
+    
+    override func drawRect(dirtyRect: NSRect) {
+        Color.white().set()
+        NSGraphicsContext.saveGraphicsState()
+        var path = NSBezierPath(roundedRect: self.bounds, xRadius: 8, yRadius: 8)
+        path.fill()
+        NSGraphicsContext.restoreGraphicsState()
     }
 }

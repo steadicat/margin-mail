@@ -13,7 +13,6 @@ class SidebarItemView: View {
     var isSelected: Bool = false {
         didSet {
             self.needsDisplay = true
-            self.layer?.needsDisplay()
         }
     }
     
@@ -32,7 +31,6 @@ class SidebarItemView: View {
     private var isHovered: Bool = false {
         didSet {
             self.needsDisplay = true
-            self.layer?.needsDisplay()
         }
     }
     

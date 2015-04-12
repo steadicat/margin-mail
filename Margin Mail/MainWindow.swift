@@ -22,7 +22,7 @@ class MainWindow: Window {
             backing: .Buffered,
             defer: true
         )
-        
+
         opaque = false
         backgroundColor = NSColor.clearColor()
         acceptsMouseMovedEvents = true
@@ -37,12 +37,10 @@ class MainWindow: Window {
     
     func show(sender: AnyObject?) {
         self.makeKeyAndOrderFront(sender)
+        self.makeMainWindow()
         self.center()
     }
     
-    override func contentRectForFrameRect(frameRect: NSRect) -> NSRect {
-        let draggableAreaHeight = 24 as CGFloat
-        return NSMakeRect(frameRect.origin.x, frameRect.origin.y + draggableAreaHeight, frame.width, frame.height - draggableAreaHeight)
-    }
+
 
 }

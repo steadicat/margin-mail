@@ -13,7 +13,6 @@ class View: NSView {
     var backgroundColor: NSColor? {
         didSet {
             self.needsDisplay = true
-            self.layer?.needsDisplay()
         }
     }
     
@@ -47,10 +46,7 @@ class View: NSView {
     override func viewWillDraw() {
     
         if let backgroundColor = self.backgroundColor {
-            if !self.wantsLayer {
-                self.wantsLayer = true
-                self.layer?.delegate = self
-            }
+            self.wantsLayer = true
             self.layer!.backgroundColor = backgroundColor.CGColor;
         }
         
