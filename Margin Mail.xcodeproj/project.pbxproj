@@ -211,6 +211,7 @@
 				7B19756E1AD385E7002BB7A4 /* View.swift */,
 				7BB06FBC1AD62AF800C4701C /* TextField.swift */,
 				7BDA78001AD89A9C0080C0AA /* Button.swift */,
+				7B951C761AD87B1400464CA2 /* Label.swift */,
 				7BB06FB81AD38BFB00C4701C /* SplitView.swift */,
 				7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */,
 				7B4DB7331AD364D200AEA6C8 /* Window.swift */,
@@ -245,7 +246,6 @@
 				7B858BE21AD9AA5C00FCFF56 /* Color.swift */,
 				AC384F8E1AD9B3B600777259 /* Geometry.swift */,
 				7B1975741AD385F2002BB7A4 /* Components */,
-				7B858BE11AD9A9CE00FCFF56 /* UI */,
 				7B1975751AD385F8002BB7A4 /* Views */,
 				7BDA780A1AD8D0250080C0AA /* Extensions */,
 				7B951C7C1AD883E900464CA2 /* Fonts */,
@@ -280,14 +280,6 @@
 				7B4DB7161AD213BF00AEA6C8 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7B858BE11AD9A9CE00FCFF56 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				7B951C761AD87B1400464CA2 /* Label.swift */,
-			);
-			name = UI;
 			sourceTree = "<group>";
 		};
 		7B951C7C1AD883E900464CA2 /* Fonts */ = {
