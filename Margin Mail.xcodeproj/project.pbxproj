@@ -34,6 +34,10 @@
 		AC384F8F1AD9B3B600777259 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC384F8E1AD9B3B600777259 /* Geometry.swift */; };
 		ACDA71C91ADA22B300C4E34E /* libMailCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA71BA1ADA227900C4E34E /* libMailCore.a */; };
 		ACDA71CB1ADA22C000C4E34E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA71CA1ADA22C000C4E34E /* Security.framework */; };
+		ACDA71F01ADADB5C00C4E34E /* Mailbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71EF1ADADB5C00C4E34E /* Mailbox.swift */; };
+		ACDA71F21ADADB7100C4E34E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F11ADADB7100C4E34E /* Account.swift */; };
+		ACDA71F41ADADD5D00C4E34E /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F31ADADD5D00C4E34E /* Reader.swift */; };
+		ACDA71F61ADADD6600C4E34E /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F51ADADD6600C4E34E /* Writer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +174,10 @@
 		ACDA71861ADA1D3000C4E34E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		ACDA71AE1ADA227900C4E34E /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "Vendor/MailCore2/build-mac/mailcore2.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		ACDA71CA1ADA22C000C4E34E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		ACDA71EF1ADADB5C00C4E34E /* Mailbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mailbox.swift; sourceTree = "<group>"; };
+		ACDA71F11ADADB7100C4E34E /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		ACDA71F31ADADD5D00C4E34E /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
+		ACDA71F51ADADD6600C4E34E /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +249,7 @@
 		7B4DB7031AD213BF00AEA6C8 /* Margin Mail */ = {
 			isa = PBXGroup;
 			children = (
+				ACDA71EE1ADADA7C00C4E34E /* Mailbox */,
 				7B4DB7061AD213BF00AEA6C8 /* AppDelegate.swift */,
 				7B4DB7231AD2151500AEA6C8 /* MainWindow.swift */,
 				7B858BE21AD9AA5C00FCFF56 /* Color.swift */,
@@ -337,6 +346,17 @@
 				ACDA71C81ADA227900C4E34E /* unittestcpp */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ACDA71EE1ADADA7C00C4E34E /* Mailbox */ = {
+			isa = PBXGroup;
+			children = (
+				ACDA71EF1ADADB5C00C4E34E /* Mailbox.swift */,
+				ACDA71F11ADADB7100C4E34E /* Account.swift */,
+				ACDA71F31ADADD5D00C4E34E /* Reader.swift */,
+				ACDA71F51ADADD6600C4E34E /* Writer.swift */,
+			);
+			name = Mailbox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,13 +565,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDA71F41ADADD5D00C4E34E /* Reader.swift in Sources */,
 				7B1975731AD385E7002BB7A4 /* View.swift in Sources */,
 				7B858BE31AD9AA5C00FCFF56 /* Color.swift in Sources */,
+				ACDA71F01ADADB5C00C4E34E /* Mailbox.swift in Sources */,
 				7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */,
 				7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */,
+				ACDA71F21ADADB7100C4E34E /* Account.swift in Sources */,
 				7B4DB7341AD364D200AEA6C8 /* Window.swift in Sources */,
 				AC384F8B1AD9ACC300777259 /* CGRect.swift in Sources */,
 				7BD1E8FE1ADA295E002A5C79 /* ImageView.swift in Sources */,
+				ACDA71F61ADADD6600C4E34E /* Writer.swift in Sources */,
 				AC384F8F1AD9B3B600777259 /* Geometry.swift in Sources */,
 				7B1975711AD385E7002BB7A4 /* Main.swift in Sources */,
 				7BB06FBD1AD62AF800C4701C /* TextField.swift in Sources */,

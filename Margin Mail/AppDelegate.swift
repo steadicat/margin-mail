@@ -11,11 +11,18 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var mainWindow: MainWindow?
+    var mainWindow: MainWindow!
+    var mailbox: Mailbox!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        mailbox = Mailbox()
+        mailbox.addAccount(GmailAccount(
+            username: "alan@artnez.com",
+            password: "entscheidungsproblem"
+        ))
+
         mainWindow = MainWindow()
-        mainWindow!.show(self)
+        mainWindow.show(self)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -23,4 +30,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
 }
-
