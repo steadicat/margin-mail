@@ -25,10 +25,10 @@ class Color {
     }
     
     static func mediumGray() -> NSColor {
-        return NSColor(white: 0.3, alpha: 1)
+        return NSColor(white: 0.25, alpha: 1)
     }
     
     static func lightGray() -> NSColor {
-        return NSColor(white: 0.6, alpha: 1)
+        return NSColor(white: 0.75, alpha: 1)
     }
 }

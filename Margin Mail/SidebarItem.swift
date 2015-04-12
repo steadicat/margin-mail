@@ -65,17 +65,17 @@ class SidebarItemView: View {
         let columns = bounds.columns()
         columns.next(sideMargin)
         if let image = self.image {
-            self.icon.frame = columns.next(24)
+            self.icon.frame = columns.next(24).integerRect
             self.icon.image = image.tintedImageWithColor(textColor)
         } else {
             columns.next(24)
         }
         columns.next(iconGap)
-        label.frame = columns.next(1).integerRect.offset(dy: 5)
+        label.frame = columns.next(1).integerRect.offset(dx: isSelected ? -1 : 0, dy: 5)
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
         
-        backgroundColor = isHovered ? NSColor(white: 0, alpha: 0.02) : NSColor.clearColor()
+        backgroundColor = isHovered ? NSColor(white: 0, alpha: 0.1) : NSColor.clearColor()
 
         var anim = label.pop_animationForKey("alphaValue") as! POPSpringAnimation?
         if anim == nil {
