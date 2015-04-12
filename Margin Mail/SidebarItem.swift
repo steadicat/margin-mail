@@ -77,14 +77,33 @@ class SidebarItemView: View {
         
         backgroundColor = isHovered ? NSColor(white: 0, alpha: 0.1) : NSColor.clearColor()
 
-        var anim = label.pop_animationForKey("alphaValue") as! POPSpringAnimation?
-        if anim == nil {
-            anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
-            label.pop_addAnimation(anim, forKey: "alphaValue")
-        }
-        anim!.toValue = self.bounds.width < 120 ? 0 : 1
+        self.fadeLabel(bounds.width > 120)
         
         super.viewWillDraw()
+    }
+    
+    func fadeLabel(visible: Bool) {
+        var anim = label.pop_animationForKey("fade") as! POPSpringAnimation?
+        if anim == nil {
+            anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
+            label.pop_addAnimation(anim, forKey: "fade")
+        }
+        anim!.toValue = visible ? 1 : 0
+    }
+    
+    func popOnClick() {
+        assert(wantsLayer, "Needs a layer to animate")
+        var anim = label.pop_animationForKey("scaleXY") as! POPSpringAnimation?
+        var shift: POPSpringAnimation?
+        if anim == nil {
+            anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+            layer!.pop_addAnimation(anim, forKey: "scaleXY")
+            
+            shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+            layer!.pop_addAnimation(shift, forKey: "shift")
+        }
+        anim!.velocity = NSValue(size: CGSizeMake(-1.5, -1.5))
+        shift!.velocity = NSValue(size: CGSizeMake(frame.width / 3, frame.height / 3))
     }
     
     override func mouseEntered(theEvent: NSEvent) {
@@ -95,6 +114,11 @@ class SidebarItemView: View {
     override func mouseExited(theEvent: NSEvent) {
         self.isHovered = false
         super.mouseExited(theEvent)
+    }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        popOnClick()
+        super.mouseDown(theEvent)
     }
     
 }
