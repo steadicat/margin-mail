@@ -8,7 +8,7 @@
 
 import Cocoa
 
-let accentHue: CGFloat = 0.56
+let accentHue: CGFloat = 0.54
 
 class Color {
     
@@ -17,7 +17,7 @@ class Color {
     }
     
     static func accent() -> NSColor {
-        return NSColor(hue: accentHue, saturation: 1, brightness: 1, alpha: 1)
+        return NSColor(hue: accentHue, saturation: 0.95, brightness: 1, alpha: 1)
     }
     
     static func accent(lightness: CGFloat) -> NSColor {

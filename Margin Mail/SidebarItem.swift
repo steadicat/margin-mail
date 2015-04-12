@@ -53,12 +53,12 @@ class SidebarItemView: View {
     }
     
     override func viewWillDraw() {
-        let collapsedWidth = 62 as CGFloat
+        let collapsedWidth = 66 as CGFloat
         let maximumWidth = 216 as CGFloat
         let iconGap = 12 as CGFloat
         
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
-        let sideMargin = 20 + round(16 * collapsingRatio)
+        let sideMargin = 22 + round(14 * collapsingRatio)
         
         let textColor = isSelected ? Color.accent() : Color.mediumGray()
 

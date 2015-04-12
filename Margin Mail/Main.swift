@@ -17,7 +17,7 @@ class Main: NSVisualEffectView, NSSplitViewDelegate {
 
     override init(frame: CGRect) {
 
-        split = SplitView(frame: frame, minimumSizes: [0: 62], maximumSizes: [0: 216])
+        split = SplitView(frame: frame, minimumSizes: [0: 66], maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
