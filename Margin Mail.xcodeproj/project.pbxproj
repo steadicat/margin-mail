@@ -40,7 +40,6 @@
 		ACDA71F61ADADD6600C4E34E /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F51ADADD6600C4E34E /* Writer.swift */; };
 		ACDA71FA1ADAE30800C4E34E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA71F91ADAE30800C4E34E /* Message.swift */; };
 		ACDA72041ADAE9CD00C4E34E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA72031ADAE9CD00C4E34E /* Array.swift */; };
-		ACDA72071ADB013E00C4E34E /* new-mail.wav in Resources */ = {isa = PBXBuildFile; fileRef = ACDA72061ADB013E00C4E34E /* new-mail.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,7 +182,6 @@
 		ACDA71F51ADADD6600C4E34E /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		ACDA71F91ADAE30800C4E34E /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ACDA72031ADAE9CD00C4E34E /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		ACDA72061ADB013E00C4E34E /* new-mail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "new-mail.wav"; path = "Sounds/new-mail.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,7 +262,6 @@
 				ACDA71EE1ADADA7C00C4E34E /* Mailbox */,
 				7BDA780A1AD8D0250080C0AA /* Extensions */,
 				7B951C7C1AD883E900464CA2 /* Fonts */,
-				ACDA72051ADB00DD00C4E34E /* Sounds */,
 				7B4DB7081AD213BF00AEA6C8 /* Images.xcassets */,
 				7BDA78061AD8C0450080C0AA /* MailIcon.icns */,
 				7B4DB70A1AD213BF00AEA6C8 /* MainMenu.xib */,
@@ -366,14 +363,6 @@
 				ACDA71F91ADAE30800C4E34E /* Message.swift */,
 			);
 			name = Mailbox;
-			sourceTree = "<group>";
-		};
-		ACDA72051ADB00DD00C4E34E /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				ACDA72061ADB013E00C4E34E /* new-mail.wav */,
-			);
-			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,7 +553,6 @@
 				7B951C7B1AD883DD00464CA2 /* OpenSans-Semibold.ttf in Resources */,
 				7BDA78071AD8C0450080C0AA /* MailIcon.icns in Resources */,
 				7B4DB7091AD213BF00AEA6C8 /* Images.xcassets in Resources */,
-				ACDA72071ADB013E00C4E34E /* new-mail.wav in Resources */,
 				7B4DB70C1AD213BF00AEA6C8 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
