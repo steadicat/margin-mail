@@ -24,6 +24,17 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var _opaque: Bool = true
+    
+    override var opaque: Bool {
+        get {
+            return _opaque
+        }
+        set(value) {
+            _opaque = value
+        }
+    }
+    
     override func viewWillDraw() {
         self.delegate = self
         

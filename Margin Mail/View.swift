@@ -43,6 +43,17 @@ class View: NSView {
         }
     }
     
+    private var _opaque: Bool = true
+    
+    override var opaque: Bool {
+        get {
+            return _opaque
+        }
+        set(value) {
+            _opaque = value
+        }
+    }
+    
     override func viewWillDraw() {
     
         if let backgroundColor = self.backgroundColor {

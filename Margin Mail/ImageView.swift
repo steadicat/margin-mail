@@ -10,4 +10,15 @@ import Cocoa
 
 class ImageView: NSImageView {
     
+    private var _opaque: Bool = true
+    
+    override var opaque: Bool {
+        get {
+            return _opaque
+        }
+        set(value) {
+            _opaque = value
+        }
+    }
+    
 }

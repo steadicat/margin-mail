@@ -79,7 +79,7 @@ class SidebarItemView: View {
         
         backgroundColor = isHovered ? NSColor(white: 0.23, alpha: 1) : Color.mediumGray()
         
-        assert(label.opaque, "Label should be opaque for proper text rendering while animating")        
+        assert(label.opaque, "Label should be opaque for proper text rendering while animating")
         self.fadeLabel(bounds.width > 120)
         
         super.viewWillDraw()
@@ -105,9 +105,9 @@ class SidebarItemView: View {
             shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
             layer!.pop_addAnimation(shift, forKey: "shift")
         }
-        anim!.velocity = NSValue(size: CGSizeMake(-1.5, -1.5))
+        anim!.velocity = NSValue(size: CGSizeMake(-2, -2))
         anim!.toValue = NSValue(size: CGSizeMake(1, 1))
-        shift!.velocity = NSValue(size: CGSizeMake(frame.width / 3, frame.height / 3))
+        shift!.velocity = NSValue(size: CGSizeMake(80, 20))
         shift!.toValue = NSValue(size: CGSizeMake(0, 0))
     }
     

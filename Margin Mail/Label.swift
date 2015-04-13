@@ -10,8 +10,6 @@ import Cocoa
 
 class Label: TextField {
     
-    private var _opaque: Bool = false
-    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         bordered = false
@@ -28,6 +26,8 @@ class Label: TextField {
     override func viewWillDraw() {
         super.viewWillDraw()
     }
+    
+    private var _opaque: Bool = true
     
     override var opaque: Bool {
         get {
