@@ -12,7 +12,9 @@ let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Sta
 
 class Sidebar: View {
 
+    var compose: SidebarItemView
     var items: [SidebarItemView]
+    var settings: SidebarItemView
 
     private var selectedLabel = 0 {
         didSet {
@@ -21,18 +23,31 @@ class Sidebar: View {
     }
     
     override init(frame frameRect: CGRect) {
-        self.items = labels.map { (index, text) in
+        compose = SidebarItemView(frame: CGRectZero)
+        compose.text = "Compose"
+        compose.image = NSImage(named: "Compose")
+        
+        items = labels.map { (index, text) in
             var item = SidebarItemView(frame: CGRectZero)
             item.text = text
+            item.image = NSImage(named: item.text)
             return item
         }
+        
+        settings = SidebarItemView(frame: CGRectZero)
+        settings.text = "Settings"
+        settings.image = NSImage(named: "Settings")
 
         super.init(frame: frameRect)
     
+        compose.onMouseDown = { self.selectedLabel = -1 }
+        addSubview(compose)
         for (index, item) in enumerate(self.items) {
             item.onMouseDown = { self.selectedLabel = index }
-            self.addSubview(item)
+            addSubview(item)
         }
+        settings.onMouseDown = { self.selectedLabel = -2 }
+        addSubview(settings)
     }
 
     required init?(coder: NSCoder) {
@@ -43,16 +58,23 @@ class Sidebar: View {
         let rowHeight = 36 as CGFloat
         let topMargin = 36 as CGFloat
         
-        backgroundColor = Color.mediumGray()
+        backgroundColor = Color.darkGray()
         
         var column = bounds.rectByInsetting(dx: 0, dy: 36)
         var rows = column.rows()
         
+        compose.frame = rows.next(36)
+        compose.isSelected = selectedLabel == -1
+        
+        rows.next(18)
+        
         for (index, item) in enumerate(self.items) {
             item.frame = rows.next(36)
-            item.isSelected = index == selectedLabel
-            item.image = NSImage(named: item.text)
+            item.isSelected = selectedLabel == index
         }
+        
+        settings.frame = CGRectMake(0, bounds.height, bounds.width, 36).offset(dy: -36 - 18)
+        settings.isSelected = selectedLabel == -2
         
         super.viewWillDraw()
     }

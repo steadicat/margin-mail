@@ -24,11 +24,15 @@ class Color {
         return NSColor(hue: accentHue + lightness / 100, saturation: 1 - lightness, brightness: 1, alpha: 1)
     }
     
-    static func mediumGray() -> NSColor {
+    static func darkGray() -> NSColor {
         return NSColor(white: 0.25, alpha: 1)
     }
     
-    static func lightGray() -> NSColor {
+    static func mediumGray() -> NSColor {
         return NSColor(white: 0.75, alpha: 1)
+    }
+    
+    static func lightGray() -> NSColor {
+        return NSColor(white: 0.9, alpha: 1)
     }
 }
