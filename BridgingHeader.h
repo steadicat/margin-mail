@@ -9,8 +9,6 @@
 #ifndef Margin_Mail_Margin_Mail_Bridging_Header_h
 #define Margin_Mail_Margin_Mail_Bridging_Header_h
 
-#import <MailCore/MailCore.h>
-
 #import <POP/POP.h>
 
 #endif

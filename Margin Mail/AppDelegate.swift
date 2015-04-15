@@ -9,31 +9,16 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, MailboxMessageDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var mainWindow: MainWindow!
-    var mailbox: Mailbox!
+    var mainWindow: MainWindow?
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let alan = GmailAccount(username: "alan@artnez.com", password: "entscheidungsproblem")
-
-        mailbox = Mailbox()
-        mailbox.addAccounts(alan)
-        mailbox.messageDelegate = self
-
         mainWindow = MainWindow()
-        mainWindow.show(self)
-
-        mailbox.listenForMessages()
+        mainWindow!.show(self)
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {
-    }
-
-    func mailboxMessagesDidArrive(account: MailAccount, messages: [MailMessage]) {
-        println("arrived!")
-        println(account)
-        println(messages)
     }
 
 }
