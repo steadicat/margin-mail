@@ -110,7 +110,7 @@
 		7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 		AC384F8A1AD9ACC300777259 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		AC384F8E1AD9B3B600777259 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
-		ACDA71861ADA1D3000C4E34E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = SOURCE_ROOT; };
+		ACA8A04C1ADEF5DF0048C2A4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Vendor/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		ACDA72031ADAE9CD00C4E34E /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,7 +256,7 @@
 		ACDA71A91ADA223100C4E34E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				ACDA71861ADA1D3000C4E34E /* BridgingHeader.h */,
+				ACA8A04C1ADEF5DF0048C2A4 /* BridgingHeader.h */,
 				7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */,
 			);
 			name = Vendor;
@@ -556,7 +556,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Vendor/BridgingHeader.h;
 				USER_HEADER_SEARCH_PATHS = "Vendor/**";
 			};
 			name = Debug;
@@ -576,7 +576,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Vendor/BridgingHeader.h;
 				USER_HEADER_SEARCH_PATHS = "Vendor/**";
 			};
 			name = Release;
