@@ -29,7 +29,9 @@
 		7BDA78091AD8C4890080C0AA /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA78081AD8C4890080C0AA /* NSImage.swift */; };
 		7BDA780C1AD8D0600080C0AA /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */; };
 		7BDA78101AD990EF0080C0AA /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */; };
-		AC2D4B041ADF129F00FB76EB /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D4AFD1ADF128B00FB76EB /* pop.framework */; };
+		AC2D4B321ADF134400FB76EB /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D4B2B1ADF133B00FB76EB /* pop.framework */; };
+		AC2D4B351ADF138E00FB76EB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D4B341ADF138E00FB76EB /* Security.framework */; };
+		AC2D4B3D1ADF14FE00FB76EB /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D4B191ADF131000FB76EB /* MailCore.framework */; };
 		AC384F8B1AD9ACC300777259 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC384F8A1AD9ACC300777259 /* CGRect.swift */; };
 		AC384F8F1AD9B3B600777259 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC384F8E1AD9B3B600777259 /* Geometry.swift */; };
 		ACDA72041ADAE9CD00C4E34E /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDA72031ADAE9CD00C4E34E /* Array.swift */; };
@@ -43,37 +45,93 @@
 			remoteGlobalIDString = 7B4DB7001AD213BF00AEA6C8;
 			remoteInfo = "Margin Mail";
 		};
-		AC2D4AFA1ADF128B00FB76EB /* PBXContainerItemProxy */ = {
+		AC2D4B101ADF131000FB76EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA537169E772200778456;
+			remoteInfo = "static mailcore2 osx";
+		};
+		AC2D4B121ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
+			remoteInfo = "static mailcore2 ios";
+		};
+		AC2D4B141ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA78C169F259200778456;
+			remoteInfo = tests;
+		};
+		AC2D4B161ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6A81B911706840C00882C15;
+			remoteInfo = "test-ios";
+		};
+		AC2D4B181ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
+			remoteInfo = "mailcore osx";
+		};
+		AC2D4B1A1ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27780C3A19CF9CD100C77E44;
+			remoteInfo = "mailcore ios";
+		};
+		AC2D4B1C1ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6B5AE0219F630B3001352A6;
+			remoteInfo = unittest;
+		};
+		AC2D4B1E1ADF131000FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C600B6141A242C3F000728F1;
+			remoteInfo = unittestcpp;
+		};
+		AC2D4B281ADF133B00FB76EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC191218162FB53A00E0CC76;
 			remoteInfo = pop;
 		};
-		AC2D4AFC1ADF128B00FB76EB /* PBXContainerItemProxy */ = {
+		AC2D4B2A1ADF133B00FB76EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+			containerPortal = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC68857F18C7B60000C6194C;
 			remoteInfo = "pop-osx";
 		};
-		AC2D4AFE1ADF128B00FB76EB /* PBXContainerItemProxy */ = {
+		AC2D4B2C1ADF133B00FB76EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+			containerPortal = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 0B6BE74819FFD3B900762101;
 			remoteInfo = "pop-embedded";
 		};
-		AC2D4B001ADF128B00FB76EB /* PBXContainerItemProxy */ = {
+		AC2D4B2E1ADF133B00FB76EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+			containerPortal = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = ECF01ED318C92B7F009E0AD1;
 			remoteInfo = "pop-tests";
 		};
-		AC2D4B021ADF128B00FB76EB /* PBXContainerItemProxy */ = {
+		AC2D4B301ADF133B00FB76EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+			containerPortal = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EC7E319918C93D6500B38170;
 			remoteInfo = "pop-tests-osx";
@@ -101,13 +159,15 @@
 		7B951C791AD883DD00464CA2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		7BB06FB81AD38BFB00C4701C /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		7BB06FBC1AD62AF800C4701C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = Vendor/pop/pop.xcodeproj; sourceTree = SOURCE_ROOT; };
 		7BD1E8FD1ADA295E002A5C79 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7BDA78001AD89A9C0080C0AA /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		7BDA78061AD8C0450080C0AA /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		7BDA78081AD8C4890080C0AA /* NSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		7BDA780B1AD8D0600080C0AA /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		7BDA780F1AD990EF0080C0AA /* SidebarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
+		AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "Vendor/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = Vendor/pop/pop.xcodeproj; sourceTree = SOURCE_ROOT; };
+		AC2D4B341ADF138E00FB76EB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AC384F8A1AD9ACC300777259 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		AC384F8E1AD9B3B600777259 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		ACA8A04C1ADEF5DF0048C2A4 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Vendor/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
@@ -119,7 +179,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2D4B041ADF129F00FB76EB /* pop.framework in Frameworks */,
+				AC2D4B3D1ADF14FE00FB76EB /* MailCore.framework in Frameworks */,
+				AC2D4B351ADF138E00FB76EB /* Security.framework in Frameworks */,
+				AC2D4B321ADF134400FB76EB /* pop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,14 +303,29 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		AC2D4AF31ADF128B00FB76EB /* Products */ = {
+		AC2D4B061ADF131000FB76EB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC2D4AFB1ADF128B00FB76EB /* libpop.a */,
-				AC2D4AFD1ADF128B00FB76EB /* pop.framework */,
-				AC2D4AFF1ADF128B00FB76EB /* pop.framework */,
-				AC2D4B011ADF128B00FB76EB /* pop-tests.xctest */,
-				AC2D4B031ADF128B00FB76EB /* pop-tests-osx.xctest */,
+				AC2D4B111ADF131000FB76EB /* libMailCore.a */,
+				AC2D4B131ADF131000FB76EB /* libMailCore-ios.a */,
+				AC2D4B151ADF131000FB76EB /* tests */,
+				AC2D4B171ADF131000FB76EB /* test-ios.app */,
+				AC2D4B191ADF131000FB76EB /* MailCore.framework */,
+				AC2D4B1B1ADF131000FB76EB /* MailCore.framework */,
+				AC2D4B1D1ADF131000FB76EB /* unittest.xctest */,
+				AC2D4B1F1ADF131000FB76EB /* unittestcpp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC2D4B211ADF133A00FB76EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC2D4B291ADF133B00FB76EB /* libpop.a */,
+				AC2D4B2B1ADF133B00FB76EB /* pop.framework */,
+				AC2D4B2D1ADF133B00FB76EB /* pop.framework */,
+				AC2D4B2F1ADF133B00FB76EB /* pop-tests.xctest */,
+				AC2D4B311ADF133B00FB76EB /* pop-tests-osx.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,8 +333,10 @@
 		ACDA71A91ADA223100C4E34E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AC2D4B341ADF138E00FB76EB /* Security.framework */,
+				AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */,
+				AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */,
 				ACA8A04C1ADEF5DF0048C2A4 /* BridgingHeader.h */,
-				7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */,
 			);
 			name = Vendor;
 			path = "Margin Mail";
@@ -332,8 +411,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AC2D4AF31ADF128B00FB76EB /* Products */;
-					ProjectRef = 7BD1E8EA1ADA2793002A5C79 /* pop.xcodeproj */;
+					ProductGroup = AC2D4B061ADF131000FB76EB /* Products */;
+					ProjectRef = AC2D4B051ADF131000FB76EB /* mailcore2.xcodeproj */;
+				},
+				{
+					ProductGroup = AC2D4B211ADF133A00FB76EB /* Products */;
+					ProjectRef = AC2D4B201ADF133A00FB76EB /* pop.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -345,39 +428,95 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AC2D4AFB1ADF128B00FB76EB /* libpop.a */ = {
+		AC2D4B111ADF131000FB76EB /* libMailCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMailCore.a;
+			remoteRef = AC2D4B101ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B131ADF131000FB76EB /* libMailCore-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMailCore-ios.a";
+			remoteRef = AC2D4B121ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B151ADF131000FB76EB /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = AC2D4B141ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B171ADF131000FB76EB /* test-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "test-ios.app";
+			remoteRef = AC2D4B161ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B191ADF131000FB76EB /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = AC2D4B181ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B1B1ADF131000FB76EB /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = AC2D4B1A1ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B1D1ADF131000FB76EB /* unittest.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = unittest.xctest;
+			remoteRef = AC2D4B1C1ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B1F1ADF131000FB76EB /* unittestcpp */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = unittestcpp;
+			remoteRef = AC2D4B1E1ADF131000FB76EB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AC2D4B291ADF133B00FB76EB /* libpop.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libpop.a;
-			remoteRef = AC2D4AFA1ADF128B00FB76EB /* PBXContainerItemProxy */;
+			remoteRef = AC2D4B281ADF133B00FB76EB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AC2D4AFD1ADF128B00FB76EB /* pop.framework */ = {
+		AC2D4B2B1ADF133B00FB76EB /* pop.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = pop.framework;
-			remoteRef = AC2D4AFC1ADF128B00FB76EB /* PBXContainerItemProxy */;
+			remoteRef = AC2D4B2A1ADF133B00FB76EB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AC2D4AFF1ADF128B00FB76EB /* pop.framework */ = {
+		AC2D4B2D1ADF133B00FB76EB /* pop.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = pop.framework;
-			remoteRef = AC2D4AFE1ADF128B00FB76EB /* PBXContainerItemProxy */;
+			remoteRef = AC2D4B2C1ADF133B00FB76EB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AC2D4B011ADF128B00FB76EB /* pop-tests.xctest */ = {
+		AC2D4B2F1ADF133B00FB76EB /* pop-tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "pop-tests.xctest";
-			remoteRef = AC2D4B001ADF128B00FB76EB /* PBXContainerItemProxy */;
+			remoteRef = AC2D4B2E1ADF133B00FB76EB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AC2D4B031ADF128B00FB76EB /* pop-tests-osx.xctest */ = {
+		AC2D4B311ADF133B00FB76EB /* pop-tests-osx.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "pop-tests-osx.xctest";
-			remoteRef = AC2D4B021ADF128B00FB76EB /* PBXContainerItemProxy */;
+			remoteRef = AC2D4B301ADF133B00FB76EB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

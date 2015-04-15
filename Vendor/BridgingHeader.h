@@ -10,5 +10,6 @@
 #define Margin_Mail_Margin_Mail_Bridging_Header_h
 
 #import <POP/POP.h>
+#import <MailCore/MailCore.h>
 
 #endif
