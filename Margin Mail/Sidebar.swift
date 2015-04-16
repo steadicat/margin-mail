@@ -26,17 +26,20 @@ class Sidebar: View {
         compose = SidebarItemView(frame: CGRectZero)
         compose.text = "Compose"
         compose.image = NSImage(named: "Compose")
-        
+        compose.accentColor = NSColor(hue: CGFloat(arc4random()) / CGFloat(UINT32_MAX), chroma: 0.9, lightness: 0.8)
+
         items = labels.map { (index, text) in
             var item = SidebarItemView(frame: CGRectZero)
             item.text = text
             item.image = NSImage(named: item.text)
+            item.accentColor = NSColor(hue: CGFloat(arc4random()) / CGFloat(UINT32_MAX), chroma: 0.9, lightness: 0.8)
             return item
         }
         
         settings = SidebarItemView(frame: CGRectZero)
         settings.text = "Settings"
         settings.image = NSImage(named: "Settings")
+        settings.accentColor = NSColor(hue: CGFloat(arc4random()) / CGFloat(UINT32_MAX), chroma: 0.9, lightness: 0.8)
 
         super.init(frame: frameRect)
     

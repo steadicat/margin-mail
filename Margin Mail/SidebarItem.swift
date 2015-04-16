@@ -10,6 +10,12 @@ import Cocoa
 
 class SidebarItemView: View {
 
+    var accentColor: NSColor = Color.accent() {
+        didSet {
+            self.needsDisplay = true
+        }
+    }
+    
     var isSelected: Bool = false {
         didSet {
             // TODO: figure out why this one needs to be layout instead of display
@@ -62,7 +68,7 @@ class SidebarItemView: View {
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
         let sideMargin = 22 + round(14 * collapsingRatio)
         
-        let textColor = isSelected ? Color.accent() : Color.mediumGray()
+        let textColor = isSelected ? self.accentColor : Color.mediumGray()
 
         let columns = bounds.columns()
         columns.next(sideMargin)

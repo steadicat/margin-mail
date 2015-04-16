@@ -8,20 +8,20 @@
 
 import Cocoa
 
-let accentHue: CGFloat = 0.54
-
 class Color {
+
+    static let accentHue: CGFloat = 0.6
     
     static func white() -> NSColor {
         return NSColor.whiteColor()
     }
     
     static func accent() -> NSColor {
-        return NSColor(hue: accentHue, saturation: 0.95, brightness: 1, alpha: 1)
+        return NSColor(hue: accentHue, chroma: 0.9, lightness: 0.9)
     }
     
     static func accent(lightness: CGFloat) -> NSColor {
-        return NSColor(hue: accentHue + lightness / 100, saturation: 1 - lightness, brightness: 1, alpha: 1)
+        return NSColor(hue: accentHue + lightness / 100, saturation: 0.9, lightness: lightness)
     }
     
     static func darkGray() -> NSColor {
