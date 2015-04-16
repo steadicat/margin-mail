@@ -63,7 +63,8 @@ class Sidebar: View {
         
         backgroundColor = Color.darkGray()
         
-        var column = bounds.rectByInsetting(dx: 0, dy: 36)
+        // Add a 16px overflow to the right for shrink animation
+        var column = CGRectMake(0, 0, bounds.width + 16, bounds.height).rectByInsetting(dx: 0, dy: 36)
         var rows = column.rows()
         
         compose.frame = rows.next(36)

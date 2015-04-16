@@ -66,10 +66,11 @@ class SidebarItemView: View {
         let iconGap = 12 as CGFloat
         
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
-        let sideMargin = 22 + round(14 * collapsingRatio)
+        let sideMargin = 18 + round(18 * collapsingRatio)
         
         let textColor = isSelected ? self.accentColor : Color.mediumGray()
 
+        // Add some overflow for shrink animation
         let columns = bounds.columns()
         columns.next(sideMargin)
         if let image = self.image {
@@ -113,7 +114,7 @@ class SidebarItemView: View {
         }
         anim!.velocity = NSValue(size: CGSizeMake(-2, -2))
         anim!.toValue = NSValue(size: CGSizeMake(1, 1))
-        shift!.velocity = NSValue(size: CGSizeMake(80, 20))
+        shift!.velocity = NSValue(size: CGSizeMake(120, 36))
         shift!.toValue = NSValue(size: CGSizeMake(0, 0))
     }
     
