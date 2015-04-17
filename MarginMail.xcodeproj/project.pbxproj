@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACDC461F1AE1B0BC0035F814 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */; };
+		ACDC46201AE1B0BC0035F814 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */; };
 		ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA091AE1912E006309D4 /* Images.xcassets */; };
 		ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
@@ -766,6 +768,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDC461F1AE1B0BC0035F814 /* OpenSans-Regular.ttf in Resources */,
+				ACDC46201AE1B0BC0035F814 /* OpenSans-Semibold.ttf in Resources */,
 				ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */,
 				ACF1FA361AE191AC006309D4 /* MailIcon.icns in Resources */,
 				ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */,
