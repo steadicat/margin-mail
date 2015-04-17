@@ -1009,6 +1009,7 @@
 				ACF1FA1E1AE1912F006309D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACF1FA1F1AE1912F006309D4 /* Build configuration list for PBXNativeTarget "MarginMailTests" */ = {
 			isa = XCConfigurationList;
@@ -1017,6 +1018,7 @@
 				ACF1FA211AE1912F006309D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
