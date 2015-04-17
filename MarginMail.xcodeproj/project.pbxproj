@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACDC461F1AE1B0BC0035F814 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */; };
-		ACDC46201AE1B0BC0035F814 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */; };
+		7BC4F10A1AE1D1CE007DD2E1 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */; };
+		7BC4F10B1AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */; };
 		ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA091AE1912E006309D4 /* Images.xcassets */; };
 		ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
@@ -243,8 +243,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA091AE1912E006309D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -312,13 +312,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BC4F1071AE1D184007DD2E1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ACF1FA2C1AE191AC006309D4 /* Color.swift */,
+				ACF1FA2F1AE191AC006309D4 /* Geometry.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		ACDC461C1AE1A9AF0035F814 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */,
-				ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */,
+				7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */,
+				7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */,
 			);
-			name = Fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		ACF1F9F91AE1912E006309D4 = {
@@ -352,10 +361,9 @@
 				ACF1FA371AE191C1006309D4 /* Mail */,
 				ACF1FA381AE191C7006309D4 /* Views */,
 				ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */,
-				ACF1FA2C1AE191AC006309D4 /* Color.swift */,
+				7BC4F1071AE1D184007DD2E1 /* Helpers */,
 				ACF1FA2D1AE191AC006309D4 /* Config.swift */,
 				ACF1FA2E1AE191AC006309D4 /* DB.swift */,
-				ACF1FA2F1AE191AC006309D4 /* Geometry.swift */,
 				ACF1FA301AE191AC006309D4 /* MailIcon.icns */,
 				ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
@@ -399,7 +407,7 @@
 				ACF1FA521AE19222006309D4 /* MailReader.swift */,
 				ACF1FA531AE19222006309D4 /* MailWriter.swift */,
 			);
-			name = Mail;
+			path = Mail;
 			sourceTree = "<group>";
 		};
 		ACF1FA381AE191C7006309D4 /* Views */ = {
@@ -414,7 +422,7 @@
 				ACF1FA5E1AE19230006309D4 /* View.swift */,
 				ACF1FA5F1AE19230006309D4 /* Window.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		ACF1FA391AE191CC006309D4 /* Extensions */ = {
@@ -425,7 +433,7 @@
 				ACF1FA4A1AE19204006309D4 /* NSImage.swift */,
 				ACF1FA4B1AE19204006309D4 /* NSColor.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ACF1FA3A1AE191D1006309D4 /* Data */ = {
@@ -434,7 +442,7 @@
 				ACF1FA441AE191FD006309D4 /* Mailbox.swift */,
 				ACF1FA451AE191FD006309D4 /* Transport.swift */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		ACF1FA3B1AE191D4006309D4 /* Components */ = {
@@ -445,7 +453,7 @@
 				ACF1FA3E1AE191F5006309D4 /* Sidebar.swift */,
 				ACF1FA3F1AE191F5006309D4 /* SidebarItem.swift */,
 			);
-			name = Components;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		ACF1FA6A1AE19253006309D4 /* Vendor */ = {
@@ -768,11 +776,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACDC461F1AE1B0BC0035F814 /* OpenSans-Regular.ttf in Resources */,
-				ACDC46201AE1B0BC0035F814 /* OpenSans-Semibold.ttf in Resources */,
 				ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */,
 				ACF1FA361AE191AC006309D4 /* MailIcon.icns in Resources */,
+				7BC4F10A1AE1D1CE007DD2E1 /* OpenSans-Regular.ttf in Resources */,
 				ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */,
+				7BC4F10B1AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
