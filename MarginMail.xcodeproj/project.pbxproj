@@ -241,6 +241,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA091AE1912E006309D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -308,6 +310,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ACDC461C1AE1A9AF0035F814 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC461D1AE1A9C30035F814 /* OpenSans-Regular.ttf */,
+				ACDC461E1AE1A9C30035F814 /* OpenSans-Semibold.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		ACF1F9F91AE1912E006309D4 = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +345,7 @@
 				ACF1FA3B1AE191D4006309D4 /* Components */,
 				ACF1FA3A1AE191D1006309D4 /* Data */,
 				ACF1FA391AE191CC006309D4 /* Extensions */,
+				ACDC461C1AE1A9AF0035F814 /* Fonts */,
 				ACF1FA091AE1912E006309D4 /* Images.xcassets */,
 				ACF1FA371AE191C1006309D4 /* Mail */,
 				ACF1FA381AE191C7006309D4 /* Views */,
