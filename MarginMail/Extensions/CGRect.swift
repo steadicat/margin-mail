@@ -28,6 +28,10 @@ extension CGRect {
         return CGRectMake(self.origin.x, self.origin.y, width ?? self.width, height ?? self.height)
     }
 
+    func extend(top: CGFloat = 0, right: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 0) -> CGRect {
+        return CGRectMake(self.origin.x - left, self.origin.y - top, self.width + left + right, self.height + top + bottom)
+    }
+
     func rows() -> RowGenerator {
         return RowGenerator(frame: self)
     }
