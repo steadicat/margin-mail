@@ -18,16 +18,10 @@ class Transport {
     var hostname: String
     var port: Int
 
-    var username: String? // TODO: Use keychain
-    var password: String? // TODO: Use keychain
+    var username: String?
+    var password: String?
 
-    init(
-        type: TransportType,
-        hostname: String,
-        port: Int,
-        username: String? = nil,
-        password: String? = nil
-    ) {
+    init(type: TransportType, hostname: String, port: Int, username: String? = nil, password: String? = nil) {
         self.type = type
         self.hostname = hostname
         self.port = port

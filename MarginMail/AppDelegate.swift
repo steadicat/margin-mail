@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindow: MainWindow?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        DB.connect()
+        DB.open()
         DB.migrate()
 
         mainWindow = MainWindow()
