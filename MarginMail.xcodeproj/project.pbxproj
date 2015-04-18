@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BC4F10A1AE1D1CE007DD2E1 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */; };
-		7BC4F10B1AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */; };
 		7BC4F12C1AE1D387007DD2E1 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4F1281AE1D387007DD2E1 /* Main.swift */; };
 		7BC4F12D1AE1D387007DD2E1 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4F1291AE1D387007DD2E1 /* MessageList.swift */; };
 		7BC4F12E1AE1D387007DD2E1 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4F12A1AE1D387007DD2E1 /* Sidebar.swift */; };
 		7BC4F12F1AE1D387007DD2E1 /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4F12B1AE1D387007DD2E1 /* SidebarItem.swift */; };
-		ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA091AE1912E006309D4 /* Images.xcassets */; };
-		ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */; };
+		7BC4F1621AE1E201007DD2E1 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15E1AE1E201007DD2E1 /* Fonts */; };
+		7BC4F1631AE1E201007DD2E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */; };
+		7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */; };
+		7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
 		ACF1FA291AE19195006309D4 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA271AE19195006309D4 /* MainWindow.swift */; };
 		ACF1FA2A1AE19195006309D4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA281AE19195006309D4 /* Session.swift */; };
@@ -23,7 +23,6 @@
 		ACF1FA331AE191AC006309D4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2D1AE191AC006309D4 /* Config.swift */; };
 		ACF1FA341AE191AC006309D4 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2E1AE191AC006309D4 /* DB.swift */; };
 		ACF1FA351AE191AC006309D4 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2F1AE191AC006309D4 /* Geometry.swift */; };
-		ACF1FA361AE191AC006309D4 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = ACF1FA301AE191AC006309D4 /* MailIcon.icns */; };
 		ACF1FA461AE191FD006309D4 /* Mailbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA441AE191FD006309D4 /* Mailbox.swift */; };
 		ACF1FA471AE191FD006309D4 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA451AE191FD006309D4 /* Transport.swift */; };
 		ACF1FA4C1AE19204006309D4 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA481AE19204006309D4 /* Array.swift */; };
@@ -243,16 +242,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		7BC4F1281AE1D387007DD2E1 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Main.swift; path = Components/Main.swift; sourceTree = "<group>"; };
 		7BC4F1291AE1D387007DD2E1 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageList.swift; path = Components/MessageList.swift; sourceTree = "<group>"; };
 		7BC4F12A1AE1D387007DD2E1 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sidebar.swift; path = Components/Sidebar.swift; sourceTree = "<group>"; };
 		7BC4F12B1AE1D387007DD2E1 /* SidebarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarItem.swift; path = Components/SidebarItem.swift; sourceTree = "<group>"; };
+		7BC4F15E1AE1E201007DD2E1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
+		7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACF1FA091AE1912E006309D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		ACF1FA0C1AE1912E006309D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		ACF1FA121AE1912F006309D4 /* MarginMailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginMailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA171AE1912F006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginMailTests.swift; sourceTree = "<group>"; };
@@ -263,7 +262,6 @@
 		ACF1FA2D1AE191AC006309D4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		ACF1FA2E1AE191AC006309D4 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		ACF1FA2F1AE191AC006309D4 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
-		ACF1FA301AE191AC006309D4 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		ACF1FA441AE191FD006309D4 /* Mailbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mailbox.swift; sourceTree = "<group>"; };
 		ACF1FA451AE191FD006309D4 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		ACF1FA481AE19204006309D4 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -333,32 +331,23 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		7BC4F1301AE1D3B2007DD2E1 /* Resources */ = {
+		7BC4F15D1AE1E1DC007DD2E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ACF1FA301AE191AC006309D4 /* MailIcon.icns */,
-				ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */,
-				ACDC461C1AE1A9AF0035F814 /* Fonts */,
-				ACF1FA091AE1912E006309D4 /* Images.xcassets */,
+				7BC4F15E1AE1E201007DD2E1 /* Fonts */,
+				7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */,
+				7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */,
+				7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */,
 			);
 			name = Resources;
-			path = MarginMail;
-			sourceTree = "<group>";
-		};
-		ACDC461C1AE1A9AF0035F814 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				7BC4F1081AE1D1CE007DD2E1 /* OpenSans-Regular.ttf */,
-				7BC4F1091AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf */,
-			);
-			path = Fonts;
+			path = MarginMail/Resources;
 			sourceTree = "<group>";
 		};
 		ACF1F9F91AE1912E006309D4 = {
 			isa = PBXGroup;
 			children = (
 				ACF1FA041AE1912E006309D4 /* MarginMail */,
-				7BC4F1301AE1D3B2007DD2E1 /* Resources */,
+				7BC4F15D1AE1E1DC007DD2E1 /* Resources */,
 				ACF1FA151AE1912F006309D4 /* MarginMailTests */,
 				ACF1FA031AE1912E006309D4 /* Products */,
 				ACF1FA051AE1912E006309D4 /* Supporting Files */,
@@ -785,11 +774,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF1FA0A1AE1912E006309D4 /* Images.xcassets in Resources */,
-				ACF1FA361AE191AC006309D4 /* MailIcon.icns in Resources */,
-				7BC4F10A1AE1D1CE007DD2E1 /* OpenSans-Regular.ttf in Resources */,
-				ACF1FA0D1AE1912E006309D4 /* MainMenu.xib in Resources */,
-				7BC4F10B1AE1D1CE007DD2E1 /* OpenSans-Semibold.ttf in Resources */,
+				7BC4F1621AE1E201007DD2E1 /* Fonts in Resources */,
+				7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */,
+				7BC4F1631AE1E201007DD2E1 /* Images.xcassets in Resources */,
+				7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,22 +855,12 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		ACF1FA0B1AE1912E006309D4 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ACF1FA0C1AE1912E006309D4 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		ACF1FA1A1AE1912F006309D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -927,6 +905,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
