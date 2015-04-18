@@ -68,7 +68,7 @@ class SidebarItemView: View {
         let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
         let sideMargin = 18 + round(18 * collapsingRatio)
 
-        let textColor = isSelected ? self.accentColor : Color.mediumGray()
+        let textColor = isSelected ? self.accentColor : Color.darkGray()
 
         // Add some overflow for shrink animation
         let columns = bounds.columns()
@@ -84,7 +84,7 @@ class SidebarItemView: View {
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
 
-        backgroundColor = isHovered ? NSColor(white: 0.23, alpha: 1) : Color.darkGray()
+        backgroundColor = isHovered ? Color.accent(1) : Color.white()
 
         assert(label.opaque, "Label should be opaque for proper text rendering while animating")
         self.fadeLabel(bounds.width > 120)

@@ -11,8 +11,6 @@ import Cocoa
 class MessageList: View {
 
     override func viewWillDraw() {
-        backgroundColor = Color.lightGray()
-
         super.viewWillDraw()
     }
 
