@@ -8,75 +8,73 @@
 
 import Cocoa
 
-let labels = [(0, "Inbox"), (1, "Archive"), (2, "Drafts"), (3, "Sent"), (4, "Starred"), (5, "Spam"), (6, "Trash")]
-
 class Sidebar: View {
 
-    var compose: SidebarItemView
-    var items: [SidebarItemView]
-    var settings: SidebarItemView
+    var items: [(String, SidebarItemView)] = []
 
-    private var selectedLabel = 0 {
+    private var selectedItem = "" {
         didSet {
             self.needsDisplay = true
         }
     }
 
+    private var inboxCount = 0
+
     override init(frame frameRect: CGRect) {
-        compose = SidebarItemView(frame: CGRectZero)
-        compose.text = "Compose"
-        compose.image = NSImage(named: "Compose")
-        compose.accentColor = Color.accent()
-
-        items = labels.map { (index, text) in
-            var item = SidebarItemView(frame: CGRectZero)
-            item.text = text
-            item.image = NSImage(named: item.text)
-            item.accentColor = Color.accent()
-            return item
-        }
-
-        settings = SidebarItemView(frame: CGRectZero)
-        settings.text = "Settings"
-        settings.image = NSImage(named: "Settings")
-        settings.accentColor = Color.accent()
-
         super.init(frame: frameRect)
 
-        compose.onMouseDown = { self.selectedLabel = -1 }
-        addSubview(compose)
-        for (index, item) in enumerate(self.items) {
-            item.onMouseDown = { self.selectedLabel = index }
+        self.items = [
+            createItem("compose", text: "Compose"),
+            createItem("inbox", text: "Inbox"),
+            createItem("archive", text: "Archive"),
+            createItem("drafts", text: "Drafts"),
+            createItem("sent", text: "Sent"),
+            createItem("starred", text: "Starred"),
+            createItem("spam", text: "Spam"),
+            createItem("trash", text: "Trash"),
+            createItem("settings", text: "Settings"),
+        ]
+
+        for (id, item) in self.items {
+            item.onMouseDown = { self.selectedItem = id }
             addSubview(item)
         }
-        settings.onMouseDown = { self.selectedLabel = -2 }
-        addSubview(settings)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewWillDraw() {
-        let rowHeight = 36 as CGFloat
-        let topMargin = 36 as CGFloat
+    func createItem(id: String, text: String) -> (String, SidebarItemView) {
+        var item = SidebarItemView(frame: CGRectZero)
+        item.text = text
+        item.image = NSImage(named: item.text)
+        item.accentColor = Color.accent()
+        return (id, item)
+    }
 
+    override func viewWillDraw() {
         // Add a 16px overflow to the right for shrink animation
         var column = bounds.rectByInsetting(dx: 0, dy: 36).extend(right: 16)
         var rows = column.rows()
 
-        compose.frame = rows.next(36)
-        compose.isSelected = selectedLabel == -1
+        for (id, item) in self.items {
+            item.isSelected = selectedItem == id
 
-        rows.next(18)
+            if id == "inbox" {
+                item.badge = String(inboxCount)
+            }
 
-        for (index, item) in enumerate(self.items) {
-            item.frame = rows.next(36)
-            item.isSelected = selectedLabel == index
+            if id == "settings" {
+                item.frame = CGRectMake(0, bounds.height, bounds.width, 36).offset(dy: -36 - 18)
+            } else {
+                item.frame = rows.next(36)
+            }
+
+            if id == "compose" {
+                rows.next(18)
+            }
         }
-
-        settings.frame = CGRectMake(0, bounds.height, bounds.width, 36).offset(dy: -36 - 18)
-        settings.isSelected = selectedLabel == -2
 
         super.viewWillDraw()
     }

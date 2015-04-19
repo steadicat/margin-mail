@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         DB.open()
+        DB.seed()
 
         mainWindow = MainWindow()
         mainWindow!.show(self)

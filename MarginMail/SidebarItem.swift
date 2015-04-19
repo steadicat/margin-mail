@@ -35,6 +35,12 @@ class SidebarItemView: View {
         }
     }
 
+    var badge: String = "" {
+        didSet {
+            label.text = "\(text) (\(badge))"
+        }
+    }
+
     private var isHovered: Bool = false {
         didSet {
             self.needsDisplay = true

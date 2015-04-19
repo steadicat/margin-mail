@@ -45,5 +45,10 @@ class DB {
             TransportTable.create()
         }
     ]
+
+    static func seed() {
+        NSLog("[DB] Seeding")
+        
+    }
     
 }
