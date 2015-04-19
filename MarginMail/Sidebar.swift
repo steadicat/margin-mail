@@ -19,6 +19,7 @@ class Sidebar: View {
     }
 
     private var inboxCount = 0
+
     private var topMargin: CGFloat = 36
     private var spaceHeight: CGFloat = 18
     private var rowHeight: CGFloat = 36
@@ -64,7 +65,7 @@ class Sidebar: View {
         for (id, item) in self.items {
             item.isSelected = selectedItem == id
 
-            if id == "inbox" {
+            if id == "inbox" && inboxCount > 0 {
                 item.badge = String(inboxCount)
             }
 
