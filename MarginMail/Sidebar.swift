@@ -19,6 +19,9 @@ class Sidebar: View {
     }
 
     private var inboxCount = 0
+    private var topMargin: CGFloat = 36
+    private var spaceHeight: CGFloat = 18
+    private var rowHeight: CGFloat = 36
 
     override init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
@@ -55,7 +58,7 @@ class Sidebar: View {
 
     override func viewWillDraw() {
         // Add a 16px overflow to the right for shrink animation
-        var column = bounds.rectByInsetting(dx: 0, dy: 36).extend(right: 16)
+        var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: 16)
         var rows = column.rows()
 
         for (id, item) in self.items {
@@ -66,13 +69,13 @@ class Sidebar: View {
             }
 
             if id == "settings" {
-                item.frame = CGRectMake(0, bounds.height, bounds.width, 36).offset(dy: -36 - 18)
+                item.frame = CGRectMake(0, bounds.height, bounds.width, rowHeight).offset(dy: -rowHeight - spaceHeight)
             } else {
-                item.frame = rows.next(36)
+                item.frame = rows.next(rowHeight)
             }
 
             if id == "compose" {
-                rows.next(18)
+                rows.next(spaceHeight)
             }
         }
 
