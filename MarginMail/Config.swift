@@ -17,7 +17,7 @@ class Config {
         let dataURL = baseURL.URLByAppendingPathComponent(name)
 
         // TODO: Fail gracefully. Fall back to another directory on error.
-        NSLog("Initializing data directory: \(dataURL.path!)")
+        NSLog("[Config] Data directory: \(dataURL.path!)")
         NSFileManager.defaultManager().createDirectoryAtPath(
             dataURL.path!,
             withIntermediateDirectories: true,
