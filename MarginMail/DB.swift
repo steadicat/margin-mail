@@ -17,11 +17,12 @@ class DB {
     }()
 
     static func version() -> Int {
-        return DB.conn.userVersion
+        return conn.userVersion
     }
 
     static func open() -> SQLite.Database {
-        NSLog("[DB] Version: \(DB.version())")
+        NSLog("[DB] Version: \(version())")
+        migrate()
         return conn
     }
 
