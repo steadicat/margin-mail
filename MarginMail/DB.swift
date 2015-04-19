@@ -10,10 +10,13 @@ import SQLite
 
 class DB {
 
+    static var path: String = {
+        return Config.dataURL.URLByAppendingPathComponent("db.sqlite3").path!
+    }()
+
     static var conn: SQLite.Database = {
-        let path = Config.dataURL.URLByAppendingPathComponent("db.sqlite3").path!
-        NSLog("[DB] Opening: \(path)")
-        return SQLite.Database(path)
+        NSLog("[DB] Opening: \(DB.path)")
+        return SQLite.Database(DB.path)
     }()
 
     static func version() -> Int {
