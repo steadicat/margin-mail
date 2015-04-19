@@ -8,67 +8,38 @@
 
 import SQLite
 
-
 class DB {
 
-    static let filename = "db.sqlite3"
-
-    static let tables: [Table] = [
-        TransportTable(),
-        MailboxTable(),
-    ]
-
-    static var path: String = {
-        return Config.dataURL.URLByAppendingPathComponent(DB.filename).path!
-    }()
-
     static var conn: SQLite.Database = {
-        NSLog("[DB] Opening: \(DB.path)")
-        return SQLite.Database(DB.path)
+        let path = Config.dataURL.URLByAppendingPathComponent("db.sqlite3").path!
+        NSLog("[DB] Opening: \(path)")
+        return SQLite.Database(path)
     }()
+
+    static func version() -> Int {
+        return DB.conn.userVersion
+    }
 
     static func open() -> SQLite.Database {
-        NSLog("[DB] Version: \(conn.userVersion)")
+        NSLog("[DB] Version: \(DB.version())")
         return conn
     }
 
     static func migrate() {
-        for table in tables {
-            NSLog("[DB] Creating Table: \(table.tableName)")
-            table.create()
+        for (i, migration) in enumerate(migrations) {
+            if version() <= i {
+                NSLog("[DB] Migrating: \(i) -> \(i+1)")
+                migration()
+                conn.userVersion++
+            }
         }
-
-        //DBTable.createAll()
     }
+
+    static var migrations: [() -> Void] = [
+        {
+            MailboxTable.create()
+            TransportTable.create()
+        }
+    ]
     
 }
-
-/*
-private static var tables = [DBTable]()
-
-static func createAll() {
-for table in tables { table.create() }
-}
-
-var tableName: String {
-assert(false, "Tables must implement tableName getter")
-}
-
-var query: SQLite.Query {
-return DB.conn[_name]
-}
-
-init(name: String) {
-_name = name
-//DBTable.tables.append(self)
-}
-
-func create() {
-NSLog("[DB] Creating Table: \(_name)")
-DB.conn.create(table: query, ifNotExists: true) { create($0) }
-}
-
-func create(table: SQLite.SchemaBuilder) {
-assert(false, "DBTable subclass must define a create() method")
-}
-*/

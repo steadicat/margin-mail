@@ -371,13 +371,6 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
-		ACCCD2C51AE237EC0043ED41 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DB;
-			sourceTree = "<group>";
-		};
 		ACF1F9F91AE1912E006309D4 = {
 			isa = PBXGroup;
 			children = (
@@ -484,7 +477,6 @@
 		ACF1FA3A1AE191D1006309D4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				ACCCD2C51AE237EC0043ED41 /* DB */,
 				ACCCD2941AE21BB70043ED41 /* Stores */,
 				ACCCD2931AE21BB20043ED41 /* Tables */,
 				ACCCD2B91AE222460043ED41 /* Mailbox.swift */,
@@ -988,6 +980,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarginMail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1002,6 +995,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarginMail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,9 +9,6 @@
 import SQLite
 
 protocol Table {
-    var tableName: String { get }
-    var query: SQLite.Query { get }
-
-    func create()
-    func create(table: SQLite.SchemaBuilder)
+    static func all() -> SQLite.Query
+    static func create()
 }

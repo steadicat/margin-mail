@@ -11,24 +11,20 @@ import SQLite
 
 class MailboxTable: Table {
 
-    var tableName = "mailbox"
+    static let id = SQLite.Expression<NSUUID>("id")
+    static let name = SQLite.Expression<String>("name")
+    static let photo = SQLite.Expression<NSImage?>("photo")
 
-    var query: SQLite.Query {
-        return DB.conn[self.tableName]
+    static func all() -> SQLite.Query {
+        return DB.conn["mailbox"]
     }
 
-    let id = SQLite.Expression<NSUUID>("id")
-    let name = SQLite.Expression<String>("name")
-    let photo = SQLite.Expression<NSImage?>("photo")
-
-    func create() {
-        DB.conn.create(table: self.query, ifNotExists: true) { self.create($0) }
-    }
-
-    func create(t: SQLite.SchemaBuilder) {
-        t.column(self.id, primaryKey: true)
-        t.column(self.name)
-        t.column(self.photo)
+    static func create() {
+        DB.conn.create(table: all()) { t in
+            t.column(self.id, primaryKey: true)
+            t.column(self.name)
+            t.column(self.photo)
+        }
     }
 
 }
