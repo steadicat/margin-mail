@@ -12,17 +12,21 @@ class Sidebar: View {
 
     var items: [(String, SidebarItemView)] = []
 
-    private var selectedItem = "" {
+    private var topMargin: CGFloat = 36
+    private var spaceHeight: CGFloat = 18
+    private var rowHeight: CGFloat = 36
+
+    private var inboxCount = 0 {
         didSet {
             self.needsDisplay = true
         }
     }
 
-    private var inboxCount = 0
-
-    private var topMargin: CGFloat = 36
-    private var spaceHeight: CGFloat = 18
-    private var rowHeight: CGFloat = 36
+    private var selectedItem = "" {
+        didSet {
+            self.needsDisplay = true
+        }
+    }
 
     override init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
@@ -40,13 +44,19 @@ class Sidebar: View {
         ]
 
         for (id, item) in self.items {
-            item.onMouseDown = { self.selectedItem = id }
+            item.onMouseDown = {
+                self.selectedItem = id
+            }
             addSubview(item)
         }
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        
     }
 
     func createItem(id: String, text: String) -> (String, SidebarItemView) {

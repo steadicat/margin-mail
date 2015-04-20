@@ -47,8 +47,16 @@ class DB {
     ]
 
     static func seed() {
-        NSLog("[DB] Seeding")
-        
+        let mailboxes = MailboxStore.all()
+        if mailboxes.count == 0 {
+            println("no mailboxes")
+        }
+
+
+        // let alan = GmailAccount(username: "alan@artnez.com", password: "entscheidungsproblem")
+        //let mailbox = MailboxTable.all().first
+        //println(mailbox)
+        //MailboxStore.seed()
     }
     
 }

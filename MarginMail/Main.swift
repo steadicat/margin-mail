@@ -16,7 +16,6 @@ class Main: View, NSSplitViewDelegate {
     private var messagePane: View
 
     override init(frame: CGRect) {
-
         split = SplitView(frame: frame, minimumSizes: [0: 66], maximumSizes: [0: 216])
         sidebar = Sidebar(frame: CGRectZero)
         messageList = MessageList(frame: CGRectZero)

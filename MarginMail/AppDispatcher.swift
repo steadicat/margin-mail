@@ -8,6 +8,20 @@
 
 import Cocoa
 
-class AppDispatcher: NSObject {
+class AppDispatcher {
+
+    typealias ActionListener = (AnyObject) -> Void
+
+    static private var listeners: [ActionListener] = []
+
+    static func dispatch(action: AnyObject) {
+        for listener in listeners {
+            listener(action)
+        }
+    }
+
+    static func register(listener: ActionListener) {
+        listeners.append(listener)
+    }
 
 }

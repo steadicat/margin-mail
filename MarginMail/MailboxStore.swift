@@ -8,6 +8,10 @@
 
 import Cocoa
 
-class MailboxStore: NSObject {
+class MailboxStore {
+
+    static func all() -> [Mailbox] {
+        return []
+    }
 
 }
