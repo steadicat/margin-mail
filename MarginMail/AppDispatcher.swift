@@ -1,5 +1,5 @@
 //
-//  MailboxStore.swift
+//  AppDispatcher.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/19/15.
@@ -8,6 +8,6 @@
 
 import Cocoa
 
-class MailboxStore: NSObject {
+class AppDispatcher: NSObject {
 
 }
