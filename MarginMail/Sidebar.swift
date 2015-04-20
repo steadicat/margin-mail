@@ -10,11 +10,9 @@ import Cocoa
 
 class Sidebar: View {
 
-    var items: [(String, SidebarItemView)] = []
-
-    private var topMargin: CGFloat = 36
-    private var spaceHeight: CGFloat = 18
-    private var rowHeight: CGFloat = 36
+    private let topMargin: CGFloat = 36
+    private let spaceHeight: CGFloat = 18
+    private let rowHeight: CGFloat = 36
 
     private var inboxCount = 0 {
         didSet {
@@ -27,6 +25,8 @@ class Sidebar: View {
             self.needsDisplay = true
         }
     }
+
+    private var items: [(String, SidebarItemView)] = []
 
     override init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
