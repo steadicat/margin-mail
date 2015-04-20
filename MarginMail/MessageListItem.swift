@@ -47,15 +47,15 @@ class MessageListItem: View {
 
         authorLabel.text = author
         authorLabel.sizeToFit()
-        authorLabel.frame = rows.next(authorLabel.frame.height)
+        authorLabel.frame = rows.next(authorLabel.frame.height).integerRect
 
         subjectLabel.text = subject
         subjectLabel.sizeToFit()
-        subjectLabel.frame = rows.next(subjectLabel.frame.height)
+        subjectLabel.frame = rows.next(subjectLabel.frame.height).integerRect
 
         snippetLabel.text = snippet
         snippetLabel.sizeToFit()
-        snippetLabel.frame = rows.next(snippetLabel.frame.height)
+        snippetLabel.frame = rows.next(snippetLabel.frame.height).integerRect
 
         super.viewWillDraw()
     }

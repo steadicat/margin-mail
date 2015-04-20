@@ -20,6 +20,7 @@ class MessageList: View {
 
         super.init(frame: frameRect)
 
+        table.headerView = nil
         table.createCell = self.createCell
         table.updateCell = self.updateCell
         table.rowHeight = 96

@@ -56,5 +56,5 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
         }
         return self.updateCell?(column: 0, row: row, view: view!)
     }
-    
+
 }
