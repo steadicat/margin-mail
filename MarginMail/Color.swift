@@ -10,7 +10,7 @@ import Cocoa
 
 class Color {
 
-    static let accentHue: CGFloat = 0.62
+    static let accentHue: CGFloat = 0.64
 
     static func white() -> NSColor {
         return NSColor.whiteColor()
@@ -25,14 +25,14 @@ class Color {
     }
 
     static func darkGray() -> NSColor {
-        return NSColor(white: 0.5, alpha: 1)
+        return NSColor(white: 0.25, alpha: 1)
     }
 
     static func mediumGray() -> NSColor {
-        return NSColor(white: 0.75, alpha: 1)
+        return NSColor(white: 0.5, alpha: 1)
     }
 
     static func lightGray() -> NSColor {
-        return NSColor(white: 0.9, alpha: 1)
+        return NSColor(white: 0.75, alpha: 1)
     }
 }

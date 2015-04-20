@@ -73,7 +73,7 @@ class SidebarItemView: View {
         let collapsingRatio = (frame.width - Sidebar.minimumWidth) / (Sidebar.maximumWidth - Sidebar.minimumWidth)
         let sideMargin = 18 + round(18 * collapsingRatio)
 
-        let textColor = isSelected ? self.accentColor : Color.darkGray()
+        let textColor = isSelected ? self.accentColor : Color.mediumGray()
 
         // Add some overflow for shrink animation
         let columns = bounds.columns()
