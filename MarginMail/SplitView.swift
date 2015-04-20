@@ -18,6 +18,10 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
         self.minimumSizes = minimumSizes
         self.maximumSizes = maximumSizes
         super.init(frame: frame)
+
+        delegate = self
+        vertical = true
+        dividerStyle = .Thin
     }
 
     required init?(coder: NSCoder) {
@@ -36,11 +40,6 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
     }
 
     override func viewWillDraw() {
-        self.delegate = self
-
-        self.vertical = true
-        self.dividerStyle = .Thin
-
         super.viewWillDraw()
     }
 
@@ -50,6 +49,21 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
 
     func splitView(splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         return self.minimumSizes[dividerIndex] ?? proposedMinimumPosition
+    }
+
+    override func resizeSubviewsWithOldSize(oldSize: NSSize) {
+        // TODO: make this work with vertical split views as well
+        let columns = bounds.columns()
+
+        for index in 0...(subviews.count - 2) {
+            if let subview = subviews[index] as? NSView {
+                subview.frame = columns.next(subview.frame.width)
+                columns.next(self.dividerThickness)
+            }
+        }
+        if let last = subviews.last as? NSView {
+            last.frame = columns.nextFraction(1)
+        }
     }
 
     func splitViewDidResizeSubviews(notification: NSNotification) {

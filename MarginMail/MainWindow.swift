@@ -13,7 +13,8 @@ class MainWindow: Window {
     var main: Main
 
     init() {
-        let frame = NSMakeRect(0, 0, 1200, 800)
+        let frame = NSMakeRect(0, 0, 1200, 700)
+
         main = Main(frame: frame)
 
         super.init(

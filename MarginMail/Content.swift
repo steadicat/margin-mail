@@ -24,11 +24,13 @@ class Content: View {
         split.addSubview(messageList)
         split.addSubview(messagePane)
 
-        let columns = self.bounds.columns()
-        self.messageList.frame = columns.next(0.5)
-        self.messagePane.frame = columns.next(1)
-
         addSubview(split)
+
+        split.frame = bounds
+        let columns = bounds.columns()
+        messageList.frame = columns.nextFraction(0.5)
+        columns.next(split.dividerThickness)
+        messagePane.frame = columns.nextFraction(1)
     }
 
     required init?(coder: NSCoder) {
@@ -36,7 +38,7 @@ class Content: View {
     }
 
     override func viewWillDraw() {
-        self.split.frame = self.frame
+        split.frame = bounds
         super.viewWillDraw()
     }
 }

@@ -85,7 +85,7 @@ class SidebarItemView: View {
             columns.next(24)
         }
         columns.next(iconGap)
-        label.frame = columns.next(1).integerRect.offset(dx: isSelected ? -1 : 0, dy: 5)
+        label.frame = columns.nextFraction(1).integerRect.offset(dx: isSelected ? -1 : 0, dy: 5)
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
 

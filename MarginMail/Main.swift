@@ -16,18 +16,16 @@ class Main: View, NSSplitViewDelegate {
 
     override init(frame: CGRect) {
         split = SplitView(frame: frame, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
-        sidebar = Sidebar(frame: CGRectZero)
-        content = Content(frame: CGRectZero)
+
+        let columns = frame.columns()
+        sidebar = Sidebar(frame: columns.next(Sidebar.maximumWidth))
+        columns.next(split.dividerThickness)
+        content = Content(frame: columns.nextFraction(1))
 
         super.init(frame: frame)
 
         split.addSubview(sidebar)
         split.addSubview(content)
-
-        let columns = self.bounds.columns()
-        self.sidebar.frame = columns.next(Sidebar.maximumWidth)
-        self.content.frame = columns.next(1)
-
         addSubview(split)
 
         backgroundColor = Color.white()
@@ -38,8 +36,8 @@ class Main: View, NSSplitViewDelegate {
     }
 
     override func viewWillDraw() {
-        self.split.frame = self.frame
+        split.frame = bounds
         super.viewWillDraw()
     }
-    
+
 }

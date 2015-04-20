@@ -10,8 +10,5 @@ import Cocoa
 
 class MessageList: View {
 
-    override func viewWillDraw() {
-        super.viewWillDraw()
-    }
 
 }

@@ -52,12 +52,14 @@ class RowGenerator {
     }
 
     func next(var height: CGFloat) -> CGRect {
-        if height <= 1 {
-            height = (frame.height - y) * height
-        }
         var rect = CGRect(x: frame.origin.x, y: y, width: frame.width, height: height)
         y += height
         return rect
+    }
+
+    func nextFraction(var height: CGFloat) -> CGRect {
+        assert(height <= 1, "Fractions should be less than 1")
+        return next((frame.height - y) * height)
     }
 }
 
@@ -71,11 +73,13 @@ class ColumnGenerator {
     }
 
     func next(var width: CGFloat) -> CGRect {
-        if width <= 1 {
-            width = (frame.width - x) * width
-        }
         var rect = CGRect(x: x, y: frame.origin.y, width: width, height: frame.height)
         x += width
         return rect
+    }
+
+    func nextFraction(var width: CGFloat) -> CGRect {
+        assert(width <= 1, "Fractions should be less than 1")
+        return next((frame.width - x) * width)
     }
 }
