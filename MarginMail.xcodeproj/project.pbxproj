@@ -11,6 +11,7 @@
 		7BC4F1631AE1E201007DD2E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */; };
 		7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */; };
 		7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */; };
+		7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16ED01AE4A9D9002DCD22 /* Content.swift */; };
 		ACC194091AE486FF003071DA /* AppDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC194081AE486FF003071DA /* AppDispatcher.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
@@ -253,6 +254,7 @@
 		7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		7BE16ED01AE4A9D9002DCD22 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		ACC194081AE486FF003071DA /* AppDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDispatcher.swift; sourceTree = "<group>"; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			children = (
 				ACF1FA381AE191C7006309D4 /* Views */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
+				7BE16ED01AE4A9D9002DCD22 /* Content.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
 				ACCCD2971AE221BC0043ED41 /* MessageList.swift */,
 				ACCCD2991AE221C50043ED41 /* Sidebar.swift */,
@@ -856,6 +859,7 @@
 				ACCCD2CB1AE23F7F0043ED41 /* Table.swift in Sources */,
 				ACC1940B1AE48A57003071DA /* Lock.swift in Sources */,
 				ACCCD2B21AE2221A0043ED41 /* Array.swift in Sources */,
+				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
 				ACC194091AE486FF003071DA /* AppDispatcher.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
