@@ -16,6 +16,7 @@ class Content: View {
 
     override init(frame: CGRect) {
         split = SplitView(frame: frame)
+
         messageList = MessageList(frame: CGRectZero)
         messagePane = View(frame: CGRectZero)
 
@@ -31,6 +32,9 @@ class Content: View {
         messageList.frame = columns.nextFraction(0.5)
         columns.next(split.dividerThickness)
         messagePane.frame = columns.nextFraction(1)
+
+        split.identifier = "contentSplitView"
+        split.autosaveName = "contentSplitView"
     }
 
     required init?(coder: NSCoder) {

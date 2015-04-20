@@ -29,6 +29,9 @@ class Main: View, NSSplitViewDelegate {
         addSubview(split)
 
         backgroundColor = Color.white()
+
+        split.identifier = "mainSplitView"
+        split.autosaveName = "mainSplitView"
     }
 
     required init?(coder: NSCoder) {
