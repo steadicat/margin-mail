@@ -79,7 +79,7 @@ class Sidebar: View {
             }
 
             if id == "settings" {
-                item.frame = CGRectMake(0, bounds.height, bounds.width, rowHeight).offset(dy: -rowHeight - spaceHeight)
+                item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
             } else {
                 item.frame = rows.next(rowHeight)
             }
