@@ -10,9 +10,10 @@ import Cocoa
 
 class AppDispatcher {
 
-    typealias ActionListener = (AnyObject) -> Void
+    typealias Listener = (AnyObject) -> Void
 
-    static private var listeners: [ActionListener] = []
+    static private var listeners: [Listener] = []
+    static private var lock = NSObject()
 
     static func dispatch(action: AnyObject) {
         for listener in listeners {
@@ -20,8 +21,10 @@ class AppDispatcher {
         }
     }
 
-    static func register(listener: ActionListener) {
-        listeners.append(listener)
+    static func register(listener: Listener) {
+        Lock.mutex(lock) {
+            listeners.append(listener)
+        }
     }
 
 }
