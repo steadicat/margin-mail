@@ -16,8 +16,9 @@
 		7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */; };
 		7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16ED01AE4A9D9002DCD22 /* Content.swift */; };
 		7BE16EE71AE55AEC002DCD22 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16EE61AE55AEC002DCD22 /* TableView.swift */; };
+		AC2AA85D1AE5C2AF001B0408 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA85C1AE5C2AF001B0408 /* Events.swift */; };
+		AC2AA85F1AE5C2BB001B0408 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA85E1AE5C2BB001B0408 /* Dispatcher.swift */; };
 		AC73631A1AE4F767000019A1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Async.swift */; };
-		ACC194091AE486FF003071DA /* AppDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC194081AE486FF003071DA /* AppDispatcher.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
 		ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2971AE221BC0043ED41 /* MessageList.swift */; };
@@ -263,8 +264,9 @@
 		7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		7BE16ED01AE4A9D9002DCD22 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		7BE16EE61AE55AEC002DCD22 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		AC2AA85C1AE5C2AF001B0408 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = MarginMail/Events.swift; sourceTree = SOURCE_ROOT; };
+		AC2AA85E1AE5C2BB001B0408 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		AC7363191AE4F767000019A1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = MarginMail/Async.swift; sourceTree = SOURCE_ROOT; };
-		ACC194081AE486FF003071DA /* AppDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDispatcher.swift; sourceTree = "<group>"; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		ACCCD2971AE221BC0043ED41 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		7BC4F1071AE1D184007DD2E1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AC2AA85C1AE5C2AF001B0408 /* Events.swift */,
 				AC7363191AE4F767000019A1 /* Async.swift */,
 				ACCCD2AD1AE222100043ED41 /* Color.swift */,
 				ACCCD2AE1AE222100043ED41 /* Geometry.swift */,
@@ -422,7 +425,7 @@
 				ACF1FA371AE191C1006309D4 /* Mail */,
 				ACCCD27C1AE21B230043ED41 /* UI */,
 				ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */,
-				ACC194081AE486FF003071DA /* AppDispatcher.swift */,
+				AC2AA85E1AE5C2BB001B0408 /* Dispatcher.swift */,
 				ACF1FA2D1AE191AC006309D4 /* Config.swift */,
 				ACCCD2C61AE238240043ED41 /* DB.swift */,
 			);
@@ -849,8 +852,10 @@
 			files = (
 				ACCCD2AC1AE222030043ED41 /* Window.swift in Sources */,
 				ACCCD2CD1AE2485E0043ED41 /* MailboxTable.swift in Sources */,
+				AC2AA85F1AE5C2BB001B0408 /* Dispatcher.swift in Sources */,
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
+				AC2AA85D1AE5C2AF001B0408 /* Events.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
 				ACCCD2B41AE2221F0043ED41 /* CGRect.swift in Sources */,
 				ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */,
@@ -875,7 +880,6 @@
 				7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */,
 				ACCCD2B21AE2221A0043ED41 /* Array.swift in Sources */,
 				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
-				ACC194091AE486FF003071DA /* AppDispatcher.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
 				ACCCD2C71AE238240043ED41 /* DB.swift in Sources */,
