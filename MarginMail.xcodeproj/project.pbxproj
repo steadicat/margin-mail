@@ -45,7 +45,6 @@
 		ACCCD2CD1AE2485E0043ED41 /* MailboxTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2CC1AE2485E0043ED41 /* MailboxTable.swift */; };
 		ACCCD2CF1AE24AF40043ED41 /* NSUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2CE1AE24AF40043ED41 /* NSUUID.swift */; };
 		ACCCD2D11AE24B100043ED41 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2D01AE24B100043ED41 /* NSData.swift */; };
-		ACCCD2EC1AE43ABB0043ED41 /* MailboxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2EB1AE43ABB0043ED41 /* MailboxStore.swift */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
 		ACF1FA291AE19195006309D4 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA271AE19195006309D4 /* MainWindow.swift */; };
 		ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */; };
@@ -289,7 +288,6 @@
 		ACCCD2CC1AE2485E0043ED41 /* MailboxTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailboxTable.swift; path = MarginMail/MailboxTable.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2CE1AE24AF40043ED41 /* NSUUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSUUID.swift; path = MarginMail/NSUUID.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2D01AE24B100043ED41 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSData.swift; path = MarginMail/NSData.swift; sourceTree = SOURCE_ROOT; };
-		ACCCD2EB1AE43ABB0043ED41 /* MailboxStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailboxStore.swift; path = MarginMail/MailboxStore.swift; sourceTree = SOURCE_ROOT; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA121AE1912F006309D4 /* MarginMailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginMailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,14 +371,6 @@
 				ACCCD2CC1AE2485E0043ED41 /* MailboxTable.swift */,
 			);
 			name = Tables;
-			sourceTree = "<group>";
-		};
-		ACCCD2941AE21BB70043ED41 /* Stores */ = {
-			isa = PBXGroup;
-			children = (
-				ACCCD2EB1AE43ABB0043ED41 /* MailboxStore.swift */,
-			);
-			name = Stores;
 			sourceTree = "<group>";
 		};
 		ACF1F9F91AE1912E006309D4 = {
@@ -489,7 +479,6 @@
 		ACF1FA3A1AE191D1006309D4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				ACCCD2941AE21BB70043ED41 /* Stores */,
 				ACCCD2931AE21BB20043ED41 /* Tables */,
 				ACCCD2B91AE222460043ED41 /* Mailbox.swift */,
 				ACCCD2BA1AE222460043ED41 /* Transport.swift */,
@@ -842,7 +831,6 @@
 				ACCCD2CD1AE2485E0043ED41 /* MailboxTable.swift in Sources */,
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
-				ACCCD2EC1AE43ABB0043ED41 /* MailboxStore.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
 				ACCCD2B41AE2221F0043ED41 /* CGRect.swift in Sources */,
 				ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */,

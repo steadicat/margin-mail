@@ -58,10 +58,6 @@ class Sidebar: View {
         fatalError("init(coder:) has not been implemented")
     }
 
-    deinit {
-        
-    }
-
     func createItem(id: String, text: String) -> (String, SidebarItemView) {
         var item = SidebarItemView(frame: CGRectZero)
         item.text = text
