@@ -8,5 +8,6 @@
 
 import Cocoa
 
+let Rect = CGRectMake
 let Size = CGSizeMake
 let Point = CGPointMake
