@@ -10,7 +10,7 @@ import Cocoa
 
 class Lock {
 
-    static func mutex(lock: AnyObject, @noescape block: () -> Void) {
+    static func with(lock: AnyObject, @noescape block: () -> Void) {
         objc_sync_enter(lock)
         block()
         objc_sync_exit(lock)

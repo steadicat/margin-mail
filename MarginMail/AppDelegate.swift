@@ -12,12 +12,22 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainWindow: MainWindow?
+    var stores: [Store] = []
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         DB.open()
 
+        stores.extend([
+            AccountStore(),
+        ])
+
         mainWindow = MainWindow()
         mainWindow!.show(self)
+
+        Async.delay(3) {
+            let account = Account(name: "Artem", email: "artem@artnez.com")
+            Dispatcher.dispatch(Action.AccountCreate(account: account))
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

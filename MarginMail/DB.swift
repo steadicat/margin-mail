@@ -41,7 +41,7 @@ class DB {
 
     static var migrations: [() -> Void] = [
         {
-            MailboxTable.create()
+            AccountTable.create()
             TransportTable.create()
         }
     ]

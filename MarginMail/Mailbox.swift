@@ -1,5 +1,5 @@
 //
-//  Mailbox.swift
+//  Account.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/17/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Mailbox {
+class Account {
 
     var name: String
     var email: String
