@@ -10,6 +10,8 @@ import Cocoa
 
 class SidebarItemView: View {
 
+    private let iconGap: CGFloat = 12
+
     var accentColor: NSColor = Color.accent() {
         didSet {
             self.needsDisplay = true
@@ -67,11 +69,8 @@ class SidebarItemView: View {
     }
 
     override func viewWillDraw() {
-        let collapsedWidth = 66 as CGFloat
-        let maximumWidth = 216 as CGFloat
-        let iconGap = 12 as CGFloat
 
-        let collapsingRatio = (frame.width - collapsedWidth) / (maximumWidth - collapsedWidth)
+        let collapsingRatio = (frame.width - Sidebar.minimumWidth) / (Sidebar.maximumWidth - Sidebar.minimumWidth)
         let sideMargin = 18 + round(18 * collapsingRatio)
 
         let textColor = isSelected ? self.accentColor : Color.darkGray()

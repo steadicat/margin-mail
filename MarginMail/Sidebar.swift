@@ -10,6 +10,9 @@ import Cocoa
 
 class Sidebar: View {
 
+    static let minimumWidth: CGFloat = 66
+    static let maximumWidth: CGFloat = 216
+
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36

@@ -15,7 +15,7 @@ class Main: View, NSSplitViewDelegate {
     private var content: Content
 
     override init(frame: CGRect) {
-        split = SplitView(frame: frame, minimumSizes: [0: 66], maximumSizes: [0: 216])
+        split = SplitView(frame: frame, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
         sidebar = Sidebar(frame: CGRectZero)
         content = Content(frame: CGRectZero)
 
@@ -25,7 +25,7 @@ class Main: View, NSSplitViewDelegate {
         split.addSubview(content)
 
         let columns = self.bounds.columns()
-        self.sidebar.frame = columns.next(216)
+        self.sidebar.frame = columns.next(Sidebar.maximumWidth)
         self.content.frame = columns.next(1)
 
         addSubview(split)
