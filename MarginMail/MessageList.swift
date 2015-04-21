@@ -13,6 +13,8 @@ class MessageList: View {
     let scroll: ScrollView
     let table: TableView
 
+    private var selectedRow = 0
+
     override init(frame frameRect: NSRect) {
         scroll = ScrollView(frame: CGRectZero)
 
@@ -23,6 +25,7 @@ class MessageList: View {
         table.headerView = nil
         table.createCell = self.createCell
         table.updateCell = self.updateCell
+        table.onRowSelect = self.onRowSelect
         table.rowHeight = 96
         table.rows = 100
         table.columns = 1
@@ -40,6 +43,20 @@ class MessageList: View {
         super.viewWillDraw()
     }
 
+    func onRowSelect(row: Int) {
+        if let row = table.rowViewAtRow(selectedRow, makeIfNecessary: false) as? NSTableRowView {
+            for view in row.subviews {
+                (view as? MessageListItem)?.selected = false
+            }
+        }
+        selectedRow = row
+        if let row = table.rowViewAtRow(row, makeIfNecessary: false) as? NSTableRowView {
+            for view in row.subviews {
+                (view as? MessageListItem)?.selected = true
+            }
+        }
+    }
+
     func getNumberOfRows() -> Int {
         return 12
     }
@@ -50,6 +67,7 @@ class MessageList: View {
 
     func updateCell(#column: Int, row: Int, view: NSView) -> NSView {
         if let message = view as? MessageListItem {
+            message.selected = row == self.selectedRow
             message.author = "Stefano J. Attardi"
             message.subject = "Hi Artem, how are things?"
             message.snippet = "I dunno why I’m writing. I guess I just wanted to test this new awesome email client."

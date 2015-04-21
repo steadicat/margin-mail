@@ -13,6 +13,7 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         setDelegate(self)
+        self.selectionHighlightStyle = .None
     }
 
     required init?(coder: NSCoder) {
@@ -37,6 +38,7 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
 
     var createCell: (() -> NSView)?
     var updateCell: ((column: Int, row: Int, view: NSView) -> NSView)?
+    var onRowSelect: ((row: Int) -> ())?
 
     var created = 0
 
@@ -48,13 +50,16 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
         var view = tableView.makeViewWithIdentifier("tableViewCell", owner:self) as? NSView
-        println("creating view? \(view) \(self.createCell)")
+
         if view == nil && self.createCell != nil {
-            println("creating view \(created++)")
             view = self.createCell!()
             view!.identifier = "tableViewCell"
         }
         return self.updateCell?(column: 0, row: row, view: view!)
+    }
+
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        self.onRowSelect?(row: self.selectedRow)
     }
 
 }
