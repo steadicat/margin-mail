@@ -61,6 +61,12 @@ class RowGenerator {
         assert(height <= 1, "Fractions should be less than 1")
         return next((frame.height - y) * height)
     }
+
+    var remaining: CGSize {
+        get {
+            return CGSizeMake(frame.width, frame.height - y)
+        }
+    }
 }
 
 class ColumnGenerator {
@@ -81,5 +87,11 @@ class ColumnGenerator {
     func nextFraction(var width: CGFloat) -> CGRect {
         assert(width <= 1, "Fractions should be less than 1")
         return next((frame.width - x) * width)
+    }
+
+    var remaining: CGSize {
+        get {
+            return CGSizeMake(frame.width - x, frame.height)
+        }
     }
 }

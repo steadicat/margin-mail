@@ -59,15 +59,13 @@ class MessageListItem: View {
         var rows = bounds.rectByInsetting(dx: 24, dy: 12).rows()
 
         authorLabel.string = author
-        authorLabel.frame = rows.next(authorLabel.lineHeight)
-        rows.next(3)
+        authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
 
         subjectLabel.string = subject
-        subjectLabel.frame = rows.next(subjectLabel.lineHeight)
-        rows.next(3)
+        subjectLabel.frame = rows.next(subjectLabel.heightForSize(rows.remaining))
 
         snippetLabel.string = snippet
-        snippetLabel.frame = rows.next(subjectLabel.lineHeight)
+        snippetLabel.frame = rows.next(snippetLabel.heightForSize(rows.remaining))
 
         borderLayer.frame = selected ? Rect(0, 0, 3, bounds.height) : CGRectZero
         borderLayer.backgroundColor = Color.accent().CGColor

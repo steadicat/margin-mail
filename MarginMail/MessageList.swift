@@ -70,7 +70,7 @@ class MessageList: View {
             message.selected = row == self.selectedRow
             message.author = "Stefano J. Attardi"
             message.subject = "Hi Artem, how are things?"
-            message.snippet = "I dunno why I’m writing. I guess I just wanted to test this new awesome email client."
+            message.snippet = "I dunno why I’m writing. I guess I just wanted to test this new awesome email client. It’s pretty sweet I guess. I especially like text wrapping and text truncation."
         }
         return view
     }

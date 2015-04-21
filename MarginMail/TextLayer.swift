@@ -10,7 +10,6 @@ import Cocoa
 
 class TextLayer: CATextLayer {
 
-
     override var font: AnyObject! {
         get {
             return super.font
@@ -35,10 +34,16 @@ class TextLayer: CATextLayer {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var lineHeight: CGFloat {
-        get {
-            return (font as! NSFont).boundingRectForFont.height
-        }
+    func heightForSize(size: CGSize) -> CGFloat {
+        return (string as! NSString).boundingRectWithSize(size,
+            options: wrapped ? (.UsesLineFragmentOrigin) : nil,
+            attributes: getAttributes()
+        ).height
     }
 
+    private func getAttributes() -> [String: AnyObject] {
+        return [
+            NSFontAttributeName: self.font as? NSFont ?? NSFont.systemFontOfSize(NSFont.systemFontSize())
+        ]
+    }
 }
