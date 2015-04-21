@@ -56,7 +56,7 @@ class MessageListItem: View {
     }
 
     override func viewWillDraw() {
-        var rows = bounds.rectByInsetting(dx: 24, dy: 12).rows()
+        var rows = bounds.rectByInsetting(dx: 24, dy: 6).rows()
 
         authorLabel.string = author
         authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
@@ -65,7 +65,7 @@ class MessageListItem: View {
         subjectLabel.frame = rows.next(subjectLabel.heightForSize(rows.remaining))
 
         snippetLabel.string = snippet
-        snippetLabel.frame = rows.next(snippetLabel.heightForSize(rows.remaining))
+        snippetLabel.frame = rows.next(rows.remaining.height)
 
         borderLayer.frame = selected ? Rect(0, 0, 3, bounds.height) : CGRectZero
         borderLayer.backgroundColor = Color.accent().CGColor
