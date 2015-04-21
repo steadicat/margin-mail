@@ -1,5 +1,5 @@
 //
-//  DB.swift
+//  Database.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/17/15.
@@ -8,15 +8,15 @@
 
 import SQLite
 
-class DB {
+class Database {
 
     static var path: String = {
         return Config.dataURL.URLByAppendingPathComponent("db.sqlite3").path!
     }()
 
     static var conn: SQLite.Database = {
-        NSLog("[DB] Opening: \(DB.path)")
-        return SQLite.Database(DB.path)
+        NSLog("[DB] Opening: \(Database.path)")
+        return SQLite.Database(Database.path)
     }()
 
     static func version() -> Int {

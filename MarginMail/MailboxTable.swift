@@ -16,11 +16,11 @@ class AccountTable: Table {
     static let photo = SQLite.Expression<NSImage?>("photo")
 
     static func all() -> SQLite.Query {
-        return DB.conn["account"]
+        return Database.conn["account"]
     }
 
     static func create() {
-        DB.conn.create(table: all()) { t in
+        Database.conn.create(table: all()) { t in
             t.column(self.id, primaryKey: true)
             t.column(self.name)
             t.column(self.photo)

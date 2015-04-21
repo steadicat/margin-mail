@@ -6,14 +6,6 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-struct Action {
-
-    struct AccountCreate {
-        let account: Account
-    }
-
-}
-
 class Dispatcher {
 
     typealias Context = AnyObject

@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var stores: [Store] = []
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        DB.open()
+        Database.open()
 
         stores.extend([
             AccountStore(),

@@ -19,6 +19,7 @@
 		AC2AA85D1AE5C2AF001B0408 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA85C1AE5C2AF001B0408 /* Dispatcher.swift */; };
 		AC2AA87B1AE5C8C2001B0408 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA87A1AE5C8C2001B0408 /* AccountStore.swift */; };
 		AC2AA8801AE61E6D001B0408 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA87F1AE61E6D001B0408 /* Store.swift */; };
+		AC2AA8BC1AE624EB001B0408 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA8BB1AE624EB001B0408 /* Actions.swift */; };
 		AC73631A1AE4F767000019A1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Async.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
@@ -45,7 +46,7 @@
 		ACCCD2C21AE2225C0043ED41 /* MailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2BE1AE2225C0043ED41 /* MailClient.swift */; };
 		ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2BF1AE2225C0043ED41 /* MailReader.swift */; };
 		ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2C01AE2225C0043ED41 /* MailWriter.swift */; };
-		ACCCD2C71AE238240043ED41 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2C61AE238240043ED41 /* DB.swift */; };
+		ACCCD2C71AE238240043ED41 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2C61AE238240043ED41 /* Database.swift */; };
 		ACCCD2C91AE23C000043ED41 /* TransportTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2C81AE23C000043ED41 /* TransportTable.swift */; };
 		ACCCD2CB1AE23F7F0043ED41 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2CA1AE23F7F0043ED41 /* Table.swift */; };
 		ACCCD2CD1AE2485E0043ED41 /* MailboxTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2CC1AE2485E0043ED41 /* MailboxTable.swift */; };
@@ -268,6 +269,7 @@
 		AC2AA85C1AE5C2AF001B0408 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = MarginMail/Dispatcher.swift; sourceTree = SOURCE_ROOT; };
 		AC2AA87A1AE5C8C2001B0408 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountStore.swift; path = MarginMail/AccountStore.swift; sourceTree = SOURCE_ROOT; };
 		AC2AA87F1AE61E6D001B0408 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = MarginMail/Store.swift; sourceTree = SOURCE_ROOT; };
+		AC2AA8BB1AE624EB001B0408 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = MarginMail/Actions.swift; sourceTree = SOURCE_ROOT; };
 		AC7363191AE4F767000019A1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = MarginMail/Async.swift; sourceTree = SOURCE_ROOT; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -294,7 +296,7 @@
 		ACCCD2BE1AE2225C0043ED41 /* MailClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailClient.swift; path = MarginMail/MailClient.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2BF1AE2225C0043ED41 /* MailReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailReader.swift; path = MarginMail/MailReader.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2C01AE2225C0043ED41 /* MailWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailWriter.swift; path = MarginMail/MailWriter.swift; sourceTree = SOURCE_ROOT; };
-		ACCCD2C61AE238240043ED41 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DB.swift; path = MarginMail/DB.swift; sourceTree = SOURCE_ROOT; };
+		ACCCD2C61AE238240043ED41 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Database.swift; path = MarginMail/Database.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2C81AE23C000043ED41 /* TransportTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransportTable.swift; path = MarginMail/TransportTable.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2CA1AE23F7F0043ED41 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = MarginMail/Table.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2CC1AE2485E0043ED41 /* MailboxTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailboxTable.swift; path = MarginMail/MailboxTable.swift; sourceTree = SOURCE_ROOT; };
@@ -378,6 +380,15 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
+		AC2AA8BD1AE62501001B0408 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACCCD2B91AE222460043ED41 /* Mailbox.swift */,
+				ACCCD2BA1AE222460043ED41 /* Transport.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		ACCCD27C1AE21B230043ED41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,9 +446,7 @@
 				ACF1FA371AE191C1006309D4 /* Mail */,
 				ACCCD27C1AE21B230043ED41 /* UI */,
 				ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */,
-				AC2AA85C1AE5C2AF001B0408 /* Dispatcher.swift */,
 				ACF1FA2D1AE191AC006309D4 /* Config.swift */,
-				ACCCD2C61AE238240043ED41 /* DB.swift */,
 			);
 			path = MarginMail;
 			sourceTree = "<group>";
@@ -512,10 +521,12 @@
 		ACF1FA3A1AE191D1006309D4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AC2AA8BD1AE62501001B0408 /* Models */,
 				AC2AA8651AE5C8AF001B0408 /* Stores */,
 				ACCCD2931AE21BB20043ED41 /* Tables */,
-				ACCCD2B91AE222460043ED41 /* Mailbox.swift */,
-				ACCCD2BA1AE222460043ED41 /* Transport.swift */,
+				AC2AA8BB1AE624EB001B0408 /* Actions.swift */,
+				AC2AA85C1AE5C2AF001B0408 /* Dispatcher.swift */,
+				ACCCD2C61AE238240043ED41 /* Database.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -866,6 +877,7 @@
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
 				AC2AA85D1AE5C2AF001B0408 /* Dispatcher.swift in Sources */,
+				AC2AA8BC1AE624EB001B0408 /* Actions.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
 				ACCCD2B41AE2221F0043ED41 /* CGRect.swift in Sources */,
 				ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */,
@@ -892,7 +904,7 @@
 				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
-				ACCCD2C71AE238240043ED41 /* DB.swift in Sources */,
+				ACCCD2C71AE238240043ED41 /* Database.swift in Sources */,
 				AC2AA87B1AE5C8C2001B0408 /* AccountStore.swift in Sources */,
 				ACCCD2CF1AE24AF40043ED41 /* NSUUID.swift in Sources */,
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,

@@ -17,11 +17,11 @@ class TransportTable: Table {
     static let password = Expression<String>("password") // TODO: Use keychain
 
     static func all() -> SQLite.Query {
-        return DB.conn["transport"]
+        return Database.conn["transport"]
     }
 
     static func create() {
-        DB.conn.create(table: all()) { t in
+        Database.conn.create(table: all()) { t in
             t.column(self.type, primaryKey: true)
             t.column(self.hostname)
             t.column(self.port)

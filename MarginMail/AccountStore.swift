@@ -10,7 +10,7 @@ class AccountStore: Store {
 
     override func action(action: Any) {
         switch (action) {
-        case let action as Action.AccountCreate:
+        case let action as Actions.AccountCreate:
             createAccount(action.account)
         default:
             return

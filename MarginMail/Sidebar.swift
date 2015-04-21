@@ -55,7 +55,7 @@ class Sidebar: View {
 
         Async.delay(3) {
             let account = Account(name: "Artem", email: "artem@artnez.com")
-            Dispatcher.dispatch(Action.AccountCreate(account: account))
+            Dispatcher.dispatch(Actions.AccountCreate(account: account))
         }
     }
 
