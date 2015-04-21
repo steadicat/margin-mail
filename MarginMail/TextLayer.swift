@@ -10,9 +10,6 @@ import Cocoa
 
 class TextLayer: CATextLayer {
 
-    override init!(layer: AnyObject!) {
-        super.init(layer: layer)
-    }
 
     override var font: AnyObject! {
         get {
@@ -24,9 +21,14 @@ class TextLayer: CATextLayer {
         }
     }
 
+    override init!(layer: AnyObject!) {
+        super.init(layer: layer)
+    }
+
     override init() {
         super.init()
         contentsScale = NSScreen.mainScreen()!.backingScaleFactor
+        truncationMode = kCATruncationEnd
     }
 
     required init(coder aDecoder: NSCoder) {

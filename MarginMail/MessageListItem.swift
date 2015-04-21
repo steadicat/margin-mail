@@ -60,9 +60,11 @@ class MessageListItem: View {
 
         authorLabel.string = author
         authorLabel.frame = rows.next(authorLabel.lineHeight)
+        rows.next(3)
 
         subjectLabel.string = subject
         subjectLabel.frame = rows.next(subjectLabel.lineHeight)
+        rows.next(3)
 
         snippetLabel.string = snippet
         snippetLabel.frame = rows.next(subjectLabel.lineHeight)
