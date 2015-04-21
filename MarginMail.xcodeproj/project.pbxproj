@@ -380,13 +380,6 @@
 			name = Stores;
 			sourceTree = "<group>";
 		};
-		AC2AA87C1AE5DAED001B0408 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Events;
-			sourceTree = "<group>";
-		};
 		ACCCD27C1AE21B230043ED41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,7 +432,6 @@
 			isa = PBXGroup;
 			children = (
 				ACF1FA3A1AE191D1006309D4 /* Data */,
-				AC2AA87C1AE5DAED001B0408 /* Events */,
 				ACF1FA391AE191CC006309D4 /* Extensions */,
 				7BC4F1071AE1D184007DD2E1 /* Helpers */,
 				ACF1FA371AE191C1006309D4 /* Mail */,
