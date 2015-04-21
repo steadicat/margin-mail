@@ -58,8 +58,6 @@ class SidebarItemView: View {
 
         super.init(frame: frame)
 
-        label.opaque = true
-
         addSubview(label)
         addSubview(icon)
     }
@@ -91,7 +89,6 @@ class SidebarItemView: View {
 
         backgroundColor = isHovered ? Color.accent(1) : Color.white()
 
-        assert(label.opaque, "Label should be opaque for proper text rendering while animating")
         self.fadeLabel(bounds.width > 120)
 
         super.viewWillDraw()

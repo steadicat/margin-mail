@@ -8,34 +8,37 @@
 
 import Cocoa
 
-class Label: TextField {
+class Label: NSView {
 
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        bordered = false
-        bezeled = false
-        editable = false
-        selectable = false
-        backgroundColor = nil
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewWillDraw() {
-        super.viewWillDraw()
-    }
-
-    private var _opaque: Bool = true
-
-    override var opaque: Bool {
-        get {
-            return _opaque
+    var text: NSString = "" {
+        didSet {
+            self.needsDisplay = true
         }
-        set(value) {
-            _opaque = value
+    }
+    var font: NSFont? {
+        didSet {
+            self.needsDisplay = true
         }
+    }
+    var textColor: NSColor? {
+        didSet {
+            self.needsDisplay = true
+        }
+    }
+
+    private func getAttributes() -> [String: AnyObject] {
+        return [
+            NSFontAttributeName as String: font ?? NSFont.systemFontOfSize(NSFont.systemFontSize()),
+            NSForegroundColorAttributeName as String: textColor ?? NSColor.blackColor()
+        ]
+    }
+
+    override func drawRect(dirtyRect: NSRect) {
+        text.drawInRect(bounds, withAttributes: getAttributes())
+    }
+
+    func sizeToFit() {
+        frame = CGRect(origin: frame.origin, size: text.sizeWithAttributes(getAttributes()))
     }
 
 }
