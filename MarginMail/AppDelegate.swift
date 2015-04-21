@@ -23,11 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         mainWindow = MainWindow()
         mainWindow!.show(self)
-
-        Async.delay(3) {
-            let account = Account(name: "Artem", email: "artem@artnez.com")
-            Dispatcher.dispatch(Action.AccountCreate(account: account))
-        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
