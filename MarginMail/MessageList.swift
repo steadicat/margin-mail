@@ -23,12 +23,12 @@ class MessageList: View {
         super.init(frame: frameRect)
 
         table.headerView = nil
-        table.createCell = self.createCell
-        table.updateCell = self.updateCell
-        table.onRowSelect = self.onRowSelect
         table.rowHeight = 96
         table.rows = 100
         table.columns = 1
+        table.createCell = self.createCell
+        table.updateCell = self.updateCell
+        table.onRowSelect = self.onRowSelect
 
         scroll.documentView = table
         addSubview(scroll)

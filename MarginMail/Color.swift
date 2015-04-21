@@ -35,4 +35,8 @@ class Color {
     static func lightGray() -> NSColor {
         return NSColor(white: 0.75, alpha: 1)
     }
+
+    static func random(saturation: CGFloat = 0.9, lightness: CGFloat = 0.65) -> NSColor {
+        return NSColor(hue: CGFloat(arc4random()) / CGFloat(UINT32_MAX), saturation: saturation, lightness: lightness)
+    }
 }

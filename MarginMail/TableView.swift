@@ -13,7 +13,8 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         setDelegate(self)
-        self.selectionHighlightStyle = .None
+        selectionHighlightStyle = .None
+        intercellSpacing = Size(0, 0)
     }
 
     required init?(coder: NSCoder) {
