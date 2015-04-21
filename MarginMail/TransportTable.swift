@@ -16,12 +16,16 @@ class TransportTable: Table {
     static let username = Expression<String>("username") // TODO: Use keychain
     static let password = Expression<String>("password") // TODO: Use keychain
 
+    static func query() -> SQLite.Query {
+        return DB.conn["transport"]
+    }
+
     static func all() -> SQLite.Query {
-        return Database.conn["transport"]
+        return query()
     }
 
     static func create() {
-        Database.conn.create(table: all()) { t in
+        DB.conn.create(table: all()) { t in
             t.column(self.type, primaryKey: true)
             t.column(self.hostname)
             t.column(self.port)

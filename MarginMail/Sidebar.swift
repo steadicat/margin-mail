@@ -52,11 +52,6 @@ class Sidebar: View {
             }
             addSubview(item)
         }
-
-        Async.delay(3) {
-            let account = Account(name: "Artem", email: "artem@artnez.com")
-            Dispatcher.dispatch(Actions.AccountCreate(account: account))
-        }
     }
 
     required init?(coder: NSCoder) {

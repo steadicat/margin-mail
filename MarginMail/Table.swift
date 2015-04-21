@@ -9,6 +9,7 @@
 import SQLite
 
 protocol Table {
+    static func query() -> SQLite.Query
     static func all() -> SQLite.Query
     static func create()
 }

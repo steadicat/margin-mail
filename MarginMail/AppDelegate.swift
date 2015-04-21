@@ -12,14 +12,14 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainWindow: MainWindow?
-    var stores: [Store] = []
+
+    let stores: [Store] = [
+        AccountStore()
+    ]
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        Database.open()
-
-        stores.extend([
-            AccountStore(),
-        ])
+        DB.open()
+        Seed.database()
 
         mainWindow = MainWindow()
         mainWindow!.show(self)

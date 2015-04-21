@@ -1,5 +1,5 @@
 //
-//  Database.swift
+//  DB.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/17/15.
@@ -8,15 +8,17 @@
 
 import SQLite
 
-class Database {
+class DB {
+
+    static var name = "db2.sqlite3"
 
     static var path: String = {
-        return Config.dataURL.URLByAppendingPathComponent("db.sqlite3").path!
+        return Config.dataURL.URLByAppendingPathComponent(name).path!
     }()
 
     static var conn: SQLite.Database = {
-        NSLog("[DB] Opening: \(Database.path)")
-        return SQLite.Database(Database.path)
+        NSLog("[DB] Opening: \(DB.path)")
+        return SQLite.Database(DB.path)
     }()
 
     static func version() -> Int {
@@ -25,11 +27,22 @@ class Database {
 
     static func open() -> SQLite.Database {
         NSLog("[DB] Version: \(version())")
-        migrate()
+        createFunctions()
+        runMigrations()
         return conn
     }
 
-    static func migrate() {
+    static func createFunctions() {
+        let _ = [Func.uuid]
+    }
+
+    struct Func {
+        static let uuid = conn.create(function: "uuid") {
+            return NSUUID()
+        }()
+    }
+
+    static func runMigrations() {
         for (i, migration) in enumerate(migrations) {
             if version() <= i {
                 NSLog("[DB] Migrating: \(i) -> \(i+1)")

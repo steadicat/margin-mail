@@ -24,3 +24,16 @@ extension NSUUID: SQLite.Value {
     }
     
 }
+
+extension SQLite.Row {
+    // FIXME: Remove this when SQLite.swift makes subscripting more generic.
+
+    public subscript(column: SQLite.Expression<NSUUID>) -> NSUUID {
+        return get(column)
+    }
+
+    public subscript(column: SQLite.Expression<NSUUID?>) -> NSUUID? {
+        return get(column)
+    }
+
+}

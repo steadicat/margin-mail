@@ -10,6 +10,8 @@ import Cocoa
 
 class Account {
 
+    var id: NSUUID? // FIXME: Do we really need a PK UUID? Use the email?
+
     var name: String
     var email: String
     var photo: NSImage?
@@ -17,7 +19,8 @@ class Account {
     var incoming: Transport?
     var outgoing: Transport?
 
-    init(name: String, email: String) {
+    init(id: NSUUID?, name: String, email: String) {
+        self.id = id
         self.name = name
         self.email = email
     }

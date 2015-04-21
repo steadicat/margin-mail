@@ -6,7 +6,22 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
+import SQLite
+
 class AccountStore: Store {
+
+    static func getAll() -> [Account] {
+        var accounts: [Account] = []
+        for row in AccountTable.all() {
+            let account = Account(
+                id: row[AccountTable.id],
+                name: row[AccountTable.name],
+                email: row[AccountTable.email]
+            )
+            accounts.append(account)
+        }
+        return accounts
+    }
 
     override func action(action: Any) {
         switch (action) {
@@ -18,7 +33,10 @@ class AccountStore: Store {
     }
 
     private func createAccount(account: Account) {
-        println("Create account: \(account.name)")
+        let stmt: SQLite.Statement = AccountTable.query().insert(
+            AccountTable.name <- account.name,
+            AccountTable.email <- account.email
+        )
     }
 
 }
