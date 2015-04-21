@@ -10,9 +10,9 @@ import Cocoa
 
 class MessageListItem: View {
 
-    var author: String = ""
-    var subject: String = ""
-    var snippet: String = ""
+    var author: NSString = ""
+    var subject: NSString = ""
+    var snippet: NSString = ""
     var selected: Bool = false {
         didSet {
             self.needsDisplay = true
@@ -20,34 +20,34 @@ class MessageListItem: View {
         }
     }
 
-    let authorLabel: Label
-    let subjectLabel: Label
-    let snippetLabel: Label
+    let authorLabel: TextLayer
+    let subjectLabel: TextLayer
+    let snippetLabel: TextLayer
 
     let borderLayer: CALayer
 
     override init(frame frameRect: NSRect) {
-        authorLabel = Label(frame: CGRectZero)
-        authorLabel.font = NSFont(name: "OpenSans-Semibold", size: 14)
-        authorLabel.textColor = Color.darkGray()
-
         borderLayer = CALayer()
 
-        subjectLabel = Label(frame: CGRectZero)
-        subjectLabel.font = NSFont(name: "OpenSans", size: 14)
-        subjectLabel.textColor = Color.darkGray()
+        authorLabel = TextLayer()
+        authorLabel.font = NSFont(name: "OpenSans-Semibold", size: 14)
+        authorLabel.foregroundColor = Color.darkGray().CGColor
 
-        snippetLabel = Label(frame: CGRectZero)
+        subjectLabel = TextLayer()
+        subjectLabel.font = NSFont(name: "OpenSans", size: 14)
+        subjectLabel.foregroundColor = Color.darkGray().CGColor
+
+        snippetLabel = TextLayer()
         snippetLabel.font = NSFont(name: "OpenSans", size: 11)
-        snippetLabel.textColor = Color.mediumGray()
+        snippetLabel.foregroundColor = Color.mediumGray().CGColor
+        snippetLabel.wrapped = true
 
         super.init(frame: frameRect)
 
-        addSubview(authorLabel)
-        addSubview(subjectLabel)
-        addSubview(snippetLabel)
-
         wantsLayer = true
+        layer?.addSublayer(authorLabel)
+        layer?.addSublayer(subjectLabel)
+        layer?.addSublayer(snippetLabel)
         layer?.addSublayer(borderLayer)
     }
 
@@ -58,17 +58,14 @@ class MessageListItem: View {
     override func viewWillDraw() {
         var rows = bounds.rectByInsetting(dx: 24, dy: 12).rows()
 
-        authorLabel.text = author
-        authorLabel.sizeToFit()
-        authorLabel.frame = rows.next(authorLabel.frame.height).integerRect
+        authorLabel.string = author
+        authorLabel.frame = rows.next(authorLabel.lineHeight)
 
-        subjectLabel.text = subject
-        subjectLabel.sizeToFit()
-        subjectLabel.frame = rows.next(subjectLabel.frame.height).integerRect
+        subjectLabel.string = subject
+        subjectLabel.frame = rows.next(subjectLabel.lineHeight)
 
-        snippetLabel.text = snippet
-        snippetLabel.sizeToFit()
-        snippetLabel.frame = rows.next(snippetLabel.frame.height).integerRect
+        snippetLabel.string = snippet
+        snippetLabel.frame = rows.next(subjectLabel.lineHeight)
 
         borderLayer.frame = selected ? Rect(0, 0, 3, bounds.height) : CGRectZero
         borderLayer.backgroundColor = Color.accent().CGColor
