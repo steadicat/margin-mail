@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B405A151AE8A07300506A01 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A141AE8A07300506A01 /* Component.swift */; };
 		7B69803A1AE5A6C90064A060 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980391AE5A6C90064A060 /* ScrollView.swift */; };
 		7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */; };
 		7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980521AE5FF820064A060 /* TextLayer.swift */; };
@@ -258,6 +259,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B405A141AE8A07300506A01 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		7B6980391AE5A6C90064A060 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = MarginMail/ScrollView.swift; sourceTree = SOURCE_ROOT; };
 		7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListItem.swift; sourceTree = "<group>"; };
 		7B6980521AE5FF820064A060 /* TextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLayer.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			children = (
 				7B6980511AE5FF710064A060 /* Layers */,
 				ACF1FA381AE191C7006309D4 /* Views */,
+				7B405A141AE8A07300506A01 /* Component.swift */,
 				7BE16ED01AE4A9D9002DCD22 /* Content.swift */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
@@ -892,6 +895,7 @@
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
 				AC73631A1AE4F767000019A1 /* Async.swift in Sources */,
+				7B405A151AE8A07300506A01 /* Component.swift in Sources */,
 				ACCCD2B61AE222280043ED41 /* NSImage.swift in Sources */,
 				ACCCD2D11AE24B100043ED41 /* NSData.swift in Sources */,
 				ACCCD29A1AE221C50043ED41 /* Sidebar.swift in Sources */,

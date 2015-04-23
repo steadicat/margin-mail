@@ -8,41 +8,45 @@
 
 import Cocoa
 
-class Content: View {
+class Content: Component {
 
-    private var split: SplitView
-    private var messageList: MessageList
-    private var messagePane: View
+    private let split: SplitView
+    private let messageList: MessageList
+    private let messagePane: View
 
-    override init(frame: CGRect) {
-        split = SplitView(frame: frame)
-
-        messageList = MessageList(frame: CGRectZero)
+    override init() {
+        split = SplitView(frame: CGRectZero)
+        messageList = MessageList()
         messagePane = View(frame: CGRectZero)
 
-        super.init(frame: frame)
+        super.init()
 
-        split.addSubview(messageList)
+        if let subview = messageList.view {
+            split.addSubview(subview)
+        }
         split.addSubview(messagePane)
 
-        addSubview(split)
-
-        split.frame = bounds
-        let columns = bounds.columns()
-        messageList.frame = columns.nextFraction(0.5)
-        columns.next(split.dividerThickness)
-        messagePane.frame = columns.nextFraction(1)
+        messagePane.backgroundColor = Color.white()
 
         split.identifier = "contentSplitView"
         split.autosaveName = "contentSplitView"
+
+        if CGRectIsEmpty(messageList.frame) {
+            let columns = bounds.columns()
+            messageList.frame = columns.next(0.5)
+            columns.next(split.dividerThickness)
+            messagePane.frame = columns.nextFraction(1)
+        }
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewWillDraw() {
+    func render() {
         split.frame = bounds
-        super.viewWillDraw()
+
+    }
+
+    var view: NSView? {
+        get {
+            return split
+        }
     }
 }

@@ -8,19 +8,18 @@
 
 import Cocoa
 
-class MessageList: View {
+class MessageList: Component {
 
-    let scroll: ScrollView
-    let table: TableView
+    private let scroll: ScrollView
+    private let table: TableView
 
     private var selectedRow = 0
 
-    override init(frame frameRect: NSRect) {
+    override init() {
         scroll = ScrollView(frame: CGRectZero)
-
         table = TableView(frame: CGRectZero)
 
-        super.init(frame: frameRect)
+        super.init()
 
         table.headerView = nil
         table.rowHeight = 96
@@ -31,16 +30,16 @@ class MessageList: View {
         table.onRowSelect = self.onRowSelect
 
         scroll.documentView = table
-        addSubview(scroll)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    var view: NSView? {
+        get {
+            return scroll
+        }
     }
 
-    override func viewWillDraw() {
+    func render() {
         scroll.frame = bounds
-        super.viewWillDraw()
     }
 
     func onRowSelect(row: Int) {

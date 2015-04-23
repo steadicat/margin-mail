@@ -8,39 +8,46 @@
 
 import Cocoa
 
-class Main: View, NSSplitViewDelegate {
+class Main: Component {
 
-    private var split: SplitView
-    private var sidebar: Sidebar
-    private var content: Content
+    private let split: SplitView
+    private let sidebar: Sidebar
+    private let content: Content
 
-    override init(frame: CGRect) {
-        split = SplitView(frame: frame, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
+    override init() {
+        split = SplitView(frame: CGRectZero, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
+        sidebar = Sidebar(frame: CGRectZero)
+        content = Content()
 
-        let columns = frame.columns()
-        sidebar = Sidebar(frame: columns.next(Sidebar.maximumWidth))
-        columns.next(split.dividerThickness)
-        content = Content(frame: columns.nextFraction(1))
-
-        super.init(frame: frame)
+        super.init()
 
         split.addSubview(sidebar)
-        split.addSubview(content)
-        addSubview(split)
+        if let subview = content.view {
+            split.addSubview(subview)
+        }
 
-        backgroundColor = Color.white()
+        sidebar.backgroundColor = Color.white()
 
         split.identifier = "mainSplitView"
         split.autosaveName = "mainSplitView"
+
+        if CGRectIsEmpty(sidebar.frame) {
+            let columns = bounds.columns()
+            sidebar.frame = columns.next(Sidebar.maximumWidth)
+            columns.next(split.dividerThickness)
+            content.frame = columns.nextFraction(1)
+        }
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewWillDraw() {
+    func render() {
+        content.render()
         split.frame = bounds
-        super.viewWillDraw()
+    }
+
+    var view: NSView? {
+        get {
+            return split
+        }
     }
 
 }

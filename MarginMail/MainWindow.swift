@@ -15,7 +15,7 @@ class MainWindow: Window {
     init() {
         let frame = NSMakeRect(0, 0, 1200, 700)
 
-        main = Main(frame: frame)
+        main = Main()
 
         super.init(
             contentRect: frame,
@@ -31,7 +31,8 @@ class MainWindow: Window {
         titleVisibility = .Hidden
         titlebarAppearsTransparent = true
 
-        contentView = main
+        main.render()
+        contentView = main.view!
     }
 
     required init?(coder: NSCoder) {
