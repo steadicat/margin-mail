@@ -31,8 +31,8 @@ class MainWindow: Window {
         titleVisibility = .Hidden
         titlebarAppearsTransparent = true
 
-        main.render()
         contentView = main.view!
+        main.frame = self.frame
     }
 
     required init?(coder: NSCoder) {

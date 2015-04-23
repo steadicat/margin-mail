@@ -31,17 +31,19 @@ class Main: Component {
         split.identifier = "mainSplitView"
         split.autosaveName = "mainSplitView"
 
-        if CGRectIsEmpty(sidebar.frame) {
+    }
+
+    override func render() {
+        //split.frame = bounds
+
+        if CGRectIsEmpty(sidebar.frame) || CGRectIsEmpty(content.view!.frame) {
             let columns = bounds.columns()
             sidebar.frame = columns.next(Sidebar.maximumWidth)
             columns.next(split.dividerThickness)
             content.frame = columns.nextFraction(1)
         }
-    }
 
-    func render() {
         content.render()
-        split.frame = bounds
     }
 
     var view: NSView? {

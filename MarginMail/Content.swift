@@ -30,18 +30,19 @@ class Content: Component {
 
         split.identifier = "contentSplitView"
         split.autosaveName = "contentSplitView"
+    }
 
-        if CGRectIsEmpty(messageList.frame) {
+    override func render() {
+        //split.frame = bounds
+
+        if CGRectIsEmpty(messageList.view!.frame) || CGRectIsEmpty(messagePane.frame) {
             let columns = bounds.columns()
-            messageList.frame = columns.next(0.5)
+            messageList.frame = columns.nextFraction(0.5)
             columns.next(split.dividerThickness)
             messagePane.frame = columns.nextFraction(1)
         }
-    }
 
-    func render() {
-        split.frame = bounds
-
+        messageList.render()
     }
 
     var view: NSView? {
@@ -49,4 +50,5 @@ class Content: Component {
             return split
         }
     }
+
 }

@@ -38,8 +38,8 @@ class MessageList: Component {
         }
     }
 
-    func render() {
-        scroll.frame = bounds
+    override func render() {
+        //scroll.frame = bounds
     }
 
     func onRowSelect(row: Int) {

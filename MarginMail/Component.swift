@@ -9,10 +9,19 @@
 import Cocoa
 
 class Component: NSObject {
-    var frame: CGRect = CGRectZero
+    var frame: CGRect = CGRectZero {
+        didSet {
+            self.render()
+        }
+    }
+
     var bounds: CGRect {
         get {
             return Rect(0, 0, frame.width, frame.height)
         }
+    }
+
+    func render() {
+        assertionFailure("Components must implement render()")
     }
 }
