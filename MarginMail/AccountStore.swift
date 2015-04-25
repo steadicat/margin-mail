@@ -2,41 +2,42 @@
 //  AccountStore.swift
 //  MarginMail
 //
-//  Created by Artem Nezvigin on 4/20/15.
+//  Created by Artem Nezvigin on 4/26/15.
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-import SQLite
-
 class AccountStore: Store {
 
-    static func getAll() -> [Account] {
-        var accounts: [Account] = []
-        for row in AccountTable.all() {
-            let account = Account(
-                id: row[AccountTable.id],
-                name: row[AccountTable.name],
-                email: row[AccountTable.email]
-            )
-            accounts.append(account)
-        }
-        return accounts
+    let db: Database
+
+    private var accounts: [Account] = []
+    private var activeAccount: Account?
+
+    init(_ dispatcher: Dispatcher, db: Database) {
+        self.db = db
+        super.init(dispatcher)
     }
 
-    override func action(action: Any) {
-        switch (action) {
-        case let action as Actions.AccountCreate:
-            createAccount(action.account)
+    override func handleAction(action: Action) {
+        switch action {
+        case let action as AccountActions.CreateAccount:
+            self.accounts.append(action.account)
+            emitChange()
+            break
+        case let action as AccountActions.ActivateAccount:
+            self.activeAccount = action.account
+            emitChange()
         default:
-            return
+            break
         }
     }
 
-    private func createAccount(account: Account) {
-        let stmt: SQLite.Statement = AccountTable.query().insert(
-            AccountTable.name <- account.name,
-            AccountTable.email <- account.email
-        )
+    func getAll() -> [Account] {
+        return self.accounts
+    }
+
+    func getActiveAccount() -> Account? {
+        return activeAccount
     }
 
 }

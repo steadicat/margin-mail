@@ -13,13 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainWindow: MainWindow?
 
-    let stores: [Store] = [
-        AccountStore()
-    ]
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        DB.open()
-        Seed.database()
+        let store = Registry().stores.account
+        let action = Registry().actions.account
+
+        store.addListener(self) { println("Account changed!") }
+        action.createTestAccount()
+        store.removeListener(self)
+
+        println("Active: \(store.getActiveAccount())")
 
         mainWindow = MainWindow()
         mainWindow!.show(self)

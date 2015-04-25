@@ -10,14 +10,14 @@ import Cocoa
 
 class Config {
 
-    static var dataURL: NSURL = {
-        let name = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
+    let dataURL: NSURL = {
+        let appName = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String
         let basePath = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true).first as! String
         let baseURL = NSURL(string: basePath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
-        let dataURL = baseURL.URLByAppendingPathComponent(name)
+        let dataURL = baseURL.URLByAppendingPathComponent(appName)
 
         // TODO: Fail gracefully. Fall back to another directory on error.
-        NSLog("[Config] Data directory: \(dataURL.path!)")
+        NSLog("[Config] Data path: \(dataURL.path!)")
         NSFileManager.defaultManager().createDirectoryAtPath(
             dataURL.path!,
             withIntermediateDirectories: true,
