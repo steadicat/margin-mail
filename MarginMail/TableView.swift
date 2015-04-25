@@ -44,7 +44,6 @@ class TableView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     var created = 0
 
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
-        println("numberOfRows \(rows)")
         return rows
     }
 

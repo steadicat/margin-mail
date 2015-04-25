@@ -12,7 +12,7 @@ class Component: NSObject {
 
     var frame: CGRect = CGRectZero {
         didSet {
-            self.render()
+            needsUpdate = true
         }
     }
 
@@ -47,9 +47,12 @@ class Component: NSObject {
         if let view = self.view {
             for child in children {
                 if let subview = child.view {
+                    assert(view != subview, "Components should not own a view that belongs to one of their children")
                     view.addSubview(subview)
                 }
             }
+        } else if children.count == 1 {
+            self.view = children[0].view
         }
 
     }

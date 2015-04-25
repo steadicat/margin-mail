@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7B405A151AE8A07300506A01 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A141AE8A07300506A01 /* Component.swift */; };
 		7B405A2B1AEC2D7600506A01 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2A1AEC2D7600506A01 /* TableView.swift */; };
+		7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2C1AEC2E6C00506A01 /* Split.swift */; };
+		7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2F1AEC369F00506A01 /* MessagePane.swift */; };
 		7B69803A1AE5A6C90064A060 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980391AE5A6C90064A060 /* ScrollView.swift */; };
 		7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */; };
 		7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980521AE5FF820064A060 /* TextLayer.swift */; };
@@ -261,6 +263,8 @@
 /* Begin PBXFileReference section */
 		7B405A141AE8A07300506A01 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		7B405A2A1AEC2D7600506A01 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = MarginMail/TableView.swift; sourceTree = SOURCE_ROOT; };
+		7B405A2C1AEC2E6C00506A01 /* Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
+		7B405A2F1AEC369F00506A01 /* MessagePane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePane.swift; sourceTree = "<group>"; };
 		7B6980391AE5A6C90064A060 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = MarginMail/ScrollView.swift; sourceTree = SOURCE_ROOT; };
 		7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListItem.swift; sourceTree = "<group>"; };
 		7B6980521AE5FF820064A060 /* TextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLayer.swift; sourceTree = "<group>"; };
@@ -344,6 +348,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B405A2E1AEC363D00506A01 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7B405A141AE8A07300506A01 /* Component.swift */,
+				ACCCD2A31AE221E90043ED41 /* Label.swift */,
+				7B405A2C1AEC2E6C00506A01 /* Split.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		7B6980511AE5FF710064A060 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,14 +410,15 @@
 		ACCCD27C1AE21B230043ED41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7B405A2E1AEC363D00506A01 /* Core */,
 				7B6980511AE5FF710064A060 /* Layers */,
 				ACF1FA381AE191C7006309D4 /* Views */,
-				7B405A141AE8A07300506A01 /* Component.swift */,
 				7BE16ED01AE4A9D9002DCD22 /* Content.swift */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
 				ACCCD2971AE221BC0043ED41 /* MessageList.swift */,
 				7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */,
+				7B405A2F1AEC369F00506A01 /* MessagePane.swift */,
 				ACCCD2991AE221C50043ED41 /* Sidebar.swift */,
 				ACCCD29B1AE221CB0043ED41 /* SidebarItem.swift */,
 			);
@@ -498,7 +513,6 @@
 				ACCCD29D1AE221D90043ED41 /* Button.swift */,
 				ACCCD29F1AE221DC0043ED41 /* ButtonCell.swift */,
 				ACCCD2A11AE221E20043ED41 /* ImageView.swift */,
-				ACCCD2A31AE221E90043ED41 /* Label.swift */,
 				ACCCD2A51AE221F00043ED41 /* SplitView.swift */,
 				7B6980391AE5A6C90064A060 /* ScrollView.swift */,
 				7B405A2A1AEC2D7600506A01 /* TableView.swift */,
@@ -883,6 +897,8 @@
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
 				AC2AA85D1AE5C2AF001B0408 /* Dispatcher.swift in Sources */,
+				7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */,
+				7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */,
 				AC2AA8BC1AE624EB001B0408 /* Actions.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
 				ACCCD2B41AE2221F0043ED41 /* CGRect.swift in Sources */,

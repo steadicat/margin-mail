@@ -10,19 +10,16 @@ import Cocoa
 
 class Main: Component {
 
-    private let split: SplitView
+    private let split: Split
     private let sidebar: Sidebar
     private let content: Content
 
     init() {
-        split = SplitView(frame: CGRectZero, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
         sidebar = Sidebar()
         content = Content()
+        split = Split(id: "mainSplitView", children: [sidebar, content], minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
 
-        super.init(children: [sidebar, content], view: split)
-
-        split.identifier = "mainSplitView"
-        split.autosaveName = "mainSplitView"
+        super.init(children: [split], view: nil)
     }
 
     override func render() {

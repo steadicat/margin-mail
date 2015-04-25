@@ -10,23 +10,14 @@ import Cocoa
 
 class Content: Component {
 
-    private let split: SplitView
-    private let messageList: MessageList
-    private let messagePane: View
+    private let split: Split
+    private let messageList = MessageList()
+    private let messagePane = MessagePane()
 
     init() {
-        split = SplitView(frame: CGRectZero)
-        messageList = MessageList()
-        messagePane = View(frame: CGRectZero)
+        split = Split(id: "contentSplitView", children: [messageList, messagePane])
 
-        super.init(children: [messageList], view: split)
-
-        split.addSubview(messagePane)
-
-        messagePane.backgroundColor = Color.white()
-
-        split.identifier = "contentSplitView"
-        split.autosaveName = "contentSplitView"
+        super.init(children: [split], view: nil)
     }
 
     override func render() {
