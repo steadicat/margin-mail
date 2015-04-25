@@ -14,23 +14,15 @@ class Main: Component {
     private let sidebar: Sidebar
     private let content: Content
 
-    override init() {
+    init() {
         split = SplitView(frame: CGRectZero, minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
-        sidebar = Sidebar(frame: CGRectZero)
+        sidebar = Sidebar()
         content = Content()
 
-        super.init()
-
-        split.addSubview(sidebar)
-        if let subview = content.view {
-            split.addSubview(subview)
-        }
-
-        sidebar.backgroundColor = Color.white()
+        super.init(children: [sidebar, content], view: split)
 
         split.identifier = "mainSplitView"
         split.autosaveName = "mainSplitView"
-
     }
 
     override func render() {
@@ -41,14 +33,6 @@ class Main: Component {
             sidebar.frame = columns.next(Sidebar.maximumWidth)
             columns.next(split.dividerThickness)
             content.frame = columns.nextFraction(1)
-        }
-
-        content.render()
-    }
-
-    var view: NSView? {
-        get {
-            return split
         }
     }
 

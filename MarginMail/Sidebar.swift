@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Sidebar: View {
+class Sidebar: Component {
 
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
@@ -19,20 +19,21 @@ class Sidebar: View {
 
     private var inboxCount = 0 {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
 
     private var selectedItem = "" {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
 
     private var items: [(String, SidebarItemView)] = []
 
-    override init(frame frameRect: CGRect) {
-        super.init(frame: frameRect)
+    init() {
+        let view = View(frame: CGRectZero)
+        super.init(children: [], view: view)
 
         self.items = [
             createItem("compose", text: "Compose"),
@@ -50,12 +51,10 @@ class Sidebar: View {
             item.onMouseDown = {
                 self.selectedItem = id
             }
-            addSubview(item)
+            view.addSubview(item)
         }
-    }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        view.backgroundColor = Color.white()
     }
 
     func createItem(id: String, text: String) -> (String, SidebarItemView) {
@@ -66,7 +65,7 @@ class Sidebar: View {
         return (id, item)
     }
 
-    override func viewWillDraw() {
+    override func render() {
         // Add a 16px overflow to the right for shrink animation
         var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: 16)
         var rows = column.rows()
@@ -88,8 +87,6 @@ class Sidebar: View {
                 rows.next(spaceHeight)
             }
         }
-
-        super.viewWillDraw()
     }
     
 }

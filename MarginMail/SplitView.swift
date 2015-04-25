@@ -52,6 +52,8 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
     }
 
     override func resizeSubviewsWithOldSize(oldSize: NSSize) {
+        assert(subviews.count > 1, "SplitView should have at least two subviews")
+
         // TODO: make this work with vertical split views as well
         let columns = bounds.columns()
 

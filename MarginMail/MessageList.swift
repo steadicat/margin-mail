@@ -15,11 +15,11 @@ class MessageList: Component {
 
     private var selectedRow = 0
 
-    override init() {
+    init() {
         scroll = ScrollView(frame: CGRectZero)
         table = TableView(frame: CGRectZero)
 
-        super.init()
+        super.init(children: [], view: scroll)
 
         table.headerView = nil
         table.rowHeight = 96
@@ -30,12 +30,6 @@ class MessageList: Component {
         table.onRowSelect = self.onRowSelect
 
         scroll.documentView = table
-    }
-
-    var view: NSView? {
-        get {
-            return scroll
-        }
     }
 
     override func render() {

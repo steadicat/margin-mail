@@ -14,16 +14,13 @@ class Content: Component {
     private let messageList: MessageList
     private let messagePane: View
 
-    override init() {
+    init() {
         split = SplitView(frame: CGRectZero)
         messageList = MessageList()
         messagePane = View(frame: CGRectZero)
 
-        super.init()
+        super.init(children: [messageList], view: split)
 
-        if let subview = messageList.view {
-            split.addSubview(subview)
-        }
         split.addSubview(messagePane)
 
         messagePane.backgroundColor = Color.white()
@@ -40,14 +37,6 @@ class Content: Component {
             messageList.frame = columns.nextFraction(0.5)
             columns.next(split.dividerThickness)
             messagePane.frame = columns.nextFraction(1)
-        }
-
-        messageList.render()
-    }
-
-    var view: NSView? {
-        get {
-            return split
         }
     }
 
