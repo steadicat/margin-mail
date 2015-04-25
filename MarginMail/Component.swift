@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Component: NSObject {
+class Component {
 
     var frame: CGRect = CGRectZero {
         didSet {
@@ -22,6 +22,7 @@ class Component: NSObject {
         }
     }
 
+    var key: String = ""
     var children: [Component]
     var view: NSView?
 
@@ -41,8 +42,6 @@ class Component: NSObject {
     init(children: [Component] = [], view: NSView? = nil) {
         self.children = children
         self.view = view
-
-        super.init()
 
         if let view = self.view {
             for child in children {

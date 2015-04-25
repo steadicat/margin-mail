@@ -8,26 +8,19 @@
 
 import Cocoa
 
-class SidebarItemView: View {
+class SidebarItem: Component {
 
     private let iconGap: CGFloat = 12
 
-    var accentColor: NSColor = Color.accent() {
-        didSet {
-            self.needsDisplay = true
-        }
-    }
-
     var isSelected: Bool = false {
         didSet {
-            // TODO: figure out why this one needs to be layout instead of display
-            self.needsLayout = true
+            self.needsUpdate = true
         }
     }
 
     var image: NSImage? {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
 
@@ -43,35 +36,52 @@ class SidebarItemView: View {
         }
     }
 
+    var onMouseDown: (() -> ())?
+
     private var isHovered: Bool = false {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
 
-    private var label: Label
-    private var icon: ImageView
+    private var itemView = View()
+    private var label = Label(frame: CGRectZero)
+    private var icon = ImageView(frame: CGRectZero)
+    private var layer: CALayer
 
-    override init(frame: CGRect) {
-        label = Label(frame: CGRectZero)
-        icon = ImageView(frame: CGRectZero)
+    init() {
+        itemView.wantsLayer = true
+        layer = itemView.layer!
 
-        super.init(frame: frame)
+        super.init(view: itemView)
 
-        addSubview(label)
-        addSubview(icon)
+        itemView.addSubview(label)
+        itemView.addSubview(icon)
+        itemView.onMouseEnter = mouseEnter
+        itemView.onMouseExit = mouseExit
+        itemView.onMouseDown = mouseDown
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func mouseEnter() {
+        self.isHovered = true
     }
 
-    override func viewWillDraw() {
+    func mouseExit() {
+        self.isHovered = false
+    }
+
+    func mouseDown() {
+        popOnClick()
+        onMouseDown?()
+    }
+
+    override func render() {
+        itemView.frame = frame
 
         let collapsingRatio = (frame.width - Sidebar.minimumWidth) / (Sidebar.maximumWidth - Sidebar.minimumWidth)
         let sideMargin = 18 + round(18 * collapsingRatio)
 
-        let textColor = isSelected ? self.accentColor : Color.mediumGray()
+        let textColor = isSelected ? Color.accent() : Color.mediumGray()
 
         // Add some overflow for shrink animation
         let columns = bounds.columns()
@@ -87,11 +97,9 @@ class SidebarItemView: View {
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
 
-        backgroundColor = isHovered ? Color.accent(1) : Color.white()
+        layer.backgroundColor = (isHovered ? Color.accent(1) : Color.white()).CGColor
 
         self.fadeLabel(bounds.width > 120)
-
-        super.viewWillDraw()
     }
 
     func fadeLabel(visible: Bool) {
@@ -104,15 +112,14 @@ class SidebarItemView: View {
     }
 
     func popOnClick() {
-        assert(wantsLayer, "Needs a layer to animate")
         var anim = label.pop_animationForKey("scaleXY") as! POPSpringAnimation?
         var shift: POPSpringAnimation?
         if anim == nil {
             anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-            layer!.pop_addAnimation(anim, forKey: "scaleXY")
+            layer.pop_addAnimation(anim, forKey: "scaleXY")
 
             shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-            layer!.pop_addAnimation(shift, forKey: "shift")
+            layer.pop_addAnimation(shift, forKey: "shift")
         }
         anim!.velocity = NSValue(size: CGSizeMake(-2, -2))
         anim!.toValue = NSValue(size: CGSizeMake(1, 1))
@@ -120,19 +127,4 @@ class SidebarItemView: View {
         shift!.toValue = NSValue(size: CGSizeMake(0, 0))
     }
 
-    override func mouseEntered(theEvent: NSEvent) {
-        self.isHovered = true
-        super.mouseEntered(theEvent)
-    }
-
-    override func mouseExited(theEvent: NSEvent) {
-        self.isHovered = false
-        super.mouseExited(theEvent)
-    }
-
-    override func mouseDown(theEvent: NSEvent) {
-        popOnClick()
-        super.mouseDown(theEvent)
-    }
-    
 }

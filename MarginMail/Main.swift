@@ -15,7 +15,7 @@ class Main: Component {
     private let content = Content()
 
     init() {
-        let split = Split(id: "mainSplitView", children: [sidebar, content], minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
+        split = Split(id: "mainSplitView", children: [sidebar, content], minimumSizes: [0: Sidebar.minimumWidth], maximumSizes: [0: Sidebar.maximumWidth])
         super.init(children: [split])
     }
 

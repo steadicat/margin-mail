@@ -17,6 +17,20 @@ class Sidebar: Component {
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36
 
+    private static let items = [
+        ("compose", text: "Compose"),
+        ("inbox", text: "Inbox"),
+        ("archive", text: "Archive"),
+        ("drafts", text: "Drafts"),
+        ("sent", text: "Sent"),
+        ("starred", text: "Starred"),
+        ("spam", text: "Spam"),
+        ("trash", text: "Trash"),
+        ("settings", text: "Settings")
+    ]
+
+    private let items: [SidebarItem]
+
     private var inboxCount = 0 {
         didSet {
             self.needsUpdate = true
@@ -29,40 +43,27 @@ class Sidebar: Component {
         }
     }
 
-    private var items: [(String, SidebarItemView)] = []
-
     init() {
         let view = View(frame: CGRectZero)
-        super.init(children: [], view: view)
+        items = Sidebar.items.map { Sidebar.createItem($0.0, text: $0.text) }
 
-        self.items = [
-            createItem("compose", text: "Compose"),
-            createItem("inbox", text: "Inbox"),
-            createItem("archive", text: "Archive"),
-            createItem("drafts", text: "Drafts"),
-            createItem("sent", text: "Sent"),
-            createItem("starred", text: "Starred"),
-            createItem("spam", text: "Spam"),
-            createItem("trash", text: "Trash"),
-            createItem("settings", text: "Settings"),
-        ]
+        super.init(children: items, view: view)
 
-        for (id, item) in self.items {
-            item.onMouseDown = {
-                self.selectedItem = id
+        for item in items {
+            item.onMouseDown = { [weak self] in
+                self?.selectedItem = item.key
             }
-            view.addSubview(item)
         }
 
         view.backgroundColor = Color.white()
     }
 
-    func createItem(id: String, text: String) -> (String, SidebarItemView) {
-        var item = SidebarItemView(frame: CGRectZero)
+    static func createItem(key: String, text: String) -> SidebarItem {
+        var item = SidebarItem()
+        item.key = key
         item.text = text
         item.image = NSImage(named: item.text)
-        item.accentColor = Color.accent()
-        return (id, item)
+        return item
     }
 
     override func render() {
@@ -70,20 +71,20 @@ class Sidebar: Component {
         var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: 16)
         var rows = column.rows()
 
-        for (id, item) in self.items {
-            item.isSelected = selectedItem == id
+        for item in items {
+            item.isSelected = selectedItem == item.key
 
-            if id == "inbox" && inboxCount > 0 {
+            if item.key == "inbox" && inboxCount > 0 {
                 item.badge = String(inboxCount)
             }
 
-            if id == "settings" {
+            if item.key == "settings" {
                 item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
             } else {
                 item.frame = rows.next(rowHeight)
             }
 
-            if id == "compose" {
+            if item.key == "compose" {
                 rows.next(spaceHeight)
             }
         }
