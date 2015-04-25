@@ -16,13 +16,10 @@ class Content: Component {
 
     init() {
         split = Split(id: "contentSplitView", children: [messageList, messagePane])
-
-        super.init(children: [split], view: nil)
+        super.init(children: [split])
     }
 
     override func render() {
-        //split.frame = bounds
-
         if CGRectIsEmpty(messageList.view!.frame) || CGRectIsEmpty(messagePane.frame) {
             let columns = bounds.columns()
             messageList.frame = columns.nextFraction(0.5)
