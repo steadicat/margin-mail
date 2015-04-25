@@ -25,6 +25,7 @@ class Component {
     var key: String = ""
     var children: [Component]
     var view: NSView?
+    var layer: CALayer?
 
     var needsUpdate: Bool = true {
         didSet {
@@ -39,9 +40,10 @@ class Component {
 
     private var updateDispatched = false
 
-    init(children: [Component] = [], view: NSView? = nil) {
+    init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         self.children = children
         self.view = view
+        self.layer = layer ?? view?.layer
 
         if let view = self.view {
             for child in children {
@@ -52,6 +54,15 @@ class Component {
             }
         } else if children.count == 1 {
             self.view = children[0].view
+        }
+
+        if let layer = self.layer {
+            for child in children {
+                if let sublayer = child.layer {
+                    assert(layer != sublayer, "Components should not own a layer that belongs to one of their children")
+                    layer.addSublayer(sublayer)
+                }
+            }
         }
 
     }

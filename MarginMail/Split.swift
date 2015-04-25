@@ -18,6 +18,7 @@ class Split: Component {
         split.identifier = id
         split.autosaveName = id
         split.onResize = self.onResize
+        self.onResize()
     }
 
     var dividerThickness: CGFloat {
@@ -27,7 +28,6 @@ class Split: Component {
     }
 
     override func render() {
-
     }
 
     func onResize() {

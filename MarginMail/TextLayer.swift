@@ -15,8 +15,9 @@ class TextLayer: CATextLayer {
             return super.font
         }
         set(font) {
+            assert(font != nil, "There will be no setting a nil font on my watch")
             super.font = font
-            super.fontSize = (font as! NSFont).pointSize
+            super.fontSize = font.pointSize
         }
     }
 
@@ -34,11 +35,15 @@ class TextLayer: CATextLayer {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func heightForSize(size: CGSize) -> CGFloat {
+    func sizeThatFits(size: CGSize) -> CGRect {
         return (string as! NSString).boundingRectWithSize(size,
             options: wrapped ? (.UsesLineFragmentOrigin) : nil,
             attributes: getAttributes()
-        ).height
+        )
+    }
+
+    func heightForSize(size: CGSize) -> CGFloat {
+        return sizeThatFits(size).height
     }
 
     private func getAttributes() -> [String: AnyObject] {

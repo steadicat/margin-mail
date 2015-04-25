@@ -26,13 +26,13 @@ class SidebarItem: Component {
 
     var text: String = "" {
         didSet {
-            label.text = text
+            self.needsUpdate = true
         }
     }
 
     var badge: String = "" {
         didSet {
-            label.text = "\(text) (\(badge))"
+            self.needsUpdate = true
         }
     }
 
@@ -45,17 +45,14 @@ class SidebarItem: Component {
     }
 
     private var itemView = View()
-    private var label = Label(frame: CGRectZero)
+    private var label = Label()
     private var icon = ImageView(frame: CGRectZero)
-    private var layer: CALayer
 
     init() {
         itemView.wantsLayer = true
-        layer = itemView.layer!
 
-        super.init(view: itemView)
+        super.init(children: [label], view: itemView)
 
-        itemView.addSubview(label)
         itemView.addSubview(icon)
         itemView.onMouseEnter = mouseEnter
         itemView.onMouseExit = mouseExit
@@ -93,33 +90,38 @@ class SidebarItem: Component {
             columns.next(24)
         }
         columns.next(iconGap)
-        label.frame = columns.nextFraction(1).integerRect.offset(dx: isSelected ? -1 : 0, dy: 5)
+
+        label.frame = columns.nextFraction(1).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 9)
+        label.text = badge != "" ? "\(text) \(badge)" : text
         label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
         label.textColor = textColor
 
-        layer.backgroundColor = (isHovered ? Color.accent(1) : Color.white()).CGColor
+        itemView.backgroundColor = (isHovered ? Color.accent(1) : Color.white())
 
         self.fadeLabel(bounds.width > 120)
     }
 
     func fadeLabel(visible: Bool) {
-        var anim = label.pop_animationForKey("fade") as! POPSpringAnimation?
+        label.layer!.opacity = visible ? 1 : 0
+        /*
+        var anim = label.layer!.pop_animationForKey("fade") as! POPSpringAnimation?
         if anim == nil {
-            anim = POPSpringAnimation(propertyNamed: kPOPViewAlphaValue)
-            label.pop_addAnimation(anim, forKey: "fade")
+            anim = POPSpringAnimation(propertyNamed: kPOPLayerOpacity)
+            label.layer!.pop_addAnimation(anim, forKey: "fade")
         }
         anim!.toValue = visible ? 1 : 0
+        */
     }
 
     func popOnClick() {
-        var anim = label.pop_animationForKey("scaleXY") as! POPSpringAnimation?
+        var anim = label.layer!.pop_animationForKey("scaleXY") as! POPSpringAnimation?
         var shift: POPSpringAnimation?
         if anim == nil {
             anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-            layer.pop_addAnimation(anim, forKey: "scaleXY")
+            layer!.pop_addAnimation(anim, forKey: "scaleXY")
 
             shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-            layer.pop_addAnimation(shift, forKey: "shift")
+            layer!.pop_addAnimation(shift, forKey: "shift")
         }
         anim!.velocity = NSValue(size: CGSizeMake(-2, -2))
         anim!.toValue = NSValue(size: CGSizeMake(1, 1))

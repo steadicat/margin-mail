@@ -8,37 +8,38 @@
 
 import Cocoa
 
-class Label: NSView {
+class Label: Component {
 
     var text: NSString = "" {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
     var font: NSFont? {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
     var textColor: NSColor? {
         didSet {
-            self.needsDisplay = true
+            self.needsUpdate = true
         }
     }
 
-    private func getAttributes() -> [String: AnyObject] {
-        return [
-            NSFontAttributeName as String: font ?? NSFont.systemFontOfSize(NSFont.systemFontSize()),
-            NSForegroundColorAttributeName as String: textColor ?? NSColor.blackColor()
-        ]
+    private var textLayer = TextLayer()
+
+    init() {
+        super.init(layer: textLayer)
     }
 
-    override func drawRect(dirtyRect: NSRect) {
-        text.drawInRect(bounds, withAttributes: getAttributes())
-    }
-
-    func sizeToFit() {
-        frame = CGRect(origin: frame.origin, size: text.sizeWithAttributes(getAttributes()))
+    override func render() {
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        textLayer.frame = frame
+        textLayer.string = text
+        textLayer.font = font
+        textLayer.foregroundColor = textColor?.CGColor
+        CATransaction.commit()
     }
 
 }
