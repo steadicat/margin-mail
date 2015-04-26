@@ -67,8 +67,7 @@ class Sidebar: Component {
     }
 
     override func render() {
-        // Add a 16px overflow to the right for shrink animation
-        var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: 16)
+        var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
         for item in items {

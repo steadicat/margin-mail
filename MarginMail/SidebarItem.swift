@@ -10,6 +10,7 @@ import Cocoa
 
 class SidebarItem: Component {
 
+    static let rightBleed: CGFloat = 16
     private let iconGap: CGFloat = 12
 
     var isSelected: Bool = false {
@@ -80,8 +81,7 @@ class SidebarItem: Component {
 
         let textColor = isSelected ? Color.accent() : Color.mediumGray()
 
-        // Add some overflow for shrink animation
-        let columns = bounds.columns()
+        let columns = bounds.extend(right: -SidebarItem.rightBleed).columns()
         columns.next(sideMargin)
         if let image = self.image {
             self.icon.frame = columns.next(24).integerRect
