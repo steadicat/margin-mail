@@ -55,6 +55,7 @@ class View: NSView {
     }
 
     override func viewWillDraw() {
+        layerContentsRedrawPolicy = .OnSetNeedsDisplay
 
         if let backgroundColor = self.backgroundColor {
             self.wantsLayer = true
