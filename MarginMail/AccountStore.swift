@@ -26,20 +26,24 @@ class AccountStore: Store {
         }
     }
 
-    func getAll() -> [Account] {
-        return accounts
-    }
-
-    func getActiveAccount() -> Account? {
-        return active
-    }
-
     private func create(account: Account) {
         accounts.append(account)
     }
 
     private func activate(account: Account) {
         active = account
+    }
+
+}
+
+extension AccountStore {
+
+    func getAll() -> [Account] {
+        return accounts
+    }
+
+    func getActiveAccount() -> Account? {
+        return active
     }
 
 }
