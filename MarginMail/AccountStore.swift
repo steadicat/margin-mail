@@ -8,36 +8,38 @@
 
 class AccountStore: Store {
 
-    let db: Database
-
     private var accounts: [Account] = []
-    private var activeAccount: Account?
-
-    init(_ dispatcher: Dispatcher, db: Database) {
-        self.db = db
-        super.init(dispatcher)
-    }
+    private var active: Account?
 
     override func handleAction(action: Action) {
         switch action {
         case let action as AccountActions.CreateAccount:
-            self.accounts.append(action.account)
-            emitChange()
+            create(action.account)
+            activate(action.account)
+            notify()
             break
         case let action as AccountActions.ActivateAccount:
-            self.activeAccount = action.account
-            emitChange()
+            activate(action.account)
+            notify()
         default:
             break
         }
     }
 
     func getAll() -> [Account] {
-        return self.accounts
+        return accounts
     }
 
     func getActiveAccount() -> Account? {
-        return activeAccount
+        return active
+    }
+
+    private func create(account: Account) {
+        accounts.append(account)
+    }
+
+    private func activate(account: Account) {
+        active = account
     }
 
 }

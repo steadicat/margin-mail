@@ -14,20 +14,20 @@ class AccountActions: ActionCreator {
 
     struct CreateAccount: Action {
         let account: Account
-    }
-
-    func createAccount(account: Account) {
-        dispatch(CreateAccount(account: account))
-    }
-
-    func createTestAccount() {
-        let account = Account(name: "Alan", email: "alan@artnez.com")
-        createAccount(account)
-        activateAccount(account)
+        let activate: Bool
     }
 
     func activateAccount(account: Account) {
         dispatch(ActivateAccount(account: account))
+    }
+
+    func createAccount(account: Account, activate: Bool = false) {
+        dispatch(CreateAccount(account: account, activate: activate))
+    }
+
+    func createTestAccount() {
+        let account = Account(name: "Alan", email: "alan@artnez.com")
+        createAccount(account, activate: true)
     }
 
 }

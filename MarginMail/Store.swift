@@ -20,8 +20,11 @@ class Store {
 
     private let notifier: Notifier
 
-    init(_ dispatcher: Dispatcher) {
+    let db: Database
+
+    init(_ dispatcher: Dispatcher, db: Database) {
         notifier = Notifier()
+        self.db = db
         dispatcher.register(self.handleAction)
     }
 
@@ -30,7 +33,7 @@ class Store {
         // dispatchers bound to this store.
     }
 
-    func emitChange() {
+    func notify() {
         notifier.notifyListeners()
     }
 
