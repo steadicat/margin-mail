@@ -14,14 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindow: MainWindow?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        Registry().stores.account.addListener(self) {
-            println("Account changed!")
-        }
-        Registry().actions.createTestAccount()
-        Registry().stores.account.removeListener(self)
-
-        let activeAccount = Registry().stores.account.getActive()
-        println("Active: \(activeAccount)")
+        Registry()
 
         mainWindow = MainWindow()
         mainWindow!.show(self)

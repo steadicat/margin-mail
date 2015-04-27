@@ -11,14 +11,14 @@ class Notifier {
     typealias Context = AnyObject
     typealias Callback = Void -> Void
 
-    struct WeakContext {
-        // FIXME: Should be weak. Didn't do it yet because it was being
-        // deallocated in `addListener`.
-        var object: Context?
-    }
-
     struct Listener {
-        let context: WeakContext
+        // FIXME: There *seems* to be a bug in Swift when handling an optional
+        // AnyObject value. Simply assigning raises an EXC_BAD_ACCESS with code
+        // EXC_I386_GPFLT. When this is fixed (or we find the real cause), set
+        // context to weak which will ensure that contexts are not held as a
+        // strong reference, removing the need to manually unregister the
+        // listener just to handle deallocation.
+        let context: Context
         let callback: Callback
     }
 
@@ -33,10 +33,7 @@ class Notifier {
     }
 
     func addListener(context: Context, callback: Callback) {
-        let listener = Listener(
-            context: WeakContext(object: context),
-            callback: callback
-        )
+        let listener = Listener(context: context, callback: callback)
         Lock.with(mutex) {
             listeners.append(listener)
         }
@@ -44,8 +41,7 @@ class Notifier {
 
     func removeListener(context: Context) {
         listeners = listeners.filter() { listener in
-            return listener.context.object != nil
-                && listener.context.object !== context
+            return listener.context != nil && listener.context !== context
         }
     }
 
