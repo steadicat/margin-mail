@@ -43,6 +43,12 @@ class Sidebar: Component {
         }
     }
 
+    private var activeAccount: Account? = nil {
+        didSet {
+            self.needsUpdate = true
+        }
+    }
+
     init() {
         let view = View(frame: CGRectZero)
         items = Sidebar.items.map { Sidebar.createItem($0.0, text: $0.text) }
@@ -66,7 +72,17 @@ class Sidebar: Component {
         return item
     }
 
+    override func getStoresToWatch(stores: Stores) -> [Store] {
+        return [stores.account]
+    }
+
+    override func getDataFromStores(stores: Stores) {
+        activeAccount = stores.account.getActive()
+    }
+
     override func render() {
+        println(activeAccount)
+
         var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
@@ -79,6 +95,7 @@ class Sidebar: Component {
 
             if item.key == "settings" {
                 item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
+                item.text = activeAccount?.name ?? "No account"
             } else {
                 item.frame = rows.next(rowHeight)
             }
