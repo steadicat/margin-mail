@@ -81,8 +81,6 @@ class Sidebar: Component {
     }
 
     override func render() {
-        println(activeAccount)
-
         var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
