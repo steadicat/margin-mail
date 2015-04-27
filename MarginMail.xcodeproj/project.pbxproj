@@ -389,8 +389,8 @@
 		AC1F84951AECB37400D81B71 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				AC1F84A21AECC4C600D81B71 /* Store.swift */,
 				AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */,
+				AC1F84A21AECC4C600D81B71 /* Store.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -398,8 +398,8 @@
 		ACB5A6CF1AEDDC5400C89E41 /* Dispatchers */ = {
 			isa = PBXGroup;
 			children = (
-				ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */,
 				ACB5A6E41AEDDC5E00C89E41 /* AppDispatcher.swift */,
+				ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */,
 			);
 			name = Dispatchers;
 			sourceTree = "<group>";
@@ -407,8 +407,8 @@
 		ACB5A6E81AEDDC6200C89E41 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */,
 				ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */,
+				ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
