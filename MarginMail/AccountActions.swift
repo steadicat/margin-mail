@@ -8,26 +8,26 @@
 
 class AccountActions: ActionCreator {
 
-    struct ActivateAccount: Action {
+    struct Activate: Action {
         let account: Account
     }
 
-    struct CreateAccount: Action {
+    struct Create: Action {
         let account: Account
         let activate: Bool
     }
 
-    func activateAccount(account: Account) {
-        dispatch(ActivateAccount(account: account))
+    func activate(account: Account) {
+        dispatch(Activate(account: account))
     }
 
-    func createAccount(account: Account, activate: Bool = false) {
-        dispatch(CreateAccount(account: account, activate: activate))
+    func create(account: Account, activate: Bool = false) {
+        dispatch(Create(account: account, activate: activate))
     }
 
-    func createTestAccount() {
+    func createTest() {
         let account = Account(name: "Alan", email: "alan@artnez.com")
-        createAccount(account, activate: true)
+        create(account, activate: true)
     }
 
 }

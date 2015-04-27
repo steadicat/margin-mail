@@ -17,10 +17,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Registry().stores.account.addListener(self) {
             println("Account changed!")
         }
-        Registry().actions.account.createTestAccount()
+        Registry().actions.account.createTest()
         Registry().stores.account.removeListener(self)
 
-        let activeAccount = Registry().stores.account.getActiveAccount()
+        let activeAccount = Registry().stores.account.getActive()
         println("Active: \(activeAccount)")
 
         mainWindow = MainWindow()

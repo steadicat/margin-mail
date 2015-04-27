@@ -13,12 +13,12 @@ class AccountStore: Store {
 
     override func handleAction(action: Action) {
         switch action {
-        case let action as AccountActions.CreateAccount:
+        case let action as AccountActions.Create:
             create(action.account)
             activate(action.account)
             notify()
             break
-        case let action as AccountActions.ActivateAccount:
+        case let action as AccountActions.Activate:
             activate(action.account)
             notify()
         default:
@@ -42,7 +42,7 @@ extension AccountStore {
         return accounts
     }
 
-    func getActiveAccount() -> Account? {
+    func getActive() -> Account? {
         return active
     }
 
