@@ -29,5 +29,5 @@ class ActionCreator {
     func dispatch(action: Action) {
         dispatcher.dispatch(action)
     }
-    
+
 }
