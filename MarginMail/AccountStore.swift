@@ -12,13 +12,12 @@ class AccountStore: Store {
     private var active: Account?
 
     override func handleAction(action: Action) {
-        switch action {
-        case let action as AccountActions.Create:
+        switch (action) {
+        case let action as Actions.CreateAccount:
             create(action.account)
             activate(action.account)
             notify()
-            break
-        case let action as AccountActions.Activate:
+        case let action as Actions.ActivateAccount:
             activate(action.account)
             notify()
         default:

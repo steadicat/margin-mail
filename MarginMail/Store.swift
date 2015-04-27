@@ -10,22 +10,21 @@ struct Stores {
 
     let account: AccountStore
 
-    init(_ dispatcher: Dispatcher, _ db: Database) {
-        account = AccountStore(dispatcher, db: db)
+    init(_ dispatcher: Dispatcher, _ database: Database) {
+        account = AccountStore(dispatcher, database: database)
     }
 
 }
 
 class Store {
 
-    private let notifier: Notifier
+    private let notifier = Notifier()
 
-    let db: Database
+    let database: Database
 
-    init(_ dispatcher: Dispatcher, db: Database) {
-        notifier = Notifier()
-        self.db = db
-        dispatcher.register(self.handleAction)
+    init(_ dispatcher: Dispatcher, database: Database) {
+        self.database = database
+        dispatcher.register(handleAction)
     }
 
     func handleAction(action: Action) {

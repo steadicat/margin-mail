@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Registry().stores.account.addListener(self) {
             println("Account changed!")
         }
-        Registry().actions.account.createTest()
+        Registry().actions.createTestAccount()
         Registry().stores.account.removeListener(self)
 
         let activeAccount = Registry().stores.account.getActive()

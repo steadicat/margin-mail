@@ -8,12 +8,10 @@
 
 class Database {
 
-    let name: String
     let path: String
 
-    init(name: String, url: NSURL) {
-        self.name = name
-        self.path = url.URLByAppendingPathComponent(name).path!
+    init(_ path: String) {
+        self.path = path
     }
 
 }

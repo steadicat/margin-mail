@@ -14,18 +14,15 @@ class AppRegistry {
 
     static let sharedInstance = AppRegistry()
 
-    let config: Config
     let actions: Actions
     let stores: Stores
 
     init() {
-        self.config = Config()
-        
+        let database = Database(Env.dataPathForName("db.sqlite3"))
         let dispatcher = AppDispatcher()
-        self.actions = Actions(dispatcher)
-        
-        let db = Database(name: "db.sqlite3", url: config.dataURL)
-        self.stores = Stores(dispatcher, db)
+
+        actions = Actions(dispatcher)
+        stores = Stores(dispatcher, database)
     }
 
 }

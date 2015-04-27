@@ -54,10 +54,10 @@
 		ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2BF1AE2225C0043ED41 /* MailReader.swift */; };
 		ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2C01AE2225C0043ED41 /* MailWriter.swift */; };
 		ACCCD2D11AE24B100043ED41 /* NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2D01AE24B100043ED41 /* NSData.swift */; };
+		ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2DB1AEDF25000EF02E1 /* Env.swift */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
 		ACF1FA291AE19195006309D4 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA271AE19195006309D4 /* MainWindow.swift */; };
 		ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */; };
-		ACF1FA331AE191AC006309D4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2D1AE191AC006309D4 /* Config.swift */; };
 		ACF1FA691AE1924E006309D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF1FA681AE1924E006309D4 /* Security.framework */; };
 		ACF1FABA1AE192E8006309D4 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF1FA7F1AE192A0006309D4 /* MailCore.framework */; };
 		ACF1FABB1AE192EF006309D4 /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF1FA911AE192B0006309D4 /* pop.framework */; };
@@ -306,6 +306,7 @@
 		ACCCD2BF1AE2225C0043ED41 /* MailReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailReader.swift; path = MarginMail/MailReader.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2C01AE2225C0043ED41 /* MailWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailWriter.swift; path = MarginMail/MailWriter.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2D01AE24B100043ED41 /* NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSData.swift; path = MarginMail/NSData.swift; sourceTree = SOURCE_ROOT; };
+		ACE5B2DB1AEDF25000EF02E1 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Env.swift; path = MarginMail/Env.swift; sourceTree = SOURCE_ROOT; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA121AE1912F006309D4 /* MarginMailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginMailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -313,7 +314,6 @@
 		ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginMailTests.swift; sourceTree = "<group>"; };
 		ACF1FA271AE19195006309D4 /* MainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACF1FA2D1AE191AC006309D4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		ACF1FA681AE1924E006309D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "Vendor/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
 		ACF1FA861AE192AF006309D4 /* pop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pop.xcodeproj; path = Vendor/pop/pop.xcodeproj; sourceTree = "<group>"; };
@@ -367,6 +367,7 @@
 			children = (
 				AC7363191AE4F767000019A1 /* Async.swift */,
 				ACCCD2AD1AE222100043ED41 /* Color.swift */,
+				ACE5B2DB1AEDF25000EF02E1 /* Env.swift */,
 				ACCCD2AE1AE222100043ED41 /* Geometry.swift */,
 				ACC1940A1AE48A57003071DA /* Lock.swift */,
 				AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */,
@@ -462,7 +463,6 @@
 				ACCCD27C1AE21B230043ED41 /* UI */,
 				ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */,
 				AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */,
-				ACF1FA2D1AE191AC006309D4 /* Config.swift */,
 				AC1F84A41AECC71F00D81B71 /* Database.swift */,
 			);
 			path = MarginMail;
@@ -913,7 +913,6 @@
 				AC1F84941AECAF7100D81B71 /* Account.swift in Sources */,
 				ACCCD2D11AE24B100043ED41 /* NSData.swift in Sources */,
 				ACCCD29A1AE221C50043ED41 /* Sidebar.swift in Sources */,
-				ACF1FA331AE191AC006309D4 /* Config.swift in Sources */,
 				AC2AA8E81AEA33AD001B0408 /* AppRegistry.swift in Sources */,
 				ACF1FA291AE19195006309D4 /* MainWindow.swift in Sources */,
 				7B69803A1AE5A6C90064A060 /* ScrollView.swift in Sources */,
@@ -924,6 +923,7 @@
 				ACCCD2B21AE2221A0043ED41 /* Array.swift in Sources */,
 				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
+				ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */,
 				AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,

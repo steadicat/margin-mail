@@ -10,15 +10,7 @@ protocol Action {
     // Used as a marker interface for now.
 }
 
-struct Actions {
-    let account: AccountActions
-
-    init(_ dispatcher: Dispatcher) {
-        account = AccountActions(dispatcher)
-    }
-}
-
-class ActionCreator {
+class Actions {
 
     let dispatcher: Dispatcher
 
