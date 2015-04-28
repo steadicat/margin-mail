@@ -46,30 +46,58 @@ class IMAPReader: MailReader {
 
     // XXX: This method is temporary. Just for testing.
     func getMessages(callback: [MailMessage] -> Void) {
+        findMessages() { messages in
+            self.loadMessages(messages, callback: callback)
+        }
+    }
+
+    // XXX: This method is temporary. Just for testing.
+    private func findMessages(callback: [MCOIMAPMessage] -> Void) {
         let requestKind: MCOIMAPMessagesRequestKind = .Headers
-        let folder = "INBOX"
         let uids = MCOIndexSet(range: MCORangeMake(1, 5))
         let operation = session.fetchMessagesOperationWithFolder(
-            folder,
+            "INBOX",
             requestKind: requestKind,
             uids: uids
         )
         operation.start() { (error, receivedMessages, vanishedMessages) in
-            var messages: [MailMessage] = []
+            var messages: [MCOIMAPMessage] = []
             for message in receivedMessages as! [MCOIMAPMessage] {
-                messages.append(self.createMessage(message))
+                messages.append(message)
             }
             callback(messages)
         }
     }
 
-    private func createMessage(source: MCOIMAPMessage) -> MailMessage {
-        let header: MCOMessageHeader = source.header as MCOMessageHeader
+    // XXX: This method is temporary. Just for testing.
+    private func loadMessages(messages: [MCOIMAPMessage], callback: [MailMessage] -> Void) {
+        var loadedMessages: [MailMessageID: MailMessage] = [:]
+        for message in messages {
+            let operation = session.fetchMessageOperationWithFolder("INBOX", uid: message.uid)
+            operation.start() { (error, data) in
+                loadedMessages[message.uid] = self.createMessage(message, data: data)
+                if loadedMessages.count == messages.count {
+                    callback(loadedMessages.values.array)
+                }
+            }
+        }
+    }
+
+    private func createMessage(message: MCOIMAPMessage, data: NSData) -> MailMessage {
+        let headers = message.header as MCOMessageHeader
+        let parser = MCOMessageParser(data: data)
+
+        let recipients = headers.to.map { MailAddress(mco: $0 as! MCOAddress) }
+        let sender = MailAddress(mco: headers.from)
+        let subject = headers.subject
+        let body = parser.plainTextBodyRendering()!
+
         return MailMessage(
-            recipients: header.to.map { MailAddress(mco: $0 as! MCOAddress) },
-            sender: MailAddress(mco: header.from),
-            subject: header.subject,
-            body: "..."
+            id: message.uid,
+            recipients: recipients,
+            sender: sender,
+            subject: subject,
+            body: body
         )
     }
     

@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
+typealias MailMessageID = UInt32
+
 struct MailMessage {
 
+    let id: MailMessageID
     let recipients: [MailAddress]
     let sender: MailAddress
     let subject: String

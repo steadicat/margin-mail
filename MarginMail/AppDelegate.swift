@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Registry()
 
-        Async.delay(3) {
+        Async.delay(2) {
             Registry().actions.createTestAccount()
         }
 
