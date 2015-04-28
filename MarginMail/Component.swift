@@ -48,6 +48,11 @@ class Component {
                 if let subview = child.view {
                     assert(view != subview, "Components should not own a view that belongs to one of their children")
                     view.addSubview(subview)
+                } else if child.children.count == 1 {
+                    // TODO: make this recursive
+                    if let childSubview = child.children[0].view {
+                        view.addSubview(childSubview)
+                    }
                 }
             }
         } else if children.count == 1 {
