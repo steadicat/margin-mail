@@ -66,11 +66,10 @@ class IMAPReader: MailReader {
     private func createMessage(source: MCOIMAPMessage) -> MailMessage {
         let header: MCOMessageHeader = source.header as MCOMessageHeader
         return MailMessage(
-            recipients: header.to.map {
-                MailAddress(mco: $0 as! MCOAddress)
-            },
+            recipients: header.to.map { MailAddress(mco: $0 as! MCOAddress) },
             sender: MailAddress(mco: header.from),
-            subject: header.subject
+            subject: header.subject,
+            body: "..."
         )
     }
     

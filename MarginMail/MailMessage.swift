@@ -11,5 +11,6 @@ struct MailMessage {
     let recipients: [MailAddress]
     let sender: MailAddress
     let subject: String
+    let body: String // XXX: Changing
 
 }

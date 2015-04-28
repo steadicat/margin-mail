@@ -81,7 +81,7 @@ class MessageList: Component {
             item.selected = row == self.selectedRow
             item.author = message.sender.name ?? "<no name>"
             item.subject = message.subject
-            item.snippet = "..."
+            item.snippet = message.body
         }
         return view
     }
