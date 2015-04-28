@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class Sidebar: Component {
+class Sidebar: DataComponent {
 
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216

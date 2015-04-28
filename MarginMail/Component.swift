@@ -37,10 +37,6 @@ class Component {
     }
 
     private var updateDispatched = false
-    private var didEverRender = false
-
-    private var registeredStores: [Store] = []
-    private let availableStores = Registry().stores
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         self.children = children
@@ -66,43 +62,15 @@ class Component {
                 }
             }
         }
-
-        let stores = getStoresToWatch(availableStores)
-        for store in stores {
-            store.addListener(self, callback: self.onStoreUpdate)
-        }
-        registeredStores.extend(stores)
     }
 
-    deinit {
-        for store in registeredStores {
-            store.removeListener(self)
-        }
-    }
-
-    private func performUpdate() {
-        if !didEverRender {
-            onStoreUpdate()
-            didEverRender = true
-        }
+    func performUpdate() {
         self.render()
         for child in children {
             child.render()
         }
         needsUpdate = false
         updateDispatched = false
-    }
-
-    private func onStoreUpdate() {
-        getDataFromStores(availableStores)
-    }
-
-    func getStoresToWatch(stores: Stores) -> [Store] {
-        return []
-    }
-
-    func getDataFromStores(stores: Stores) {
-        return
     }
 
     func render() {

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MessageList: Component {
+class MessageList: DataComponent {
 
     private let scroll: ScrollView
     private let table: TableView

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B204C161AEF2FB500FB7A5C /* DataComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B204C151AEF2FB500FB7A5C /* DataComponent.swift */; };
 		7B405A151AE8A07300506A01 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A141AE8A07300506A01 /* Component.swift */; };
 		7B405A2B1AEC2D7600506A01 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2A1AEC2D7600506A01 /* TableView.swift */; };
 		7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2C1AEC2E6C00506A01 /* Split.swift */; };
@@ -262,6 +263,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B204C151AEF2FB500FB7A5C /* DataComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataComponent.swift; sourceTree = "<group>"; };
 		7B405A141AE8A07300506A01 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		7B405A2A1AEC2D7600506A01 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = MarginMail/TableView.swift; sourceTree = SOURCE_ROOT; };
 		7B405A2C1AEC2E6C00506A01 /* Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				7B405A141AE8A07300506A01 /* Component.swift */,
+				7B204C151AEF2FB500FB7A5C /* DataComponent.swift */,
 				ACCCD2A31AE221E90043ED41 /* Label.swift */,
 				7B405A2C1AEC2E6C00506A01 /* Split.swift */,
 			);
@@ -917,6 +920,8 @@
 				ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */,
 				ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */,
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,
+				7B204C161AEF2FB500FB7A5C /* DataComponent.swift in Sources */,
+				ACB5A6E61AEDDC5E00C89E41 /* AppDispatcher.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
 				ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */,
 				AC73631A1AE4F767000019A1 /* Async.swift in Sources */,
