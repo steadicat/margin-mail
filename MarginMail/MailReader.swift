@@ -14,6 +14,8 @@ protocol MailReader {
     func getMessages(callback: [MailMessage] -> Void)
 }
 
+// XXX: This whole thing will be cleaned up later.
+
 class IMAPReader: MailReader {
 
     private var hostname: String
