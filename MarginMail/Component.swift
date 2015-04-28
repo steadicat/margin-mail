@@ -29,7 +29,7 @@ class Component {
         didSet {
             if !updateDispatched {
                 updateDispatched = true
-                dispatch_async(dispatch_get_main_queue()) { [weak self] in
+                Dispatch.main() { [weak self] in
                     self?.performUpdate()
                 }
             }

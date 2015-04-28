@@ -30,7 +30,7 @@
 		AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84A41AECC71F00D81B71 /* Database.swift */; };
 		AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */; };
 		AC2AA8E81AEA33AD001B0408 /* AppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */; };
-		AC73631A1AE4F767000019A1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Async.swift */; };
+		AC73631A1AE4F767000019A1 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Dispatch.swift */; };
 		ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */; };
 		ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
@@ -289,7 +289,7 @@
 		AC1F84A41AECC71F00D81B71 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = MarginMail/Notifier.swift; sourceTree = SOURCE_ROOT; };
 		AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistry.swift; sourceTree = "<group>"; };
-		AC7363191AE4F767000019A1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = MarginMail/Async.swift; sourceTree = SOURCE_ROOT; };
+		AC7363191AE4F767000019A1 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatch.swift; path = MarginMail/Dispatch.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = MarginMail/Dispatcher.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountActions.swift; path = MarginMail/AccountActions.swift; sourceTree = SOURCE_ROOT; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
@@ -380,8 +380,8 @@
 		7BC4F1071AE1D184007DD2E1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AC7363191AE4F767000019A1 /* Async.swift */,
 				ACCCD2AD1AE222100043ED41 /* Color.swift */,
+				AC7363191AE4F767000019A1 /* Dispatch.swift */,
 				ACE5B2DB1AEDF25000EF02E1 /* Env.swift */,
 				ACCCD2AE1AE222100043ED41 /* Geometry.swift */,
 				ACC1940A1AE48A57003071DA /* Lock.swift */,
@@ -934,7 +934,7 @@
 				7B204C161AEF2FB500FB7A5C /* DataComponent.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
 				ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */,
-				AC73631A1AE4F767000019A1 /* Async.swift in Sources */,
+				AC73631A1AE4F767000019A1 /* Dispatch.swift in Sources */,
 				7B405A151AE8A07300506A01 /* Component.swift in Sources */,
 				ACCCD2B61AE222280043ED41 /* NSImage.swift in Sources */,
 				AC1F84941AECAF7100D81B71 /* Account.swift in Sources */,
