@@ -10,7 +10,9 @@ enum MailReaderType: String {
     case IMAP = "imap"
 }
 
-protocol MailReader {}
+protocol MailReader {
+    func getMessages(callback: [MailMessage] -> Void)
+}
 
 class IMAPReader: MailReader {
 
@@ -31,14 +33,45 @@ class IMAPReader: MailReader {
         if let password = self.password {
             session.password = password
         }
+        session.connectionType = self.connectionType
         return session
-        }()
+    }()
 
     init(hostname: String, port: Int = 993, username: String? = nil, password: String? = nil) {
         self.hostname = hostname
         self.port = port
         self.username = username
         self.password = password
+    }
+
+    // XXX: This method is temporary. Just for testing.
+    func getMessages(callback: [MailMessage] -> Void) {
+        let requestKind: MCOIMAPMessagesRequestKind = .Headers
+        let folder = "INBOX"
+        let uids = MCOIndexSet(range: MCORangeMake(1, 5))
+        let operation = session.fetchMessagesOperationWithFolder(
+            folder,
+            requestKind: requestKind,
+            uids: uids
+        )
+        operation.start() { (error, receivedMessages, vanishedMessages) in
+            var messages: [MailMessage] = []
+            for message in receivedMessages as! [MCOIMAPMessage] {
+                messages.append(self.createMessage(message))
+            }
+            callback(messages)
+        }
+    }
+
+    private func createMessage(source: MCOIMAPMessage) -> MailMessage {
+        let header: MCOMessageHeader = source.header as MCOMessageHeader
+        return MailMessage(
+            recipients: header.to.map {
+                MailAddress(mco: $0 as! MCOAddress)
+            },
+            sender: MailAddress(mco: header.from),
+            subject: header.subject
+        )
     }
     
 }

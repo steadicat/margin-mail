@@ -14,12 +14,11 @@ class Account {
     var email: String
     var photo: NSImage?
 
+    var incoming: IncomingTransport?
+
     lazy var address: MailAddress = {
         return MailAddress(addr: self.email, name: self.name)
     }()
-
-//    var incoming: Transport?
-//    var outgoing: Transport?
 
     init(name: String, email: String, photo: NSImage? = nil) {
         self.name = name
@@ -27,12 +26,12 @@ class Account {
         self.photo = photo
     }
 
-//    lazy var client: MailClient = {
-//        return MailClient(
-//            address: self.address,
-//            reader: self.incoming?.createReader(),
-//            writer: self.outgoing?.createWriter()
-//        )
-//    }()
+    lazy var client: MailClient = {
+        return MailClient(
+            address: self.address,
+            reader: self.incoming?.createReader(),
+            writer: nil
+        )
+    }()
 
 }

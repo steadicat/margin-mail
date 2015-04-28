@@ -9,13 +9,19 @@
 class MailClient {
 
     var address: MailAddress
-    var reader: MailReader?
-    var writer: MailWriter?
+
+    private var reader: MailReader?
+    private var writer: MailWriter?
 
     init(address: MailAddress, reader: MailReader?, writer: MailWriter?) {
         self.address = address
         self.reader = reader
         self.writer = writer
+    }
+
+    // XXX: This method is temporary. Just for testing.
+    func getMessages(callback: [MailMessage] -> Void) {
+        self.reader!.getMessages(callback)
     }
     
 }

@@ -26,7 +26,16 @@ extension Actions {
     }
 
     func createTestAccount() {
-        let account = Account(name: "Alan", email: "alan@artnez.com")
+        let account = Account(
+            name: "Alan",
+            email: "alan@artnez.com"
+        )
+        account.incoming = IMAPTransport(
+            hostname: "imap.gmail.com",
+            port: 993,
+            username: "alan@artnez.com",
+            password: "entscheidungsproblem"
+        )
         createAccount(account, activate: true)
     }
 
