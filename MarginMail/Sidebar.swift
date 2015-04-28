@@ -43,7 +43,7 @@ class Sidebar: DataComponent {
         }
     }
 
-    private var activeAccount: Account? = nil {
+    private var account: Account? = nil {
         didSet {
             self.needsUpdate = true
         }
@@ -53,7 +53,11 @@ class Sidebar: DataComponent {
         let view = View(frame: CGRectZero)
         items = Sidebar.items.map { Sidebar.createItem($0.0, text: $0.text) }
 
-        super.init(stores: [Stores().account], children: items, view: view)
+        super.init(
+            stores: [Stores().account, Stores().message],
+            children: items,
+            view: view
+        )
 
         for item in items {
             item.onMouseDown = { [weak self] in
@@ -73,7 +77,8 @@ class Sidebar: DataComponent {
     }
 
     override func onStoreUpdate() {
-        activeAccount = Stores().account.getActive()
+        account = Stores().account.getActive()
+        inboxCount = account == nil ? 0 : Stores().message.getMessages(account!).count
     }
 
     override func render() {
@@ -89,7 +94,7 @@ class Sidebar: DataComponent {
 
             if item.key == "settings" {
                 item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
-                item.text = activeAccount?.name ?? "No account"
+                item.text = account?.name ?? "No account"
             } else {
                 item.frame = rows.next(rowHeight)
             }
