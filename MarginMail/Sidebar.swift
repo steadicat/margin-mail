@@ -53,7 +53,7 @@ class Sidebar: DataComponent {
         let view = View(frame: CGRectZero)
         items = Sidebar.items.map { Sidebar.createItem($0.0, text: $0.text) }
 
-        super.init(children: items, view: view)
+        super.init(stores: [Stores().account], children: items, view: view)
 
         for item in items {
             item.onMouseDown = { [weak self] in
@@ -72,11 +72,7 @@ class Sidebar: DataComponent {
         return item
     }
 
-    override func getStoresToWatch() -> [Store] {
-        return [Stores().account]
-    }
-
-    override func getDataFromStores() {
+    override func onStoreUpdate() {
         activeAccount = Stores().account.getActive()
     }
 

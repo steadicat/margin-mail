@@ -13,15 +13,14 @@ class MessageListData: DataComponent {
     private let messageList = MessageList()
     private var hasLoaded = false
 
-    override init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
-        super.init(children: [messageList])
+    init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
+        super.init(
+            stores: [Stores().account, Stores().message],
+            children: [messageList]
+        )
     }
 
-    override func getStoresToWatch() -> [Store] {
-        return [Stores().account, Stores().message]
-    }
-
-    override func getDataFromStores() {
+    override func onStoreUpdate() {
         let account: Account! = Stores().account.getActive()
         if account == nil {
             return

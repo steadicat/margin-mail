@@ -14,10 +14,8 @@ class DataComponent: Component {
 
     private var stores: [Store] = []
 
-    override init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
+    init(stores: [Store], children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(children: children, view: view, layer: layer)
-
-        stores = getStoresToWatch()
         for store in stores {
             store.addListener(self, callback: self.onStoreUpdate)
         }
@@ -29,24 +27,16 @@ class DataComponent: Component {
         }
     }
 
+    func onStoreUpdate() {
+        return
+    }
+
     override func performUpdate() {
         if !didEverRender {
             onStoreUpdate()
             didEverRender = true
         }
         super.performUpdate()
-    }
-
-    private func onStoreUpdate() {
-        getDataFromStores()
-    }
-
-    func getStoresToWatch() -> [Store] {
-        return []
-    }
-
-    func getDataFromStores() {
-        return
     }
     
 }
