@@ -15,6 +15,8 @@ class Split: Component {
     init(id: String, children: [Component], minimumSizes: [Int: CGFloat] = [:], maximumSizes: [Int: CGFloat] = [:]) {
         split = SplitView(frame: CGRectZero, minimumSizes: minimumSizes, maximumSizes: maximumSizes)
         super.init(children: children, view: split)
+        assert(split.subviews.count > 1, "Split views should have at least two child views")
+        
         split.identifier = id
         split.autosaveName = id
         split.onResize = self.onResize

@@ -8,25 +8,27 @@
 
 import Cocoa
 
-class MessageList: DataComponent {
+class MessageList: Component {
 
-    private let scroll: ScrollView
-    private let table: TableView
 
-    private var selectedRow = 0
-    private var isLoading = false
-    private var hasLoaded = false
-
-    private var messages: [MailMessage] = [] {
+    var isLoading = false {
         didSet {
             self.needsUpdate = true
         }
     }
 
-    init() {
-        scroll = ScrollView(frame: CGRectZero)
-        table = TableView(frame: CGRectZero)
+    var messages: [MailMessage] = [] {
+        didSet {
+            self.needsUpdate = true
+        }
+    }
 
+    private var selectedRow = 0
+
+    private let scroll = ScrollView(frame: CGRectZero)
+    private let table = TableView(frame: CGRectZero)
+
+    init() {
         super.init(children: [], view: scroll)
 
         table.headerView = nil
@@ -38,26 +40,6 @@ class MessageList: DataComponent {
         table.onRowSelect = self.onRowSelect
 
         scroll.documentView = table
-    }
-
-    override func getStoresToWatch() -> [Store] {
-        return [Stores().account, Stores().message]
-    }
-
-    override func getDataFromStores() {
-        let account: Account! = Stores().account.getActive()
-        if account == nil {
-            return
-        }
-
-        if !hasLoaded {
-            hasLoaded = true
-            Registry().actions.loadMessages(account)
-            return
-        }
-
-        isLoading = Stores().message.isLoading()
-        messages = Stores().message.getMessages(account)
     }
 
     override func render() {

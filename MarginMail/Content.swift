@@ -11,7 +11,7 @@ import Cocoa
 class Content: Component {
 
     private let split: Split
-    private let messageList = MessageList()
+    private let messageList = MessageListData()
     private let messagePane = MessagePane()
 
     init() {
