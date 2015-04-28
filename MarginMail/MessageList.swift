@@ -15,6 +15,12 @@ class MessageList: Component {
 
     private var selectedRow = 0
 
+    private var messages: [MailMessage] = [] {
+        didSet {
+            self.needsUpdate = true
+        }
+    }
+
     init() {
         scroll = ScrollView(frame: CGRectZero)
         table = TableView(frame: CGRectZero)
@@ -23,7 +29,7 @@ class MessageList: Component {
 
         table.headerView = nil
         table.rowHeight = 96
-        table.rows = 100
+        table.rows = 0
         table.columns = 1
         table.createCell = self.createCell
         table.updateCell = self.updateCell
@@ -32,8 +38,23 @@ class MessageList: Component {
         scroll.documentView = table
     }
 
+    override func getStoresToWatch(stores: Stores) -> [Store] {
+        return [stores.account]
+    }
+
+    override func getDataFromStores(stores: Stores) {
+        // XXX: This will go into a message store and async will be handled
+        // using multiple action dispatches.
+        if let account = stores.account.getActive() {
+            account.client.getMessages() { messages in
+                self.messages = messages
+            }
+        }
+    }
+
     override func render() {
-        //scroll.frame = bounds
+        table.rows = messages.count
+        table.reloadData()
     }
 
     func onRowSelect(row: Int) {
@@ -50,20 +71,17 @@ class MessageList: Component {
         }
     }
 
-    func getNumberOfRows() -> Int {
-        return 12
-    }
-
     func createCell() -> NSView {
         return MessageListItem(frame: CGRectZero)
     }
 
     func updateCell(#column: Int, row: Int, view: NSView) -> NSView {
-        if let message = view as? MessageListItem {
-            message.selected = row == self.selectedRow
-            message.author = "Stefano J. Attardi"
-            message.subject = "Hi Artem, how are things?"
-            message.snippet = "I dunno why I’m writing. I guess I just wanted to test this new awesome email client. It’s pretty sweet I guess. I especially like text wrapping and text truncation."
+        if let item = view as? MessageListItem {
+            let message = messages[row]
+            item.selected = row == self.selectedRow
+            item.author = message.sender.name ?? "<no name>"
+            item.subject = message.subject
+            item.snippet = "..."
         }
         return view
     }
