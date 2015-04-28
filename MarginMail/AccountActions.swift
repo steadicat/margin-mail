@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-extension Actions {
+extension MainActions {
 
     struct ActivateAccount: Action {
         let account: Account

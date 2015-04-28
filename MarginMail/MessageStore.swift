@@ -16,10 +16,10 @@ class MessageStore: Store {
 
     override func handleAction(action: Action) {
         switch (action) {
-        case let action as Actions.LoadMessages:
+        case let action as MainActions.LoadMessages:
             loading = true
             notify()
-        case let action as Actions.LoadMessagesSuccess:
+        case let action as MainActions.LoadMessagesSuccess:
             loading = false
             messages[action.account.email] = action.messages
             notify()

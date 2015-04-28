@@ -20,16 +20,18 @@
 		7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */; };
 		7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */; };
 		7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16ED01AE4A9D9002DCD22 /* Content.swift */; };
+		AC0511AF1AEF37D600A61E29 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511AE1AEF37D600A61E29 /* Actions.swift */; };
+		AC0511B31AEF3AD600A61E29 /* ActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511B21AEF3AD600A61E29 /* ActionCreator.swift */; };
+		AC0511B51AEF3B2F00A61E29 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511B41AEF3B2F00A61E29 /* Store.swift */; };
 		AC1F84941AECAF7100D81B71 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84931AECAF7100D81B71 /* Account.swift */; };
 		AC1F84A11AECC4BA00D81B71 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */; };
-		AC1F84A31AECC4C600D81B71 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84A21AECC4C600D81B71 /* Store.swift */; };
+		AC1F84A31AECC4C600D81B71 /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84A21AECC4C600D81B71 /* Stores.swift */; };
 		AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84A41AECC71F00D81B71 /* Database.swift */; };
 		AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */; };
 		AC2AA8E81AEA33AD001B0408 /* AppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */; };
 		AC73631A1AE4F767000019A1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Async.swift */; };
 		ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */; };
 		ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */; };
-		ACB5A6EC1AEDDC6F00C89E41 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
 		ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2971AE221BC0043ED41 /* MessageList.swift */; };
@@ -276,16 +278,18 @@
 		7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		7BE16ED01AE4A9D9002DCD22 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		AC0511AE1AEF37D600A61E29 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = MarginMail/Actions.swift; sourceTree = SOURCE_ROOT; };
+		AC0511B21AEF3AD600A61E29 /* ActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionCreator.swift; path = MarginMail/ActionCreator.swift; sourceTree = SOURCE_ROOT; };
+		AC0511B41AEF3B2F00A61E29 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = MarginMail/Store.swift; sourceTree = SOURCE_ROOT; };
 		AC1F84931AECAF7100D81B71 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = MarginMail/Account.swift; sourceTree = SOURCE_ROOT; };
 		AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountStore.swift; path = MarginMail/AccountStore.swift; sourceTree = SOURCE_ROOT; };
-		AC1F84A21AECC4C600D81B71 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = MarginMail/Store.swift; sourceTree = SOURCE_ROOT; };
+		AC1F84A21AECC4C600D81B71 /* Stores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stores.swift; path = MarginMail/Stores.swift; sourceTree = SOURCE_ROOT; };
 		AC1F84A41AECC71F00D81B71 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = MarginMail/Notifier.swift; sourceTree = SOURCE_ROOT; };
 		AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistry.swift; sourceTree = "<group>"; };
 		AC7363191AE4F767000019A1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = MarginMail/Async.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = MarginMail/Dispatcher.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountActions.swift; path = MarginMail/AccountActions.swift; sourceTree = SOURCE_ROOT; };
-		ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = MarginMail/Actions.swift; sourceTree = SOURCE_ROOT; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		ACCCD2971AE221BC0043ED41 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
@@ -396,28 +400,30 @@
 			path = MarginMail/Resources;
 			sourceTree = "<group>";
 		};
+		AC0511AD1AEF37B000A61E29 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AC0511B21AEF3AD600A61E29 /* ActionCreator.swift */,
+				ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */,
+				AC0511B41AEF3B2F00A61E29 /* Store.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		AC1F84951AECB37400D81B71 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				AC1F84A21AECC4C600D81B71 /* Store.swift */,
+				AC1F84A21AECC4C600D81B71 /* Stores.swift */,
 				AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */,
 				ACE5B2E11AEF18C300EF02E1 /* MessageStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
 		};
-		ACB5A6CF1AEDDC5400C89E41 /* Dispatchers */ = {
-			isa = PBXGroup;
-			children = (
-				ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */,
-			);
-			name = Dispatchers;
-			sourceTree = "<group>";
-		};
 		ACB5A6E81AEDDC6200C89E41 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */,
+				AC0511AE1AEF37D600A61E29 /* Actions.swift */,
 				ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */,
 				ACE5B2E31AEF1B0600EF02E1 /* MessageActions.swift */,
 			);
@@ -549,7 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				ACB5A6E81AEDDC6200C89E41 /* Actions */,
-				ACB5A6CF1AEDDC5400C89E41 /* Dispatchers */,
+				AC0511AD1AEF37B000A61E29 /* Core */,
 				AC1F84951AECB37400D81B71 /* Stores */,
 				AC1F84931AECAF7100D81B71 /* Account.swift */,
 				ACE5B2DD1AEEF1C500EF02E1 /* IncomingTransport.swift */,
@@ -899,14 +905,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACCCD2AC1AE222030043ED41 /* Window.swift in Sources */,
+				AC0511AF1AEF37D600A61E29 /* Actions.swift in Sources */,
 				AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */,
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACE5B2E21AEF18C300EF02E1 /* MessageStore.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
 				ACE5B2E01AEF017000EF02E1 /* MailMessage.swift in Sources */,
+				AC0511B51AEF3B2F00A61E29 /* Store.swift in Sources */,
 				7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */,
 				ACE5B2E41AEF1B0600EF02E1 /* MessageActions.swift in Sources */,
-				ACB5A6EC1AEDDC6F00C89E41 /* Actions.swift in Sources */,
 				7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
 				ACCCD2B41AE2221F0043ED41 /* CGRect.swift in Sources */,
@@ -921,7 +928,6 @@
 				ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */,
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,
 				7B204C161AEF2FB500FB7A5C /* DataComponent.swift in Sources */,
-				ACB5A6E61AEDDC5E00C89E41 /* AppDispatcher.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
 				ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */,
 				AC73631A1AE4F767000019A1 /* Async.swift in Sources */,
@@ -938,6 +944,7 @@
 				ACC1940B1AE48A57003071DA /* Lock.swift in Sources */,
 				7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */,
 				ACCCD2B21AE2221A0043ED41 /* Array.swift in Sources */,
+				AC0511B31AEF3AD600A61E29 /* ActionCreator.swift in Sources */,
 				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
 				ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */,
@@ -946,7 +953,7 @@
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,
 				ACCCD2A01AE221DC0043ED41 /* ButtonCell.swift in Sources */,
 				ACCCD29E1AE221D90043ED41 /* Button.swift in Sources */,
-				AC1F84A31AECC4C600D81B71 /* Store.swift in Sources */,
+				AC1F84A31AECC4C600D81B71 /* Stores.swift in Sources */,
 				ACCCD2AA1AE221FE0043ED41 /* View.swift in Sources */,
 				ACCCD2B81AE2222D0043ED41 /* NSColor.swift in Sources */,
 			);

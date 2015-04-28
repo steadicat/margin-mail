@@ -40,12 +40,12 @@ class MessageList: DataComponent {
         scroll.documentView = table
     }
 
-    override func getStoresToWatch(stores: Stores) -> [Store] {
-        return [stores.account, stores.message]
+    override func getStoresToWatch() -> [Store] {
+        return [Stores().account, Stores().message]
     }
 
-    override func getDataFromStores(stores: Stores) {
-        let account: Account! = stores.account.getActive()
+    override func getDataFromStores() {
+        let account: Account! = Stores().account.getActive()
         if account == nil {
             return
         }
@@ -56,8 +56,8 @@ class MessageList: DataComponent {
             return
         }
 
-        isLoading = stores.message.isLoading()
-        messages = stores.message.getMessages(account)
+        isLoading = Stores().message.isLoading()
+        messages = Stores().message.getMessages(account)
     }
 
     override func render() {

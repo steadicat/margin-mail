@@ -12,13 +12,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainWindow: MainWindow?
-    var registry: AppRegistry?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Registry()
 
         Async.delay(2) {
-            Registry().actions.createTestAccount()
+            Actions().createTestAccount()
         }
 
         mainWindow = MainWindow()

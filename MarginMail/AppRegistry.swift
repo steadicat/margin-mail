@@ -10,19 +10,30 @@
     return AppRegistry.sharedInstance
 }
 
+@inline(__always) func Actions() -> MainActions {
+    return Registry().actions
+}
+
+@inline(__always) func Stores() -> MainStores {
+    return Registry().stores
+}
+
 class AppRegistry {
 
     static let sharedInstance = AppRegistry()
 
-    let actions: Actions
-    let stores: Stores
+    let actions: MainActions
+    let stores: MainStores
 
     init() {
-        let database = Database(Env.dataPathForName("db.sqlite3"))
+        let db = Database(Env.dataPathForName("db.sqlite3"))
         let dispatcher = Dispatcher()
 
-        actions = Actions(dispatcher)
-        stores = Stores(dispatcher, database)
+        actions = MainActions(dispatcher)
+        stores = MainStores(
+            account: AccountStore(dispatcher, db: db),
+            message: MessageStore(dispatcher)
+        )
     }
 
 }

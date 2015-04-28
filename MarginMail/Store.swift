@@ -2,30 +2,15 @@
 //  Store.swift
 //  MarginMail
 //
-//  Created by Artem Nezvigin on 4/26/15.
+//  Created by Artem Nezvigin on 4/27/15.
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
-
-struct Stores {
-
-    let account: AccountStore
-    let message: MessageStore
-
-    init(_ dispatcher: Dispatcher, _ database: Database) {
-        account = AccountStore(dispatcher, database: database)
-        message = MessageStore(dispatcher, database: database)
-    }
-
-}
 
 class Store {
 
     private let notifier = Notifier()
 
-    let database: Database
-
-    init(_ dispatcher: Dispatcher, database: Database) {
-        self.database = database
+    init(_ dispatcher: Dispatcher) {
         dispatcher.register(handleAction)
     }
 
@@ -45,5 +30,5 @@ class Store {
     func removeListener(context: AnyObject) {
         notifier.removeListener(context)
     }
-
+    
 }

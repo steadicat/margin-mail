@@ -12,21 +12,19 @@ class DataComponent: Component {
 
     private var didEverRender = false
 
-    private var registeredStores: [Store] = []
-    private let availableStores = Registry().stores
+    private var stores: [Store] = []
 
     override init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(children: children, view: view, layer: layer)
 
-        let stores = getStoresToWatch(availableStores)
+        stores = getStoresToWatch()
         for store in stores {
             store.addListener(self, callback: self.onStoreUpdate)
         }
-        registeredStores.extend(stores)
     }
 
     deinit {
-        for store in registeredStores {
+        for store in stores {
             store.removeListener(self)
         }
     }
@@ -40,14 +38,14 @@ class DataComponent: Component {
     }
 
     private func onStoreUpdate() {
-        getDataFromStores(availableStores)
+        getDataFromStores()
     }
 
-    func getStoresToWatch(stores: Stores) -> [Store] {
+    func getStoresToWatch() -> [Store] {
         return []
     }
 
-    func getDataFromStores(stores: Stores) {
+    func getDataFromStores() {
         return
     }
     

@@ -72,12 +72,12 @@ class Sidebar: DataComponent {
         return item
     }
 
-    override func getStoresToWatch(stores: Stores) -> [Store] {
-        return [stores.account]
+    override func getStoresToWatch() -> [Store] {
+        return [Stores().account]
     }
 
-    override func getDataFromStores(stores: Stores) {
-        activeAccount = stores.account.getActive()
+    override func getDataFromStores() {
+        activeAccount = Stores().account.getActive()
     }
 
     override func render() {
