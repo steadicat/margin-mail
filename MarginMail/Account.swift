@@ -14,7 +14,8 @@ class Account {
     let email: String
     let photo: NSImage?
 
-    var incoming: IncomingTransport?
+    var incoming: Transport?
+    var outgoing: Transport?
 
     lazy var address: MailAddress = {
         return MailAddress(addr: self.email, name: self.name)
@@ -30,7 +31,7 @@ class Account {
         return MailClient(
             address: self.address,
             reader: self.incoming?.createReader(),
-            writer: nil
+            writer: self.outgoing?.createWriter()
         )
     }()
 

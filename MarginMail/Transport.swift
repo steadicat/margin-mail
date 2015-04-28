@@ -1,16 +1,17 @@
 //
-//  IncomingTransport.swift
+//  Transport.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/27/15.
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-protocol IncomingTransport {
-    func createReader() -> MailReader
+protocol Transport {
+    func createReader() -> MailReader?
+    func createWriter() -> MailWriter?
 }
 
-class IMAPTransport: IncomingTransport {
+class IMAPTransport: Transport {
 
     let hostname: String
     let port: Int
@@ -24,13 +25,17 @@ class IMAPTransport: IncomingTransport {
         self.password = password
     }
 
-    func createReader() -> MailReader {
+    func createReader() -> MailReader? {
         return IMAPReader(
             hostname: hostname,
             port: port,
             username: username,
             password: password
         )
+    }
+
+    func createWriter() -> MailWriter? {
+        return nil
     }
 
 }

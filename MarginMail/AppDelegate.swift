@@ -14,11 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mainWindow: MainWindow?
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        Registry()
-
-        Dispatch.after(2) {
-            Actions().createTestAccount()
-        }
+        Actions().createTestAccount()
 
         mainWindow = MainWindow()
         mainWindow!.show(self)
