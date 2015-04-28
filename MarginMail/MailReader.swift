@@ -47,7 +47,9 @@ class IMAPReader: MailReader {
     // XXX: This method is temporary. Just for testing.
     func getMessages(callback: [MailMessage] -> Void) {
         findMessages() { messages in
-            self.loadMessages(messages, callback: callback)
+            self.loadMessages(messages) { messages in
+                callback(messages)
+            }
         }
     }
 
@@ -70,14 +72,16 @@ class IMAPReader: MailReader {
     }
 
     // XXX: This method is temporary. Just for testing.
-    private func loadMessages(messages: [MCOIMAPMessage], callback: [MailMessage] -> Void) {
+    private func loadMessages(messagesToLoad: [MCOIMAPMessage], callback: [MailMessage] -> Void) {
         var loadedMessages: [MailMessageID: MailMessage] = [:]
-        for message in messages {
+        for message in messagesToLoad {
             let operation = session.fetchMessageOperationWithFolder("INBOX", uid: message.uid)
             operation.start() { (error, data) in
                 loadedMessages[message.uid] = self.createMessage(message, data: data)
-                if loadedMessages.count == messages.count {
-                    callback(loadedMessages.values.array)
+                if loadedMessages.count == messagesToLoad.count {
+                    var messages = loadedMessages.values.array
+                    messages.sort({ $0.date.timeIntervalSinceDate($1.date) > 0 })
+                    callback(messages)
                 }
             }
         }
@@ -91,13 +95,15 @@ class IMAPReader: MailReader {
         let sender = MailAddress(mco: headers.from)
         let subject = headers.subject
         let body = parser.plainTextBodyRendering()!
+        let date = headers.date
 
         return MailMessage(
             id: message.uid,
             recipients: recipients,
             sender: sender,
             subject: subject,
-            body: body
+            body: body,
+            date: date
         )
     }
     

@@ -14,6 +14,7 @@ struct MailMessage {
     let recipients: [MailAddress]
     let sender: MailAddress
     let subject: String
-    let body: String // XXX: Changing
+    let body: String // XXX: Temporary!
+    let date: NSDate // XXX: Temporary!
 
 }
