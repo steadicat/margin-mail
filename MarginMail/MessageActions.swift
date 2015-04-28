@@ -8,15 +8,6 @@
 
 extension MainActions {
 
-    struct LoadMessages: Action {
-        let account: Account
-    }
-
-    struct LoadMessagesSuccess: Action {
-        let account: Account
-        let messages: [MailMessage]
-    }
-
     func loadMessages(account: Account) {
         dispatch(LoadMessages(account: account))
         account.client.getMessages() { messages in
