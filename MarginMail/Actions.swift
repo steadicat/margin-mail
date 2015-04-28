@@ -1,5 +1,5 @@
 //
-//  Action.swift
+//  Actions.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/25/15.

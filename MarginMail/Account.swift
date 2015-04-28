@@ -10,9 +10,9 @@ import Cocoa
 
 class Account {
 
-    var name: String
-    var email: String
-    var photo: NSImage?
+    let name: String
+    let email: String
+    let photo: NSImage?
 
     var incoming: IncomingTransport?
 

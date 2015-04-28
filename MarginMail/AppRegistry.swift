@@ -19,7 +19,7 @@ class AppRegistry {
 
     init() {
         let database = Database(Env.dataPathForName("db.sqlite3"))
-        let dispatcher = AppDispatcher()
+        let dispatcher = Dispatcher()
 
         actions = Actions(dispatcher)
         stores = Stores(dispatcher, database)

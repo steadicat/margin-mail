@@ -14,6 +14,8 @@ class MessageList: Component {
     private let table: TableView
 
     private var selectedRow = 0
+    private var isLoading = false
+    private var hasLoaded = false
 
     private var messages: [MailMessage] = [] {
         didSet {
@@ -39,22 +41,32 @@ class MessageList: Component {
     }
 
     override func getStoresToWatch(stores: Stores) -> [Store] {
-        return [stores.account]
+        return [stores.account, stores.message]
     }
 
     override func getDataFromStores(stores: Stores) {
-        // XXX: This will go into a message store and async will be handled
-        // using multiple action dispatches.
-        if let account = stores.account.getActive() {
-            account.client.getMessages() { messages in
-                self.messages = messages
-            }
+        let account: Account! = stores.account.getActive()
+        if account == nil {
+            return
         }
+
+        if !hasLoaded {
+            hasLoaded = true
+            Registry().actions.loadMessages(account)
+            return
+        }
+
+        isLoading = stores.message.isLoading()
+        messages = stores.message.getMessages(account)
     }
 
     override func render() {
-        table.rows = messages.count
-        table.reloadData()
+        if isLoading {
+            // Display a loader
+        } else {
+            table.rows = messages.count
+            table.reloadData()
+        }
     }
 
     func onRowSelect(row: Int) {

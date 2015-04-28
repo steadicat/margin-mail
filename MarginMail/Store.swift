@@ -9,9 +9,11 @@
 struct Stores {
 
     let account: AccountStore
+    let message: MessageStore
 
     init(_ dispatcher: Dispatcher, _ database: Database) {
         account = AccountStore(dispatcher, database: database)
+        message = MessageStore(dispatcher, database: database)
     }
 
 }

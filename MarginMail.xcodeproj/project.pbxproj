@@ -26,7 +26,6 @@
 		AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */; };
 		AC2AA8E81AEA33AD001B0408 /* AppRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */; };
 		AC73631A1AE4F767000019A1 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7363191AE4F767000019A1 /* Async.swift */; };
-		ACB5A6E61AEDDC5E00C89E41 /* AppDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E41AEDDC5E00C89E41 /* AppDispatcher.swift */; };
 		ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */; };
 		ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */; };
 		ACB5A6EC1AEDDC6F00C89E41 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */; };
@@ -57,6 +56,8 @@
 		ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2DB1AEDF25000EF02E1 /* Env.swift */; };
 		ACE5B2DE1AEEF1C500EF02E1 /* IncomingTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2DD1AEEF1C500EF02E1 /* IncomingTransport.swift */; };
 		ACE5B2E01AEF017000EF02E1 /* MailMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2DF1AEF017000EF02E1 /* MailMessage.swift */; };
+		ACE5B2E21AEF18C300EF02E1 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2E11AEF18C300EF02E1 /* MessageStore.swift */; };
+		ACE5B2E41AEF1B0600EF02E1 /* MessageActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE5B2E31AEF1B0600EF02E1 /* MessageActions.swift */; };
 		ACF1FA191AE1912F006309D4 /* MarginMailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA181AE1912F006309D4 /* MarginMailTests.swift */; };
 		ACF1FA291AE19195006309D4 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA271AE19195006309D4 /* MainWindow.swift */; };
 		ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF1FA2B1AE191AC006309D4 /* AppDelegate.swift */; };
@@ -280,7 +281,6 @@
 		AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifier.swift; path = MarginMail/Notifier.swift; sourceTree = SOURCE_ROOT; };
 		AC2AA8E71AEA33AD001B0408 /* AppRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRegistry.swift; sourceTree = "<group>"; };
 		AC7363191AE4F767000019A1 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Async.swift; path = MarginMail/Async.swift; sourceTree = SOURCE_ROOT; };
-		ACB5A6E41AEDDC5E00C89E41 /* AppDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDispatcher.swift; path = MarginMail/AppDispatcher.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = MarginMail/Dispatcher.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountActions.swift; path = MarginMail/AccountActions.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = MarginMail/Actions.swift; sourceTree = SOURCE_ROOT; };
@@ -311,6 +311,8 @@
 		ACE5B2DB1AEDF25000EF02E1 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Env.swift; path = MarginMail/Env.swift; sourceTree = SOURCE_ROOT; };
 		ACE5B2DD1AEEF1C500EF02E1 /* IncomingTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncomingTransport.swift; path = MarginMail/IncomingTransport.swift; sourceTree = SOURCE_ROOT; };
 		ACE5B2DF1AEF017000EF02E1 /* MailMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MailMessage.swift; path = MarginMail/MailMessage.swift; sourceTree = SOURCE_ROOT; };
+		ACE5B2E11AEF18C300EF02E1 /* MessageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageStore.swift; path = MarginMail/MessageStore.swift; sourceTree = SOURCE_ROOT; };
+		ACE5B2E31AEF1B0600EF02E1 /* MessageActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageActions.swift; path = MarginMail/MessageActions.swift; sourceTree = SOURCE_ROOT; };
 		ACF1FA021AE1912E006309D4 /* MarginMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarginMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF1FA061AE1912E006309D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACF1FA121AE1912F006309D4 /* MarginMailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarginMailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,8 +396,9 @@
 		AC1F84951AECB37400D81B71 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */,
 				AC1F84A21AECC4C600D81B71 /* Store.swift */,
+				AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */,
+				ACE5B2E11AEF18C300EF02E1 /* MessageStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -403,7 +406,6 @@
 		ACB5A6CF1AEDDC5400C89E41 /* Dispatchers */ = {
 			isa = PBXGroup;
 			children = (
-				ACB5A6E41AEDDC5E00C89E41 /* AppDispatcher.swift */,
 				ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */,
 			);
 			name = Dispatchers;
@@ -412,8 +414,9 @@
 		ACB5A6E81AEDDC6200C89E41 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */,
 				ACB5A6EA1AEDDC6F00C89E41 /* Actions.swift */,
+				ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */,
+				ACE5B2E31AEF1B0600EF02E1 /* MessageActions.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -895,9 +898,11 @@
 				ACCCD2AC1AE222030043ED41 /* Window.swift in Sources */,
 				AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */,
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
+				ACE5B2E21AEF18C300EF02E1 /* MessageStore.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
 				ACE5B2E01AEF017000EF02E1 /* MailMessage.swift in Sources */,
 				7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */,
+				ACE5B2E41AEF1B0600EF02E1 /* MessageActions.swift in Sources */,
 				ACB5A6EC1AEDDC6F00C89E41 /* Actions.swift in Sources */,
 				7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */,
 				ACCCD2961AE221B00043ED41 /* Main.swift in Sources */,
@@ -912,7 +917,6 @@
 				ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */,
 				ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */,
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,
-				ACB5A6E61AEDDC5E00C89E41 /* AppDispatcher.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
 				ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */,
 				AC73631A1AE4F767000019A1 /* Async.swift in Sources */,
