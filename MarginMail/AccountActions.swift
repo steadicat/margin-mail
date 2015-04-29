@@ -8,6 +8,15 @@
 
 extension MainActions {
 
+    struct ActivateAccount: Action {
+        let account: Account
+    }
+
+    struct CreateAccount: Action {
+        let account: Account
+        let activate: Bool
+    }
+
     func activateAccount(account: Account) {
         dispatch(ActivateAccount(account: account))
     }

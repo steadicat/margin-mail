@@ -34,6 +34,10 @@
 		ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */; };
 		ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */; };
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
+		ACCB45141AF038C8000FCC52 /* NavigationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45131AF038C8000FCC52 /* NavigationActions.swift */; };
+		ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45201AF03970000FCC52 /* NavigationStore.swift */; };
+		ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* SidebarData.swift */; };
+		ACCB45251AF15654000FCC52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45241AF15654000FCC52 /* Navigation.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
 		ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2971AE221BC0043ED41 /* MessageList.swift */; };
 		ACCCD29A1AE221C50043ED41 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2991AE221C50043ED41 /* Sidebar.swift */; };
@@ -88,54 +92,12 @@
 			remoteGlobalIDString = C64EA537169E772200778456;
 			remoteInfo = "static mailcore2 osx";
 		};
-		ACF1FA781AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
-			remoteInfo = "static mailcore2 ios";
-		};
-		ACF1FA7A1AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C64EA78C169F259200778456;
-			remoteInfo = tests;
-		};
-		ACF1FA7C1AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6A81B911706840C00882C15;
-			remoteInfo = "test-ios";
-		};
 		ACF1FA7E1AE192A0006309D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
 			remoteInfo = "mailcore osx";
-		};
-		ACF1FA801AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 27780C3A19CF9CD100C77E44;
-			remoteInfo = "mailcore ios";
-		};
-		ACF1FA821AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C6B5AE0219F630B3001352A6;
-			remoteInfo = unittest;
-		};
-		ACF1FA841AE192A0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA6B1AE192A0006309D4 /* mailcore2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C600B6141A242C3F000728F1;
-			remoteInfo = unittestcpp;
 		};
 		ACF1FA8E1AE192B0006309D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -150,13 +112,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = EC68857F18C7B60000C6194C;
 			remoteInfo = "pop-osx";
-		};
-		ACF1FA921AE192B0006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FA861AE192AF006309D4 /* pop.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0B6BE74819FFD3B900762101;
-			remoteInfo = "pop-embedded";
 		};
 		ACF1FA941AE192B0006309D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -206,20 +161,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = DCAE4D151ABE0B3300EFCE7A;
 			remoteInfo = sqlite3;
-		};
-		ACF1FAB21AE192C4006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FAAB1AE192C4006309D4 /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
-			remoteInfo = "SwiftyJSON iOS";
-		};
-		ACF1FAB41AE192C4006309D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ACF1FAAB1AE192C4006309D4 /* SwiftyJSON.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2E4FEFE619575BE100351305;
-			remoteInfo = "SwiftyJSON iOS Tests";
 		};
 		ACF1FAB61AE192C4006309D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -293,6 +234,10 @@
 		ACB5A6E51AEDDC5E00C89E41 /* Dispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dispatcher.swift; path = MarginMail/Dispatcher.swift; sourceTree = SOURCE_ROOT; };
 		ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountActions.swift; path = MarginMail/AccountActions.swift; sourceTree = SOURCE_ROOT; };
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
+		ACCB45131AF038C8000FCC52 /* NavigationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationActions.swift; path = MarginMail/NavigationActions.swift; sourceTree = SOURCE_ROOT; };
+		ACCB45201AF03970000FCC52 /* NavigationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationStore.swift; path = MarginMail/NavigationStore.swift; sourceTree = SOURCE_ROOT; };
+		ACCB45221AF0467B000FCC52 /* SidebarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarData.swift; sourceTree = "<group>"; };
+		ACCB45241AF15654000FCC52 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation.swift; path = MarginMail/Navigation.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		ACCCD2971AE221BC0043ED41 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
 		ACCCD2991AE221C50043ED41 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -418,6 +363,7 @@
 				AC1F84A21AECC4C600D81B71 /* Stores.swift */,
 				AC1F84A01AECC4BA00D81B71 /* AccountStore.swift */,
 				ACE5B2E11AEF18C300EF02E1 /* MessageStore.swift */,
+				ACCB45201AF03970000FCC52 /* NavigationStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -428,6 +374,7 @@
 				AC0511AE1AEF37D600A61E29 /* Actions.swift */,
 				ACB5A6E91AEDDC6F00C89E41 /* AccountActions.swift */,
 				ACE5B2E31AEF1B0600EF02E1 /* MessageActions.swift */,
+				ACCB45131AF038C8000FCC52 /* NavigationActions.swift */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -447,6 +394,7 @@
 				7B405A2F1AEC369F00506A01 /* MessagePane.swift */,
 				ACCCD2991AE221C50043ED41 /* Sidebar.swift */,
 				ACCCD29B1AE221CB0043ED41 /* SidebarItem.swift */,
+				ACCB45221AF0467B000FCC52 /* SidebarData.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -562,6 +510,7 @@
 				AC1F84951AECB37400D81B71 /* Stores */,
 				AC1F84931AECAF7100D81B71 /* Account.swift */,
 				ACE5B2DD1AEEF1C500EF02E1 /* Transport.swift */,
+				ACCB45241AF15654000FCC52 /* Navigation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -582,13 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF1FA771AE192A0006309D4 /* libMailCore.a */,
-				ACF1FA791AE192A0006309D4 /* libMailCore-ios.a */,
-				ACF1FA7B1AE192A0006309D4 /* tests */,
-				ACF1FA7D1AE192A0006309D4 /* test-ios.app */,
 				ACF1FA7F1AE192A0006309D4 /* MailCore.framework */,
-				ACF1FA811AE192A0006309D4 /* MailCore.framework */,
-				ACF1FA831AE192A0006309D4 /* unittest.xctest */,
-				ACF1FA851AE192A0006309D4 /* unittestcpp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -598,7 +541,6 @@
 			children = (
 				ACF1FA8F1AE192B0006309D4 /* libpop.a */,
 				ACF1FA911AE192B0006309D4 /* pop.framework */,
-				ACF1FA931AE192B0006309D4 /* pop.framework */,
 				ACF1FA951AE192B0006309D4 /* pop-tests.xctest */,
 				ACF1FA971AE192B0006309D4 /* pop-tests-osx.xctest */,
 			);
@@ -620,8 +562,6 @@
 		ACF1FAAC1AE192C4006309D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACF1FAB31AE192C4006309D4 /* SwiftyJSON.framework */,
-				ACF1FAB51AE192C4006309D4 /* SwiftyJSON iOS Tests.xctest */,
 				ACF1FAB71AE192C4006309D4 /* SwiftyJSON.framework */,
 				ACF1FAB91AE192C4006309D4 /* SwiftyJSON OSX Tests.xctest */,
 			);
@@ -732,53 +672,11 @@
 			remoteRef = ACF1FA761AE192A0006309D4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		ACF1FA791AE192A0006309D4 /* libMailCore-ios.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libMailCore-ios.a";
-			remoteRef = ACF1FA781AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA7B1AE192A0006309D4 /* tests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = tests;
-			remoteRef = ACF1FA7A1AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA7D1AE192A0006309D4 /* test-ios.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "test-ios.app";
-			remoteRef = ACF1FA7C1AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		ACF1FA7F1AE192A0006309D4 /* MailCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = MailCore.framework;
 			remoteRef = ACF1FA7E1AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA811AE192A0006309D4 /* MailCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MailCore.framework;
-			remoteRef = ACF1FA801AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA831AE192A0006309D4 /* unittest.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = unittest.xctest;
-			remoteRef = ACF1FA821AE192A0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA851AE192A0006309D4 /* unittestcpp */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = unittestcpp;
-			remoteRef = ACF1FA841AE192A0006309D4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		ACF1FA8F1AE192B0006309D4 /* libpop.a */ = {
@@ -793,13 +691,6 @@
 			fileType = wrapper.framework;
 			path = pop.framework;
 			remoteRef = ACF1FA901AE192B0006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FA931AE192B0006309D4 /* pop.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = pop.framework;
-			remoteRef = ACF1FA921AE192B0006309D4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		ACF1FA951AE192B0006309D4 /* pop-tests.xctest */ = {
@@ -851,20 +742,6 @@
 			remoteRef = ACF1FAA91AE192BC006309D4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		ACF1FAB31AE192C4006309D4 /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = ACF1FAB21AE192C4006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		ACF1FAB51AE192C4006309D4 /* SwiftyJSON iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftyJSON iOS Tests.xctest";
-			remoteRef = ACF1FAB41AE192C4006309D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		ACF1FAB71AE192C4006309D4 /* SwiftyJSON.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -914,7 +791,9 @@
 				ACE5B2E21AEF18C300EF02E1 /* MessageStore.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
 				ACE5B2E01AEF017000EF02E1 /* MailMessage.swift in Sources */,
+				ACCB45141AF038C8000FCC52 /* NavigationActions.swift in Sources */,
 				AC0511B51AEF3B2F00A61E29 /* Store.swift in Sources */,
+				ACCB45251AF15654000FCC52 /* Navigation.swift in Sources */,
 				7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */,
 				ACE5B2E41AEF1B0600EF02E1 /* MessageActions.swift in Sources */,
 				7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */,
@@ -951,8 +830,10 @@
 				AC0511B31AEF3AD600A61E29 /* ActionCreator.swift in Sources */,
 				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
+				ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */,
 				ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */,
 				AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */,
+				ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,
 				ACCCD2A01AE221DC0043ED41 /* ButtonCell.swift in Sources */,

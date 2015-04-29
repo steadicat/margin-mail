@@ -9,4 +9,5 @@
 struct MainStores {
     let account: AccountStore
     let message: MessageStore
+    let navigation: NavigationStore
 }

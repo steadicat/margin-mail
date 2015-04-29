@@ -21,7 +21,15 @@ class Component {
     }
 
     var key: String = ""
-    var children: [Component]
+
+    var children: [Component] = [] {
+        didSet {
+            attachChildren()
+            needsUpdate = true
+        }
+    }
+    private var childrenAttached = false // temporary
+
     var view: NSView?
     var layer: CALayer?
 
@@ -43,7 +51,14 @@ class Component {
         self.view = view
         self.layer = layer ?? view?.layer
 
-        if let view = self.view {
+        attachChildren()
+    }
+
+    private func attachChildren() {
+        if childrenAttached || children.count == 0 { return }
+        childrenAttached = true
+
+        if let view = view {
             for child in children {
                 if let subview = child.view {
                     assert(view != subview, "Components should not own a view that belongs to one of their children")
@@ -56,10 +71,10 @@ class Component {
                 }
             }
         } else if children.count == 1 {
-            self.view = children[0].view
+            view = children[0].view
         }
 
-        if let layer = self.layer {
+        if let layer = layer {
             for child in children {
                 if let sublayer = child.layer {
                     assert(layer != sublayer, "Components should not own a layer that belongs to one of their children")
@@ -70,7 +85,7 @@ class Component {
     }
 
     func performUpdate() {
-        self.render()
+        render()
         for child in children {
             child.render()
         }

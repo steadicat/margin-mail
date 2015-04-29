@@ -11,7 +11,7 @@ import Cocoa
 class Main: Component {
 
     private let split: Split
-    private let sidebar = Sidebar()
+    private let sidebar = SidebarData()
     private let content = Content()
 
     init() {

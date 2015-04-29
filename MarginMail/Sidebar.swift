@@ -8,98 +8,85 @@
 
 import Cocoa
 
-class Sidebar: DataComponent {
+class Sidebar: Component {
 
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
+
+    var account: Account? = nil {
+        didSet {
+            self.needsUpdate = true
+        }
+    }
+
+    var inboxCount = 0 {
+        didSet {
+            self.needsUpdate = true
+        }
+    }
+
+    var menu: NavigationStore.Menu? = nil {
+        didSet {
+            self.updateMenuItems()
+            self.needsUpdate = true
+        }
+    }
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36
 
-    private static let items = [
-        ("compose", text: "Compose"),
-        ("inbox", text: "Inbox"),
-        ("archive", text: "Archive"),
-        ("drafts", text: "Drafts"),
-        ("sent", text: "Sent"),
-        ("starred", text: "Starred"),
-        ("spam", text: "Spam"),
-        ("trash", text: "Trash"),
-        ("settings", text: "Settings")
-    ]
-
-    private let items: [SidebarItem]
-
-    private var inboxCount = 0 {
-        didSet {
-            self.needsUpdate = true
-        }
-    }
-
-    private var selectedItem = "" {
-        didSet {
-            self.needsUpdate = true
-        }
-    }
-
-    private var account: Account? = nil {
-        didSet {
-            self.needsUpdate = true
-        }
-    }
+    private let items: [SidebarItem] = []
 
     init() {
         let view = View(frame: CGRectZero)
-        items = Sidebar.items.map { Sidebar.createItem($0.0, text: $0.text) }
-
-        super.init(
-            stores: [Stores().account, Stores().message],
-            children: items,
-            view: view
-        )
-
-        for item in items {
-            item.onMouseDown = { [weak self] in
-                self?.selectedItem = item.key
-            }
-        }
-
+        super.init(children: [], view: view)
         view.backgroundColor = Color.white()
     }
 
-    static func createItem(key: String, text: String) -> SidebarItem {
-        var item = SidebarItem()
-        item.key = key
-        item.text = text
-        item.image = NSImage(named: item.text)
-        return item
+    func onItemClick(item: SidebarItem) {
+        if let menu = menu {
+            Actions().navigate(menu, toKey: item.key)
+        }
     }
 
-    override func onStoreUpdate() {
-        account = Stores().account.getActive()
-        inboxCount = account == nil ? 0 : Stores().message.getMessages(account!).count
+    func updateMenuItems() {
+        if menu == nil { return }
+        if children.count > 0 { return }
+        children = menu!.items.map() { menuItem in
+            let item = SidebarItem()
+            item.key = menuItem.key
+            item.text = menuItem.label
+            item.image = NSImage(named: item.text)
+            item.onMouseDown = { [weak self] in
+                self?.onItemClick(item)
+            }
+            return item
+        }
     }
 
     override func render() {
-        var column = bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
+        let menu: NavigationStore.Menu! = self.menu
+        if menu == nil { return }
+
+        var column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
-        for item in items {
-            item.isSelected = selectedItem == item.key
+        for child in children as! [SidebarItem] {
+            child.isSelected = child.key == menu.selected?.key
 
-            if item.key == "inbox" && inboxCount > 0 {
-                item.badge = String(inboxCount)
+            if child.key == "inbox" && inboxCount > 0 {
+                child.badge = String(inboxCount)
             }
 
-            if item.key == "settings" {
-                item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
-                item.text = account?.name ?? "No account"
+            if child.key == "settings" {
+                child.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
+                child.text = account?.name ?? "No account"
             } else {
-                item.frame = rows.next(rowHeight)
+                child.frame = rows.next(rowHeight)
             }
 
-            if item.key == "compose" {
+            if child.key == "compose" {
                 rows.next(spaceHeight)
             }
         }
