@@ -29,8 +29,8 @@ class SidebarData: DataComponent {
             stores: [Stores().account, Stores().message, Stores().navigation],
             children: [sidebar]
         )
-        sidebar.createItem = { [weak self] index in
-            return self?.createSidebarItem(index) ?? SidebarItem()
+        sidebar.updateItem = { [weak self] (index, item) in
+            return self?.updateItem(index, item: item)
         }
         sidebar.onItemClick = { [weak self] item in
             Actions().navigateMain(toKey: item.key)
@@ -49,19 +49,24 @@ class SidebarData: DataComponent {
         sidebar.selectedItem = menu?.selected?.key ?? ""
         sidebar.numberOfItems = menu?.items.count ?? 0
         sidebar.reloadItems()
-
-        if let item = sidebar.getItem("inbox") {
-            item.badge = inboxCount > 0 ? String(inboxCount) : ""
-        }
     }
 
-    private func createSidebarItem(index: Int) -> SidebarItem? {
-        if let menuItem = self.menu?.items[index] {
-            let item = SidebarItem()
+    private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Position? {
+        if let menu = self.menu, let menuItem = self.menu?.items[index] {
+            item.isSelected = item.key == menu.selected?.key
             item.key = menuItem.key
             item.text = menuItem.label
             item.image = NSImage(named: item.text)
-            return item
+
+            if item.key == "inbox" {
+                item.badge = inboxCount > 0 ? String(inboxCount) : ""
+            }
+            if item.key == "compose" {
+                return .DIVIDER
+            }
+            if item.key == "settings" {
+                return .BOTTOM
+            }
         }
         return nil
     }

@@ -10,6 +10,11 @@ import Cocoa
 
 class Sidebar: Component {
 
+    enum Position {
+        case DIVIDER
+        case BOTTOM
+    }
+
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
 
@@ -22,13 +27,11 @@ class Sidebar: Component {
     }
 
     var onItemClick: ((SidebarItem) -> ())?
-    var createItem: ((Int) -> SidebarItem)?
+    var updateItem: ((index: Int, item: SidebarItem) -> Position?)?
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36
-
-    private var items: [String: SidebarItem] = [:]
 
     init() {
         let view = View(frame: CGRectZero)
@@ -36,22 +39,16 @@ class Sidebar: Component {
         view.backgroundColor = Color.white()
     }
 
-    func getItem(key: String) -> SidebarItem? {
-        return items[key]
-    }
-
     func reloadItems() {
-        // The early return is temporary. We need to avoid re-creating sidebar
-        // items that have already been created.
+        // Once child view handling works as expected in the base component,
+        // we can fill `children` with missing items.
         if children.count > 0 { return }
-        if createItem == nil { return }
 
         children = (0..<numberOfItems).map() { index in
-            let item = self.createItem!(index)
+            let item = SidebarItem()
             item.onMouseDown = { [weak self] in
                 self?.onItemClick?(item)
             }
-            self.items[item.key] = item
             return item
         }
     }
@@ -60,16 +57,16 @@ class Sidebar: Component {
         var column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
-        for child in children as! [SidebarItem] {
-            child.isSelected = child.key == selectedItem
+        for (index, item) in enumerate(children) {
+            let position = updateItem?(index: index, item: item as! SidebarItem)
 
-            if child.key == "settings" {
-                child.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
+            if position == .BOTTOM {
+                item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
             } else {
-                child.frame = rows.next(rowHeight)
+                item.frame = rows.next(rowHeight)
             }
 
-            if child.key == "compose" {
+            if position == .DIVIDER {
                 rows.next(spaceHeight)
             }
         }
