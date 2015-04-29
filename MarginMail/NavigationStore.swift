@@ -65,12 +65,12 @@ class NavigationStore: Store {
 
 extension NavigationStore {
 
-    func getMainMenuItems() -> [Item] {
-        return mainMenu.items
+    var selectedMainMenuItem: Item? {
+        return mainMenu.selected
     }
 
-    func getSelectedMainMenuItem() -> Item? {
-        return mainMenu.selected
+    func getMainMenuItems() -> [Item] {
+        return mainMenu.items
     }
 
 }

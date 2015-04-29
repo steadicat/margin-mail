@@ -48,7 +48,7 @@ class SidebarData: DataComponent {
             inboxCount = Stores().message.getMessageCount(account)
         }
         items = Stores().navigation.getMainMenuItems()
-        selected = Stores().navigation.getSelectedMainMenuItem()
+        selected = Stores().navigation.selectedMainMenuItem
     }
 
     override func render() {
