@@ -12,7 +12,13 @@ class SidebarData: DataComponent {
 
     private let sidebar = Sidebar()
 
-    private var menu: NavigationStore.Menu? {
+    private var items: [NavigationStore.Item] = [] {
+        didSet {
+            needsUpdate = true
+        }
+    }
+
+    private var selected: NavigationStore.Item? {
         didSet {
             needsUpdate = true
         }
@@ -33,7 +39,7 @@ class SidebarData: DataComponent {
             return self?.updateItem(index, item: item)
         }
         sidebar.onItemClick = { [weak self] item in
-            Actions().navigateMain(toKey: item.key)
+            Actions().navigateMain(item.key)
         }
     }
 
@@ -41,32 +47,33 @@ class SidebarData: DataComponent {
         if let account = Stores().account.getActive() {
             inboxCount = Stores().message.getMessageCount(account)
         }
-        menu = Stores().navigation.getMainMenu()
+        items = Stores().navigation.getMainMenuItems()
+        selected = Stores().navigation.getSelectedMainMenuItem()
     }
 
     override func render() {
         sidebar.frame = frame
-        sidebar.selectedItem = menu?.selected?.key ?? ""
-        sidebar.numberOfItems = menu?.items.count ?? 0
+        sidebar.selectedItem = selected?.key ?? ""
+        sidebar.numberOfItems = items.count
         sidebar.reloadItems()
     }
 
     private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Position? {
-        if let menu = self.menu, let menuItem = self.menu?.items[index] {
-            item.isSelected = item.key == menu.selected?.key
-            item.key = menuItem.key
-            item.text = menuItem.label
-            item.image = NSImage(named: item.text)
+        let menuItem = items[index]
+        item.isSelected = item.key == selected?.key
 
-            if item.key == "inbox" {
-                item.badge = inboxCount > 0 ? String(inboxCount) : ""
-            }
-            if item.key == "compose" {
-                return .DIVIDER
-            }
-            if item.key == "settings" {
-                return .BOTTOM
-            }
+        item.key = menuItem.key
+        item.text = menuItem.label
+        item.image = NSImage(named: item.text)
+
+        if item.key == "inbox" {
+            item.badge = inboxCount > 0 ? String(inboxCount) : ""
+        }
+        if item.key == "compose" {
+            return .DIVIDER
+        }
+        if item.key == "settings" {
+            return .BOTTOM
         }
         return nil
     }
