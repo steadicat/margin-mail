@@ -13,7 +13,8 @@ extension MainActions {
         let key: String
     }
 
-    func navigate(menu: NavigationStore.Menu, toKey key: String) {
+    func navigateMain(toKey key: String) {
+        let menu = Stores().navigation.getMainMenu()
         dispatch(Navigate(menu: menu, key: key))
     }
 

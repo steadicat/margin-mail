@@ -36,6 +36,13 @@ extension MessageStore {
         return messages[account.email] ?? []
     }
 
+    func getMessageCount(account: Account) -> Int {
+        if let messages = messages[account.email] {
+            return messages.count
+        }
+        return 0
+    }
+
     func isLoading() -> Bool {
         return loading
     }

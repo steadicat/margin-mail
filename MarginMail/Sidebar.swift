@@ -13,30 +13,22 @@ class Sidebar: Component {
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
 
-    var account: Account? = nil {
+    var numberOfItems = 0
+
+    var selectedItem: String = "" {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
-    var inboxCount = 0 {
-        didSet {
-            self.needsUpdate = true
-        }
-    }
-
-    var menu: NavigationStore.Menu? = nil {
-        didSet {
-            self.updateMenuItems()
-            self.needsUpdate = true
-        }
-    }
+    var onItemClick: ((SidebarItem) -> ())?
+    var createItem: ((Int) -> SidebarItem)?
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36
 
-    private let items: [SidebarItem] = []
+    private var items: [String: SidebarItem] = [:]
 
     init() {
         let view = View(frame: CGRectZero)
@@ -44,44 +36,35 @@ class Sidebar: Component {
         view.backgroundColor = Color.white()
     }
 
-    func onItemClick(item: SidebarItem) {
-        if let menu = menu {
-            Actions().navigate(menu, toKey: item.key)
-        }
+    func getItem(key: String) -> SidebarItem? {
+        return items[key]
     }
 
-    func updateMenuItems() {
-        if menu == nil { return }
+    func reloadItems() {
+        // The early return is temporary. We need to avoid re-creating sidebar
+        // items that have already been created.
         if children.count > 0 { return }
-        children = menu!.items.map() { menuItem in
-            let item = SidebarItem()
-            item.key = menuItem.key
-            item.text = menuItem.label
-            item.image = NSImage(named: item.text)
+        if createItem == nil { return }
+
+        children = (0..<numberOfItems).map() { index in
+            let item = self.createItem!(index)
             item.onMouseDown = { [weak self] in
-                self?.onItemClick(item)
+                self?.onItemClick?(item)
             }
+            self.items[item.key] = item
             return item
         }
     }
 
     override func render() {
-        let menu: NavigationStore.Menu! = self.menu
-        if menu == nil { return }
-
         var column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
         for child in children as! [SidebarItem] {
-            child.isSelected = child.key == menu.selected?.key
-
-            if child.key == "inbox" && inboxCount > 0 {
-                child.badge = String(inboxCount)
-            }
+            child.isSelected = child.key == selectedItem
 
             if child.key == "settings" {
                 child.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
-                child.text = account?.name ?? "No account"
             } else {
                 child.frame = rows.next(rowHeight)
             }
