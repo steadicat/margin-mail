@@ -39,7 +39,7 @@ class SidebarData: DataComponent {
             return self?.updateItem(index, item: item)
         }
         sidebar.onItemClick = { [weak self] item in
-            Actions().navigateMain(item.key)
+            Actions().navigateMainMenu(item.key)
         }
     }
 

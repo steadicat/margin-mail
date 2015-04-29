@@ -11,7 +11,7 @@ class NavigationStore: Store {
     struct Item {
         let key: String
         let label: String
-        let visible: Bool
+        var visible: Bool
         init(_ key: String, label: String) {
             self.key = key
             self.label = label
@@ -51,9 +51,19 @@ class NavigationStore: Store {
 
     override func handleAction(action: Action) {
         switch (action) {
-        case let action as MainActions.NavigateMain:
+        case let action as MainActions.NavigateMainMenu:
             if let item = mainMenu[action.key] {
                 mainMenu.selected = item
+            }
+            notify()
+        case let action as MainActions.HideMainMenuItem:
+            if var item = mainMenu[action.key] {
+                item.visible = false
+            }
+            notify()
+        case let action as MainActions.ShowMainMenuItem:
+            if var item = mainMenu[action.key] {
+                item.visible = true
             }
             notify()
         default:
@@ -70,7 +80,9 @@ extension NavigationStore {
     }
 
     func getMainMenuItems() -> [Item] {
-        return mainMenu.items
+        return mainMenu.items.filter() { item in
+            return item.visible
+        }
     }
 
 }
