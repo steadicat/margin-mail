@@ -15,25 +15,25 @@ class SidebarItem: Component {
 
     var isSelected: Bool = false {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
     var image: NSImage? {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
     var text: String = "" {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
     var badge: String = "" {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
@@ -41,7 +41,7 @@ class SidebarItem: Component {
 
     private var isHovered: Bool = false {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 

@@ -12,17 +12,17 @@ class Label: Component {
 
     var text: NSString = "" {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
     var font: NSFont? {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
     var textColor: NSColor? {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 

@@ -13,13 +13,13 @@ class MessageList: Component {
 
     var isLoading = false {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
     var messages: [MailMessage] = [] {
         didSet {
-            self.needsUpdate = true
+            needsUpdate = true
         }
     }
 
