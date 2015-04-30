@@ -26,7 +26,7 @@ class Sidebar: Component {
         }
     }
 
-    var onItemClick: ((SidebarItem) -> ())?
+    var onItemClick: ((SidebarItem) -> Void)?
     var updateItem: ((index: Int, item: SidebarItem) -> Position?)?
 
     private let topMargin: CGFloat = 36
@@ -40,11 +40,10 @@ class Sidebar: Component {
     }
 
     func reloadItems() {
-        // Once child view handling works as expected in the base component,
-        // we can fill `children` with missing items.
-        if children.count > 0 { return }
-
         children = (0..<numberOfItems).map() { index in
+            if index < self.children.count {
+                return self.children[index]
+            }
             let item = SidebarItem()
             item.onMouseDown = { [weak self] in
                 self?.onItemClick?(item)
@@ -57,7 +56,8 @@ class Sidebar: Component {
         var column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
-        for (index, item) in enumerate(children) {
+        for index in 0..<numberOfItems {
+            let item = children[index]
             let position = updateItem?(index: index, item: item as! SidebarItem)
 
             if position == .BOTTOM {

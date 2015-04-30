@@ -8,7 +8,7 @@
 
 class NavigationStore: Store {
 
-    struct Item {
+    class Item {
         let key: String
         let label: String
         var visible: Bool
@@ -19,19 +19,15 @@ class NavigationStore: Store {
         }
     }
 
-    struct Menu {
-
+    class Menu {
         let items: [Item]
         var selected: Item?
-
         private var itemsByKey: [String: Item] = [:]
-
         init (_ items: [Item]) {
             self.items = items
             for item in items { itemsByKey[item.key] = item }
             selected = nil
         }
-
         subscript(key: String) -> Item? {
             return itemsByKey[key]
         }

@@ -16,6 +16,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Actions().createTestAccount()
 
+        Dispatch.after(1) {
+            Actions().hideMainMenuItem("archive")
+        }
+        Dispatch.after(5) {
+            Actions().showMainMenuItem("archive")
+            Actions().hideMainMenuItem("compose")
+        }
+        Dispatch.after(7) {
+            Actions().showMainMenuItem("compose")
+        }
+
         mainWindow = MainWindow()
         mainWindow!.show(self)
     }

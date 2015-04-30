@@ -59,16 +59,23 @@ class SidebarData: DataComponent {
     }
 
     private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Position? {
+        if index >= items.count {
+            return nil
+        }
+
         let menuItem = items[index]
-        item.isSelected = item.key == selected?.key
+        item.isSelected = menuItem.key == selected?.key
 
         item.key = menuItem.key
         item.text = menuItem.label
         item.image = NSImage(named: item.text)
 
-        if item.key == "inbox" {
-            item.badge = inboxCount > 0 ? String(inboxCount) : ""
+        if item.key == "inbox" && inboxCount > 0 {
+            item.badge = String(inboxCount)
+        } else {
+            item.badge = ""
         }
+
         if item.key == "compose" {
             return .DIVIDER
         }

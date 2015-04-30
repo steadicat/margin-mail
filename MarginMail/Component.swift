@@ -23,12 +23,14 @@ class Component {
     var key: String = ""
 
     var children: [Component] = [] {
+        willSet {
+            detachChildren()
+        }
         didSet {
             attachChildren()
             needsUpdate = true
         }
     }
-    private var childrenAttached = false // temporary
 
     var view: NSView?
     var layer: CALayer?
@@ -55,9 +57,6 @@ class Component {
     }
 
     private func attachChildren() {
-        if childrenAttached || children.count == 0 { return }
-        childrenAttached = true
-
         if let view = view {
             for child in children {
                 if let subview = child.view {
@@ -84,11 +83,20 @@ class Component {
         }
     }
 
+    private func detachChildren() {
+        for child in children {
+            child.view?.removeFromSuperview()
+            for subchild in child.children {
+                subchild.view?.removeFromSuperview()
+            }
+        }
+    }
+
     func performUpdate() {
-        render()
         for child in children {
             child.render()
         }
+        render()
         needsUpdate = false
         updateDispatched = false
     }
