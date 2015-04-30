@@ -8,30 +8,8 @@
 
 class NavigationStore: Store {
 
-    class Item {
-        let key: String
-        let label: String
-        var visible: Bool
-        init(_ key: String, label: String) {
-            self.key = key
-            self.label = label
-            self.visible = true
-        }
-    }
-
-    class Menu {
-        let items: [Item]
-        var selected: Item?
-        private var itemsByKey: [String: Item] = [:]
-        init (_ items: [Item]) {
-            self.items = items
-            for item in items { itemsByKey[item.key] = item }
-            selected = nil
-        }
-        subscript(key: String) -> Item? {
-            return itemsByKey[key]
-        }
-    }
+    typealias Menu = Navigation.Menu
+    typealias Item = Navigation.Item
 
     private var mainMenu = Menu([
         Item("compose", label: "Compose"),
@@ -48,19 +26,13 @@ class NavigationStore: Store {
     override func handleAction(action: Action) {
         switch (action) {
         case let action as MainActions.NavigateMainMenu:
-            if let item = mainMenu[action.key] {
-                mainMenu.selected = item
-            }
+            mainMenu.select(action.key)
             notify()
         case let action as MainActions.HideMainMenuItem:
-            if var item = mainMenu[action.key] {
-                item.visible = false
-            }
+            mainMenu.hide(action.key)
             notify()
         case let action as MainActions.ShowMainMenuItem:
-            if var item = mainMenu[action.key] {
-                item.visible = true
-            }
+            mainMenu.show(action.key)
             notify()
         default:
             break

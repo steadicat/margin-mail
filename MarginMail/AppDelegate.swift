@@ -16,14 +16,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Actions().createTestAccount()
 
-        Dispatch.after(3) {
+        Dispatch.after(2) {
             Actions().hideMainMenuItem("archive")
         }
-        Dispatch.after(5) {
+        Dispatch.after(3) {
             Actions().showMainMenuItem("archive")
             Actions().hideMainMenuItem("compose")
         }
-        Dispatch.after(7) {
+        Dispatch.after(4) {
             Actions().showMainMenuItem("compose")
         }
 

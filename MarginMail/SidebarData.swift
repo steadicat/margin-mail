@@ -12,13 +12,13 @@ class SidebarData: DataComponent {
 
     private let sidebar = Sidebar()
 
-    private var items: [NavigationStore.Item] = [] {
+    private var items: [Navigation.Item] = [] {
         didSet {
             needsUpdate = true
         }
     }
 
-    private var selected: NavigationStore.Item? {
+    private var selected: Navigation.Item? {
         didSet {
             needsUpdate = true
         }

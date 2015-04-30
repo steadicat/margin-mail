@@ -8,36 +8,57 @@
 
 class Navigation {
 
-    /*
-    struct PrimaryMenu {
-        typealias Items = [Section: [Item]]
+    struct Item {
 
-        enum Section {
-            case TOP
-            case MID
-            case BOT
+        let key: String
+        let label: String
+        let visible: Bool
+
+        init(_ key: String, label: String, visible: Bool = true) {
+            self.key = key
+            self.label = label
+            self.visible = visible
         }
 
-        enum Item: String {
-            case COMPOSE = "Compose"
-            case INBOX = "Inbox"
-            case ARCHIVE = "Archive"
-            case DRAFTS = "Drafts"
-            case SENT = "Sent"
-            case STARRED = "Starred"
-            case SPAM = "Spam"
-            case TRASH = "Trash"
-            case SETTINGS = "Settings"
+        private mutating func show() {
+            self = Item(key, label: label, visible: true)
         }
 
-        let items: Items = [
-            .TOP: [.COMPOSE],
-            .MID: [.INBOX, .ARCHIVE, .DRAFTS, .SENT, .STARRED, .SPAM, .TRASH],
-            .BOT: [.SETTINGS]
-        ]
+        private mutating func hide() {
+            self = Item(key, label: label, visible: false)
+        }
 
-        var selected: Item? = nil
     }
-    */
+
+    struct Menu {
+
+        var items: [Item]
+        var selected: Item?
+
+        init (_ items: [Item]) {
+            self.items = items
+            selected = nil
+        }
+
+        func index(key: String) -> Int? {
+            for (index, item) in enumerate(items) {
+                if item.key == key { return index }
+            }
+            return nil
+        }
+
+        mutating func select(key: String) {
+            selected = items[index(key)!]
+        }
+
+        mutating func show(key: String) {
+            items[index(key)!].show()
+        }
+
+        mutating func hide(key: String) {
+            items[index(key)!].hide()
+        }
+
+    }
 
 }
