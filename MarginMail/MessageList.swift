@@ -52,17 +52,8 @@ class MessageList: Component {
     }
 
     func onRowSelect(row: Int) {
-        if let row = table.rowViewAtRow(selectedRow, makeIfNecessary: false) as? NSTableRowView {
-            for view in row.subviews {
-                (view as? MessageListItem)?.selected = false
-            }
-        }
         selectedRow = row
-        if let row = table.rowViewAtRow(row, makeIfNecessary: false) as? NSTableRowView {
-            for view in row.subviews {
-                (view as? MessageListItem)?.selected = true
-            }
-        }
+        needsUpdate = true
     }
 
     func createCell() -> NSView {
