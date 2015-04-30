@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Actions().createTestAccount()
 
-        Dispatch.after(1) {
+        Dispatch.after(3) {
             Actions().hideMainMenuItem("archive")
         }
         Dispatch.after(5) {

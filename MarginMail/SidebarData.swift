@@ -58,7 +58,7 @@ class SidebarData: DataComponent {
         sidebar.reloadItems()
     }
 
-    private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Position? {
+    private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Decorator? {
         if index >= items.count {
             return nil
         }

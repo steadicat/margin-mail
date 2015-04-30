@@ -10,7 +10,7 @@ import Cocoa
 
 class Sidebar: Component {
 
-    enum Position {
+    enum Decorator {
         case DIVIDER
         case BOTTOM
     }
@@ -27,7 +27,7 @@ class Sidebar: Component {
     }
 
     var onItemClick: ((SidebarItem) -> Void)?
-    var updateItem: ((index: Int, item: SidebarItem) -> Position?)?
+    var updateItem: ((index: Int, item: SidebarItem) -> Decorator?)?
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
@@ -58,15 +58,15 @@ class Sidebar: Component {
 
         for index in 0..<numberOfItems {
             let item = children[index]
-            let position = updateItem?(index: index, item: item as! SidebarItem)
+            let decorator = updateItem?(index: index, item: item as! SidebarItem)
 
-            if position == .BOTTOM {
+            if decorator == .BOTTOM {
                 item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
             } else {
                 item.frame = rows.next(rowHeight)
             }
 
-            if position == .DIVIDER {
+            if decorator == .DIVIDER {
                 rows.next(spaceHeight)
             }
         }
