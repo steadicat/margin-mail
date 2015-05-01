@@ -38,6 +38,7 @@
 		ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45201AF03970000FCC52 /* NavigationStore.swift */; };
 		ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* SidebarData.swift */; };
 		ACCB45251AF15654000FCC52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45241AF15654000FCC52 /* Navigation.swift */; };
+		ACCB45271AF4376F000FCC52 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45261AF4376F000FCC52 /* Int.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
 		ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2971AE221BC0043ED41 /* MessageList.swift */; };
 		ACCCD29A1AE221C50043ED41 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2991AE221C50043ED41 /* Sidebar.swift */; };
@@ -238,6 +239,7 @@
 		ACCB45201AF03970000FCC52 /* NavigationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationStore.swift; path = MarginMail/NavigationStore.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45221AF0467B000FCC52 /* SidebarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarData.swift; sourceTree = "<group>"; };
 		ACCB45241AF15654000FCC52 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation.swift; path = MarginMail/Navigation.swift; sourceTree = SOURCE_ROOT; };
+		ACCB45261AF4376F000FCC52 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = MarginMail/Int.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		ACCCD2971AE221BC0043ED41 /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
 		ACCCD2991AE221C50043ED41 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				ACCCD2B71AE2222D0043ED41 /* NSColor.swift */,
 				ACCCD2B31AE2221F0043ED41 /* CGRect.swift */,
 				ACCCD2D01AE24B100043ED41 /* NSData.swift */,
+				ACCB45261AF4376F000FCC52 /* Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				ACCCD2AC1AE222030043ED41 /* Window.swift in Sources */,
 				AC0511AF1AEF37D600A61E29 /* Actions.swift in Sources */,
 				AC1F84DD1AEDC54E00D81B71 /* Notifier.swift in Sources */,
+				ACCB45271AF4376F000FCC52 /* Int.swift in Sources */,
 				ACCCD2C31AE2225C0043ED41 /* MailReader.swift in Sources */,
 				ACE5B2E21AEF18C300EF02E1 /* MessageStore.swift in Sources */,
 				ACCCD2C11AE2225C0043ED41 /* MailAddress.swift in Sources */,
