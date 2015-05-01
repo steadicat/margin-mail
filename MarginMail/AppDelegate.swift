@@ -22,9 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Dispatch.after(3) {
             Actions().showMainMenuItem("archive")
             Actions().hideMainMenuItem("compose")
+            Actions().hideMainMenuItem("settings")
         }
         Dispatch.after(4) {
             Actions().showMainMenuItem("compose")
+            Actions().showMainMenuItem("settings")
         }
 
         mainWindow = MainWindow()
