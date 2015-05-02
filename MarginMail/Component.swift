@@ -12,6 +12,11 @@ let mutex = NSLock()
 
 class Component {
 
+    var key: String = ""
+
+    var view: NSView?
+    var layer: CALayer?
+
     var frame: CGRect = CGRectZero {
         didSet {
             needsUpdate = true
@@ -22,8 +27,6 @@ class Component {
         return Rect(0, 0, frame.width, frame.height)
     }
 
-    var key: String = ""
-
     var children: [Component] = [] {
         willSet {
             detachChildren()
@@ -33,9 +36,6 @@ class Component {
             needsUpdate = true
         }
     }
-
-    var view: NSView?
-    var layer: CALayer?
 
     var needsUpdate: Bool = true {
         didSet {
@@ -51,6 +51,28 @@ class Component {
         self.layer = layer ?? view?.layer
 
         attachChildren()
+    }
+
+    func render() {
+        // Override in subclassed component.
+    }
+
+    private func scheduleUpdate() {
+        Lock.with(mutex) {
+            if (!self.updateDispatched) {
+                self.updateDispatched = true
+                Dispatch.main(self.performUpdate)
+            }
+        }
+    }
+
+    private func performUpdate() {
+        for child in children {
+            child.render()
+        }
+        render()
+        needsUpdate = false
+        updateDispatched = false
     }
 
     private func attachChildren() {
@@ -84,28 +106,6 @@ class Component {
         for child in children {
             child.view?.removeFromSuperview()
         }
-    }
-
-    func scheduleUpdate() {
-        Lock.with(mutex) {
-            if (!self.updateDispatched) {
-                self.updateDispatched = true
-                Dispatch.main(self.performUpdate)
-            }
-        }
-    }
-
-    func performUpdate() {
-        for child in children {
-            child.render()
-        }
-        render()
-        needsUpdate = false
-        updateDispatched = false
-    }
-
-    func render() {
-        //assertionFailure("Components must implement render()")
     }
 
 }
