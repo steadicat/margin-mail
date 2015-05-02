@@ -1,5 +1,5 @@
 //
-//  SidebarData.swift
+//  MainSidebar.swift
 //  MarginMail
 //
 //  Created by Artem Nezvigin on 4/28/15.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SidebarData: DataComponent {
+class MainSidebar: DataComponent {
 
     private let sidebar = Sidebar()
 

@@ -20,7 +20,7 @@
 		7BC4F1631AE1E201007DD2E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */; };
 		7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */; };
 		7BC4F1651AE1E201007DD2E1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */; };
-		7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16ED01AE4A9D9002DCD22 /* Content.swift */; };
+		7BE16ED11AE4A9D9002DCD22 /* MainContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE16ED01AE4A9D9002DCD22 /* MainContent.swift */; };
 		AC0511AF1AEF37D600A61E29 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511AE1AEF37D600A61E29 /* Actions.swift */; };
 		AC0511B31AEF3AD600A61E29 /* ActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511B21AEF3AD600A61E29 /* ActionCreator.swift */; };
 		AC0511B51AEF3B2F00A61E29 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0511B41AEF3B2F00A61E29 /* Store.swift */; };
@@ -36,7 +36,7 @@
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCB45141AF038C8000FCC52 /* NavigationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45131AF038C8000FCC52 /* NavigationActions.swift */; };
 		ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45201AF03970000FCC52 /* NavigationStore.swift */; };
-		ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* SidebarData.swift */; };
+		ACCB45231AF0467B000FCC52 /* MainSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* MainSidebar.swift */; };
 		ACCB45251AF15654000FCC52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45241AF15654000FCC52 /* Navigation.swift */; };
 		ACCB45271AF4376F000FCC52 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45261AF4376F000FCC52 /* Int.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
@@ -221,7 +221,7 @@
 		7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
 		7BC4F1611AE1E201007DD2E1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		7BE16ED01AE4A9D9002DCD22 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		7BE16ED01AE4A9D9002DCD22 /* MainContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContent.swift; sourceTree = "<group>"; };
 		AC0511AE1AEF37D600A61E29 /* Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Actions.swift; path = MarginMail/Actions.swift; sourceTree = SOURCE_ROOT; };
 		AC0511B21AEF3AD600A61E29 /* ActionCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionCreator.swift; path = MarginMail/ActionCreator.swift; sourceTree = SOURCE_ROOT; };
 		AC0511B41AEF3B2F00A61E29 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = MarginMail/Store.swift; sourceTree = SOURCE_ROOT; };
@@ -237,7 +237,7 @@
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45131AF038C8000FCC52 /* NavigationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationActions.swift; path = MarginMail/NavigationActions.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45201AF03970000FCC52 /* NavigationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationStore.swift; path = MarginMail/NavigationStore.swift; sourceTree = SOURCE_ROOT; };
-		ACCB45221AF0467B000FCC52 /* SidebarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarData.swift; sourceTree = "<group>"; };
+		ACCB45221AF0467B000FCC52 /* MainSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSidebar.swift; sourceTree = "<group>"; };
 		ACCB45241AF15654000FCC52 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation.swift; path = MarginMail/Navigation.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45261AF4376F000FCC52 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = MarginMail/Int.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -387,8 +387,9 @@
 				7B405A2E1AEC363D00506A01 /* Core */,
 				7B6980511AE5FF710064A060 /* Layers */,
 				ACF1FA381AE191C7006309D4 /* Views */,
-				7BE16ED01AE4A9D9002DCD22 /* Content.swift */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
+				7BE16ED01AE4A9D9002DCD22 /* MainContent.swift */,
+				ACCB45221AF0467B000FCC52 /* MainSidebar.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
 				ACCCD2971AE221BC0043ED41 /* MessageList.swift */,
 				7B71409A1AEF33CA005CF26B /* MessageListData.swift */,
@@ -396,7 +397,6 @@
 				7B405A2F1AEC369F00506A01 /* MessagePane.swift */,
 				ACCCD2991AE221C50043ED41 /* Sidebar.swift */,
 				ACCCD29B1AE221CB0043ED41 /* SidebarItem.swift */,
-				ACCB45221AF0467B000FCC52 /* SidebarData.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -832,12 +832,12 @@
 				7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */,
 				ACCCD2B21AE2221A0043ED41 /* Array.swift in Sources */,
 				AC0511B31AEF3AD600A61E29 /* ActionCreator.swift in Sources */,
-				7BE16ED11AE4A9D9002DCD22 /* Content.swift in Sources */,
+				7BE16ED11AE4A9D9002DCD22 /* MainContent.swift in Sources */,
 				ACCCD2A41AE221E90043ED41 /* Label.swift in Sources */,
 				ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */,
 				ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */,
 				AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */,
-				ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */,
+				ACCB45231AF0467B000FCC52 /* MainSidebar.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,
 				ACCCD2A01AE221DC0043ED41 /* ButtonCell.swift in Sources */,

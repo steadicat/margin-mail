@@ -83,9 +83,6 @@ class Component {
     private func detachChildren() {
         for child in children {
             child.view?.removeFromSuperview()
-            for subchild in child.children {
-                subchild.view?.removeFromSuperview()
-            }
         }
     }
 
@@ -108,7 +105,7 @@ class Component {
     }
 
     func render() {
-        assertionFailure("Components must implement render()")
+        //assertionFailure("Components must implement render()")
     }
 
 }
