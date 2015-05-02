@@ -57,6 +57,15 @@ class Component {
         // Override in subclassed component.
     }
 
+    func performUpdate() {
+        for child in children {
+            child.render()
+        }
+        render()
+        needsUpdate = false
+        updateDispatched = false
+    }
+
     private func scheduleUpdate() {
         Lock.with(mutex) {
             if (!self.updateDispatched) {
@@ -64,15 +73,6 @@ class Component {
                 Dispatch.main(self.performUpdate)
             }
         }
-    }
-
-    private func performUpdate() {
-        for child in children {
-            child.render()
-        }
-        render()
-        needsUpdate = false
-        updateDispatched = false
     }
 
     private func attachChildren() {
