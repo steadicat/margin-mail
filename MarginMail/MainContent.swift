@@ -19,29 +19,15 @@ class MainContent: DataComponent {
 
     private var selected: String = "" {
         didSet {
-            updateContent(selected)
+            selectContent(selected)
         }
     }
 
     init() {
         let view = View()
-        super.init(
-            stores: [Stores().navigation],
-            children: [empty],
-            view: view
-        )
         view.backgroundColor = NSColor.whiteColor()
-    }
 
-    func updateContent(key: String) {
-        if contents[key] == nil, let content = createContent(key) {
-            contents[key] = content
-        }
-        if let component = contents[key] {
-            children = [component]
-        } else {
-            children = [empty]
-        }
+        super.init(stores: [Stores().navigation], children: [empty], view: view)
     }
 
     override func onStoreUpdate() {
@@ -52,6 +38,29 @@ class MainContent: DataComponent {
         view?.hidden = true
         renderContent(selected, component: contents[selected] ?? empty)
         view?.hidden = false
+    }
+
+    private func selectContent(key: String) {
+        if contents[key] == nil, let content = createContent(key) {
+            contents[key] = content
+        }
+        if let component = contents[key] {
+            children = [component]
+        } else {
+            children = [empty]
+        }
+    }
+
+    private func createContent(key: String) -> Component? {
+        switch (key) {
+        case "inbox":
+            let list = MessageListData()
+            let pane = MessagePane()
+            return Split(id: "contentSplitView", children: [list, pane])
+
+        default:
+            return nil
+        }
     }
 
     private func renderContent(key: String, component: Component) {
@@ -68,18 +77,6 @@ class MainContent: DataComponent {
 
         default:
             component.view?.frame = bounds
-        }
-    }
-
-    private func createContent(key: String) -> Component? {
-        switch (key) {
-        case "inbox":
-            let list = MessageListData()
-            let pane = MessagePane()
-            return Split(id: "contentSplitView", children: [list, pane])
-
-        default:
-            return nil
         }
     }
 

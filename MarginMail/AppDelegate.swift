@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Actions().createTestAccount()
-        Actions().navigateMainMenu("inbox")
 
         mainWindow = MainWindow()
         mainWindow!.show(self)
