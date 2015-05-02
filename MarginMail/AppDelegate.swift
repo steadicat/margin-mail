@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         Actions().createTestAccount()
 
+        // Hide and show several navigation items. States should transition
+        // smoothly and the end state should be deterministic.
         Dispatch.after(2) {
             Actions().hideMainMenuItem("archive")
         }
@@ -28,6 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Actions().showMainMenuItem("compose")
             Actions().showMainMenuItem("settings")
         }
+
+        // Randomly select a navigation item in quick succession. Helps expose
+        // race conditions caused by thread unsafe mutations.
         Dispatch.after(2) {
             let pages = Stores().navigation.getMainMenuKeys()
             for n in 0...200 {
