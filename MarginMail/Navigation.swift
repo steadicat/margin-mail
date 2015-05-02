@@ -40,6 +40,10 @@ class Navigation {
             selected = nil
         }
 
+        func keys() -> [String] {
+            return Array(map(items) { $0.key })
+        }
+
         func index(key: String) -> Int? {
             for (index, item) in enumerate(items) {
                 if item.key == key { return index }

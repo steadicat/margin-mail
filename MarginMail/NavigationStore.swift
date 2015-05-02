@@ -47,6 +47,10 @@ extension NavigationStore {
         return mainMenu.selected
     }
 
+    func getMainMenuKeys() -> [String] {
+        return mainMenu.keys()
+    }
+
     func getMainMenuItems() -> [Item] {
         return mainMenu.items.filter() { item in
             return item.visible

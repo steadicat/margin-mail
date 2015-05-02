@@ -8,6 +8,8 @@
 
 import Cocoa
 
+let mutex = NSLock()
+
 class Component {
 
     var frame: CGRect = CGRectZero {
@@ -37,12 +39,7 @@ class Component {
 
     var needsUpdate: Bool = true {
         didSet {
-            if !updateDispatched {
-                updateDispatched = true
-                Dispatch.main() { [weak self] in
-                    self?.performUpdate()
-                }
-            }
+            self.scheduleUpdate()
         }
     }
 
@@ -88,6 +85,15 @@ class Component {
             child.view?.removeFromSuperview()
             for subchild in child.children {
                 subchild.view?.removeFromSuperview()
+            }
+        }
+    }
+
+    func scheduleUpdate() {
+        Lock.with(mutex) {
+            if (!self.updateDispatched) {
+                self.updateDispatched = true
+                Dispatch.main(self.performUpdate)
             }
         }
     }

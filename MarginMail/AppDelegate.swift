@@ -28,6 +28,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Actions().showMainMenuItem("compose")
             Actions().showMainMenuItem("settings")
         }
+        Dispatch.after(2) {
+            let pages = Stores().navigation.getMainMenuKeys()
+            for n in 0...200 {
+                Dispatch.after(Double(n) / 50) {
+                    let page = pages[Int.random(pages.count - 1)]
+                    Actions().navigateMainMenu(page)
+                }
+            }
+        }
 
         mainWindow = MainWindow()
         mainWindow!.show(self)
