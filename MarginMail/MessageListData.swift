@@ -11,7 +11,6 @@ import Cocoa
 class MessageListData: DataComponent {
 
     private let messageList = MessageList()
-    private var hasLoaded = false
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
@@ -21,19 +20,10 @@ class MessageListData: DataComponent {
     }
 
     override func onStoreUpdate() {
-        let account: Account! = Stores().account.getActive()
-        if account == nil {
-            return
+        if let account = Stores().account.getActive() {
+            messageList.isLoading = Stores().message.isLoading(account)
+            messageList.messages = Stores().message.getMessages(account)
         }
-
-        if !hasLoaded {
-            hasLoaded = true
-            Registry().actions.loadMessages(account)
-            return
-        }
-
-        messageList.isLoading = Stores().message.isLoading()
-        messageList.messages = Stores().message.getMessages(account)
     }
 
     override func render() {

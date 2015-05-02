@@ -23,6 +23,7 @@ extension MainActions {
 
     func createAccount(account: Account, activate: Bool = false) {
         dispatch(CreateAccount(account: account, activate: activate))
+        loadMessages(account)
     }
 
     func createTestAccount() {

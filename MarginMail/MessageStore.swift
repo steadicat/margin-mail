@@ -12,15 +12,15 @@ class MessageStore: Store {
     private var active: Account?
 
     private var messages: [String: [MailMessage]] = [:]
-    private var loading = false
+    private var loading: [String: Bool] = [:]
 
     override func handleAction(action: Action) {
         switch (action) {
         case let action as MainActions.LoadMessages:
-            loading = true
+            loading[action.account.email] = true
             notify()
         case let action as MainActions.LoadMessagesSuccess:
-            loading = false
+            loading[action.account.email] = false
             messages[action.account.email] = action.messages
             notify()
         default:
@@ -43,8 +43,8 @@ extension MessageStore {
         return 0
     }
 
-    func isLoading() -> Bool {
-        return loading
+    func isLoading(account: Account) -> Bool {
+        return loading[account.email] ?? false
     }
     
 }
