@@ -2,7 +2,7 @@
 //  MailReader.swift
 //  MarginMail
 //
-//  Created by Stefano J. Attardi on 4/17/15.
+//  Created by Artem Nezvigin on 4/17/15.
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
@@ -11,7 +11,8 @@ enum MailReaderType: String {
 }
 
 protocol MailReader {
-    func getMessages(callback: [MailMessage] -> Void)
+//    func getMessages(callback: [MailMessage] -> Void)
+//    func getFolders(callback: [MailFolder] -> Void)
 }
 
 // XXX: This whole thing will be cleaned up later.
@@ -46,11 +47,22 @@ class IMAPReader: MailReader {
         self.password = password
     }
 
+    /*
     // XXX: This method is temporary. Just for testing.
     func getMessages(callback: [MailMessage] -> Void) {
         findMessages() { messages in
             self.loadMessages(messages) { messages in
                 callback(messages)
+            }
+        }
+    }
+
+    // XXX: ...
+    func getFolders(callback: [MailFolder] -> Void) {
+        let operation = session.fetchAllFoldersOperation()
+        operation.start() { (error, folders) in
+            let folders = (folders as! [MCOIMAPFolder]).map() { folder in
+                return MailFolder(folder: folder)
             }
         }
     }
@@ -108,5 +120,6 @@ class IMAPReader: MailReader {
             date: date
         )
     }
+    */
     
 }

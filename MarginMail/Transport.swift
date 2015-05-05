@@ -11,7 +11,7 @@ protocol Transport {
     func createWriter() -> MailWriter?
 }
 
-class IMAPTransport: Transport {
+struct IMAPTransport: Transport {
 
     let hostname: String
     let port: Int

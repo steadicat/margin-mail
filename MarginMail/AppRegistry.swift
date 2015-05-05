@@ -32,7 +32,7 @@ class AppRegistry {
         actions = MainActions(dispatcher)
         stores = MainStores(
             account: AccountStore(dispatcher, db: db),
-            message: MessageStore(dispatcher),
+            mail: MailStore(dispatcher),
             navigation: NavigationStore(dispatcher)
         )
     }

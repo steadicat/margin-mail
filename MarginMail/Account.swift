@@ -8,31 +8,34 @@
 
 import Cocoa
 
-class Account {
+struct Account: Hashable {
 
+    let id: NSUUID
     let name: String
     let email: String
     let photo: NSImage?
 
-    var incoming: Transport?
-    var outgoing: Transport?
+    let incoming: Transport?
+    let outgoing: Transport?
 
-    lazy var address: MailAddress = {
-        return MailAddress(addr: self.email, name: self.name)
-    }()
+    let address: MailAddress
 
-    init(name: String, email: String, photo: NSImage? = nil) {
+    init(name: String, email: String, photo: NSImage?, incoming: Transport?, outgoing: Transport?) {
+        self.id = NSUUID()
         self.name = name
         self.email = email
         self.photo = photo
+        self.incoming = incoming
+        self.outgoing = outgoing
+        self.address = MailAddress(addr: email, name: name)
     }
 
-    lazy var client: MailClient = {
-        return MailClient(
-            address: self.address,
-            reader: self.incoming?.createReader(),
-            writer: self.outgoing?.createWriter()
-        )
-    }()
+    var hashValue: Int {
+        return id.hashValue
+    }
 
+}
+
+func ==(lhs: Account, rhs: Account) -> Bool {
+    return lhs.id == rhs.id
 }

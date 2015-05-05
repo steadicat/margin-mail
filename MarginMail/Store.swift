@@ -23,11 +23,11 @@ class Store {
         notifier.notifyListeners()
     }
 
-    func addListener(context: AnyObject, callback: Void -> Void) {
+    func addListener(context: Notifier.Context, callback: Notifier.Callback) {
         notifier.addListener(context, callback: callback)
     }
 
-    func removeListener(context: AnyObject) {
+    func removeListener(context: Notifier.Context) {
         notifier.removeListener(context)
     }
     

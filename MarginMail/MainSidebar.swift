@@ -32,7 +32,7 @@ class MainSidebar: DataComponent {
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
-            stores: [Stores().account, Stores().message, Stores().navigation],
+            stores: [Stores().account, Stores().mail, Stores().navigation],
             children: [sidebar]
         )
         sidebar.updateItem = { [weak self] (index, item) in
@@ -45,7 +45,7 @@ class MainSidebar: DataComponent {
 
     override func onStoreUpdate() {
         if let account = Stores().account.getActive() {
-            inboxCount = Stores().message.getMessageCount(account)
+//            inboxCount = Stores().message.getMessageCount(account)
         }
         items = Stores().navigation.getMainMenuItems()
         selected = Stores().navigation.selectedMainMenuItem

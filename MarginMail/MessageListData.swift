@@ -14,15 +14,15 @@ class MessageListData: DataComponent {
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
-            stores: [Stores().account, Stores().message],
+            stores: [Stores().account, Stores().mail],
             children: [messageList]
         )
     }
 
     override func onStoreUpdate() {
         if let account = Stores().account.getActive() {
-            messageList.isLoading = Stores().message.isLoading(account)
-            messageList.messages = Stores().message.getMessages(account)
+//            messageList.isLoading = Stores().message.isLoading(account)
+//            messageList.messages = Stores().message.getMessages(account)
         }
     }
 

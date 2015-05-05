@@ -11,7 +11,7 @@ class AccountStore: Store {
     private let db: Database
 
     private var accounts: [Account] = []
-    private var active: Account?
+    private var activeAccount: Account?
 
     init(_ dispatcher: Dispatcher, db: Database) {
         self.db = db
@@ -21,23 +21,14 @@ class AccountStore: Store {
     override func handleAction(action: Action) {
         switch (action) {
         case let action as MainActions.CreateAccount:
-            create(action.account)
-            activate(action.account)
+            accounts.append(action.account)
             notify()
         case let action as MainActions.ActivateAccount:
-            activate(action.account)
+            activeAccount = action.account
             notify()
         default:
             break
         }
-    }
-
-    private func create(account: Account) {
-        accounts.append(account)
-    }
-
-    private func activate(account: Account) {
-        active = account
     }
 
 }
@@ -49,7 +40,7 @@ extension AccountStore {
     }
 
     func getActive() -> Account? {
-        return active
+        return activeAccount
     }
 
 }

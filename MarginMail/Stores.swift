@@ -8,6 +8,6 @@
 
 struct MainStores {
     let account: AccountStore
-    let message: MessageStore
+    let mail: MailStore
     let navigation: NavigationStore
 }

@@ -14,30 +14,32 @@ extension MainActions {
 
     struct CreateAccount: Action {
         let account: Account
-        let activate: Bool
     }
 
     func activateAccount(account: Account) {
         dispatch(ActivateAccount(account: account))
     }
 
-    func createAccount(account: Account, activate: Bool = false) {
-        dispatch(CreateAccount(account: account, activate: activate))
-        loadMessages(account)
+    func createAccount(account: Account) {
+        dispatch(CreateAccount(account: account))
     }
 
     func createTestAccount() {
-        let account = Account(
-            name: "Alan",
-            email: "alan@artnez.com"
-        )
-        account.incoming = IMAPTransport(
+        let incoming = IMAPTransport(
             hostname: "imap.gmail.com",
             port: 993,
             username: "alan@artnez.com",
             password: "entscheidungsproblem"
         )
-        createAccount(account, activate: true)
+        let account = Account(
+            name: "Alan",
+            email: "alan@artnez.com",
+            photo: nil,
+            incoming: incoming,
+            outgoing: nil
+        )
+        createAccount(account)
+        activateAccount(account)
     }
 
 }
