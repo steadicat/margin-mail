@@ -8,7 +8,7 @@
 
 protocol MailDelegate {
 
-
+//    func mailSyncEventDid
 
 }
 
@@ -65,12 +65,37 @@ class MailClient {
         Lock.with(self) {
             if state == .SYNCING { return }
             _state = .SYNCING
-            Dispatch.queue(.BACKGROUND, block: _sync)
+            Dispatch.queue(.BACKGROUND, block: sync_start)
         }
     }
 
-    private func _sync() {
-        // synchronize
+    private func sync_start() {
+        if let reader = self.reader {
+            sync_folders(reader)
+        } else {
+            sync_finish()
+        }
     }
-    
+
+    private func sync_finish() {
+        _state = .WAITING
+    }
+
+    private func sync_folders(reader: MailReader) {
+        reader.getAllFolders() { folders in
+            self._folders = folders
+            self.sync_messages(reader, folders: folders)
+        }
+    }
+
+    private func sync_messages(reader: MailReader, folders: [MailFolder]) {
+        for folder in folders {
+            println(folder)
+        }
+    }
+
+    private func sync_folders(folders: [MailFolder]) {
+        sync_finish()
+    }
+
 }

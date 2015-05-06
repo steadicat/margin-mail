@@ -11,11 +11,8 @@ enum MailReaderType: String {
 }
 
 protocol MailReader {
-//    func getMessages(callback: [MailMessage] -> Void)
-//    func getFolders(callback: [MailFolder] -> Void)
+    func getAllFolders(callback: [MailFolder] -> Void)
 }
-
-// XXX: This whole thing will be cleaned up later.
 
 class IMAPReader: MailReader {
 
@@ -45,6 +42,25 @@ class IMAPReader: MailReader {
         self.port = port
         self.username = username
         self.password = password
+    }
+
+    func getAllFolders(callback: [MailFolder] -> Void) {
+        let operation = session.fetchAllFoldersOperation()
+        operation.start() { (error, folders) in
+            let folders = (folders as! [MCOIMAPFolder]).map() { folder in
+                return MailFolder(folder: folder)
+            }
+            var results: [MailFolder] = []
+            for folder in folders {
+                // XXX: When we're ready to handle non-special folders
+                // (eg: custom folders in Gmail, uncomment this section).
+                if folder.type == .FOLDER {
+                    continue
+                }
+                results.append(folder)
+            }
+            callback(folders)
+        }
     }
 
     /*
