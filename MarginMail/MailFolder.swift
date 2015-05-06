@@ -37,12 +37,14 @@ enum MailFolderType: String {
 class MailFolder {
 
     var name: String
+    var path: String
     var type: MailFolderType
 
-    var messageCount = 0
+    var messages: [MailMessage] = []
 
     init(folder: MCOIMAPFolder) {
-        name = folder.path.lastPathComponent  // XXX: Use `folder.delimiter`
+        path = folder.path
+        name = path.lastPathComponent  // XXX: Use `folder.delimiter`
         type = MailFolderType.from(folder)
     }
 

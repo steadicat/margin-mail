@@ -12,6 +12,7 @@ enum MailReaderType: String {
 
 protocol MailReader {
     func getAllFolders(callback: [MailFolder] -> Void)
+    func getMessagesInFolder(folder: MailFolder, callback: [MailMessage] -> Void)
 }
 
 class IMAPReader: MailReader {
@@ -47,95 +48,54 @@ class IMAPReader: MailReader {
     func getAllFolders(callback: [MailFolder] -> Void) {
         let operation = session.fetchAllFoldersOperation()
         operation.start() { (error, folders) in
-            let folders = (folders as! [MCOIMAPFolder]).map() { folder in
-                return MailFolder(folder: folder)
-            }
-            var results: [MailFolder] = []
-            for folder in folders {
-                // XXX: When we're ready to handle non-special folders
-                // (eg: custom folders in Gmail, uncomment this section).
-                if folder.type == .FOLDER {
-                    continue
-                }
-                results.append(folder)
-            }
-            callback(folders)
+            let imapFolders = folders as! [MCOIMAPFolder]
+            let mailFolders = imapFolders.map() { MailFolder(folder: $0) }
+            let flagFolders = mailFolders.filter() { $0.type != .FOLDER }
+            callback(flagFolders)
         }
     }
 
-    /*
-    // XXX: This method is temporary. Just for testing.
-    func getMessages(callback: [MailMessage] -> Void) {
-        findMessages() { messages in
-            self.loadMessages(messages) { messages in
+    func getMessagesInFolder(folder: MailFolder, callback: [MailMessage] -> Void) {
+        let requestKind: MCOIMAPMessagesRequestKind = .Headers
+        let uids = MCOIndexSet(range: MCORangeMake(1, 5))
+        let operation = session.fetchMessagesOperationWithFolder(
+            folder.path,
+            requestKind: requestKind,
+            uids: uids
+        )
+        operation.start() { (error, receivedMessages, vanishedMessages) in
+            let headers: [MailMessageHeader] = receivedMessages.map() { message in
+                return MailMessageHeader(message: message as! MCOIMAPMessage, folder: folder)
+            }
+            self.getMessagesFromHeaders(headers) { messages in
+                var messages = messages
+                messages.sort({ $0.date.timeIntervalSinceDate($1.date) > 0 })
                 callback(messages)
             }
         }
     }
 
-    // XXX: ...
-    func getFolders(callback: [MailFolder] -> Void) {
-        let operation = session.fetchAllFoldersOperation()
-        operation.start() { (error, folders) in
-            let folders = (folders as! [MCOIMAPFolder]).map() { folder in
-                return MailFolder(folder: folder)
-            }
+    private func getMessagesFromHeaders(headers: [MailMessageHeader], callback: [MailMessage] -> Void) {
+        if headers.count == 0 {
+            callback([])
+            return
         }
-    }
-
-    // XXX: This method is temporary. Just for testing.
-    private func findMessages(callback: [MCOIMAPMessage] -> Void) {
-        let requestKind: MCOIMAPMessagesRequestKind = .Headers
-        let uids = MCOIndexSet(range: MCORangeMake(1, 5))
-        let operation = session.fetchMessagesOperationWithFolder(
-            "INBOX",
-            requestKind: requestKind,
-            uids: uids
-        )
-        operation.start() { (error, receivedMessages, vanishedMessages) in
-            var messages: [MCOIMAPMessage] = []
-            for message in receivedMessages as! [MCOIMAPMessage] {
-                messages.append(message)
-            }
-            callback(messages)
-        }
-    }
-
-    // XXX: This method is temporary. Just for testing.
-    private func loadMessages(messagesToLoad: [MCOIMAPMessage], callback: [MailMessage] -> Void) {
-        var loadedMessages: [MailMessageID: MailMessage] = [:]
-        for message in messagesToLoad {
-            let operation = session.fetchMessageOperationWithFolder("INBOX", uid: message.uid)
-            operation.start() { (error, data) in
-                loadedMessages[message.uid] = self.createMessage(message, data: data)
-                if loadedMessages.count == messagesToLoad.count {
-                    var messages = loadedMessages.values.array
-                    messages.sort({ $0.date.timeIntervalSinceDate($1.date) > 0 })
-                    callback(messages)
+        var messages: [MailMessageID: MailMessage] = [:]
+        for header in headers {
+            getMessageFromHeader(header) { message in
+                messages[message.id] = message
+                if messages.count == headers.count {
+                    callback(messages.values.array)
                 }
             }
         }
     }
 
-    private func createMessage(message: MCOIMAPMessage, data: NSData) -> MailMessage {
-        let headers = message.header as MCOMessageHeader
-        let parser = MCOMessageParser(data: data)
-
-        let recipients = headers.to.map { MailAddress(mco: $0 as! MCOAddress) }
-        let sender = MailAddress(mco: headers.from)
-        let subject = headers.subject
-        let body = parser.plainTextBodyRendering()!
-        let date = headers.date
-
-        return MailMessage(
-            id: message.uid,
-            recipients: recipients,
-            sender: sender,
-            subject: subject,
-            body: body,
-            date: date
-        )
+    private func getMessageFromHeader(header: MailMessageHeader, callback: MailMessage -> Void) {
+        let operation = session.fetchMessageOperationWithFolder(header.folder.path, uid: header.id)
+        operation.start() { (error, data) in
+            callback(MailMessage(header: header, data: data))
+        }
     }
-    */
     
 }

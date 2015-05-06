@@ -89,13 +89,15 @@ class MailClient {
     }
 
     private func sync_messages(reader: MailReader, folders: [MailFolder]) {
+        var finished = 0
         for folder in folders {
-            println(folder)
+            reader.getMessagesInFolder(folder) { messages in
+                folder.messages = messages
+                if ++finished == folders.count {
+                    self.sync_finish()
+                }
+            }
         }
-    }
-
-    private func sync_folders(folders: [MailFolder]) {
-        sync_finish()
     }
 
 }
