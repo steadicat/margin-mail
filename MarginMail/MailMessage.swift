@@ -8,31 +8,14 @@
 
 typealias MailMessageID = UInt32
 
-struct MailMessageHeader {
-
-    let folder: MailFolder
-
-    let id: MailMessageID
-    let sender: MailAddress
-    let recipients: [MailAddress]
-    let subject: String
-    let date: NSDate
-
-    init(message: MCOIMAPMessage, folder: MailFolder) {
-        self.folder = folder
-
-        let headers = message.header as MCOMessageHeader
-        id = message.uid
-        sender = MailAddress(mco: headers.from)
-        recipients = headers.to.map { MailAddress(mco: $0 as! MCOAddress) }
-        subject = headers.subject
-        date = headers.date
-    }
+struct MailMessageFlags {
+    let seen: Bool
 }
 
 struct MailMessage {
 
     let folder: MailFolder
+    let flags: MailMessageFlags
 
     let id: MailMessageID
     let sender: MailAddress
@@ -40,18 +23,39 @@ struct MailMessage {
     let subject: String
     let date: NSDate
 
-    let body: String
+    var body: String?
 
-    init(header: MailMessageHeader, data: NSData) {
-        self.folder = header.folder
+    init(folder: MailFolder, flags: MailMessageFlags, id: MailMessageID, sender: MailAddress, recipients: [MailAddress], date: NSDate, subject: String, body: String?) {
+        self.folder = folder
+        self.flags = flags
+        self.id = id
+        self.sender = sender
+        self.recipients = recipients
+        self.subject = subject
+        self.date = date
+        self.body = body
+    }
 
-        id = header.id
-        sender = header.sender
-        recipients = header.recipients
-        subject = header.subject
-        date = header.date
+    init(message: MCOIMAPMessage, folder: MailFolder) {
+        let header = message.header as MCOMessageHeader
+        let flags = MailMessageFlags(
+            seen: message.flags & .Seen != nil
+        )
+        self.init(
+            folder: folder,
+            flags: flags,
+            id: message.uid,
+            sender: MailAddress(mco: header.from),
+            recipients: header.to.map { MailAddress(mco: $0 as! MCOAddress) },
+            date: header.date,
+            subject: header.subject,
+            body: nil
+        )
+    }
 
-        body = MCOMessageParser(data: data).plainTextBodyRendering()!
+    mutating func updateWith(data: NSData) {
+        let parser = MCOMessageParser(data: data)
+        body = parser.plainTextBodyRendering()!
     }
 
 }

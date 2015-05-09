@@ -10,7 +10,7 @@ enum MailReaderType: String {
     case IMAP = "imap"
 }
 
-protocol MailReader {
+protocol MailReader: class {
     func getAllFolders(callback: [MailFolder] -> Void)
     func getMessagesInFolder(folder: MailFolder, callback: [MailMessage] -> Void)
 }
@@ -47,55 +47,74 @@ class IMAPReader: MailReader {
 
     func getAllFolders(callback: [MailFolder] -> Void) {
         let operation = session.fetchAllFoldersOperation()
-        operation.start() { (error, folders) in
-            let imapFolders = folders as! [MCOIMAPFolder]
-            let mailFolders = imapFolders.map() { MailFolder(folder: $0) }
-            let flagFolders = mailFolders.filter() { $0.type != .FOLDER }
-            callback(flagFolders)
+        operation.start() { (error, result) in
+            let folders = self.convertFolders(result as! [MCOIMAPFolder])
+            self.refreshFolders(folders) {
+                callback(folders)
+            }
         }
     }
 
     func getMessagesInFolder(folder: MailFolder, callback: [MailMessage] -> Void) {
-        let requestKind: MCOIMAPMessagesRequestKind = .Headers
         let uids = MCOIndexSet(range: MCORangeMake(1, 5))
         let operation = session.fetchMessagesOperationWithFolder(
             folder.path,
-            requestKind: requestKind,
-            uids: uids
+            requestKind: .Headers | .Flags,
+            uids: MCOIndexSet(range: MCORangeMake(1, 5))
         )
         operation.start() { (error, receivedMessages, vanishedMessages) in
-            let headers: [MailMessageHeader] = receivedMessages.map() { message in
-                return MailMessageHeader(message: message as! MCOIMAPMessage, folder: folder)
-            }
-            self.getMessagesFromHeaders(headers) { messages in
-                var messages = messages
-                messages.sort({ $0.date.timeIntervalSinceDate($1.date) > 0 })
+            let messages = self.convertMessages(
+                receivedMessages as! [MCOIMAPMessage],
+                folder: folder
+            )
+            self.refreshMessages(messages) {
                 callback(messages)
             }
         }
+
     }
 
-    private func getMessagesFromHeaders(headers: [MailMessageHeader], callback: [MailMessage] -> Void) {
-        if headers.count == 0 {
-            callback([])
-            return
-        }
-        var messages: [MailMessageID: MailMessage] = [:]
-        for header in headers {
-            getMessageFromHeader(header) { message in
-                messages[message.id] = message
-                if messages.count == headers.count {
-                    callback(messages.values.array)
+    private func refreshFolders(var folders: [MailFolder], callback: Void -> Void) {
+        var finished = 0
+        for (i, folder) in enumerate(folders) {
+            session.folderStatusOperation(folder.path).start() { (error, status) in
+                if error == nil {
+                    folders[i].updateWith(status)
+                }
+                if ++finished == folders.count {
+                    callback()
                 }
             }
         }
     }
 
-    private func getMessageFromHeader(header: MailMessageHeader, callback: MailMessage -> Void) {
-        let operation = session.fetchMessageOperationWithFolder(header.folder.path, uid: header.id)
-        operation.start() { (error, data) in
-            callback(MailMessage(header: header, data: data))
+    private func convertFolders(folders: [MCOIMAPFolder]) -> [MailFolder] {
+        return folders.map() { folder in
+            return MailFolder(folder: folder)
+        }.filter() { folder in
+            return folder.type != .FOLDER
         }
     }
-    
+
+    private func refreshMessages(var messages: [MailMessage], callback: Void -> Void) {
+        var finished = 0
+        for (i, message) in enumerate(messages) {
+            let operation = session.fetchMessageOperationWithFolder(message.folder.path, uid: message.id)
+            operation.start() { (error, data) in
+                if error == nil {
+                    messages[i].updateWith(data)
+                }
+                if ++finished == messages.count {
+                    callback()
+                }
+            }
+        }
+    }
+
+    private func convertMessages(messages: [MCOIMAPMessage], folder: MailFolder) -> [MailMessage] {
+        return messages.map() { message in
+            return MailMessage(message: message, folder: folder)
+        }
+    }
+
 }

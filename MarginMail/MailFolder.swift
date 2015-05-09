@@ -7,6 +7,7 @@
 //
 
 enum MailFolderType: String {
+
     case INBOX = "Inbox"
     case ARCHIVE = "Archive"
     case SENT = "Sent"
@@ -15,37 +16,73 @@ enum MailFolderType: String {
     case DRAFTS = "Drafts"
     case FOLDER = "Folder"
 
-    static func from(folder: MCOIMAPFolder) -> MailFolderType {
+    init(folder: MCOIMAPFolder) {
         if folder.path == "INBOX" {
-            return .INBOX
+            self = .INBOX
         } else if folder.flags & .Drafts != nil {
-            return .DRAFTS
+            self = .DRAFTS
         } else if folder.flags & .SentMail != nil {
-            return .SENT
+            self = .SENT
         } else if folder.flags & .Archive != nil {
-            return .ARCHIVE
+            self = .ARCHIVE
         } else if folder.flags & .Spam != nil {
-            return .SPAM
+            self = .SPAM
         } else if folder.flags & .Trash != nil {
-            return .TRASH
+            self = .TRASH
         } else {
-            return .FOLDER
+            self = .FOLDER
         }
     }
+
 }
 
-class MailFolder {
+struct MailFolder: Hashable {
 
-    var name: String
-    var path: String
-    var type: MailFolderType
+    let name: String
+    let path: String
+    let type: MailFolderType
 
-    var messages: [MailMessage] = []
+    var numTotalMessages = 0
+    var numUnreadMessages = 0
 
-    init(folder: MCOIMAPFolder) {
-        path = folder.path
-        name = path.lastPathComponent  // XXX: Use `folder.delimiter`
-        type = MailFolderType.from(folder)
+    private let lock = NSObject()
+    private var syncing = false
+
+    init(path: String, name: String, type: MailFolderType) {
+        self.path = path
+        self.name = name
+        self.type = type
     }
 
+    init(path: String, type: MailFolderType = .FOLDER) {
+        self.init(
+            path: path,
+            name: path.lastPathComponent,
+            type: type
+        )
+    }
+
+    init(folder: MCOIMAPFolder) {
+        // XXX: Use `folder.delimeter` for extracing name. Using the last path
+        // component does not conform to the IMAP spec.
+        self.init(
+            path: folder.path,
+            name: folder.path.lastPathComponent,
+            type: MailFolderType(folder: folder)
+        )
+    }
+
+    mutating func updateWith(status: MCOIMAPFolderStatus) {
+        numTotalMessages = Int(status.messageCount)
+        numUnreadMessages = Int(status.unseenCount)
+    }
+
+    var hashValue: Int {
+        return path.hashValue
+    }
+
+}
+
+func ==(lhs: MailFolder, rhs: MailFolder) -> Bool {
+    return lhs.path == rhs.path
 }

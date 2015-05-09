@@ -13,27 +13,19 @@ class MailStore: Store, MailDelegate {
     override func handleAction(action: Action) {
         switch (action) {
         case let action as MainActions.ActivateAccount:
-            activate(action.account)
+            subscribe(action.account)
         default:
             break
         }
     }
 
-    private func activate(account: Account) {
-        deactivate()
+    private func subscribe(account: Account) {
         if clients[account] == nil {
             clients[account] = MailClient(account: account)
         }
         if let client = clients[account] {
             client.delegate = self
-            client.mode = .ACTIVE
             client.sync()
-        }
-    }
-
-    private func deactivate() {
-        for client in clients.values {
-            client.mode = .PASSIVE
         }
     }
 

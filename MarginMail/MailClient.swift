@@ -7,26 +7,11 @@
 //
 
 protocol MailDelegate {
-
-//    func mailSyncEventDid
-
 }
 
 class MailClient {
 
-    enum Mode {
-        case ACTIVE
-        case PASSIVE
-    }
-
-    enum State {
-        case WAITING
-        case SYNCING
-    }
-
     var delegate: MailDelegate?
-
-    var mode: Mode = .PASSIVE
 
     private var address: MailAddress
     private var reader: MailReader?
@@ -37,9 +22,14 @@ class MailClient {
         return _folders
     }
 
-    private var _state: State = .WAITING
-    var state: State {
-        return _state
+    private var _messages: [MailFolder: [MailMessage]] = [:]
+    var messages: [MailFolder: [MailMessage]] {
+        return _messages
+    }
+
+    private var _syncing = false
+    var syncing: Bool {
+        return _syncing
     }
 
     private var _updated: NSDate? = nil
@@ -63,38 +53,26 @@ class MailClient {
 
     func sync() {
         Lock.with(self) {
-            if state == .SYNCING { return }
-            _state = .SYNCING
-            Dispatch.queue(.BACKGROUND, block: sync_start)
+            if let reader = reader {
+                if _syncing {
+                    return
+                }
+                _syncing = true
+                Dispatch.queue(.BACKGROUND) {
+                    self._sync(reader) {
+                        self._syncing = false
+                    }
+                }
+            }
         }
     }
 
-    private func sync_start() {
-        if let reader = self.reader {
-            sync_folders(reader)
-        } else {
-            sync_finish()
-        }
-    }
-
-    private func sync_finish() {
-        _state = .WAITING
-    }
-
-    private func sync_folders(reader: MailReader) {
+    private func _sync(reader: MailReader, callback: Void -> Void) {
         reader.getAllFolders() { folders in
             self._folders = folders
-            self.sync_messages(reader, folders: folders)
-        }
-    }
-
-    private func sync_messages(reader: MailReader, folders: [MailFolder]) {
-        var finished = 0
-        for folder in folders {
-            reader.getMessagesInFolder(folder) { messages in
-                folder.messages = messages
-                if ++finished == folders.count {
-                    self.sync_finish()
+            for folder in folders {
+                reader.getMessagesInFolder(folder) { messages in
+                    self._messages[folder] = messages
                 }
             }
         }
