@@ -10,7 +10,7 @@ import Cocoa
 
 class MessageListData: DataComponent {
 
-    private let messageList = MessageList()
+    let messageList = MessageList()
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
@@ -28,7 +28,6 @@ class MessageListData: DataComponent {
 
     override func render() {
         println("render MessageListData with \(bounds)")
-        messageList.frame = bounds
     }
 
 }

@@ -19,6 +19,5 @@ class MessagePane: Component {
 
     override func render() {
         println("render MessagePane with \(bounds)")
-        view?.frame = bounds
     }
 }
