@@ -35,9 +35,6 @@ class MainSidebar: DataComponent {
             stores: [Stores().account, Stores().mail, Stores().navigation],
             children: [sidebar]
         )
-        sidebar.updateItem = { [weak self] (index, item) in
-            return self?.updateItem(index, item: item)
-        }
         sidebar.onItemClick = { [weak self] item in
             Actions().navigateMainMenu(item.key)
         }
@@ -54,35 +51,7 @@ class MainSidebar: DataComponent {
     override func render() {
         sidebar.frame = frame
         sidebar.selectedItem = selected?.key ?? ""
-        sidebar.numberOfItems = items.count
-        sidebar.reloadItems()
-    }
-
-    private func updateItem(index: Int, item: SidebarItem) -> Sidebar.Decorator? {
-        if index >= items.count {
-            return nil
-        }
-
-        let menuItem = items[index]
-        item.isSelected = menuItem.key == selected?.key
-
-        item.key = menuItem.key
-        item.text = menuItem.label
-        item.image = NSImage(named: item.text)
-
-        if item.key == "inbox" && inboxCount > 0 {
-            item.badge = String(inboxCount)
-        } else {
-            item.badge = ""
-        }
-
-        if item.key == "compose" {
-            return .DIVIDER
-        }
-        if item.key == "settings" {
-            return .BOTTOM
-        }
-        return nil
+        sidebar.items = items
     }
 
 }

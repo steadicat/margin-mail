@@ -10,15 +10,18 @@ import Cocoa
 
 class Sidebar: Component {
 
-    enum Decorator {
-        case DIVIDER
-        case BOTTOM
-    }
-
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
 
-    var numberOfItems = 0
+    private let topMargin: CGFloat = 36
+    private let spaceHeight: CGFloat = 18
+    private let rowHeight: CGFloat = 36
+
+    var items: [Navigation.Item] = [] {
+        didSet {
+            needsUpdate = true
+        }
+    }
 
     var selectedItem: String = "" {
         didSet {
@@ -26,12 +29,9 @@ class Sidebar: Component {
         }
     }
 
-    var onItemClick: ((SidebarItem) -> Void)?
-    var updateItem: ((index: Int, item: SidebarItem) -> Decorator?)?
+    private var sidebarItems: [SidebarItem] = []
 
-    private let topMargin: CGFloat = 36
-    private let spaceHeight: CGFloat = 18
-    private let rowHeight: CGFloat = 36
+    var onItemClick: ((SidebarItem) -> Void)?
 
     init() {
         let view = View(frame: CGRectZero)
@@ -39,37 +39,55 @@ class Sidebar: Component {
         view.backgroundColor = Color.white()
     }
 
-    func reloadItems() {
-        children = (0..<numberOfItems).map() { index in
-            if index < self.children.count {
-                return self.children[index]
-            }
-            let item = SidebarItem()
-            item.onMouseDown = { [weak self] in
-                self?.onItemClick?(item)
-            }
-            return item
-        }
-    }
-
     override func render() {
         var column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
         var rows = column.rows()
 
-        for index in 0..<numberOfItems {
-            let item = children[index]
-            let decorator = updateItem?(index: index, item: item as! SidebarItem)
-
-            if decorator == .BOTTOM {
-                item.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
-            } else {
-                item.frame = rows.next(rowHeight)
-            }
-
-            if decorator == .DIVIDER {
-                rows.next(spaceHeight)
-            }
+        for i in 0..<items.count {
+            self.renderChild(i < sidebarItems.count ? sidebarItems[i] : nil, item: items[i], rows: rows)
+        }
+        for i in items.count..<sidebarItems.count {
+            sidebarItems.removeLast()
+            children.removeLast()
         }
     }
-    
+
+    func renderChild(var child: SidebarItem!, item: Navigation.Item, rows: RowGenerator) -> SidebarItem {
+        if child == nil {
+            child = SidebarItem()
+            sidebarItems.append(child)
+            children.append(child)
+        }
+
+        child.onMouseDown = { [weak self] in
+            self?.onItemClick?(child)
+        }
+
+        child.isSelected = item.key == selectedItem
+
+        child.key = item.key
+        child.text = item.label
+        child.image = NSImage(named: item.label)
+
+        let inboxCount = 0
+        if item.key == "inbox" && inboxCount > 0 {
+            child.badge = String(inboxCount)
+        } else {
+            child.badge = ""
+        }
+
+
+        if item.key == "settings" {
+            child.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
+        } else {
+            child.frame = rows.next(self.rowHeight)
+        }
+
+        if item.key == "compose" {
+            rows.next(self.spaceHeight)
+        }
+        
+        return child
+    }
+
 }

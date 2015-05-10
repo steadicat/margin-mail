@@ -58,10 +58,10 @@ class Component {
     }
 
     func performUpdate() {
+        render()
         for child in children {
             child.render()
         }
-        render()
         needsUpdate = false
         updateDispatched = false
     }
