@@ -10,74 +10,35 @@ import Cocoa
 
 class MainContent: DataComponent {
 
-    let empty: Component = {
-        let view = View()
-        return Component(view: view)
-    }()
+    private var content: Component?
+    private var selected: String = ""
 
-    private var contents: [String: Component] = [:]
-
-    private var selected: String = "" {
-        didSet {
-            selectContent(selected)
-        }
-    }
+    private lazy var mailboxContent = MailboxContent()
+    private lazy var emptyContent = EmptyContent()
 
     init() {
         let view = View()
-        view.backgroundColor = NSColor.whiteColor()
+        view.backgroundColor = NSColor.orangeColor()
 
-        super.init(stores: [Stores().navigation], children: [empty], view: view)
+        super.init(stores: [Stores().navigation], children: [], view: view)
     }
 
     override func onStoreUpdate() {
         selected = Stores().navigation.selectedMainMenuItem?.key ?? ""
+        needsUpdate = true
     }
 
     override func render() {
-        view?.hidden = true
-        renderContent(selected, component: contents[selected] ?? empty)
-        view?.hidden = false
-    }
-
-    private func selectContent(key: String) {
-        if contents[key] == nil, let content = createContent(key) {
-            contents[key] = content
-        }
-        if let component = contents[key] {
-            children = [component]
-        } else {
-            children = [empty]
-        }
-    }
-
-    private func createContent(key: String) -> Component? {
-        switch (key) {
+        switch (selected) {
         case "inbox":
-            let list = MessageListData()
-            let pane = MessagePane()
-            return Split(id: "contentSplitView", children: [list, pane])
+            children = [mailboxContent]
+            mailboxContent.frame = bounds
 
         default:
-            return nil
+            children = [emptyContent]
+            emptyContent.frame = bounds
         }
     }
 
-    private func renderContent(key: String, component: Component) {
-        switch(key) {
-        case "inbox":
-            let split = component as! Split
-            let columns = bounds.columns()
-
-            split.children[0].frame = columns.nextFraction(0.5)
-            columns.next(split.dividerThickness)
-
-            split.children[1].frame = columns.nextFraction(1)
-            split.view!.frame = bounds
-
-        default:
-            component.view?.frame = bounds
-        }
-    }
 
 }

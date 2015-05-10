@@ -37,7 +37,9 @@ class Label: Component {
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         textLayer.frame = frame
         textLayer.string = text
-        textLayer.font = font
+        if let font = font {
+            textLayer.font = font
+        }
         textLayer.foregroundColor = textColor?.CGColor
         CATransaction.commit()
     }

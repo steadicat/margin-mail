@@ -12,6 +12,8 @@
 		7B405A2B1AEC2D7600506A01 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2A1AEC2D7600506A01 /* TableView.swift */; };
 		7B405A2D1AEC2E6C00506A01 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2C1AEC2E6C00506A01 /* Split.swift */; };
 		7B405A301AEC369F00506A01 /* MessagePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B405A2F1AEC369F00506A01 /* MessagePane.swift */; };
+		7B4458F91AFFEB690062B0B8 /* EmptyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4458F81AFFEB690062B0B8 /* EmptyContent.swift */; };
+		7B4458FB1AFFEC580062B0B8 /* MailboxContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4458FA1AFFEC580062B0B8 /* MailboxContent.swift */; };
 		7B69803A1AE5A6C90064A060 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980391AE5A6C90064A060 /* ScrollView.swift */; };
 		7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */; };
 		7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980521AE5FF820064A060 /* TextLayer.swift */; };
@@ -214,6 +216,8 @@
 		7B405A2A1AEC2D7600506A01 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = MarginMail/TableView.swift; sourceTree = SOURCE_ROOT; };
 		7B405A2C1AEC2E6C00506A01 /* Split.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
 		7B405A2F1AEC369F00506A01 /* MessagePane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagePane.swift; sourceTree = "<group>"; };
+		7B4458F81AFFEB690062B0B8 /* EmptyContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyContent.swift; sourceTree = "<group>"; };
+		7B4458FA1AFFEC580062B0B8 /* MailboxContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailboxContent.swift; sourceTree = "<group>"; };
 		7B6980391AE5A6C90064A060 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = MarginMail/ScrollView.swift; sourceTree = SOURCE_ROOT; };
 		7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListItem.swift; sourceTree = "<group>"; };
 		7B6980521AE5FF820064A060 /* TextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLayer.swift; sourceTree = "<group>"; };
@@ -389,6 +393,8 @@
 				7B405A2E1AEC363D00506A01 /* Core */,
 				7B6980511AE5FF710064A060 /* Layers */,
 				ACF1FA381AE191C7006309D4 /* Views */,
+				7B4458F81AFFEB690062B0B8 /* EmptyContent.swift */,
+				7B4458FA1AFFEC580062B0B8 /* MailboxContent.swift */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
 				7BE16ED01AE4A9D9002DCD22 /* MainContent.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
@@ -809,6 +815,7 @@
 				ACF1FA311AE191AC006309D4 /* AppDelegate.swift in Sources */,
 				ACCCD2A81AE221F70043ED41 /* TextField.swift in Sources */,
 				ACCCD29C1AE221CB0043ED41 /* SidebarItem.swift in Sources */,
+				7B4458FB1AFFEC580062B0B8 /* MailboxContent.swift in Sources */,
 				ACE5B2DE1AEEF1C500EF02E1 /* Transport.swift in Sources */,
 				ACCCD2B01AE222100043ED41 /* Geometry.swift in Sources */,
 				ACCCD2C21AE2225C0043ED41 /* MailClient.swift in Sources */,
@@ -817,6 +824,7 @@
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,
 				7B204C161AEF2FB500FB7A5C /* DataComponent.swift in Sources */,
 				7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */,
+				7B4458F91AFFEB690062B0B8 /* EmptyContent.swift in Sources */,
 				ACB5A6E71AEDDC5E00C89E41 /* Dispatcher.swift in Sources */,
 				AC015C081AF810FB00BAE8A7 /* MailFolder.swift in Sources */,
 				AC73631A1AE4F767000019A1 /* Dispatch.swift in Sources */,

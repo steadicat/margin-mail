@@ -39,10 +39,14 @@ class MessageList: Component {
         table.updateCell = self.updateCell
         table.onRowSelect = self.onRowSelect
 
+        scroll.backgroundColor = NSColor.redColor()
         scroll.documentView = table
     }
 
     override func render() {
+        println("render MessageList with \(bounds)")
+        scroll.frame = bounds
+
         if isLoading {
             // Display a loader
         } else {

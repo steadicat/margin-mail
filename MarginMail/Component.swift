@@ -103,8 +103,11 @@ class Component {
     }
 
     private func detachChildren() {
-        for child in children {
-            child.view?.removeFromSuperview()
+        if let view = view {
+            view.subviews.removeAll(keepCapacity: true)
+        }
+        if let layer = layer {
+            layer.sublayers.removeAll(keepCapacity: true)
         }
     }
 

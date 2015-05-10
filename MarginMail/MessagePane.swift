@@ -14,9 +14,11 @@ class MessagePane: Component {
         let view = View()
         super.init(view: view)
 
-        view.backgroundColor = Color.white()
+        view.backgroundColor = Color.accent()
     }
 
     override func render() {
+        println("render MessagePane with \(bounds)")
+        view?.frame = bounds
     }
 }
