@@ -76,12 +76,11 @@ class Sidebar: Component {
             child.badge = ""
         }
 
-
         if item.key == "settings" {
-            child.frame = CGRectMake(0, bounds.height, bounds.width + 16, rowHeight).offset(dy: -rowHeight - spaceHeight)
-        } else {
-            child.frame = rows.next(self.rowHeight)
+            rows.nextFraction(1)
         }
+
+        child.frame = rows.next(self.rowHeight)
 
         if item.key == "compose" {
             rows.next(self.spaceHeight)

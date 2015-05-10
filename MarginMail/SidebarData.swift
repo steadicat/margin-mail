@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainSidebar: DataComponent {
+class SidebarData: DataComponent {
 
     private let sidebar = Sidebar()
 

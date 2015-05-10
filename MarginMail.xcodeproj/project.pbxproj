@@ -39,7 +39,7 @@
 		ACC1940B1AE48A57003071DA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1940A1AE48A57003071DA /* Lock.swift */; };
 		ACCB45141AF038C8000FCC52 /* NavigationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45131AF038C8000FCC52 /* NavigationActions.swift */; };
 		ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45201AF03970000FCC52 /* NavigationStore.swift */; };
-		ACCB45231AF0467B000FCC52 /* MainSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* MainSidebar.swift */; };
+		ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45221AF0467B000FCC52 /* SidebarData.swift */; };
 		ACCB45251AF15654000FCC52 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45241AF15654000FCC52 /* Navigation.swift */; };
 		ACCB45271AF4376F000FCC52 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB45261AF4376F000FCC52 /* Int.swift */; };
 		ACCCD2961AE221B00043ED41 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCCD2951AE221B00043ED41 /* Main.swift */; };
@@ -241,7 +241,7 @@
 		ACC1940A1AE48A57003071DA /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = MarginMail/Lock.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45131AF038C8000FCC52 /* NavigationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationActions.swift; path = MarginMail/NavigationActions.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45201AF03970000FCC52 /* NavigationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationStore.swift; path = MarginMail/NavigationStore.swift; sourceTree = SOURCE_ROOT; };
-		ACCB45221AF0467B000FCC52 /* MainSidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSidebar.swift; sourceTree = "<group>"; };
+		ACCB45221AF0467B000FCC52 /* SidebarData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarData.swift; sourceTree = "<group>"; };
 		ACCB45241AF15654000FCC52 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Navigation.swift; path = MarginMail/Navigation.swift; sourceTree = SOURCE_ROOT; };
 		ACCB45261AF4376F000FCC52 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = MarginMail/Int.swift; sourceTree = SOURCE_ROOT; };
 		ACCCD2951AE221B00043ED41 /* Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -391,13 +391,13 @@
 				ACF1FA381AE191C7006309D4 /* Views */,
 				ACCCD2951AE221B00043ED41 /* Main.swift */,
 				7BE16ED01AE4A9D9002DCD22 /* MainContent.swift */,
-				ACCB45221AF0467B000FCC52 /* MainSidebar.swift */,
 				ACF1FA271AE19195006309D4 /* MainWindow.swift */,
 				ACCCD2971AE221BC0043ED41 /* MessageList.swift */,
 				7B71409A1AEF33CA005CF26B /* MessageListData.swift */,
 				7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */,
 				7B405A2F1AEC369F00506A01 /* MessagePane.swift */,
 				ACCCD2991AE221C50043ED41 /* Sidebar.swift */,
+				ACCB45221AF0467B000FCC52 /* SidebarData.swift */,
 				ACCCD29B1AE221CB0043ED41 /* SidebarItem.swift */,
 			);
 			name = UI;
@@ -841,7 +841,7 @@
 				ACCB45211AF03970000FCC52 /* NavigationStore.swift in Sources */,
 				ACE5B2DC1AEDF25000EF02E1 /* Env.swift in Sources */,
 				AC1F84A51AECC71F00D81B71 /* Database.swift in Sources */,
-				ACCB45231AF0467B000FCC52 /* MainSidebar.swift in Sources */,
+				ACCB45231AF0467B000FCC52 /* SidebarData.swift in Sources */,
 				ACCCD2C41AE2225C0043ED41 /* MailWriter.swift in Sources */,
 				ACCCD2AF1AE222100043ED41 /* Color.swift in Sources */,
 				ACCCD2A01AE221DC0043ED41 /* ButtonCell.swift in Sources */,
