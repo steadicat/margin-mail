@@ -12,6 +12,7 @@ class MainContent: DataComponent {
 
     private var content: Component?
     private var selected: String = ""
+    private var messages: [MailMessage] = []
 
     private lazy var mailboxContent = MailboxContent()
     private lazy var emptyContent = EmptyContent()
@@ -24,14 +25,14 @@ class MainContent: DataComponent {
     }
 
     override func onStoreUpdate() {
-        selected = Stores().navigation.selectedMainMenuItem?.key ?? ""
+        selected = Stores().navigation.getSelected(.MAIN)
         needsUpdate = true
     }
 
     override func render() {
         println("render MainContent with \(bounds)")
         switch (selected) {
-        case "inbox":
+        case "Inbox", "Sent", "Drafts":
             children = [mailboxContent]
             mailboxContent.frame = bounds
 
@@ -40,6 +41,5 @@ class MainContent: DataComponent {
             emptyContent.frame = bounds
         }
     }
-
 
 }

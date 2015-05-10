@@ -12,19 +12,13 @@ class SidebarData: DataComponent {
 
     private let sidebar = Sidebar()
 
-    private var items: [Navigation.Item] = [] {
+    var folders: [MailFolder] = [] {
         didSet {
             needsUpdate = true
         }
     }
 
-    private var selected: Navigation.Item? {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    private var inboxCount = 0 {
+    var selectedFolder: String = "" {
         didSet {
             needsUpdate = true
         }
@@ -32,26 +26,44 @@ class SidebarData: DataComponent {
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
-            stores: [Stores().account, Stores().mail, Stores().navigation],
+            stores: [Stores().mail, Stores().navigation],
             children: [sidebar]
         )
-        sidebar.onItemClick = { [weak self] item in
-            Actions().navigateMainMenu(item.key)
+        sidebar.updateItem = { [weak self] (item, row) in
+            self?.renderItem(item, row: row)
+        }
+        sidebar.onItemClick = { item in
+            Actions().navigate(.MAIN, key: item.key)
         }
     }
 
     override func onStoreUpdate() {
         if let account = Stores().account.getActive() {
-//            inboxCount = Stores().message.getMessageCount(account)
+            folders = Stores().mail.getFolders(account)
+            selectedFolder = Stores().navigation.getSelected(.MAIN)
         }
-        items = Stores().navigation.getMainMenuItems()
-        selected = Stores().navigation.selectedMainMenuItem
     }
 
     override func render() {
         sidebar.frame = frame
-        sidebar.selectedItem = selected?.key ?? ""
-        sidebar.items = items
+        sidebar.selectedItem = selectedFolder
+        sidebar.itemCount = folders.count
+        sidebar.reloadItems()
+    }
+
+    private func renderItem(item: SidebarItem, row: Int) {
+        let folder = folders[row]
+        item.key = folder.name
+        item.text = folder.name
+        item.image = NSImage(named: folder.name)
+        item.badge = "\(folder.numTotalMessages)"
+
+//      item.key = "compose"
+//      item.text = "Compose"
+//      item.image = NSImage(named: "Compose")
+//      item.key = "settings"
+//      item.text = "Settings"
+//      item.image = NSImage(named: "Settings")
     }
 
 }

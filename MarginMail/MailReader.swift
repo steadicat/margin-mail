@@ -48,8 +48,8 @@ class IMAPReader: MailReader {
     func getAllFolders(callback: [MailFolder] -> Void) {
         let operation = session.fetchAllFoldersOperation()
         operation.start() { (error, result) in
-            let folders = self.convertFolders(result as! [MCOIMAPFolder])
-            self.refreshFolders(folders) {
+            var folders = self.convertFolders(result as! [MCOIMAPFolder])
+            self.refreshFolders(folders) { folders in
                 callback(folders)
             }
         }
@@ -74,7 +74,7 @@ class IMAPReader: MailReader {
 
     }
 
-    private func refreshFolders(var folders: [MailFolder], callback: Void -> Void) {
+    private func refreshFolders(var folders: [MailFolder], callback: [MailFolder] -> Void) {
         var finished = 0
         for (i, folder) in enumerate(folders) {
             session.folderStatusOperation(folder.path).start() { (error, status) in
@@ -82,7 +82,7 @@ class IMAPReader: MailReader {
                     folders[i].updateWith(status)
                 }
                 if ++finished == folders.count {
-                    callback()
+                    callback(folders)
                 }
             }
         }

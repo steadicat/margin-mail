@@ -6,12 +6,9 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-protocol MailDelegate {
-}
-
 class MailClient {
 
-    var delegate: MailDelegate?
+    var onUpdate: (Void -> Void)?
 
     private var address: MailAddress
     private var reader: MailReader?
@@ -70,9 +67,11 @@ class MailClient {
     private func _sync(reader: MailReader, callback: Void -> Void) {
         reader.getAllFolders() { folders in
             self._folders = folders
+            self.onUpdate?()
             for folder in folders {
                 reader.getMessagesInFolder(folder) { messages in
                     self._messages[folder] = messages
+                    self.onUpdate?()
                 }
             }
         }

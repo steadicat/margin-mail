@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-class MailStore: Store, MailDelegate {
+class MailStore: Store {
 
     private var clients: [Account: MailClient] = [:]
 
@@ -21,24 +21,40 @@ class MailStore: Store, MailDelegate {
 
     private func subscribe(account: Account) {
         if clients[account] == nil {
-            clients[account] = MailClient(account: account)
+            clients[account] = createClient(account)
         }
         if let client = clients[account] {
-            client.delegate = self
             client.sync()
         }
+    }
+
+    private func createClient(account: Account) -> MailClient {
+        let client = MailClient(account: account)
+        client.onUpdate = { [weak self] in
+            self?.notify()
+        }
+        return client
     }
 
 }
 
 extension MailStore {
 
-//    func getAll() -> [Account] {
-//        return accounts
-//    }
-//
-//    func getActive() -> Account? {
-//        return active
-//    }
+    func getFolderByName(account: Account, name: String) -> MailFolder? {
+        for folder in clients[account]?.folders ?? [] {
+            if folder.name == name {
+                return folder
+            }
+        }
+        return nil
+    }
+
+    func getFolders(account: Account) -> [MailFolder] {
+        return clients[account]?.folders ?? []
+    }
+
+    func getMessages(account: Account, folder: MailFolder) -> [MailMessage] {
+        return clients[account]?.messages[folder] ?? []
+    }
 
 }

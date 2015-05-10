@@ -8,28 +8,13 @@
 
 extension MainActions {
 
-    struct NavigateMainMenu: Action {
+    struct Navigate: Action {
+        let menu: NavigationStore.Menu
         let key: String
     }
 
-    struct ShowMainMenuItem: Action {
-        let key: String
-    }
-
-    struct HideMainMenuItem: Action {
-        let key: String
-    }
-
-    func navigateMainMenu(key: String) {
-        dispatch(NavigateMainMenu(key: key))
-    }
-
-    func showMainMenuItem(key: String) {
-        dispatch(ShowMainMenuItem(key: key))
-    }
-
-    func hideMainMenuItem(key: String) {
-        dispatch(HideMainMenuItem(key: key))
+    func navigate(menu: NavigationStore.Menu, key: String) {
+        dispatch(Navigate(menu: menu, key: key))
     }
 
 }

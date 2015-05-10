@@ -8,31 +8,16 @@
 
 class NavigationStore: Store {
 
-    typealias Menu = Navigation.Menu
-    typealias Item = Navigation.Item
+    enum Menu {
+        case MAIN
+    }
 
-    private var mainMenu = Menu([
-        Item("compose", label: "Compose"),
-        Item("inbox", label: "Inbox"),
-        Item("archive", label: "Archive"),
-        Item("drafts", label: "Drafts"),
-        Item("sent", label: "Sent"),
-        Item("starred", label: "Starred"),
-        Item("spam", label: "Spam"),
-        Item("trash", label: "Trash"),
-        Item("settings", label: "Settings"),
-    ])
+    private var selected: [Menu: String] = [:]
 
     override func handleAction(action: Action) {
         switch (action) {
-        case let action as MainActions.NavigateMainMenu:
-            mainMenu.select(action.key)
-            notify()
-        case let action as MainActions.HideMainMenuItem:
-            mainMenu.hide(action.key)
-            notify()
-        case let action as MainActions.ShowMainMenuItem:
-            mainMenu.show(action.key)
+        case let action as MainActions.Navigate:
+            selected[action.menu] = action.key
             notify()
         default:
             break
@@ -43,18 +28,8 @@ class NavigationStore: Store {
 
 extension NavigationStore {
 
-    var selectedMainMenuItem: Item? {
-        return mainMenu.selected
-    }
-
-    func getMainMenuKeys() -> [String] {
-        return mainMenu.keys()
-    }
-
-    func getMainMenuItems() -> [Item] {
-        return mainMenu.items.filter() { item in
-            return item.visible
-        }
+    func getSelected(menu: Menu) -> String {
+        return selected[menu] ?? ""
     }
 
 }

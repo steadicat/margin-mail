@@ -50,26 +50,21 @@ struct MailFolder: Hashable {
 
     init(path: String, name: String, type: MailFolderType) {
         self.path = path
-        self.name = name
         self.type = type
+        self.name = name
     }
 
     init(path: String, type: MailFolderType = .FOLDER) {
-        self.init(
-            path: path,
-            name: path.lastPathComponent,
-            type: type
-        )
+        self.init(path: path, name: path.lastPathComponent, type: type)
     }
 
     init(folder: MCOIMAPFolder) {
         // XXX: Use `folder.delimeter` for extracing name. Using the last path
         // component does not conform to the IMAP spec.
-        self.init(
-            path: folder.path,
-            name: folder.path.lastPathComponent,
-            type: MailFolderType(folder: folder)
-        )
+        let path = folder.path
+        let type = MailFolderType(folder: folder)
+        let name = (type == .FOLDER) ? path.lastPathComponent : type.rawValue
+        self.init(path: path, name: name, type: type)
     }
 
     mutating func updateWith(status: MCOIMAPFolderStatus) {
