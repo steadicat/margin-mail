@@ -8,6 +8,11 @@
 
 typealias MailMessageID = UInt32
 
+struct MailMessageBody {
+    let text: String
+    let html: String
+}
+
 struct MailMessageFlags {
     let seen: Bool
 }
@@ -23,9 +28,9 @@ struct MailMessage {
     let subject: String
     let date: NSDate
 
-    var body: String?
+    var body: MailMessageBody?
 
-    init(folder: MailFolder, flags: MailMessageFlags, id: MailMessageID, sender: MailAddress, recipients: [MailAddress], date: NSDate, subject: String, body: String?) {
+    init(folder: MailFolder, flags: MailMessageFlags, id: MailMessageID, sender: MailAddress, recipients: [MailAddress], date: NSDate, subject: String, body: MailMessageBody?) {
         self.folder = folder
         self.flags = flags
         self.id = id
@@ -55,7 +60,10 @@ struct MailMessage {
 
     mutating func updateWith(data: NSData) {
         let parser = MCOMessageParser(data: data)
-        body = parser.plainTextBodyRendering()!
+        body = MailMessageBody(
+            text: parser.plainTextBodyRendering()!,
+            html: parser.htmlBodyRendering()!
+        )
     }
 
 }
