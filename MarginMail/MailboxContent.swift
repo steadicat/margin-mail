@@ -20,11 +20,12 @@ class MailboxContent: Component {
     }
 
     override func render() {
+        println("render MailboxContent with \(bounds)")
         split.frame = bounds
 
         let columns = bounds.columns()
-        split.children[0].frame = columns.nextFraction(0.5)
+        list.frame = columns.nextFraction(0.5)
         columns.next(split.dividerThickness)
-        split.children[1].frame = columns.nextFraction(1)
+        pane.frame = columns.nextFraction(1)
     }
 }
