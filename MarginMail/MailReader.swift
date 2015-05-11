@@ -67,7 +67,7 @@ class IMAPReader: MailReader {
                 receivedMessages as! [MCOIMAPMessage],
                 folder: folder
             )
-            self.refreshMessages(messages) {
+            self.refreshMessages(messages) { messages in
                 callback(messages)
             }
         }
@@ -96,7 +96,7 @@ class IMAPReader: MailReader {
         }
     }
 
-    private func refreshMessages(var messages: [MailMessage], callback: Void -> Void) {
+    private func refreshMessages(var messages: [MailMessage], callback: [MailMessage] -> Void) {
         var finished = 0
         for (i, message) in enumerate(messages) {
             let operation = session.fetchMessageOperationWithFolder(message.folder.path, uid: message.id)
@@ -105,7 +105,7 @@ class IMAPReader: MailReader {
                     messages[i].updateWith(data)
                 }
                 if ++finished == messages.count {
-                    callback()
+                    callback(messages)
                 }
             }
         }
