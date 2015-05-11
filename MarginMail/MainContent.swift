@@ -10,9 +10,11 @@ import Cocoa
 
 class MainContent: DataComponent {
 
-    private var content: Component?
-    private var selected: String = ""
-    private var messages: [MailMessage] = []
+    private var selected: String = "" {
+        didSet {
+            needsUpdate = true
+        }
+    }
 
     private lazy var mailboxContent = MailboxContent()
     private lazy var emptyContent = EmptyContent()
@@ -20,17 +22,14 @@ class MainContent: DataComponent {
     init() {
         let view = View()
         view.backgroundColor = NSColor.orangeColor()
-
         super.init(stores: [Stores().navigation], children: [], view: view)
     }
 
     override func onStoreUpdate() {
         selected = Stores().navigation.getSelected(.MAIN)
-        needsUpdate = true
     }
 
     override func render() {
-        println("render MainContent with \(bounds)")
         switch (selected) {
         case "Inbox", "Sent", "Drafts":
             children = [mailboxContent]

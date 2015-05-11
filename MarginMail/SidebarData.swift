@@ -56,7 +56,12 @@ class SidebarData: DataComponent {
         item.key = folder.name
         item.text = folder.name
         item.image = NSImage(named: folder.name)
-        item.badge = "\(folder.numTotalMessages)"
+
+        if folder.numTotalMessages > 0 {
+            item.badge = "\(folder.numTotalMessages)"
+        } else {
+            item.badge = ""
+        }
 
 //      item.key = "compose"
 //      item.text = "Compose"

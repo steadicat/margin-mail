@@ -40,7 +40,7 @@ class MailStore: Store {
 
 extension MailStore {
 
-    func getFolderByName(account: Account, name: String) -> MailFolder? {
+    func getFolder(account: Account, name: String) -> MailFolder? {
         for folder in clients[account]?.folders ?? [] {
             if folder.name == name {
                 return folder
