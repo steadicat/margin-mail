@@ -6,7 +6,14 @@
 //  Copyright (c) 2015 Margin Labs. All rights reserved.
 //
 
-typealias MailMessageID = UInt32
+struct MailMessageID {
+    let int: UInt32
+    let string: String
+    init(_ id: UInt32) {
+        int = id
+        string = "\(int)"
+    }
+}
 
 struct MailMessageBody {
     let text: String
@@ -49,7 +56,7 @@ struct MailMessage {
         self.init(
             folder: folder,
             flags: flags,
-            id: message.uid,
+            id: MailMessageID(message.uid),
             sender: MailAddress(mco: header.from),
             recipients: header.to.map { MailAddress(mco: $0 as! MCOAddress) },
             date: header.date,

@@ -99,7 +99,7 @@ class IMAPReader: MailReader {
     private func refreshMessages(var messages: [MailMessage], callback: [MailMessage] -> Void) {
         var finished = 0
         for (i, message) in enumerate(messages) {
-            let operation = session.fetchMessageOperationWithFolder(message.folder.path, uid: message.id)
+            let operation = session.fetchMessageOperationWithFolder(message.folder.path, uid: message.id.int)
             operation.start() { (error, data) in
                 if error == nil {
                     messages[i].updateWith(data)

@@ -23,7 +23,13 @@ class MessageList: Component {
         }
     }
 
-    private var selectedRow = 0
+    var onMessageSelect: ((MailMessage) -> Void)?
+
+    var selectedMessageID: String = "" {
+        didSet {
+            needsUpdate = true
+        }
+    }
 
     private let scroll = ScrollView(frame: CGRectZero)
     private let table = TableView(frame: CGRectZero)
@@ -55,8 +61,7 @@ class MessageList: Component {
     }
 
     func onRowSelect(row: Int) {
-        selectedRow = row
-        needsUpdate = true
+        onMessageSelect?(messages[row])
     }
 
     func createCell() -> NSView {
@@ -66,7 +71,7 @@ class MessageList: Component {
     func updateCell(#column: Int, row: Int, view: NSView) -> NSView {
         if let item = view as? MessageListItem {
             let message = messages[row]
-            item.selected = row == self.selectedRow
+            item.selected = message.id.string == selectedMessageID
             item.author = message.sender.name ?? "<no name>"
             item.subject = message.subject
             item.snippet = message.body?.text ?? ""

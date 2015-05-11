@@ -14,9 +14,16 @@ class MessageListData: DataComponent {
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(
-            stores: [Stores().account, Stores().mail],
+            stores: [Stores().navigation],
             children: [messageList]
         )
+        messageList.onMessageSelect = { message in
+            Actions().navigate(.MESSAGE, key: message.id.string)
+        }
+    }
+
+    override func onStoreUpdate() {
+        messageList.selectedMessageID = Stores().navigation.getSelected(.MESSAGE)
     }
 
     override func render() {

@@ -10,6 +10,7 @@ class NavigationStore: Store {
 
     enum Menu {
         case MAIN
+        case MESSAGE
     }
 
     private var selected: [Menu: String] = [:]
