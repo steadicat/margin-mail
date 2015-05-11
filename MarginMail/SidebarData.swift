@@ -12,17 +12,8 @@ class SidebarData: DataComponent {
 
     private let sidebar = Sidebar()
 
-    var folders: [MailFolder] = [] {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var selectedFolder: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var folders: [MailFolder] = []
+    var selectedFolder = ""
 
     init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(

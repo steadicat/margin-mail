@@ -10,11 +10,7 @@ import Cocoa
 
 class MailboxContent: DataComponent {
 
-    private var messages: [MailMessage] = [] {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    private var messages: [MailMessage] = []
 
     private let list = MessageListData()
     private let pane = MessagePane()

@@ -17,7 +17,7 @@ class DataComponent: Component {
     init(stores: [Store], children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
         super.init(children: children, view: view, layer: layer)
         for store in stores {
-            store.addListener(self, callback: self.onStoreUpdate)
+            store.addListener(self, callback: self.refreshStore)
         }
     }
 
@@ -37,6 +37,11 @@ class DataComponent: Component {
             didEverRender = true
         }
         super.performUpdate()
+    }
+
+    private func refreshStore() {
+        onStoreUpdate()
+        needsUpdate = true
     }
     
 }

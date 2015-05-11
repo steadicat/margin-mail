@@ -19,15 +19,6 @@ class MessageListData: DataComponent {
         )
     }
 
-    override func onStoreUpdate() {
-        if let account = Stores().account.getActive() {
-//            messageList.isLoading = Stores().message.isLoading(account)
-//            messageList.messages = Stores().message.getMessages(account)
-        }
-    }
-
-    override func render() {
-        println("render MessageListData with \(bounds)")
-    }
+    override func render() {}
 
 }
