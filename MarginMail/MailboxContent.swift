@@ -34,6 +34,8 @@ class MailboxContent: DataComponent {
     }
 
     override func render() {
+        println("render MailboxContent with \(bounds)")
+
         // TODO: less hacky way to layout the inner views
         split.split.frame = bounds
 

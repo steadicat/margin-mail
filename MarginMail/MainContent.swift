@@ -30,6 +30,8 @@ class MainContent: DataComponent {
     }
 
     override func render() {
+        println("render MainContent with \(bounds)")
+
         switch (selected) {
         case "Inbox", "Sent", "Drafts":
             children = [mailboxContent]
