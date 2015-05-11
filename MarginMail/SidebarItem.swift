@@ -10,6 +10,12 @@ import Cocoa
 
 class SidebarItem: Component {
 
+    enum Space {
+        case NONE
+        case ABOVE
+        case BELOW
+    }
+
     static let rightBleed: CGFloat = 16
     private let iconGap: CGFloat = 12
 
@@ -32,6 +38,18 @@ class SidebarItem: Component {
     }
 
     var badge: String = "" {
+        didSet {
+            needsUpdate = true
+        }
+    }
+
+    var bottomMargin = false {
+        didSet {
+            needsUpdate = true
+        }
+    }
+
+    var topSpacer = false {
         didSet {
             needsUpdate = true
         }

@@ -13,7 +13,7 @@ class Sidebar: Component {
     static let minimumWidth: CGFloat = 66
     static let maximumWidth: CGFloat = 216
 
-    var updateItem: ((SidebarItem, Int) -> Void)?
+    var updateItem: ((SidebarItem, Int, Int) -> Void)?
     var onItemClick: ((SidebarItem) -> Void)?
 
     var itemCount = 0
@@ -30,9 +30,6 @@ class Sidebar: Component {
         }
     }
 
-    private let compose: SidebarItem
-    private let settings: SidebarItem
-
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
     private let rowHeight: CGFloat = 36
@@ -41,17 +38,7 @@ class Sidebar: Component {
         let view = View(frame: CGRectZero)
         view.backgroundColor = Color.white()
 
-        compose = SidebarItem()
-        compose.key = "compose"
-        compose.text = "Compose"
-        compose.image = NSImage(named: "Compose")
-
-        settings = SidebarItem()
-        settings.key = "settings"
-        settings.text = "Settings"
-        settings.image = NSImage(named: "Settings")
-
-        super.init(children: [], view: view)
+        super.init(children: items, view: view)
     }
 
     func reloadItems() {
@@ -84,17 +71,17 @@ class Sidebar: Component {
     }
 
     private func renderItem(var item: SidebarItem!, row: Int, rows: RowGenerator) {
-        updateItem?(item, row)
+        updateItem?(item, row, items.count)
 
         item.isSelected = item.key == selectedItem
 
-        if item.key == "settings" {
+        if item.topSpacer {
             rows.nextFraction(1)
         }
 
         item.frame = rows.next(rowHeight)
 
-        if item.key == "compose" {
+        if item.bottomMargin {
             rows.next(spaceHeight)
         }
     }
