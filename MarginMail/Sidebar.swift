@@ -30,8 +30,8 @@ class Sidebar: Component {
         }
     }
 
-    private var topItems: [SidebarItem] = []
-    private var botItems: [SidebarItem] = []
+    private let compose: SidebarItem
+    private let settings: SidebarItem
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18
@@ -40,6 +40,16 @@ class Sidebar: Component {
     init() {
         let view = View(frame: CGRectZero)
         view.backgroundColor = Color.white()
+
+        compose = SidebarItem()
+        compose.key = "compose"
+        compose.text = "Compose"
+        compose.image = NSImage(named: "Compose")
+
+        settings = SidebarItem()
+        settings.key = "settings"
+        settings.text = "Settings"
+        settings.image = NSImage(named: "Settings")
 
         super.init(children: [], view: view)
     }

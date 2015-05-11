@@ -53,13 +53,6 @@ class SidebarData: DataComponent {
         } else {
             item.badge = ""
         }
-
-//      item.key = "compose"
-//      item.text = "Compose"
-//      item.image = NSImage(named: "Compose")
-//      item.key = "settings"
-//      item.text = "Settings"
-//      item.image = NSImage(named: "Settings")
     }
 
 }
