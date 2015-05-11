@@ -57,4 +57,15 @@ extension MailStore {
         return clients[account]?.messages[folder] ?? []
     }
 
+    func getMessage(account: Account, id: String) -> MailMessage? {
+        for (folder, messages) in clients[account]?.messages ?? [:] {
+            for message in messages {
+                if message.id.string == id {
+                    return message
+                }
+            }
+        }
+        return nil
+    }
+
 }

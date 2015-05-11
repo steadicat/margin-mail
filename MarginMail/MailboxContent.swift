@@ -13,7 +13,7 @@ class MailboxContent: DataComponent {
     private var messages: [MailMessage] = []
 
     private let list = MessageListData()
-    private let pane = MessagePane()
+    private let pane = MessagePaneData()
     private let split: Split
 
     init() {

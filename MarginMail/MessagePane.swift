@@ -10,14 +10,21 @@ import Cocoa
 
 class MessagePane: Component {
 
+    var message: MailMessage? {
+        didSet {
+            needsUpdate = true
+        }
+    }
+
     init() {
         let view = View()
-        super.init(view: view)
+        view.backgroundColor = Color.white()
 
-        view.backgroundColor = Color.accent()
+        super.init(children: [], view: view)
     }
 
     override func render() {
         println("render MessagePane with \(bounds)")
+        println("message: \(message)")
     }
 }
