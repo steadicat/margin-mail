@@ -13,6 +13,8 @@ class MessageListItem: View {
     var author: NSString = ""
     var subject: NSString = ""
     var snippet: NSString = ""
+    var seen: Bool = false
+
     var selected: Bool = false {
         didSet {
             self.needsDisplay = true
@@ -59,6 +61,7 @@ class MessageListItem: View {
         var rows = bounds.rectByInsetting(dx: 24, dy: 6).rows()
 
         authorLabel.string = author
+        authorLabel.font = NSFont(name: seen ? "OpenSans" : "OpenSans-Semibold", size: 14)
         authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
 
         subjectLabel.string = subject

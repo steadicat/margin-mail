@@ -70,6 +70,7 @@ class MessageList: Component {
             item.author = message.sender.name ?? "<no name>"
             item.subject = message.subject
             item.snippet = message.body?.text ?? ""
+            item.seen = message.flags.seen
         }
         return view
     }
