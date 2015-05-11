@@ -111,7 +111,7 @@ class SidebarItem: Component {
 
         label.frame = columns.nextFraction(1).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 9)
         label.text = badge != "" ? "\(text) \(badge)" : text
-        label.font = NSFont(name: (isSelected ? "OpenSans-Semibold" : "OpenSans"), size: 14)
+        label.font = isSelected ? Font.strong : Font.normal
         label.textColor = textColor
 
         itemView.backgroundColor = (isHovered ? Color.accent(1) : Color.white())

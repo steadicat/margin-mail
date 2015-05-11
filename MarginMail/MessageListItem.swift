@@ -32,15 +32,15 @@ class MessageListItem: View {
         borderLayer = CALayer()
 
         authorLabel = TextLayer()
-        authorLabel.font = NSFont(name: "OpenSans-Semibold", size: 14)
+        authorLabel.font = Font.strong
         authorLabel.foregroundColor = Color.darkGray().CGColor
 
         subjectLabel = TextLayer()
-        subjectLabel.font = NSFont(name: "OpenSans", size: 14)
+        subjectLabel.font = Font.normal
         subjectLabel.foregroundColor = Color.darkGray().CGColor
 
         snippetLabel = TextLayer()
-        snippetLabel.font = NSFont(name: "OpenSans", size: 11)
+        snippetLabel.font = Font.small
         snippetLabel.foregroundColor = Color.mediumGray().CGColor
         snippetLabel.wrapped = true
 
@@ -61,7 +61,7 @@ class MessageListItem: View {
         var rows = bounds.rectByInsetting(dx: 24, dy: 6).rows()
 
         authorLabel.string = author
-        authorLabel.font = NSFont(name: seen ? "OpenSans" : "OpenSans-Semibold", size: 14)
+        authorLabel.font = seen ? Font.normal : Font.strong
         authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
 
         subjectLabel.string = subject
