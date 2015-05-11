@@ -71,7 +71,9 @@ class SidebarData: DataComponent {
         item.topSpacer = false
         item.bottomMargin = false
 
-        if folder.numTotalMessages > 0 {
+        if folder.type == .INBOX && folder.numUnreadMessages > 0 {
+            item.badge = "\(folder.numUnreadMessages)"
+        } else if folder.type == .DRAFTS && folder.numTotalMessages > 0 {
             item.badge = "\(folder.numTotalMessages)"
         } else {
             item.badge = ""
