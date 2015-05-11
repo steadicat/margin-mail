@@ -66,6 +66,7 @@ class SplitView: NSSplitView, NSSplitViewDelegate {
         if let last = subviews.last as? NSView {
             last.frame = columns.nextFraction(1)
         }
+        onResize?()
     }
 
     func splitViewDidResizeSubviews(notification: NSNotification) {

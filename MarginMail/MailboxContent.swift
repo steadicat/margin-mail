@@ -21,11 +21,12 @@ class MailboxContent: Component {
 
     override func render() {
         println("render MailboxContent with \(bounds)")
-        split.frame = bounds
 
+        // TODO: less hacky way to layout the inner views
+        split.split.frame = bounds
         let columns = bounds.columns()
-        list.frame = columns.nextFraction(0.5)
+        list.messageList.view!.frame = columns.nextFraction(0.5)
         columns.next(split.dividerThickness)
-        pane.frame = columns.nextFraction(1)
+        pane.view!.frame = columns.nextFraction(1)
     }
 }

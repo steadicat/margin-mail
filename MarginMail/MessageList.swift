@@ -44,8 +44,7 @@ class MessageList: Component {
     }
 
     override func render() {
-        println("render MessageList with \(bounds)")
-        scroll.frame = bounds
+        println("render MessageList with \(bounds), \(scroll.bounds)")
 
         if isLoading {
             // Display a loader

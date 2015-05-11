@@ -10,7 +10,8 @@ import Cocoa
 
 class Split: Component {
 
-    private let split: SplitView
+    // TODO: make this private
+    let split: SplitView
 
     init(id: String, children: [Component], minimumSizes: [Int: CGFloat] = [:], maximumSizes: [Int: CGFloat] = [:]) {
         split = SplitView(frame: CGRectZero, minimumSizes: minimumSizes, maximumSizes: maximumSizes)
@@ -33,6 +34,7 @@ class Split: Component {
     }
 
     func onResize() {
+        println("split view resized to \(split.frame) \(split.subviews[0].frame) \(split.subviews[1].frame)")
         for i in 0...(children.count-1) {
             children[i].frame = split.subviews[i].frame
         }
