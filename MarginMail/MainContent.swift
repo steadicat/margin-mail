@@ -33,7 +33,7 @@ class MainContent: DataComponent {
         println("render MainContent with \(bounds)")
 
         switch (selected) {
-        case "Inbox", "Sent", "Drafts":
+        case "Inbox", "Sent", "Drafts", "Spam", "Trash":
             children = [mailboxContent]
             mailboxContent.frame = bounds
 
