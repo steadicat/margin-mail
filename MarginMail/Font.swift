@@ -14,8 +14,12 @@ class Font {
         return NSFont(name: "OpenSans", size: 14)
     }()
 
-    static var strong = {
+    static var semibold = {
         return NSFont(name: "OpenSans-Semibold", size: 14)
+    }()
+
+    static var bold = {
+        return NSFont(name: "OpenSans-Bold", size: 14)
     }()
 
     static var small = {

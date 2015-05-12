@@ -22,27 +22,25 @@ class MessageListItem: View {
         }
     }
 
-    let authorLabel: TextLayer
-    let subjectLabel: TextLayer
-    let snippetLabel: TextLayer
+    let authorLabel = TextLayer()
+    let subjectLabel = TextLayer()
+    let snippetLabel = TextLayer()
 
-    let borderLayer: CALayer
+    let borderLayer = CALayer()
+    let unreadDotLayer = CALayer()
 
     override init(frame frameRect: NSRect) {
-        borderLayer = CALayer()
-
-        authorLabel = TextLayer()
-        authorLabel.font = Font.strong
+        authorLabel.font = Font.bold
         authorLabel.foregroundColor = Color.darkGray().CGColor
 
-        subjectLabel = TextLayer()
         subjectLabel.font = Font.normal
         subjectLabel.foregroundColor = Color.darkGray().CGColor
 
-        snippetLabel = TextLayer()
         snippetLabel.font = Font.small
         snippetLabel.foregroundColor = Color.mediumGray().CGColor
         snippetLabel.wrapped = true
+
+        unreadDotLayer.cornerRadius = 3
 
         super.init(frame: frameRect)
 
@@ -51,6 +49,7 @@ class MessageListItem: View {
         layer?.addSublayer(subjectLabel)
         layer?.addSublayer(snippetLabel)
         layer?.addSublayer(borderLayer)
+        layer?.addSublayer(unreadDotLayer)
     }
 
     required init?(coder: NSCoder) {
@@ -61,7 +60,6 @@ class MessageListItem: View {
         var rows = bounds.rectByInsetting(dx: 24, dy: 6).rows()
 
         authorLabel.string = author
-        authorLabel.font = seen ? Font.normal : Font.strong
         authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
 
         subjectLabel.string = subject
@@ -72,6 +70,9 @@ class MessageListItem: View {
 
         borderLayer.frame = selected ? Rect(0, 0, 3, bounds.height) : CGRectZero
         borderLayer.backgroundColor = Color.accent().CGColor
+
+        unreadDotLayer.frame = seen ? CGRectZero : Rect(12, 38, 6, 6)
+        unreadDotLayer.backgroundColor = Color.accent().CGColor
 
         super.viewWillDraw()
     }
