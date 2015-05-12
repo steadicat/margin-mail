@@ -55,8 +55,9 @@ class Sidebar: Component {
     }
 
     override func render() {
-        let column = view!.bounds.rectByInsetting(dx: 0, dy: topMargin).extend(right: SidebarItem.rightBleed)
+        let column = view!.bounds.extend(right: SidebarItem.rightBleed)
         let rows = column.rows()
+        rows.next(topMargin)
         for (i, item) in enumerate(items) {
             renderItem(item, row: i, rows: rows)
         }
@@ -75,13 +76,14 @@ class Sidebar: Component {
 
         item.isSelected = item.key == selectedItem
 
-        if item.topSpacer {
+        if item.key == "settings" {
             rows.nextFraction(1)
+            item.frame = rows.next(rowHeight).offset(dy: -rowHeight - spaceHeight)
+        } else {
+            item.frame = rows.next(rowHeight)
         }
 
-        item.frame = rows.next(rowHeight)
-
-        if item.bottomMargin {
+        if item.key == "compose" {
             rows.next(spaceHeight)
         }
     }

@@ -49,8 +49,6 @@ class SidebarData: DataComponent {
             item.text = "Compose"
             item.image = NSImage(named: "Compose")
             item.badge = ""
-            item.topSpacer = false
-            item.bottomMargin = true
             return
         }
 
@@ -59,8 +57,6 @@ class SidebarData: DataComponent {
             item.text = "Settings"
             item.image = NSImage(named: "Settings")
             item.badge = ""
-            item.topSpacer = true
-            item.bottomMargin = false
             return
         }
 
@@ -68,8 +64,6 @@ class SidebarData: DataComponent {
         item.key = folder.name
         item.text = folder.name
         item.image = NSImage(named: folder.name)
-        item.topSpacer = false
-        item.bottomMargin = false
 
         if folder.type == .INBOX && folder.numUnreadMessages > 0 {
             item.badge = "\(folder.numUnreadMessages)"
