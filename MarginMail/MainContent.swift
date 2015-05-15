@@ -17,7 +17,7 @@ class MainContent: DataComponent {
 
     init() {
         let view = View()
-        view.backgroundColor = NSColor.orangeColor()
+        view.backgroundColor = Color.white()
         super.init(stores: [Stores().navigation], children: [], view: view)
     }
 

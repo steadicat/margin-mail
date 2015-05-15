@@ -14,7 +14,6 @@ class EmptyContent: Component {
 
     init() {
         super.init(view: empty)
-        empty.backgroundColor = Color.lightGray()
     }
 
     override func render() {
