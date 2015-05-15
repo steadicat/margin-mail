@@ -59,6 +59,7 @@ class MessageListItem: View {
 
         onMouseEnter = mouseEnter
         onMouseExit = mouseExit
+        onMouseDown = mouseDown
     }
 
     required init?(coder: NSCoder) {
@@ -71,6 +72,26 @@ class MessageListItem: View {
 
     func mouseExit() {
         hovered = false
+    }
+
+    func mouseDown() {
+        var scale = layer?.pop_animationForKey("scaleXY") as! POPSpringAnimation?
+        var shift = layer?.pop_animationForKey("shift") as! POPSpringAnimation?
+        if scale == nil {
+            scale = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
+            layer?.pop_addAnimation(scale, forKey: "scaleXY")
+        }
+
+        if shift == nil {
+            shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
+            layer?.pop_addAnimation(shift, forKey: "shift")
+        }
+
+        scale?.velocity = NSValue(size: CGSizeMake(-1.1, -1.1))
+        scale?.toValue = NSValue(size: CGSizeMake(1, 1))
+
+        shift?.velocity = NSValue(size: CGSizeMake(bounds.width / 2, bounds.height / 2))
+        shift?.toValue = NSValue(size: CGSizeMake(0, 0))
     }
 
     override func viewWillDraw() {
