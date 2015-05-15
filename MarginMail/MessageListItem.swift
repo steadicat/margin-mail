@@ -21,7 +21,7 @@ class MessageListItem: View {
             needsLayout = true
         }
     }
-    private var hovered: Bool = false {
+    var hovered: Bool = false {
         didSet {
             needsDisplay = true
             needsLayout = true

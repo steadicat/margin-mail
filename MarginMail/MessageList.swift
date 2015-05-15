@@ -59,6 +59,7 @@ class MessageList: Component {
             item.subject = message.subject
             item.snippet = message.body?.text ?? ""
             item.seen = message.flags.seen
+            item.hovered = false
         }
         return view
     }
