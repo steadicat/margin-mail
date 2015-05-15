@@ -20,10 +20,6 @@ class SidebarData: DataComponent {
             stores: [Stores().mail, Stores().navigation],
             children: [sidebar]
         )
-
-        sidebar.updateItem = { [weak self] (item, row, total) in
-            self?.renderItem(item, row: row, total: total)
-        }
         sidebar.onItemClick = { item in
             Actions().navigate(.MAIN, key: item.key)
         }
@@ -38,40 +34,8 @@ class SidebarData: DataComponent {
 
     override func render() {
         sidebar.frame = frame
+        sidebar.folders = folders
         sidebar.selectedItem = selectedFolder
-        sidebar.itemCount = folders.count + 2
-        sidebar.reloadItems()
-    }
-
-    private func renderItem(item: SidebarItem, row: Int, total: Int) {
-        if row == 0 {
-            item.key = "compose"
-            item.text = "Compose"
-            item.image = NSImage(named: "Compose")
-            item.badge = ""
-            return
-        }
-
-        if row == total - 1 {
-            item.key = "settings"
-            item.text = "Settings"
-            item.image = NSImage(named: "Settings")
-            item.badge = ""
-            return
-        }
-
-        let folder = folders[row - 1]
-        item.key = folder.name
-        item.text = folder.name
-        item.image = NSImage(named: folder.name)
-
-        if folder.type == .INBOX && folder.numUnreadMessages > 0 {
-            item.badge = "\(folder.numUnreadMessages)"
-        } else if folder.type == .DRAFTS && folder.numTotalMessages > 0 {
-            item.badge = "\(folder.numTotalMessages)"
-        } else {
-            item.badge = ""
-        }
     }
 
 }
