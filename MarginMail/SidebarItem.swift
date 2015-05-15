@@ -76,18 +76,18 @@ class SidebarItem: Component {
         }
         columns.next(iconGap)
 
-        label.frame = columns.next(columns.remaining.width - badgeWidth - rightMargin).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 9)
+        label.frame = columns.next(columns.remaining.width - badgeWidth - rightMargin).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 8)
         label.text = text
         label.font = isSelected ? Font.semibold : Font.normal
         label.textColor = textColor
 
-        badgeLabel.frame = columns.next(badgeWidth).offset(dx: 0, dy: 12)
+        badgeLabel.frame = columns.next(badgeWidth).offset(dx: 0, dy: 11)
         badgeLabel.text = badge
         badgeLabel.font = Font.small
         badgeLabel.textColor = textColor
         badgeLabel.alignment = .Right
 
-        itemView.backgroundColor = (isHovered ? Color.accent(1) : Color.white())
+        itemView.backgroundColor = (isHovered ? Color.accent(0.99) : Color.white())
 
         self.fadeLabel(bounds.width > 120)
     }

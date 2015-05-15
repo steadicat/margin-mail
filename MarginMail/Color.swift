@@ -25,7 +25,7 @@ class Color {
     }
 
     static func accent(lightness: CGFloat) -> NSColor {
-        return NSColor(hue: accentHue, saturation: 0.05, lightness: 0.99)
+        return NSColor(hue: accentHue, saturation: 0.1, lightness: lightness)
     }
 
     static func darkGray() -> NSColor {

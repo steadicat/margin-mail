@@ -17,8 +17,14 @@ class MessageListItem: View {
 
     var selected: Bool = false {
         didSet {
-            self.needsDisplay = true
-            self.needsLayout = true
+            needsDisplay = true
+            needsLayout = true
+        }
+    }
+    private var hovered: Bool = false {
+        didSet {
+            needsDisplay = true
+            needsLayout = true
         }
     }
 
@@ -50,14 +56,27 @@ class MessageListItem: View {
         layer?.addSublayer(snippetLabel)
         layer?.addSublayer(borderLayer)
         layer?.addSublayer(unreadDotLayer)
+
+        onMouseEnter = mouseEnter
+        onMouseExit = mouseExit
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func mouseEnter() {
+        hovered = true
+    }
+
+    func mouseExit() {
+        hovered = false
+    }
+
     override func viewWillDraw() {
         var rows = bounds.rectByInsetting(dx: 24, dy: 6).rows()
+
+        backgroundColor = (hovered ? Color.accent(0.99) : Color.white())
 
         authorLabel.string = author
         authorLabel.frame = rows.next(authorLabel.heightForSize(rows.remaining))
@@ -76,4 +95,5 @@ class MessageListItem: View {
 
         super.viewWillDraw()
     }
+
 }
