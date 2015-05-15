@@ -14,7 +14,7 @@ class MessageListData: DataComponent {
 
     init() {
         super.init(
-            stores: [Stores().navigation],
+            stores: [Stores().navigation, Stores().mail],
             children: [messageList]
         )
         messageList.onMessageSelect = { message in
@@ -23,6 +23,13 @@ class MessageListData: DataComponent {
     }
 
     override func onStoreUpdate() {
+        let selected = Stores().navigation.getSelected(.MAIN)
+        if let account = Stores().account.getActive() {
+            if let folder = Stores().mail.getFolder(account, name: selected) {
+                messageList.messages = Stores().mail.getMessages(account, folder: folder)
+            }
+        }
+
         messageList.selectedMessageID = Stores().navigation.getSelected(.MESSAGE)
     }
 

@@ -8,9 +8,7 @@
 
 import Cocoa
 
-class MailboxContent: DataComponent {
-
-    private var messages: [MailMessage] = []
+class MailboxContent: Component {
 
     private let list = MessageListData()
     private let pane = MessagePaneData()
@@ -19,25 +17,13 @@ class MailboxContent: DataComponent {
     init() {
         split = Split(id: "contentSplitView", children: [list, pane])
         super.init(
-            stores: [Stores().navigation, Stores().mail],
             children: [split]
         )
-    }
-
-    override func onStoreUpdate() {
-        let selected = Stores().navigation.getSelected(.MAIN)
-        if let account = Stores().account.getActive() {
-            if let folder = Stores().mail.getFolder(account, name: selected) {
-                messages = Stores().mail.getMessages(account, folder: folder)
-            }
-        }
     }
 
     override func render() {
         // TODO: less hacky way to layout the inner views
         split.split.frame = bounds
-
-        list.messageList.messages = messages
 
         if CGRectIsEmpty(list.messageList.view!.frame) || CGRectIsEmpty(pane.view!.frame) {
             let columns = bounds.columns()
