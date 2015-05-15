@@ -18,6 +18,7 @@
 		7B6980501AE5AE7E0064A060 /* MessageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */; };
 		7B6980531AE5FF820064A060 /* TextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6980521AE5FF820064A060 /* TextLayer.swift */; };
 		7B71409B1AEF33CA005CF26B /* MessageListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B71409A1AEF33CA005CF26B /* MessageListData.swift */; };
+		7B8AD9A41B057F6D00CD375D /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD9A31B057F6D00CD375D /* Layer.swift */; };
 		7BC4F1621AE1E201007DD2E1 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15E1AE1E201007DD2E1 /* Fonts */; };
 		7BC4F1631AE1E201007DD2E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */; };
 		7BC4F1641AE1E201007DD2E1 /* MailIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */; };
@@ -223,6 +224,7 @@
 		7B69804F1AE5AE7E0064A060 /* MessageListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListItem.swift; sourceTree = "<group>"; };
 		7B6980521AE5FF820064A060 /* TextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextLayer.swift; sourceTree = "<group>"; };
 		7B71409A1AEF33CA005CF26B /* MessageListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListData.swift; sourceTree = "<group>"; };
+		7B8AD9A31B057F6D00CD375D /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layer.swift; path = MarginMail/Layer.swift; sourceTree = SOURCE_ROOT; };
 		7BC4F15E1AE1E201007DD2E1 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		7BC4F15F1AE1E201007DD2E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7BC4F1601AE1E201007DD2E1 /* MailIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MailIcon.icns; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				ACC1940A1AE48A57003071DA /* Lock.swift */,
 				AC1F84DC1AEDC54E00D81B71 /* Notifier.swift */,
 				ACCF36041B01302F00ACB7CC /* Font.swift */,
+				7B8AD9A31B057F6D00CD375D /* Layer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				ACCF36071B0155E300ACB7CC /* MessagePaneData.swift in Sources */,
 				ACCCD2B01AE222100043ED41 /* Geometry.swift in Sources */,
 				ACCCD2C21AE2225C0043ED41 /* MailClient.swift in Sources */,
+				7B8AD9A41B057F6D00CD375D /* Layer.swift in Sources */,
 				ACCCD2981AE221BC0043ED41 /* MessageList.swift in Sources */,
 				ACB5A6EB1AEDDC6F00C89E41 /* AccountActions.swift in Sources */,
 				ACCCD2A21AE221E20043ED41 /* ImageView.swift in Sources */,

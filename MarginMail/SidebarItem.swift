@@ -28,16 +28,15 @@ class SidebarItem: Component {
 
     private var itemView = View()
     private var label = Label()
-    private var badgeLayer = TextLayer()
+    private var badgeLabel = Label()
     private var icon = ImageView(frame: CGRectZero)
 
     init() {
         itemView.wantsLayer = true
 
-        super.init(children: [label], view: itemView)
+        super.init(children: [label, badgeLabel], view: itemView)
 
         itemView.addSubview(icon)
-        itemView.layer!.addSublayer(badgeLayer)
 
         itemView.onMouseEnter = mouseEnter
         itemView.onMouseExit = mouseExit
@@ -80,10 +79,10 @@ class SidebarItem: Component {
         label.font = isSelected ? Font.semibold : Font.normal
         label.textColor = textColor
 
-        badgeLayer.frame = columns.next(24).offset(dx: -24, dy: 12)
-        badgeLayer.string = badge
-        badgeLayer.font = Font.small
-        badgeLayer.foregroundColor = textColor.CGColor
+        badgeLabel.frame = columns.next(24).offset(dx: -24, dy: 12)
+        badgeLabel.text = badge
+        badgeLabel.font = Font.small
+        badgeLabel.textColor = textColor
 
         itemView.backgroundColor = (isHovered ? Color.accent(1) : Color.white())
 

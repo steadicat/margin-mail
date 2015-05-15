@@ -21,15 +21,14 @@ class Label: Component {
     }
 
     override func render() {
-        CATransaction.begin()
-        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        textLayer.frame = frame
-        textLayer.string = text
-        if let font = font {
-            textLayer.font = font
+        Layer.withoutAnimations {
+            self.textLayer.frame = self.frame
+            self.textLayer.string = self.text
+            if let font = self.font {
+                self.textLayer.font = font
+            }
+            self.textLayer.foregroundColor = self.textColor?.CGColor
         }
-        textLayer.foregroundColor = textColor?.CGColor
-        CATransaction.commit()
     }
 
 }
