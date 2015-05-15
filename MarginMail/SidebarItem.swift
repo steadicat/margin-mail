@@ -60,12 +60,14 @@ class SidebarItem: Component {
         itemView.frame = frame
 
         let collapsingRatio = (frame.width - Sidebar.minimumWidth) / (Sidebar.maximumWidth - Sidebar.minimumWidth)
-        let sideMargin = 18 + round(18 * collapsingRatio)
+        let leftMargin = 18 + round(18 * collapsingRatio)
+        let rightMargin = 6 + round(18 * collapsingRatio)
+        let badgeWidth = 12 as CGFloat
 
         let textColor = isSelected ? Color.accent() : Color.mediumGray()
 
         let columns = bounds.extend(right: -SidebarItem.rightBleed).columns()
-        columns.next(sideMargin)
+        columns.next(leftMargin)
         if let image = self.image {
             self.icon.frame = columns.next(24).integerRect
             self.icon.image = image.tintedImageWithColor(textColor)
@@ -74,15 +76,16 @@ class SidebarItem: Component {
         }
         columns.next(iconGap)
 
-        label.frame = columns.nextFraction(1).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 9)
+        label.frame = columns.next(columns.remaining.width - badgeWidth - rightMargin).integerRect.offset(dx: isSelected ? -0.5 : 0, dy: 9)
         label.text = text
         label.font = isSelected ? Font.semibold : Font.normal
         label.textColor = textColor
 
-        badgeLabel.frame = columns.next(24).offset(dx: -24, dy: 12)
+        badgeLabel.frame = columns.next(badgeWidth).offset(dx: 0, dy: 12)
         badgeLabel.text = badge
         badgeLabel.font = Font.small
         badgeLabel.textColor = textColor
+        badgeLabel.alignment = .Right
 
         itemView.backgroundColor = (isHovered ? Color.accent(1) : Color.white())
 

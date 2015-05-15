@@ -10,9 +10,18 @@ import Cocoa
 
 class Label: Component {
 
+    enum Alignment {
+        case Natural
+        case Left
+        case Right
+        case Center
+        case Justified
+    }
+
     var text: NSString = ""
     var font: NSFont?
     var textColor: NSColor?
+    var alignment: Alignment = .Natural
 
     private var textLayer = TextLayer()
 
@@ -28,7 +37,17 @@ class Label: Component {
                 self.textLayer.font = font
             }
             self.textLayer.foregroundColor = self.textColor?.CGColor
+            self.textLayer.alignmentMode = alignmentMode(alignment)
         }
     }
 
+    private func alignmentMode(alignment: Alignment) -> String {
+        switch alignment {
+        case .Natural: return kCAAlignmentNatural
+        case .Left: return kCAAlignmentLeft
+        case .Right: return kCAAlignmentRight
+        case .Center: return kCAAlignmentCenter
+        case .Justified: return kCAAlignmentJustified
+        }
+    }
 }
