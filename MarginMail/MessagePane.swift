@@ -10,11 +10,7 @@ import Cocoa
 
 class MessagePane: Component {
 
-    var message: MailMessage? {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var message: MailMessage?
 
     init() {
         let view = View()
@@ -24,7 +20,5 @@ class MessagePane: Component {
     }
 
     override func render() {
-        println("render MessagePane with \(bounds)")
-        println("message: \(message)")
     }
 }

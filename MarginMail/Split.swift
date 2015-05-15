@@ -34,9 +34,9 @@ class Split: Component {
     }
 
     func onResize() {
-        println("split view resized to \(split.frame) \(split.subviews[0].frame) \(split.subviews[1].frame)")
         for i in 0...(children.count-1) {
             children[i].frame = split.subviews[i].frame
+            children[i].needsUpdate = true
         }
     }
 }

@@ -17,11 +17,7 @@ class Component {
     var view: NSView?
     var layer: CALayer?
 
-    var frame: CGRect = CGRectZero {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var frame: CGRect = CGRectZero
 
     var bounds: CGRect {
         return Rect(0, 0, frame.width, frame.height)
@@ -33,7 +29,6 @@ class Component {
         }
         didSet {
             attachChildren()
-            needsUpdate = true
         }
     }
 
@@ -60,18 +55,16 @@ class Component {
     func performUpdate() {
         render()
         for child in children {
-            child.render()
+            child.scheduleUpdate()
         }
         needsUpdate = false
         updateDispatched = false
     }
 
     private func scheduleUpdate() {
-        Lock.with(mutex) {
-            if (!self.updateDispatched) {
-                self.updateDispatched = true
-                Dispatch.main(self.performUpdate)
-            }
+        if (!self.updateDispatched) {
+            self.updateDispatched = true
+            self.performUpdate()
         }
     }
 

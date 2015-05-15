@@ -27,7 +27,6 @@ class MessageListData: DataComponent {
     }
 
     override func render() {
-        println("render MessageListData with \(bounds)")
     }
 
 }

@@ -10,21 +10,9 @@ import Cocoa
 
 class Label: Component {
 
-    var text: NSString = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
-    var font: NSFont? {
-        didSet {
-            needsUpdate = true
-        }
-    }
-    var textColor: NSColor? {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var text: NSString = ""
+    var font: NSFont?
+    var textColor: NSColor?
 
     private var textLayer = TextLayer()
 

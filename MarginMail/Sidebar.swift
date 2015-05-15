@@ -18,17 +18,8 @@ class Sidebar: Component {
 
     var itemCount = 0
 
-    var items: [SidebarItem] = [] {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var selectedItem: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var items: [SidebarItem] = []
+    var selectedItem: String = ""
 
     private let topMargin: CGFloat = 36
     private let spaceHeight: CGFloat = 18

@@ -10,26 +10,11 @@ import Cocoa
 
 class MessageList: Component {
 
-
-    var isLoading = false {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var messages: [MailMessage] = [] {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var isLoading = false
+    var messages: [MailMessage] = []
+    var selectedMessageID: String = ""
 
     var onMessageSelect: ((MailMessage) -> Void)?
-
-    var selectedMessageID: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
 
     private let scroll = ScrollView(frame: CGRectZero)
     private let table = TableView(frame: CGRectZero)
@@ -50,8 +35,6 @@ class MessageList: Component {
     }
 
     override func render() {
-        println("render MessageList with \(bounds), \(scroll.bounds)")
-
         if isLoading {
             // Display a loader
         } else {

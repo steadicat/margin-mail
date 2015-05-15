@@ -13,29 +13,10 @@ class SidebarItem: Component {
     static let rightBleed: CGFloat = 16
     private let iconGap: CGFloat = 12
 
-    var isSelected: Bool = false {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var image: NSImage? {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var text: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
-
-    var badge: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    var isSelected: Bool = false
+    var image: NSImage?
+    var text: String = ""
+    var badge: String = ""
 
     var onMouseDown: (() -> ())?
 
@@ -64,11 +45,11 @@ class SidebarItem: Component {
     }
 
     func mouseEnter() {
-        self.isHovered = true
+        isHovered = true
     }
 
     func mouseExit() {
-        self.isHovered = false
+        isHovered = false
     }
 
     func mouseDown() {

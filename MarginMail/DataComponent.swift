@@ -28,13 +28,13 @@ class DataComponent: Component {
     }
 
     func onStoreUpdate() {
-        return
     }
 
     override func performUpdate() {
         if !didEverRender {
             onStoreUpdate()
             didEverRender = true
+            needsUpdate = true
         }
         super.performUpdate()
     }

@@ -10,11 +10,7 @@ import Cocoa
 
 class MainContent: DataComponent {
 
-    private var selected: String = "" {
-        didSet {
-            needsUpdate = true
-        }
-    }
+    private var selected: String = ""
 
     private lazy var mailboxContent = MailboxContent()
     private lazy var emptyContent = EmptyContent()
@@ -30,8 +26,6 @@ class MainContent: DataComponent {
     }
 
     override func render() {
-        println("render MainContent with \(bounds)")
-
         switch (selected) {
         case "Inbox", "Sent", "Drafts", "Spam", "Trash":
             children = [mailboxContent]
