@@ -28,6 +28,7 @@ class MessageListItem: View {
         }
     }
 
+    let innerLayer = CALayer()
     let authorLabel = TextLayer()
     let subjectLabel = TextLayer()
     let snippetLabel = TextLayer()
@@ -51,11 +52,13 @@ class MessageListItem: View {
         super.init(frame: frameRect)
 
         wantsLayer = true
-        layer?.addSublayer(authorLabel)
-        layer?.addSublayer(subjectLabel)
-        layer?.addSublayer(snippetLabel)
+
+        innerLayer.addSublayer(authorLabel)
+        innerLayer.addSublayer(subjectLabel)
+        innerLayer.addSublayer(snippetLabel)
+        innerLayer.addSublayer(unreadDotLayer)
+        layer?.addSublayer(innerLayer)
         layer?.addSublayer(borderLayer)
-        layer?.addSublayer(unreadDotLayer)
 
         onMouseEnter = mouseEnter
         onMouseExit = mouseExit
@@ -75,16 +78,16 @@ class MessageListItem: View {
     }
 
     func mouseDown() {
-        var scale = layer?.pop_animationForKey("scaleXY") as! POPSpringAnimation?
-        var shift = layer?.pop_animationForKey("shift") as! POPSpringAnimation?
+        var scale = innerLayer.pop_animationForKey("scaleXY") as! POPSpringAnimation?
+        var shift = innerLayer.pop_animationForKey("shift") as! POPSpringAnimation?
         if scale == nil {
             scale = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-            layer?.pop_addAnimation(scale, forKey: "scaleXY")
+            innerLayer.pop_addAnimation(scale, forKey: "scaleXY")
         }
 
         if shift == nil {
             shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-            layer?.pop_addAnimation(shift, forKey: "shift")
+            innerLayer.pop_addAnimation(shift, forKey: "shift")
         }
 
         scale?.velocity = NSValue(size: CGSizeMake(-1.1, -1.1))
