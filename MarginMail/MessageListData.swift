@@ -12,7 +12,7 @@ class MessageListData: DataComponent {
 
     let messageList = MessageList()
 
-    init(children: [Component] = [], view: NSView? = nil, layer: CALayer? = nil) {
+    init() {
         super.init(
             stores: [Stores().navigation],
             children: [messageList]
