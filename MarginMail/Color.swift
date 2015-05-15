@@ -12,6 +12,10 @@ class Color {
 
     static let accentHue: CGFloat = 0.66
 
+    static func transparent() -> NSColor {
+        return NSColor(white: 0, alpha: 0)
+    }
+
     static func white() -> NSColor {
         return NSColor.whiteColor()
     }

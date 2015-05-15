@@ -68,11 +68,11 @@ class MessageListItem: View {
         snippetLabel.string = snippet
         snippetLabel.frame = rows.next(rows.remaining.height)
 
-        borderLayer.frame = selected ? Rect(0, 0, 3, bounds.height) : CGRectZero
-        borderLayer.backgroundColor = Color.accent().CGColor
+        borderLayer.frame = Rect(0, 0, 3, bounds.height)
+        borderLayer.backgroundColor = (selected ? Color.accent() : Color.transparent()).CGColor
 
-        unreadDotLayer.frame = seen ? CGRectZero : Rect(12, 38, 6, 6)
-        unreadDotLayer.backgroundColor = Color.accent().CGColor
+        unreadDotLayer.frame = Rect(12, 38, 6, 6)
+        unreadDotLayer.backgroundColor = (seen ? Color.transparent() : Color.accent()).CGColor
 
         super.viewWillDraw()
     }
