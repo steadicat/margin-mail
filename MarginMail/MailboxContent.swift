@@ -37,12 +37,14 @@ class MailboxContent: DataComponent {
         // TODO: less hacky way to layout the inner views
         split.split.frame = bounds
 
-        let columns = bounds.columns()
-
         list.messageList.messages = messages
-        list.messageList.view!.frame = columns.nextFraction(0.5)
 
-        columns.next(split.dividerThickness)
-        pane.view!.frame = columns.nextFraction(1)
+        if CGRectIsEmpty(list.messageList.view!.frame) || CGRectIsEmpty(pane.view!.frame) {
+            let columns = bounds.columns()
+            list.messageList.view!.frame = columns.nextFraction(0.5)
+            columns.next(split.dividerThickness)
+            pane.view!.frame = columns.nextFraction(1)
+        }
+
     }
 }
