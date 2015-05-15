@@ -52,12 +52,17 @@ class SidebarItem: Component {
     }
 
     func mouseDown() {
-        popOnClick()
+        var anim = Animation.forLayer(layer!, property: kPOPLayerScaleXY)
+        anim.velocity = NSValue(size: CGSizeMake(-2, -2))
+        anim.toValue = NSValue(size: CGSizeMake(1, 1))
+
         onMouseDown?()
     }
 
     override func render() {
         itemView.frame = frame
+        itemView.layer!.anchorPoint = Point(0.5, 0.5)
+        itemView.layer!.frame = frame
 
         let collapsingRatio = (frame.width - Sidebar.minimumWidth) / (Sidebar.maximumWidth - Sidebar.minimumWidth)
         let leftMargin = 18 + round(18 * collapsingRatio)
@@ -89,35 +94,7 @@ class SidebarItem: Component {
 
         itemView.backgroundColor = (isHovered ? Color.accent(0.99) : Color.white())
 
-        self.fadeLabel(bounds.width > 120)
-    }
-
-    func fadeLabel(visible: Bool) {
-        label.layer!.opacity = visible ? 1 : 0
-        /*
-        var anim = label.layer!.pop_animationForKey("fade") as! POPSpringAnimation?
-        if anim == nil {
-            anim = POPSpringAnimation(propertyNamed: kPOPLayerOpacity)
-            label.layer!.pop_addAnimation(anim, forKey: "fade")
-        }
-        anim!.toValue = visible ? 1 : 0
-        */
-    }
-
-    func popOnClick() {
-        var anim = label.layer!.pop_animationForKey("scaleXY") as! POPSpringAnimation?
-        var shift: POPSpringAnimation?
-        if anim == nil {
-            anim = POPSpringAnimation(propertyNamed: kPOPLayerScaleXY)
-            layer!.pop_addAnimation(anim, forKey: "scaleXY")
-
-            shift = POPSpringAnimation(propertyNamed: kPOPLayerTranslationXY)
-            layer!.pop_addAnimation(shift, forKey: "shift")
-        }
-        anim!.velocity = NSValue(size: CGSizeMake(-2, -2))
-        anim!.toValue = NSValue(size: CGSizeMake(1, 1))
-        shift!.velocity = NSValue(size: CGSizeMake(120, 36))
-        shift!.toValue = NSValue(size: CGSizeMake(0, 0))
+        label.layer!.opacity = bounds.width > 160 ? 1 : 0
     }
 
 }
