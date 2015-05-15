@@ -30,13 +30,12 @@ class DataComponent: Component {
     func onStoreUpdate() {
     }
 
-    override func performUpdate() {
+    override func performUpdate(depth: Int = 0) {
         if !didEverRender {
             onStoreUpdate()
             didEverRender = true
-            needsUpdate = true
         }
-        super.performUpdate()
+        super.performUpdate(depth: depth)
     }
 
     private func refreshStore() {

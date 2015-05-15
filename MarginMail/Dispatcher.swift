@@ -20,7 +20,7 @@ class Dispatcher {
     }
 
     func dispatch(action: Action) {
-        Dispatch.queue(.HIGH) {
+        Dispatch.main {
             NSLog("Dispatching: \(action)")
             for handler in self.handlers {
                 handler(action)

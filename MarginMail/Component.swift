@@ -12,6 +12,8 @@ let mutex = NSLock()
 
 class Component {
 
+    private let debug = false
+
     var key: String = ""
 
     var view: NSView?
@@ -34,7 +36,9 @@ class Component {
 
     var needsUpdate: Bool = true {
         didSet {
-            self.scheduleUpdate()
+            if needsUpdate {
+                self.performUpdate()
+            }
         }
     }
 
@@ -52,20 +56,18 @@ class Component {
         // Override in subclassed component.
     }
 
-    func performUpdate() {
+    func performUpdate(depth: Int = 0) {
+        if debug {
+            for i in 0..<depth {
+                print("  ")
+            }
+            println(self.dynamicType)
+        }
         render()
         for child in children {
-            child.scheduleUpdate()
+            child.performUpdate(depth: depth + 1)
         }
         needsUpdate = false
-        updateDispatched = false
-    }
-
-    private func scheduleUpdate() {
-        if (!self.updateDispatched) {
-            self.updateDispatched = true
-            self.performUpdate()
-        }
     }
 
     private func attachChildren() {

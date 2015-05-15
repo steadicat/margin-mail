@@ -36,7 +36,7 @@ class Split: Component {
     func onResize() {
         for i in 0...(children.count-1) {
             children[i].frame = split.subviews[i].frame
-            children[i].needsUpdate = true
         }
+        needsUpdate = true
     }
 }
